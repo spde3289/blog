@@ -12,18 +12,18 @@ const Header = ({ darkMode, handleDarkMode }: props) => {
     <HeaderBar>
       <NavBar>
         <BlogName>
-          <Link to='blog' state={{ Title: "Home" }}>
+          <Link to='/' state={{ Title: "Home" }}>
             spde3289.github.io
           </Link>
         </BlogName>
         <HeaderMenu>
           <HeaderMenuItem>
-            <Link to='/blog/posts' state={{ Title: "Post" }}>
+            <Link to='/posts' state={{ Title: "Post" }}>
               posts
             </Link>
           </HeaderMenuItem>
           <HeaderMenuItem>
-            <Link to='/blog/about' state={{ Title: "About" }}>
+            <Link to='/about' state={{ Title: "About" }}>
               about
             </Link>
           </HeaderMenuItem>

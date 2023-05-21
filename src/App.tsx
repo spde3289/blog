@@ -36,10 +36,10 @@ function App() {
       <GlobalStyle />
       <Header darkMode={darkMode} handleDarkMode={handleDarkMode} />
       <Routes>
-        <Route path='/blog' element={<Home />} />
-        <Route path='/blog/about' element={<About />} />
-        <Route path='/blog/posts'>
-          <Route path='/blog/posts' element={<Posts />} />
+        <Route path='/' element={<Home />} />
+        <Route path='/about' element={<About />} />
+        <Route path='/posts'>
+          <Route path='/posts' element={<Posts />} />
           {content.map((post) => (
             <Route key={post.key} path={post.link} element={post.element} />
           ))}
