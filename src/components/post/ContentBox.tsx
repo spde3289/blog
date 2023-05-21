@@ -2,12 +2,12 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 
 type props = {
-  category: string,
-  link: string, 
-  title: string, 
-  body: string, 
-  date: string,
-}
+  category: string;
+  link: string;
+  title: string;
+  body: string;
+  date: string;
+};
 
 const ContentBox = ({ category, link, title, body, date }: props) => {
   return (

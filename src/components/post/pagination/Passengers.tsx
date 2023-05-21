@@ -3,9 +3,9 @@ import Pagination from "./Pagination";
 import postInfo from "../../../postInfo";
 
 type props = {
-  value: string | null,
-  tag: string
-}
+  value: string | null;
+  tag: string;
+};
 
 const Passengers = ({ value, tag }: props) => {
   const maxPageNumber = 5;
@@ -37,7 +37,7 @@ const Passengers = ({ value, tag }: props) => {
   }, [tag]);
 
   useMemo(() => {
-    const a: any = [...newList].reverse().slice(currentPage * 5 - 5, currentPage * 5)
+    const a: any = [...newList].reverse().slice(currentPage * 5 - 5, currentPage * 5);
     setPageData(a);
     setLoading(false);
   }, [currentPage, newList]);
@@ -68,7 +68,7 @@ const Passengers = ({ value, tag }: props) => {
     minPageLimit,
     totalPages,
   };
-  console.log(pageData)
+  console.log(pageData);
   return (
     <>
       {!loading ? (

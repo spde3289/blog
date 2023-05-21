@@ -2,12 +2,12 @@ import styled from "styled-components";
 import Tag from "../Tag";
 
 type props = {
-  tagName: string,
-  title: string,
-  date: string
-}
+  tagName: string;
+  title: string;
+  date: string;
+};
 
-const PostHeader = ({tagName, title, date}: props) => {
+const PostHeader = ({ tagName, title, date }: props) => {
   return (
     <>
       <ContentHeader>

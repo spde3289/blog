@@ -4,23 +4,23 @@ import { AiOutlineLeft, AiOutlineRight } from "react-icons/ai";
 import ContentBox from "../ContentBox";
 
 type props = {
-  currentPage: number,
-  maxPageLimit: number,
-  minPageLimit: number,
-  totalPages: number,
+  currentPage: number;
+  maxPageLimit: number;
+  minPageLimit: number;
+  totalPages: number;
   pageData: {
-    body: string,
-    category: string,
-    date: string,
-    element: any,
-    key: number,
-    link: string,
-    title: string,
-  }[],
-  onPrevClick: ()=> void,
-  onNextClick: ()=> void,
-  onPageChange: (e: number)=> void,
-}
+    body: string;
+    category: string;
+    date: string;
+    element: any;
+    key: number;
+    link: string;
+    title: string;
+  }[];
+  onPrevClick: () => void;
+  onNextClick: () => void;
+  onPageChange: (e: number) => void;
+};
 
 const Pagination = ({
   currentPage,
@@ -58,7 +58,7 @@ const Pagination = ({
   };
 
   const handlePageClick = (e: any): void => {
-    console.log(e)
+    console.log(e);
     onPageChange(e);
   };
 
@@ -86,15 +86,15 @@ const Pagination = ({
             </PageBtn>
             <Number>
               {page.map((page) =>
-                page <= maxPageLimit && page > minPageLimit ? 
-                <Page
-                  key={page}
-                  onClick={()=>handlePageClick(page)}
-                  scale={currentNum === page ? "1.2" : "1"}
-                >
-                  {page}
-                </Page>
-                : null
+                page <= maxPageLimit && page > minPageLimit ? (
+                  <Page
+                    key={page}
+                    onClick={() => handlePageClick(page)}
+                    scale={currentNum === page ? "1.2" : "1"}
+                  >
+                    {page}
+                  </Page>
+                ) : null
               )}
             </Number>
             <PageBtn onClick={handleNextClick}>

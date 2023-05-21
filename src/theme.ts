@@ -1,13 +1,12 @@
 export interface Theme {
   color: {
-    body: string,
-    font: string,
-    comment: string,
-    tag: string,
-    currentTag: string,
-  }
+    body: string;
+    font: string;
+    comment: string;
+    tag: string;
+    currentTag: string;
+  };
 }
-
 
 export const light: Theme = {
   color: {
