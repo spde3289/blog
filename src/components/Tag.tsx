@@ -1,6 +1,4 @@
-import React from "react";
 import styled from "styled-components";
-//import content from '../postInfo';
 
 type props = {
   tagName: string;

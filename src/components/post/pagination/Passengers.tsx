@@ -1,17 +1,22 @@
-import React, { useState, useMemo } from "react";
+import { useState, useMemo } from "react";
 import Pagination from "./Pagination";
 import postInfo from "../../../postInfo";
 
-const Passengers = ({ value, tag }) => {
+type props = {
+  value: string | null,
+  tag: string
+}
+
+const Passengers = ({ value, tag }: props) => {
   const maxPageNumber = 5;
   const [contentList, setContentList] = useState(postInfo);
   const [newList, setNewList] = useState(contentList);
-  const [pageDate, setPageDate] = useState([]);
+  const [pageData, setPageData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [currentPage, setCurrentPage] = useState(1);
   const [maxPageLimit, setMaxPageLimit] = useState(5);
   const [minPageLimit, setMinPageLimit] = useState(0);
-  const totalPages = Math.ceil(newList.length / maxPageNumber);
+  const totalPages: number = Math.ceil(newList.length / maxPageNumber);
 
   useMemo(() => {
     if (value === null) {
@@ -32,22 +37,23 @@ const Passengers = ({ value, tag }) => {
   }, [tag]);
 
   useMemo(() => {
-    setPageDate([...newList].reverse().slice(currentPage * 5 - 5, currentPage * 5));
+    const a: any = [...newList].reverse().slice(currentPage * 5 - 5, currentPage * 5)
+    setPageData(a);
     setLoading(false);
   }, [currentPage, newList]);
 
-  const onPageChange = (pageNumber) => {
+  const onPageChange = (pageNumber: number): void => {
     setCurrentPage(pageNumber);
   };
 
-  const onPrevClick = () => {
+  const onPrevClick = (): void => {
     if ((currentPage - 1) % maxPageNumber === 0) {
       setMaxPageLimit(maxPageLimit - maxPageNumber);
       setMinPageLimit(minPageLimit - maxPageNumber);
     }
     setCurrentPage((prev) => prev - 1);
   };
-  const onNextClick = () => {
+  const onNextClick = (): void => {
     if (currentPage + 1 > maxPageLimit) {
       setMaxPageLimit(maxPageLimit + maxPageNumber);
       setMinPageLimit(minPageLimit + maxPageNumber);
@@ -56,13 +62,13 @@ const Passengers = ({ value, tag }) => {
   };
 
   const pageInfo = {
-    pageDate,
+    pageData,
     currentPage,
     maxPageLimit,
     minPageLimit,
     totalPages,
   };
-
+  console.log(pageData)
   return (
     <>
       {!loading ? (

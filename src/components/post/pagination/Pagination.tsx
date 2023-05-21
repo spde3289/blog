@@ -3,25 +3,45 @@ import styled from "styled-components";
 import { AiOutlineLeft, AiOutlineRight } from "react-icons/ai";
 import ContentBox from "../ContentBox";
 
+type props = {
+  currentPage: number,
+  maxPageLimit: number,
+  minPageLimit: number,
+  totalPages: number,
+  pageData: {
+    body: string,
+    category: string,
+    date: string,
+    element: any,
+    key: number,
+    link: string,
+    title: string,
+  }[],
+  onPrevClick: ()=> void,
+  onNextClick: ()=> void,
+  onPageChange: (e: number)=> void,
+}
+
 const Pagination = ({
   currentPage,
   maxPageLimit,
   minPageLimit,
   totalPages,
-  pageDate,
+  pageData,
   onPrevClick,
   onNextClick,
   onPageChange,
-}) => {
+}: props) => {
   const [currentNum, setCurrentNum] = useState(1);
+  const count: number = pageData.length;
 
   useMemo(() => {
     setCurrentNum(currentPage);
   }, [currentPage]);
 
-  const page: [] = [];
+  const page: number[] = [];
 
-  for (let i: never = 1; i <= totalPages; i++) {
+  for (let i = 1; i <= totalPages; i++) {
     page.push(i);
   }
 
@@ -37,25 +57,26 @@ const Pagination = ({
     }
   };
 
-  const handlePageClick = (e) => {
-    onPageChange(+e.target.id);
+  const handlePageClick = (e: any): void => {
+    console.log(e)
+    onPageChange(e);
   };
 
   return (
     <>
-      {pageDate.length === 0 ? (
+      {count === 0 ? (
         <NotFound>검색결과가 없습니다.</NotFound>
       ) : (
         <ContentPoint>
           <PostColumn>
-            {pageDate.map((date) => (
+            {pageData.map((data) => (
               <ContentBox
-                key={date.key}
-                title={date.title}
-                body={date.body}
-                date={date.date}
-                category={date.category}
-                link={date.link}
+                key={data.key}
+                title={data.title}
+                body={data.body}
+                date={data.date}
+                category={data.category}
+                link={data.link}
               ></ContentBox>
             ))}
           </PostColumn>
@@ -65,16 +86,15 @@ const Pagination = ({
             </PageBtn>
             <Number>
               {page.map((page) =>
-                page <= maxPageLimit && page > minPageLimit ? (
-                  <Page
-                    key={page}
-                    id={page}
-                    onClick={handlePageClick}
-                    scale={currentNum === page ? "1.2" : "1"}
-                  >
-                    {page}
-                  </Page>
-                ) : null
+                page <= maxPageLimit && page > minPageLimit ? 
+                <Page
+                  key={page}
+                  onClick={()=>handlePageClick(page)}
+                  scale={currentNum === page ? "1.2" : "1"}
+                >
+                  {page}
+                </Page>
+                : null
               )}
             </Number>
             <PageBtn onClick={handleNextClick}>
@@ -112,7 +132,7 @@ const Number = styled.div`
   display: flex;
 `;
 
-const Page = styled.li`
+const Page = styled.li<{ scale: string }>`
   color: ${({ theme }) => theme.color.font};
   scale: ${({ scale }) => scale};
   margin: 5px;

@@ -1,14 +1,19 @@
-import React from "react";
 import styled from "styled-components";
 import Tag from "../Tag";
 
-const PostHeader = (props) => {
+type props = {
+  tagName: string,
+  title: string,
+  date: string
+}
+
+const PostHeader = ({tagName, title, date}: props) => {
   return (
     <>
       <ContentHeader>
-        <Tag tagName={props.tagName} />
-        <Title>{props.title}</Title>
-        <Info>{props.date}</Info>
+        <Tag tagName={tagName} />
+        <Title>{title}</Title>
+        <Info>{date}</Info>
       </ContentHeader>
     </>
   );

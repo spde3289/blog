@@ -20,7 +20,7 @@ function App() {
     setDarkMode(!darkMode);
   };
 
-  const theme = darkMode ? light : dark;
+  const theme: any = darkMode ? light : dark;
   const location = useLocation();
   useEffect(() => {
     if (location.state !== null) {

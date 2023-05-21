@@ -1,12 +1,15 @@
-import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
-const ContentBox = ({ category, link, title, body, date }) => {
-  /*      const CategoryList = category.map((date, index) => (
-        <Category key={index}>{date}</Category>
-    )); 
- */
+type props = {
+  category: string,
+  link: string, 
+  title: string, 
+  body: string, 
+  date: string,
+}
+
+const ContentBox = ({ category, link, title, body, date }: props) => {
   return (
     <Link to={link} state={{ Title: title }}>
       <PostBox>

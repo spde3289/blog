@@ -2,7 +2,7 @@ import styled, { useTheme } from "styled-components";
 import Giscus from "@giscus/react";
 
 export default function GiscusApp() {
-  const theme = useTheme();
+  const theme: any = useTheme();
 
   return (
     <Container>
