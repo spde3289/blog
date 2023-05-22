@@ -4,6 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
+    "start": "--open --open-page blog",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist",
     "dev": "vite",

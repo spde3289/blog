@@ -58,7 +58,6 @@ const Pagination = ({
   };
 
   const handlePageClick = (e: any): void => {
-    console.log(e);
     onPageChange(e);
   };
 

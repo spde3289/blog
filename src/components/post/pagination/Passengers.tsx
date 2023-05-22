@@ -68,7 +68,7 @@ const Passengers = ({ value, tag }: props) => {
     minPageLimit,
     totalPages,
   };
-  console.log(pageData);
+
   return (
     <>
       {!loading ? (
