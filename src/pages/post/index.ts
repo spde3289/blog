@@ -15,6 +15,7 @@ import Restful from "./network/Restful";
 import Jsdoc from "./javascript/Jsdoc";
 import AxiosLearn from "./network/AxoisLearn";
 import OSI7Layer from "./Cs/OSI7Layer";
+import CiCdLearn from "./Cs/CiCdLearn";
 
 export {
   UseEffectInfiniteLoop,
@@ -34,4 +35,5 @@ export {
   Jsdoc,
   ThemProjectChimONE,
   OSI7Layer,
+  CiCdLearn,
 };
