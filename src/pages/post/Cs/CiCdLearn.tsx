@@ -5,7 +5,7 @@ import { PostContainer, Main, SubTitle, TextBox, ReferenceLink } from "../style"
 export default function CiCdLearn() {
   return (
     <PostContainer>
-      <PostHeader title="ci/cd에 대해 알아보자" tagName="cs" date="2023.03.16" />
+      <PostHeader title="ci/cd에 대해 알아보자" tagName="Computer Science" date="2023.03.16" />
       <Main>
         <SubTitle>ci/cd에 대해 알아보자</SubTitle>
         <TextBox>

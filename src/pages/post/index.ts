@@ -17,6 +17,7 @@ import AxiosLearn from "./network/AxoisLearn";
 import OSI7Layer from "./Cs/OSI7Layer";
 import CiCdLearn from "./Cs/CiCdLearn";
 import RecoilLearn from "./FrontEnd/RecoilLearn";
+import HTTPAndHTTPSlearn from "./Cs/HTTPAndHTTPSlearn";
 
 export {
   UseEffectInfiniteLoop,
@@ -38,4 +39,5 @@ export {
   OSI7Layer,
   CiCdLearn,
   RecoilLearn,
+  HTTPAndHTTPSlearn,
 };

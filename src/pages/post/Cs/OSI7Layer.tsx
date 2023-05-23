@@ -7,7 +7,7 @@ import OSI7 from "./imgs/OSI7/OSI_7.jpg";
 export default function OSI7Layer() {
   return (
     <PostContainer>
-      <PostHeader title='7계층에 대해 알아보자' tagName='cs' date='2023.03.12' />
+      <PostHeader title='7계층에 대해 알아보자' tagName='Computer Science' date='2023.03.12' />
       <Main>
         <SubTitle>7계층이란?</SubTitle>
         <FlexContainer>

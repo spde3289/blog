@@ -18,6 +18,7 @@ import {
   OSI7Layer,
   CiCdLearn,
   RecoilLearn,
+  HTTPAndHTTPSlearn,
 } from "./pages/post";
 
 const content = [
@@ -170,7 +171,7 @@ const content = [
     title: "7계층에 대해 알아보자",
     body: "7계층이란? 7계층은 네트워크 통신이 일어나는 과정을 7단계로 나눈 것 을 말한다. 각각 물리층, 데이터링크층, 네트워크층, 전송층, 세션층, 표현층, 가장 상위계층에 속하는 응용층 으로 나뉘고 두 컴퓨터가 네트워크를 형성하여 데이터를 주고 받기 위해서는 7계층이 모두 필요하여 각각의 계층은 독립된 기능을 제공한다",
     date: "2023.03.12",
-    category: "cs",
+    category: "Computer Science",
     link: "Layer",
     element: <OSI7Layer />,
   },
@@ -179,7 +180,7 @@ const content = [
     title: "ci/cd에 대해 알아보자",
     body: "ci/cd에 대해 알아보자 ci/cd는 지속적인 통합, 지속적인 배포라는 뜻을 가지고 있다. 그럼 왜 지속적인 통합과 배포가 필요한가라고 하면 서비스를 배포할 때 마다.  개발자들이 직접 수정, 빌드, 테스트, 배포를 하게 된다면 상당히 많은 시간이 소요된다. 이때 ci/cd를 맞게 작성한다면 빌드, 테스트, 배포를 하는 시간을 크게 줄일 수 있어",
     date: "2023.03.16",
-    category: "cs",
+    category: "Computer Science",
     link: "ci_cd_learn",
     element: <CiCdLearn />,
   },
@@ -191,6 +192,15 @@ const content = [
     category: "Front_end",
     link: "recoil_learn",
     element: <RecoilLearn />,
+  },
+  {
+    key: 20,
+    title: "HTTP/HTTPS의 개념",
+    body: "HTTP(Hypertext Transfer Protocol)는 클라이언트와 서버 간 통신을 위한 통신 규칙이다. 사용자가 웹 사이트에 방문을 하면 자용자 브라우저가 웹 서버에 HTTP요청을 전송하고 웹 서버는 HTTP로 응답한다. HTTP는 네트워크 통신을 작동하게 하는 기본 기술이다. HTTPS(Hypertext Transfer Protocol Secure)는 HTTP의 확장 버젼에 안정성이 더 올라간 버젼인데 HTTPS는 브라우저와 서버가 데이터를 전송하기 전에 안전하고 암호화된 열결을 설정한다. ",
+    date: "2023.03.25",
+    category: "Computer Science",
+    link: "HTTP/HTTPS_learn",
+    element: <HTTPAndHTTPSlearn />,
   },
 ];
 
