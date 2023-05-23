@@ -17,6 +17,7 @@ import {
   Jsdoc,
   OSI7Layer,
   CiCdLearn,
+  RecoilLearn,
 } from "./pages/post";
 
 const content = [
@@ -181,6 +182,15 @@ const content = [
     category: "cs",
     link: "ci_cd_learn",
     element: <CiCdLearn />,
+  },
+  {
+    key: 19,
+    title: "Recoil에 대해 알아보자",
+    body: "개발을 하다보면 전역 상태 관리라는 말을 한번쯤은 들어봤을거다. 프로젝트의 규모가 커져감에 따라 수많은 state와 props가 점점 복잡해져 이러한 상태를 관리해주는 라이브러리들이 생겼다. 그 후 react에서 Context API라는게 나오긴 했지만 여전히 상태관리 라이브러리를 사용 하고 있다. Recoil란? Recoil은 hook을 사용하고 있는 사람이라면 익숙하게 사용 할 수 있는 장점이 있다. ",
+    date: "2023.03.20",
+    category: "Front_end",
+    link: "recoil_learn",
+    element: <RecoilLearn />,
   },
 ];
 

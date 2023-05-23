@@ -1,4 +1,3 @@
-import styled from "styled-components";
 import PostHeader from "../../../components/post/PostHeader";
 import GiscusApp from "../../../components/post/GiscusApp";
 import { PostContainer, Main, SubTitle, TextBox, ReferenceLink } from "../style";

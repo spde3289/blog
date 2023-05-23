@@ -16,6 +16,7 @@ import Jsdoc from "./javascript/Jsdoc";
 import AxiosLearn from "./network/AxoisLearn";
 import OSI7Layer from "./Cs/OSI7Layer";
 import CiCdLearn from "./Cs/CiCdLearn";
+import RecoilLearn from "./FrontEnd/RecoilLearn";
 
 export {
   UseEffectInfiniteLoop,
@@ -36,4 +37,5 @@ export {
   ThemProjectChimONE,
   OSI7Layer,
   CiCdLearn,
+  RecoilLearn,
 };
