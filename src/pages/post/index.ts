@@ -18,6 +18,7 @@ import OSI7Layer from "./Cs/OSI7Layer";
 import CiCdLearn from "./Cs/CiCdLearn";
 import RecoilLearn from "./FrontEnd/RecoilLearn";
 import HTTPAndHTTPSlearn from "./Cs/HTTPAndHTTPSlearn";
+import NpmVsYarn from "./javascript/NpmVsYarn"
 
 export {
   UseEffectInfiniteLoop,
@@ -40,4 +41,5 @@ export {
   CiCdLearn,
   RecoilLearn,
   HTTPAndHTTPSlearn,
+  NpmVsYarn
 };

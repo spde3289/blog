@@ -19,6 +19,7 @@ import {
   CiCdLearn,
   RecoilLearn,
   HTTPAndHTTPSlearn,
+  NpmVsYarn,
 } from "./pages/post";
 
 const content = [
@@ -201,6 +202,15 @@ const content = [
     category: "Computer Science",
     link: "HTTP/HTTPS_learn",
     element: <HTTPAndHTTPSlearn />,
+  },
+  {
+    key: 21,
+    title: "npm vs yarn",
+    body: "npm npm(Node Package Manager)은 Node.js의 기본 패키지 매니저로 라이브러리와 패키지를 관리하고 설치, 업데이트, 제거 등을 할 수 있다. package.json 파일을 사용해 의존성과 버젼을 관리한다.  yarn은 Facebook에서 만든 패키지 매니저인데 순차적으로 설치하는 npm과 달리 병렬로 설치해 속도 도 더 빠르다. 또 패키지 버젼 관리에 용이한데 npm install을 한다고 해서 모든 개발자가 동일한",
+    date: "2023.03.30",
+    category: "javascript",
+    link: "npm&yarn",
+    element: <NpmVsYarn />,
   },
 ];
 
