@@ -202,7 +202,7 @@ const content = [
     body: "HTTP(Hypertext Transfer Protocol)는 클라이언트와 서버 간 통신을 위한 통신 규칙이다. 사용자가 웹 사이트에 방문을 하면 자용자 브라우저가 웹 서버에 HTTP요청을 전송하고 웹 서버는 HTTP로 응답한다. HTTP는 네트워크 통신을 작동하게 하는 기본 기술이다. HTTPS(Hypertext Transfer Protocol Secure)는 HTTP의 확장 버젼에 안정성이 더 올라간 버젼인데 HTTPS는 브라우저와 서버가 데이터를 전송하기 전에 안전하고 암호화된 열결을 설정한다. ",
     date: "2023.03.25",
     category: "Computer Science",
-    link: "HTTP/HTTPS_learn",
+    link: "HTTP&HTTPS_learn",
     element: <as.HTTPAndHTTPSlearn />,
   },
   {
