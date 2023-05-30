@@ -3,7 +3,7 @@ import GiscusApp from "../../../components/post/GiscusApp";
 import HashRouter from "./imgs/Router404/HashRouter.png";
 import Not404 from "./imgs/Router404/404.html.png";
 import Script from "./imgs/Router404/script.png";
-import { PostContainer, Main, TextBox, CodeImg, SubTitle, ReferenceLink } from "../style";
+import { PostContainer, Main, TextBox, ImgContainer, SubTitle, ReferenceLink } from "../style";
 
 const Router404 = () => {
   return (
@@ -27,9 +27,9 @@ const Router404 = () => {
           일단 HashRouter 를 사용하는 방법이 있다. BrowserRourer를 HashRouter로 변경을 해주면 될
           정도로 간단한 방법인데 단점으로는 못생긴 url과 검색 엔진 최적화(SEO)가 안 된 다는 것 이다.
         </TextBox>
-        <CodeImg>
+        <ImgContainer>
           <img alt='code1' src={HashRouter} />
-        </CodeImg>
+        </ImgContainer>
         <TextBox>
           이와 같이 사용방법은 아주 간단한데 공식문서에서도 나와 있듯이 추천하는 방법은 아니다.
         </TextBox>
@@ -47,15 +47,15 @@ const Router404 = () => {
         <TextBox>
           이 방법은 위에 있는 방법보다는 나은 방법이다. 우선 퍼플릭 폴더에 404.html파일을 만든 후에
         </TextBox>
-        <CodeImg>
+        <ImgContainer>
           <img alt='code1' src={Not404} />
-        </CodeImg>
+        </ImgContainer>
         <TextBox>
           이 코드를 작성해주면 된다. 그리고 index.html파일에서 아래와 같은 코드를 작성해주면 된다.
         </TextBox>
-        <CodeImg>
+        <ImgContainer>
           <img alt='code1' src={Script} />
-        </CodeImg>
+        </ImgContainer>
         <SubTitle>마치며</SubTitle>
         <TextBox>
           처음 이 문제가 발생하고나서 해결까지 상당한 시간이 걸렸는데 막상 해결하고나니 어려운문제가

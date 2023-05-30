@@ -1,7 +1,7 @@
 import PostHeader from "../../../components/post/PostHeader";
 import GiscusApp from "../../../components/post/GiscusApp";
 import Bj1712 from "./imgs/BJ1712/BJ1712.png";
-import { PostContainer, Main, TextBox, CodeImg, SubTitle, ReferenceLink } from "../style";
+import { PostContainer, Main, TextBox, ImgContainer, SubTitle, ReferenceLink } from "../style";
 
 const BJ1712 = () => {
   return (
@@ -25,9 +25,9 @@ const BJ1712 = () => {
           구해야 하기 때문에 1을 더해주면 된다. <br />
           그리고 만약 손익분기점이 존재하지 않는다면 -1을 출력해준다
         </TextBox>
-        <CodeImg>
+        <ImgContainer>
           <img alt='code1' src={Bj1712} />
-        </CodeImg>
+        </ImgContainer>
       </Main>
       <GiscusApp />
     </PostContainer>

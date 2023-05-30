@@ -12,8 +12,8 @@ export const Main = styled.main`
 `;
 
 export const SubTitle = styled.h2<{ size?: string }>`
-  font-size: 1.5rem;
-  margin-bottom: 15px;
+  font-size: 1.6rem;
+  margin: 35px 0;
   ${({ size }) =>
     size && {
       "font-size": "1.2rem",
@@ -26,13 +26,17 @@ export const TextBox = styled.p`
   margin-left: 0;
 `;
 
-export const CodeImg = styled.div`
+export const ImgContainer = styled.div`
   display: flex;
-  justify-content: center;
-  margin-bottom: 50px;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: center;
+  align-items: center;
+  font-size: 14px;
 `;
 
 export const CodeContainer = styled.div`
+  margin: 20px;
   background-color: #282c34;
   text-align: left;
   color: #abb2bf;
@@ -40,6 +44,7 @@ export const CodeContainer = styled.div`
 `;
 
 export const ReferenceLink = styled.a`
+  margin: 10px 0;
   text-decoration: underline;
 `;
 

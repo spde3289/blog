@@ -14,13 +14,12 @@ import Posts from "./pages/Posts";
 import content from "./postInfo";
 
 function App() {
-  const [darkMode, setDarkMode] = useState<boolean>(true);
+  const [darkMode, setDarkMode] = useState(true);
 
   const handleDarkMode = () => {
     setDarkMode(!darkMode);
   };
 
-  const theme: any = darkMode ? light : dark;
   const location = useLocation();
   useEffect(() => {
     if (location.state !== null) {
@@ -32,7 +31,7 @@ function App() {
   }, [location.state]);
 
   return (
-    <ThemeProvider theme={theme}>
+    <ThemeProvider theme={darkMode ? light : dark}>
       <GlobalStyle />
       <Header darkMode={darkMode} handleDarkMode={handleDarkMode} />
       <Routes>

@@ -1,4 +1,4 @@
-import {
+/* import {
   UseEffectInfiniteLoop,
   Router404,
   BJ1712,
@@ -20,7 +20,9 @@ import {
   RecoilLearn,
   HTTPAndHTTPSlearn,
   NpmVsYarn,
-} from "./pages/post";
+  ThemProjectChimTwo,
+} from "./pages/post"; */
+import as from "./pages/post";
 
 const content = [
   {
@@ -30,7 +32,7 @@ const content = [
     date: "2022.09.13",
     category: "react",
     link: "useEffect_infinite_loop",
-    element: <UseEffectInfiniteLoop />,
+    element: <as.UseEffectInfiniteLoop />,
   },
   {
     key: 2,
@@ -39,7 +41,7 @@ const content = [
     date: "2022.09.13",
     category: "react",
     link: "router_404",
-    element: <Router404 />,
+    element: <as.Router404 />,
   },
   {
     key: 3,
@@ -48,7 +50,7 @@ const content = [
     date: "2022.12.01",
     category: "백준 문제풀이",
     link: "BJ1712",
-    element: <BJ1712 />,
+    element: <as.BJ1712 />,
   },
   {
     key: 4,
@@ -57,7 +59,7 @@ const content = [
     date: "2022.12.12",
     category: "백준 문제풀이",
     link: "BJ2292",
-    element: <BJ2292 />,
+    element: <as.BJ2292 />,
   },
   {
     key: 5,
@@ -66,7 +68,7 @@ const content = [
     date: "2022.12.21",
     category: "백준 문제풀이",
     link: "BJ4344",
-    element: <BJ4344 />,
+    element: <as.BJ4344 />,
   },
   {
     key: 6,
@@ -75,7 +77,7 @@ const content = [
     date: "2022.12.21",
     category: "react",
     link: "React_Fragment_learn",
-    element: <ReactFragment />,
+    element: <as.ReactFragment />,
   },
   {
     key: 7,
@@ -84,7 +86,7 @@ const content = [
     date: "2023.02.01",
     category: "javascript",
     link: "ClipboardCopy",
-    element: <ClipBoardCopy />,
+    element: <as.ClipBoardCopy />,
   },
   {
     key: 8,
@@ -93,7 +95,7 @@ const content = [
     date: "2023.02.03",
     category: "styled-component",
     link: "StyledComponent",
-    element: <StyledComponent />,
+    element: <as.StyledComponent />,
   },
   {
     key: 9,
@@ -102,7 +104,7 @@ const content = [
     date: "2023.02.05",
     category: "styled-component",
     link: "StyledComponent_GlobleStyle",
-    element: <StyledComponentGlobleStyle />,
+    element: <as.StyledComponentGlobleStyle />,
   },
   {
     key: 10,
@@ -111,7 +113,7 @@ const content = [
     date: "2023.02.07",
     category: "html",
     link: "sementic_tag",
-    element: <SementicTag />,
+    element: <as.SementicTag />,
   },
   {
     key: 11,
@@ -120,7 +122,7 @@ const content = [
     date: "2023.02.09",
     category: "react-router",
     link: "react_router_learn",
-    element: <ReactRouterLearn />,
+    element: <as.ReactRouterLearn />,
   },
   {
     key: 12,
@@ -129,7 +131,7 @@ const content = [
     date: "2023.02.11",
     category: "css",
     link: "grid_learn",
-    element: <DisplayGridLearn />,
+    element: <as.DisplayGridLearn />,
   },
   {
     key: 13,
@@ -138,7 +140,7 @@ const content = [
     date: "2023.02.16",
     category: "network",
     link: "restful_learn",
-    element: <Restful />,
+    element: <as.Restful />,
   },
   {
     key: 14,
@@ -147,7 +149,7 @@ const content = [
     date: "2023.02.21",
     category: "Front_end",
     link: "axios_learn",
-    element: <AxiosLearn />,
+    element: <as.AxiosLearn />,
   },
   {
     key: 15,
@@ -156,7 +158,7 @@ const content = [
     date: "2023.02.26",
     category: "javascript",
     link: "jsdoc_learn",
-    element: <Jsdoc />,
+    element: <as.Jsdoc />,
   },
   {
     key: 16,
@@ -165,7 +167,7 @@ const content = [
     date: "2023.03.06",
     category: "react",
     link: "team_project_chim_1",
-    element: <ThemProjectChimONE />,
+    element: <as.ThemProjectChimONE />,
   },
   {
     key: 17,
@@ -174,7 +176,7 @@ const content = [
     date: "2023.03.12",
     category: "Computer Science",
     link: "Layer",
-    element: <OSI7Layer />,
+    element: <as.OSI7Layer />,
   },
   {
     key: 18,
@@ -183,7 +185,7 @@ const content = [
     date: "2023.03.16",
     category: "Computer Science",
     link: "ci_cd_learn",
-    element: <CiCdLearn />,
+    element: <as.CiCdLearn />,
   },
   {
     key: 19,
@@ -192,7 +194,7 @@ const content = [
     date: "2023.03.20",
     category: "Front_end",
     link: "recoil_learn",
-    element: <RecoilLearn />,
+    element: <as.RecoilLearn />,
   },
   {
     key: 20,
@@ -201,7 +203,7 @@ const content = [
     date: "2023.03.25",
     category: "Computer Science",
     link: "HTTP/HTTPS_learn",
-    element: <HTTPAndHTTPSlearn />,
+    element: <as.HTTPAndHTTPSlearn />,
   },
   {
     key: 21,
@@ -210,8 +212,47 @@ const content = [
     date: "2023.03.30",
     category: "javascript",
     link: "npm&yarn",
-    element: <NpmVsYarn />,
+    element: <as.NpmVsYarn />,
+  },
+  {
+    key: 22,
+    title: "package.json에 대해서",
+    body: "package.json이란? package.json이란 패키지 매니저로 설치한 모듈들의 의존성을 명세하고 관리하는 파일이다. name, version 패키지의 이름과 버젼을 명세하기 위해 필요한데 몇가지 규직이 존재한다. 이름은 214자 이하여야 한다. 범위가 지정된 패키지의 이름은 점 또는 밑줄로 시작할 수 있다. 범위가 없으면 허용되지 않는다. ",
+    date: "2023.04.06",
+    category: "javascript",
+    link: "package.json_about",
+    element: <as.PackageJson />,
+  },
+  {
+    key: 23,
+    title: "Symbol에 대해서",
+    body: "Symbol은 ES6에서 추가된 7번째 데이터 타입이다. 심볼은 주로 이름의 충돌 위험이 없는 객체의 프로퍼티 키를 만들기 위해서 사용한다. Symbol은 Symbol()함수를 호출하어 생성한다 이때 생성된 Symbol은 객체가 아니라 변경 불가능한 원시타입의 값이다. 이렇게 보면 생성자 함수로 객체를 생성하는 것처럼 보이지만 Symbol함수는 String, Number, Boolean 생성자와",
+    date: "2023.04.11",
+    category: "javascript",
+    link: "Symbol_about",
+    element: <as.SymbolAbout />,
+  },
+  {
+    key: 30,
+    title: "팀프로젝트 기록 - 2",
+    body: "",
+    date: "2023.04.06",
+    category: "",
+    link: "team_project_chim_2",
+    element: <as.ThemProjectChimTwo />,
   },
 ];
 
 export default content;
+
+/* 
+  {
+    key: ,
+    title: "",
+    body: "",
+    date: "",
+    category: "",
+    link: "",
+    element: <NpmVsYarn />,
+  }, 
+*/

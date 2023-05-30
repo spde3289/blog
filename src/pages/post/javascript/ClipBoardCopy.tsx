@@ -29,7 +29,7 @@ export default function ClipBoardCopy() {
           이렇게 클립보드API를 이용하면 간단하게 클립보드를 이용한 복사기능을 만들 수 있다. <br />
           이때 주의사항이 있는데 클립보드에 엑세스 하면 암호나 신용카드 번호와 같이 중요한 정보에
           엑세스 할 수 있는 문제가 생긴다 <br />
-          이와 같은 이유 때문에 http가 없는 임시 서버에서 실험을 할 경우 동작하지 않을 수 있다.{" "}
+          이와 같은 이유 때문에 http가 없는 임시 서버에서 실험을 할 경우 동작하지 않을 수 있다.
           <br />
         </TextBox>
         <ReferenceLink href='https://developer.mozilla.org/ko/docs/Web/API/Clipboard_API'>

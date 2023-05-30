@@ -1,7 +1,7 @@
 import PostHeader from "../../../components/post/PostHeader";
 import GiscusApp from "../../../components/post/GiscusApp";
 import Bj4344 from "./imgs/BJ4344/BJ4344.png";
-import { PostContainer, Main, TextBox, CodeImg, SubTitle, ReferenceLink } from "../style";
+import { PostContainer, Main, TextBox, ImgContainer, SubTitle, ReferenceLink } from "../style";
 
 const BJ4344 = () => {
   return (
@@ -26,9 +26,9 @@ const BJ4344 = () => {
           1번방을 시작으로 6, 12, 18, 24 6의 배수 였고 입력 받은 값을 6의 배수보다 작을때 까지
           돌려주면 최소 개수의 방을 구할 수 있다.
         </TextBox>
-        <CodeImg>
+        <ImgContainer>
           <img alt='code1' src={Bj4344} />
-        </CodeImg>
+        </ImgContainer>
       </Main>
       <GiscusApp />
     </PostContainer>

@@ -1,24 +1,25 @@
-export interface Theme {
-  color: {
-    body: string;
-    font: string;
-    comment: string;
-    tag: string;
-    currentTag: string;
-  };
+type Color = 
+  | "body" 
+  | "font"
+  | "comment"
+  | "tag"
+  | "currentTag";
+
+interface themePlatte{
+  color: Record<Color, string>;
 }
 
-export const light: Theme = {
+export const light: themePlatte = {
   color: {
     body: "#fff",
     font: "#000",
     comment: "light",
     tag: "rgba(13,12,34,.05)",
     currentTag: "#bbbbbb",
-  },
+  }
 };
 
-export const dark: Theme = {
+export const dark: themePlatte = {
   color: {
     body: "#232326",
     font: "#e6e6e6",

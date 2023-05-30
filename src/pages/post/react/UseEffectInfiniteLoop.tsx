@@ -2,7 +2,7 @@ import PostHeader from "../../../components/post/PostHeader";
 import GiscusApp from "../../../components/post/GiscusApp";
 import code_1 from "./imgs/useEffect_render1/code_1.png";
 import code_2 from "./imgs/useEffect_render1/code_2.png";
-import { PostContainer, Main, TextBox, CodeImg } from "../style";
+import { PostContainer, Main, TextBox, ImgContainer } from "../style";
 
 const UseEffectInfiniteLoop = () => {
   return (
@@ -23,9 +23,9 @@ const UseEffectInfiniteLoop = () => {
           seEffect 가 어떻게 동작하는지 알았으면 다시 문제를 확인해보자.
         </TextBox>
         <TextBox>useEffect(함수,[종속성])</TextBox>
-        <CodeImg>
+        <ImgContainer>
           <img alt='code1' src={code_1} />
-        </CodeImg>
+        </ImgContainer>
         <TextBox>
           useEffect 함수에 state를 변경하는 setPage를 실행시키면 page의 값이 변경이 되고 종속정의
           값이 변하여 <br />
@@ -43,9 +43,9 @@ const UseEffectInfiniteLoop = () => {
           않는다. <br />
           그러니 코드를 종속정에 의존하지 않도록 짜는것 이다.
         </TextBox>
-        <CodeImg>
+        <ImgContainer>
           <img alt='code2' src={code_2} />
-        </CodeImg>
+        </ImgContainer>
         <TextBox>
           react hook은 아주 편리한 기능인 것 같다 하지만 이와 같이 잘 모르고 사용하게 되면 에러가
           생기게 되니 <br />잘 숙지후에 이용하도록 하자.

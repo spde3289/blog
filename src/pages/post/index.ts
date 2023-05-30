@@ -19,8 +19,11 @@ import CiCdLearn from "./Cs/CiCdLearn";
 import RecoilLearn from "./FrontEnd/RecoilLearn";
 import HTTPAndHTTPSlearn from "./Cs/HTTPAndHTTPSlearn";
 import NpmVsYarn from "./javascript/NpmVsYarn"
+import ThemProjectChimTwo from "./react/chimPlanet/ThemProjectChimTwo";
+import PackageJson from "./javascript/PackageJson";
+import SymbolAbout from "./javascript/Symbol";
 
-export {
+export default {
   UseEffectInfiniteLoop,
   Router404,
   BJ1712,
@@ -41,5 +44,8 @@ export {
   CiCdLearn,
   RecoilLearn,
   HTTPAndHTTPSlearn,
-  NpmVsYarn
+  NpmVsYarn,
+  ThemProjectChimTwo,
+  PackageJson,
+  SymbolAbout,
 };
