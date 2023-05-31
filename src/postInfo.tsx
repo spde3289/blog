@@ -1,27 +1,3 @@
-/* import {
-  UseEffectInfiniteLoop,
-  Router404,
-  BJ1712,
-  BJ2292,
-  BJ4344,
-  ReactFragment,
-  ClipBoardCopy,
-  StyledComponent,
-  StyledComponentGlobleStyle,
-  SementicTag,
-  ReactRouterLearn,
-  DisplayGridLearn,
-  AxiosLearn,
-  ThemProjectChimONE,
-  Restful,
-  Jsdoc,
-  OSI7Layer,
-  CiCdLearn,
-  RecoilLearn,
-  HTTPAndHTTPSlearn,
-  NpmVsYarn,
-  ThemProjectChimTwo,
-} from "./pages/post"; */
 import as from "./pages/post";
 
 const content = [
@@ -229,17 +205,17 @@ const content = [
     body: "Symbol은 ES6에서 추가된 7번째 데이터 타입이다. 심볼은 주로 이름의 충돌 위험이 없는 객체의 프로퍼티 키를 만들기 위해서 사용한다. Symbol은 Symbol()함수를 호출하어 생성한다 이때 생성된 Symbol은 객체가 아니라 변경 불가능한 원시타입의 값이다. 이렇게 보면 생성자 함수로 객체를 생성하는 것처럼 보이지만 Symbol함수는 String, Number, Boolean 생성자와",
     date: "2023.04.11",
     category: "javascript",
-    link: "Symbol_about",
+    link: "symbol_about",
     element: <as.SymbolAbout />,
   },
   {
-    key: 30,
-    title: "팀프로젝트 기록 - 2",
-    body: "",
-    date: "2023.04.06",
-    category: "",
-    link: "team_project_chim_2",
-    element: <as.ThemProjectChimTwo />,
+    key: 24,
+    title: "자바스크립트 반복문",
+    body: "반복문의 종류 for 문 for...in 문 for...of 문 while 문 do...while 문 for 문 for 문은 특정한 조건이 거짓이 될 때 까지 반복한다. for...in 문 for...in 문은 객체의 속성을 열거할 때 유용하게 활용된다. 하지만 일반적인 배열에도 사용이 가능하다.for...of 문 for...of 문은 배열이나 이터러블(iterable) 객체의 각 요소들을 반복적으로 순회하는 데 사용된다.",
+    date: "2023.04.15",
+    category: "javascript",
+    link: "js-loop",
+    element: <as.JsLoop />,
   },
 ];
 
@@ -255,4 +231,13 @@ export default content;
     link: "",
     element: <NpmVsYarn />,
   }, 
+    {
+    key: 30,
+    title: "팀프로젝트 기록 - 2",
+    body: "",
+    date: "2023.04.06",
+    category: "",
+    link: "team_project_chim_2",
+    element: <as.ThemProjectChimTwo />,
+  },
 */

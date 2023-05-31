@@ -13,9 +13,9 @@ export const Main = styled.main`
 
 export const SubTitle = styled.h2<{ size?: string }>`
   font-size: 1.6rem;
-  margin: 35px 0;
+  margin: 30px 0;
   ${({ size }) =>
-    size && {
+    size === "sub" && {
       "font-size": "1.2rem",
     }};
 `;
@@ -50,7 +50,7 @@ export const ReferenceLink = styled.a`
 
 export const List = styled.ul`
   font-size: 16px;
-  padding: 7px;
+  padding-left: 7px;
   margin-left: 37px;
   margin-bottom: 20px;
   li {

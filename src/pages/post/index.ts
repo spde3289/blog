@@ -22,8 +22,10 @@ import NpmVsYarn from "./javascript/NpmVsYarn"
 import ThemProjectChimTwo from "./react/chimPlanet/ThemProjectChimTwo";
 import PackageJson from "./javascript/PackageJson";
 import SymbolAbout from "./javascript/Symbol";
+import JsLoop from "./javascript/JsLoop";
 
 export default {
+  JsLoop,
   UseEffectInfiniteLoop,
   Router404,
   BJ1712,

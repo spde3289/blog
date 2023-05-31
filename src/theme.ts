@@ -12,7 +12,7 @@ interface themePlatte{
 export const light: themePlatte = {
   color: {
     body: "#fff",
-    font: "#000",
+    font: "#222222",
     comment: "light",
     tag: "rgba(13,12,34,.05)",
     currentTag: "#bbbbbb",
