@@ -23,8 +23,10 @@ import ThemProjectChimTwo from "./react/chimPlanet/ThemProjectChimTwo";
 import PackageJson from "./javascript/PackageJson";
 import SymbolAbout from "./javascript/Symbol";
 import JsLoop from "./javascript/JsLoop";
+import CustomHook from "./react/CustomHook";
 
 export default {
+  CustomHook,
   JsLoop,
   UseEffectInfiniteLoop,
   Router404,

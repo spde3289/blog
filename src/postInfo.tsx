@@ -217,6 +217,15 @@ const content = [
     link: "js-loop",
     element: <as.JsLoop />,
   },
+  {
+    key: 25,
+    title: "React 커스텀 Hook 만들기",
+    body: "리엑트를 다룰 때 useState나 useEffect같은 Hook을 많이 사용해 봤을거다. 근데 이 Hook을 개발자가 원하는대로 만드는게 가능하다. 커스텀 훅은 반복되는 로직을 관리하는데 매우 용이하다. 사용방법 커스텀 훅을 만드는 방법은 그렇게 어렵지 않다. 이전에 커스텀 훅을 만들때 지켜야 할 규직이 몇가지 있는데 다음과 같다.",
+    date: "2023.04.20",
+    category: "react",
+    link: "custom-hook",
+    element: <as.CustomHook />,
+  }, 
 ];
 
 export default content;
@@ -229,7 +238,7 @@ export default content;
     date: "",
     category: "",
     link: "",
-    element: <NpmVsYarn />,
+    element: <as.NpmVsYarn />,
   }, 
     {
     key: 30,
