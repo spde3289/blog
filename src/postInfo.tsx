@@ -1,4 +1,4 @@
-import as from "./pages/post";
+import ps from "./pages/post";
 
 const content = [
   {
@@ -8,7 +8,7 @@ const content = [
     date: "2022.09.13",
     category: "react",
     link: "useEffect_infinite_loop",
-    element: <as.UseEffectInfiniteLoop />,
+    element: <ps.UseEffectInfiniteLoop />,
   },
   {
     key: 2,
@@ -17,7 +17,7 @@ const content = [
     date: "2022.09.13",
     category: "react",
     link: "router_404",
-    element: <as.Router404 />,
+    element: <ps.Router404 />,
   },
   {
     key: 3,
@@ -26,7 +26,7 @@ const content = [
     date: "2022.12.01",
     category: "백준 문제풀이",
     link: "BJ1712",
-    element: <as.BJ1712 />,
+    element: <ps.BJ1712 />,
   },
   {
     key: 4,
@@ -35,7 +35,7 @@ const content = [
     date: "2022.12.12",
     category: "백준 문제풀이",
     link: "BJ2292",
-    element: <as.BJ2292 />,
+    element: <ps.BJ2292 />,
   },
   {
     key: 5,
@@ -44,7 +44,7 @@ const content = [
     date: "2022.12.21",
     category: "백준 문제풀이",
     link: "BJ4344",
-    element: <as.BJ4344 />,
+    element: <ps.BJ4344 />,
   },
   {
     key: 6,
@@ -53,7 +53,7 @@ const content = [
     date: "2022.12.21",
     category: "react",
     link: "React_Fragment_learn",
-    element: <as.ReactFragment />,
+    element: <ps.ReactFragment />,
   },
   {
     key: 7,
@@ -62,7 +62,7 @@ const content = [
     date: "2023.02.01",
     category: "javascript",
     link: "ClipboardCopy",
-    element: <as.ClipBoardCopy />,
+    element: <ps.ClipBoardCopy />,
   },
   {
     key: 8,
@@ -71,7 +71,7 @@ const content = [
     date: "2023.02.03",
     category: "styled-component",
     link: "StyledComponent",
-    element: <as.StyledComponent />,
+    element: <ps.StyledComponent />,
   },
   {
     key: 9,
@@ -80,7 +80,7 @@ const content = [
     date: "2023.02.05",
     category: "styled-component",
     link: "StyledComponent_GlobleStyle",
-    element: <as.StyledComponentGlobleStyle />,
+    element: <ps.StyledComponentGlobleStyle />,
   },
   {
     key: 10,
@@ -89,7 +89,7 @@ const content = [
     date: "2023.02.07",
     category: "html",
     link: "sementic_tag",
-    element: <as.SementicTag />,
+    element: <ps.SementicTag />,
   },
   {
     key: 11,
@@ -98,7 +98,7 @@ const content = [
     date: "2023.02.09",
     category: "react-router",
     link: "react_router_learn",
-    element: <as.ReactRouterLearn />,
+    element: <ps.ReactRouterLearn />,
   },
   {
     key: 12,
@@ -107,7 +107,7 @@ const content = [
     date: "2023.02.11",
     category: "css",
     link: "grid_learn",
-    element: <as.DisplayGridLearn />,
+    element: <ps.DisplayGridLearn />,
   },
   {
     key: 13,
@@ -116,7 +116,7 @@ const content = [
     date: "2023.02.16",
     category: "network",
     link: "restful_learn",
-    element: <as.Restful />,
+    element: <ps.Restful />,
   },
   {
     key: 14,
@@ -125,7 +125,7 @@ const content = [
     date: "2023.02.21",
     category: "Front_end",
     link: "axios_learn",
-    element: <as.AxiosLearn />,
+    element: <ps.AxiosLearn />,
   },
   {
     key: 15,
@@ -134,7 +134,7 @@ const content = [
     date: "2023.02.26",
     category: "javascript",
     link: "jsdoc_learn",
-    element: <as.Jsdoc />,
+    element: <ps.Jsdoc />,
   },
   {
     key: 16,
@@ -143,7 +143,7 @@ const content = [
     date: "2023.03.06",
     category: "react",
     link: "team_project_chim_1",
-    element: <as.ThemProjectChimONE />,
+    element: <ps.ThemProjectChimONE />,
   },
   {
     key: 17,
@@ -152,7 +152,7 @@ const content = [
     date: "2023.03.12",
     category: "Computer Science",
     link: "Layer",
-    element: <as.OSI7Layer />,
+    element: <ps.OSI7Layer />,
   },
   {
     key: 18,
@@ -161,7 +161,7 @@ const content = [
     date: "2023.03.16",
     category: "Computer Science",
     link: "ci_cd_learn",
-    element: <as.CiCdLearn />,
+    element: <ps.CiCdLearn />,
   },
   {
     key: 19,
@@ -170,7 +170,7 @@ const content = [
     date: "2023.03.20",
     category: "Front_end",
     link: "recoil_learn",
-    element: <as.RecoilLearn />,
+    element: <ps.RecoilLearn />,
   },
   {
     key: 20,
@@ -179,7 +179,7 @@ const content = [
     date: "2023.03.25",
     category: "Computer Science",
     link: "HTTP&HTTPS_learn",
-    element: <as.HTTPAndHTTPSlearn />,
+    element: <ps.HTTPAndHTTPSlearn />,
   },
   {
     key: 21,
@@ -188,7 +188,7 @@ const content = [
     date: "2023.03.30",
     category: "javascript",
     link: "npm&yarn",
-    element: <as.NpmVsYarn />,
+    element: <ps.NpmVsYarn />,
   },
   {
     key: 22,
@@ -197,7 +197,7 @@ const content = [
     date: "2023.04.06",
     category: "javascript",
     link: "package.json_about",
-    element: <as.PackageJson />,
+    element: <ps.PackageJson />,
   },
   {
     key: 23,
@@ -206,7 +206,7 @@ const content = [
     date: "2023.04.11",
     category: "javascript",
     link: "symbol_about",
-    element: <as.SymbolAbout />,
+    element: <ps.SymbolAbout />,
   },
   {
     key: 24,
@@ -215,7 +215,7 @@ const content = [
     date: "2023.04.15",
     category: "javascript",
     link: "js-loop",
-    element: <as.JsLoop />,
+    element: <ps.JsLoop />,
   },
   {
     key: 25,
@@ -224,7 +224,16 @@ const content = [
     date: "2023.04.20",
     category: "react",
     link: "custom-hook",
-    element: <as.CustomHook />,
+    element: <ps.CustomHook />,
+  },
+  {
+    key: 26,
+    title: "yaml파일 문법",
+    body: "",
+    date: "",
+    category: "",
+    link: "",
+    element: <ps.NpmVsYarn />,
   }, 
 ];
 
@@ -238,7 +247,7 @@ export default content;
     date: "",
     category: "",
     link: "",
-    element: <as.NpmVsYarn />,
+    element: <ps.NpmVsYarn />,
   }, 
     {
     key: 30,
@@ -247,6 +256,6 @@ export default content;
     date: "2023.04.06",
     category: "",
     link: "team_project_chim_2",
-    element: <as.ThemProjectChimTwo />,
+    element: <ps.ThemProjectChimTwo />,
   },
 */

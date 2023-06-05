@@ -1,4 +1,3 @@
-import { useState } from "react";
 import PostHeader from "../../../components/post/PostHeader";
 import GiscusApp from "../../../components/post/GiscusApp";
 import { PostContainer, Main, TextBox, ReferenceLink, SubTitle, CodeContainer, List } from "../style";
@@ -113,7 +112,7 @@ export default function CustomHook() {
         <TextBox>
           물론 커스텀 훅이 없어도 개발하는데 지장을 주지는 않지만 잘만 사용하면 아주 편리한 기능이니 어렵더라도
           잘 활용하도록 해야겠다는 생각이 들었다. 또한 커스텀 훅을 이용하면 재사용성도 올라가고 관리도 용이해져
-          마다할 이유가 없다고 생각한다.  
+          마다할 이유가 없다고 생각한다. 
         </TextBox>
         참고자료 :<br />
         <ReferenceLink href="https://react.dev/learn/reusing-logic-with-custom-hooks" target="_blank">
