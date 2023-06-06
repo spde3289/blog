@@ -7,7 +7,7 @@ const content = [
     body: "이 블로그를 만들면서 useEffect를 사용했는데 렌더링이 계속 일어나 사이트가 다운됐었다 useEffect(함수,[종속성]) useEffect는 종속성이 변했을 때 useEffect 내부에 있는 함수를 실행시키는 역할을 한다. 자꾸 렌더링이 일어나는 이유를 찾아보니 함수부분에 setState를 하고 종속성에 state 값을 넣어줘서 그런거였다.",
     date: "2022.09.13",
     category: "react",
-    link: "useEffect_infinite_loop",
+    link: "useEffect-infinite-loop",
     element: <ps.UseEffectInfiniteLoop />,
   },
   {
@@ -16,7 +16,7 @@ const content = [
     body: "문제발생 블로그에 댓글 기능을 추가하고 싶어 Giscus을 알아보고 바로 블로그에 적용을 한 후 잘 동작하나 확인을 하던 와중 갑자기 404 페이지가 떠서 아주 놀랐던 기억이 있다. react-router를 사용할때 이동페이시에서 새로고침을 했을 때 생기는 문제였다. 이유 React 는 CSR(클라이언트 사이트 렌더링)이다. 이를 React-Router 로 Path를",
     date: "2022.09.13",
     category: "react",
-    link: "router_404",
+    link: "router-404",
     element: <ps.Router404 />,
   },
   {
@@ -52,7 +52,7 @@ const content = [
     body: "리엑트에서 컴포넌트 단위로 개발을 하면서 의미 없는 div태그로 감싸여진 코드들을 볼 수 있다. 이는 jsx를 사용하면서 return은 두개의 값을 반환 할 수 없어 하나의 최상위 태그를 사용해야 하기 때문이다. 이때 Fragment를 사용하면 의미 없는 태그 사용을 막을 수 있다. 일반적으로 div를 사용하면 이런식으로 보여지게 된다.",
     date: "2022.12.21",
     category: "react",
-    link: "React_Fragment_learn",
+    link: "React-Fragment-learn",
     element: <ps.ReactFragment />,
   },
   {
@@ -79,7 +79,7 @@ const content = [
     body: "이전에 포스트에서 styled-component 사용법에 대해서 다뤘었는데 오늘은 GlobalStyle과 Theme에 대해 알아보겠다.  GolbalStyle 사용방법 간단하게 createGlobalStyle 이라는 함수를 사용해 css를 작성한 후 최상위 컴포넌트에 추가해주면 된다. 이렇게 사용하면 전역으로 css를 설정할 수 있어 불필요하게 중복되는 스타일링을 줄일 수 있다. Theme 사용방법",
     date: "2023.02.05",
     category: "styled-component",
-    link: "StyledComponent_GlobleStyle",
+    link: "StyledComponent-GlobleStyle",
     element: <ps.StyledComponentGlobleStyle />,
   },
   {
@@ -88,7 +88,7 @@ const content = [
     body: "Sementic Tag란? 우선 Sementic Tag의 뜻은 의미가 있는 태그라는 뜻이다. 반대로 div와 span태그와 같은 태그는 non-sementic tag라고 한다 그럼 div 태그로 만들 수 있는데 왜 의미가 있는 태그가 필요할까? Sementic Tag 가 필요한 이유 3가지 1. seo ( Search engine optimization ) 마크업을 통해 보다 많은 검색에 노출 시킬 수 있다.",
     date: "2023.02.07",
     category: "html",
-    link: "sementic_tag",
+    link: "sementic-tag",
     element: <ps.SementicTag />,
   },
   {
@@ -97,7 +97,7 @@ const content = [
     body: "react-router란? react-router는 클라이언트 측 라우팅이 가능하게 도와주는 라이브러리다. react-router를 사용하면 간단하게 url을 변경하면서 여러 페이지로 이루어진 어플리케이션을 만들 수 있다. 패키지 설치 사용방법 위에 코드에 대해 설명을 하면 우선 최상위 컴포넌트에서 BrowserRouter로 감싸준후 Route를 Routes로 감싸준다. Route에 path에는 url경로를 element에는 보여주고자 하는 컴포넌트를 넣어준다. ",
     date: "2023.02.09",
     category: "react-router",
-    link: "react_router_learn",
+    link: "react-router-learn",
     element: <ps.ReactRouterLearn />,
   },
   {
@@ -106,7 +106,7 @@ const content = [
     body: "gird는 행과 열이 있는 레이아웃 시스템을 제공한다. 1차원 레이아웃을 지원하는 flex와 다르게 좀 더 복잡한 레이아웃을 위해 grid를 사용할 수 있다. gird는 flex와 같이 Container와 Item이라는 두가지 개념으로 구분되어 있는데 Container는 Item을 감싸는 부모 요소이며 그 안에 Item을 배치 할 수 있다. Grid Container Properties Container를 위한 속성은 아래와 같다.",
     date: "2023.02.11",
     category: "css",
-    link: "grid_learn",
+    link: "grid-learn",
     element: <ps.DisplayGridLearn />,
   },
   {
@@ -115,7 +115,7 @@ const content = [
     body: "RESTful API는 클라이언트와 서버의 통신을 REST형태로 지원하는 API이다 그럼 REST는 무엇일까? REST는 (Representational state transfer)의 약어로 자원을 이름(자원의 표현)으로 구분하여 해당 자원의 상태(정보)를 주고 받는 모든 것을 의미한다. REST는 클라이언트 측에서 URL형태로 Server에 요청을 할 수 있다.",
     date: "2023.02.16",
     category: "network",
-    link: "restful_learn",
+    link: "restful-learn",
     element: <ps.Restful />,
   },
   {
@@ -123,8 +123,8 @@ const content = [
     title: "Axios를 배워보자",
     body: "Axios란? Axios는 Promiss기반 HTTP 클라이언트이다. 간단하게 백엔드랑 통신을 쉽게 해주는 라이브러리이다. 특징으로는 HTTP요청과 응답을 JSON형태로 할 수 있다는 점이다. 사용방법 axios로 백엔드와 통신을 할 때는 get(조회), post(등록및 전송), put(수정), delete(삭제) 이렇게 4가지의 HTTP 메서드를 이용하여 통신할 수 있다. ",
     date: "2023.02.21",
-    category: "Front_end",
-    link: "axios_learn",
+    category: "Front-end",
+    link: "axios-learn",
     element: <ps.AxiosLearn />,
   },
   {
@@ -133,7 +133,7 @@ const content = [
     body: "JSDoc 주석은 JavaScript 코드에 추가되는 문서화 주석이다. 이 주석은 함수, 변수, 객체의 설명, 타입정보 등을 제공할 수 있다. JSDoc 주석 사용법 이와 같이 함수를 호출 할 때 주석를 보여주게 된다. 해당태그를 사용하면 취소선을 그어준다 해당태그를 사용하면 타입을 명시 할 수 있다. 해당태그를 리소스를 참조할 떄 사용할 수 있다. ",
     date: "2023.02.26",
     category: "javascript",
-    link: "jsdoc_learn",
+    link: "jsdoc-learn",
     element: <ps.Jsdoc />,
   },
   {
@@ -142,7 +142,7 @@ const content = [
     body: "그동안 클론코딩을 하면서 기본적인 html, css, js 익혔고 이번에는 팀프로젝트에 참여해서 협업을 하는 경험을 하고 싶었다. 그래서 동아리같이 팀 단위로 개발하는 곳 을 알아보던 와중 왁물원이라는 네이버 카페에서 카페회원들 끼리 자체적으로 카페 내부 서비스를 만들어 보고 싶다는 글이 올라와 얼른 신청을 했다.",
     date: "2023.03.06",
     category: "react",
-    link: "team_project_chim_1",
+    link: "team-project-chim-1",
     element: <ps.ThemProjectChimONE />,
   },
   {
@@ -160,7 +160,7 @@ const content = [
     body: "ci/cd에 대해 알아보자 ci/cd는 지속적인 통합, 지속적인 배포라는 뜻을 가지고 있다. 그럼 왜 지속적인 통합과 배포가 필요한가라고 하면 서비스를 배포할 때 마다.  개발자들이 직접 수정, 빌드, 테스트, 배포를 하게 된다면 상당히 많은 시간이 소요된다. 이때 ci/cd를 맞게 작성한다면 빌드, 테스트, 배포를 하는 시간을 크게 줄일 수 있어",
     date: "2023.03.16",
     category: "Computer Science",
-    link: "ci_cd_learn",
+    link: "ci-cd-learn",
     element: <ps.CiCdLearn />,
   },
   {
@@ -168,8 +168,8 @@ const content = [
     title: "Recoil에 대해 알아보자",
     body: "개발을 하다보면 전역 상태 관리라는 말을 한번쯤은 들어봤을거다. 프로젝트의 규모가 커져감에 따라 수많은 state와 props가 점점 복잡해져 이러한 상태를 관리해주는 라이브러리들이 생겼다. 그 후 react에서 Context API라는게 나오긴 했지만 여전히 상태관리 라이브러리를 사용 하고 있다. Recoil란? Recoil은 hook을 사용하고 있는 사람이라면 익숙하게 사용 할 수 있는 장점이 있다. ",
     date: "2023.03.20",
-    category: "Front_end",
-    link: "recoil_learn",
+    category: "Front-end",
+    link: "recoil-learn",
     element: <ps.RecoilLearn />,
   },
   {
@@ -178,7 +178,7 @@ const content = [
     body: "HTTP(Hypertext Transfer Protocol)는 클라이언트와 서버 간 통신을 위한 통신 규칙이다. 사용자가 웹 사이트에 방문을 하면 자용자 브라우저가 웹 서버에 HTTP요청을 전송하고 웹 서버는 HTTP로 응답한다. HTTP는 네트워크 통신을 작동하게 하는 기본 기술이다. HTTPS(Hypertext Transfer Protocol Secure)는 HTTP의 확장 버젼에 안정성이 더 올라간 버젼인데 HTTPS는 브라우저와 서버가 데이터를 전송하기 전에 안전하고 암호화된 열결을 설정한다. ",
     date: "2023.03.25",
     category: "Computer Science",
-    link: "HTTP&HTTPS_learn",
+    link: "HTTP&HTTPS-learn",
     element: <ps.HTTPAndHTTPSlearn />,
   },
   {
@@ -196,7 +196,7 @@ const content = [
     body: "package.json이란? package.json이란 패키지 매니저로 설치한 모듈들의 의존성을 명세하고 관리하는 파일이다. name, version 패키지의 이름과 버젼을 명세하기 위해 필요한데 몇가지 규직이 존재한다. 이름은 214자 이하여야 한다. 범위가 지정된 패키지의 이름은 점 또는 밑줄로 시작할 수 있다. 범위가 없으면 허용되지 않는다. ",
     date: "2023.04.06",
     category: "javascript",
-    link: "package.json_about",
+    link: "package.json-about",
     element: <ps.PackageJson />,
   },
   {
@@ -205,7 +205,7 @@ const content = [
     body: "Symbol은 ES6에서 추가된 7번째 데이터 타입이다. 심볼은 주로 이름의 충돌 위험이 없는 객체의 프로퍼티 키를 만들기 위해서 사용한다. Symbol은 Symbol()함수를 호출하어 생성한다 이때 생성된 Symbol은 객체가 아니라 변경 불가능한 원시타입의 값이다. 이렇게 보면 생성자 함수로 객체를 생성하는 것처럼 보이지만 Symbol함수는 String, Number, Boolean 생성자와",
     date: "2023.04.11",
     category: "javascript",
-    link: "symbol_about",
+    link: "symbol-about",
     element: <ps.SymbolAbout />,
   },
   {
@@ -229,11 +229,11 @@ const content = [
   {
     key: 26,
     title: "yaml파일 문법",
-    body: "",
-    date: "",
-    category: "",
-    link: "",
-    element: <ps.NpmVsYarn />,
+    body: "yaml은 YAML ain’t markup language의 약어로 마크업 언어가 아닌 데이터에 특화됨 을 보여주는 말이다. json 파일의 상위 버젼이라고 생각할 수 도 있다. 주석을 달 수 없고 json의 중괄호와 대괄호 남발로 코드길이가 질어지게 된다는 단점을 보안하고자 해서 나온 방식이다. 또한 문법을 보면 Python과 매우 유사함을 알 수 있다.",
+    date: "2023.04.24",
+    category: "yaml",
+    link: "yaml-about",
+    element: <ps.YamlFileGrammar />,
   }, 
 ];
 
@@ -255,7 +255,7 @@ export default content;
     body: "",
     date: "2023.04.06",
     category: "",
-    link: "team_project_chim_2",
+    link: "team-project-chim-2",
     element: <ps.ThemProjectChimTwo />,
   },
 */

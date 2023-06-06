@@ -24,8 +24,10 @@ import PackageJson from "./javascript/PackageJson";
 import SymbolAbout from "./javascript/Symbol";
 import JsLoop from "./javascript/JsLoop";
 import CustomHook from "./react/CustomHook";
+import YamlFileGrammar from "./Yaml/YamlFileGrammar";
 
 export default {
+  YamlFileGrammar,
   CustomHook,
   JsLoop,
   UseEffectInfiniteLoop,
