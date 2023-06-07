@@ -24,6 +24,7 @@ export const TextBox = styled.p`
   font-size: 16px;
   margin: 20px;
   margin-left: 0;
+  line-height: 160%;
 `;
 
 export const ImgContainer = styled.div`

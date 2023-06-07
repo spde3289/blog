@@ -25,8 +25,10 @@ import SymbolAbout from "./javascript/Symbol";
 import JsLoop from "./javascript/JsLoop";
 import CustomHook from "./react/CustomHook";
 import YamlFileGrammar from "./Yaml/YamlFileGrammar";
+import InfiniteScroll from "./react/InfiniteScroll";
 
 export default {
+  InfiniteScroll,
   YamlFileGrammar,
   CustomHook,
   JsLoop,

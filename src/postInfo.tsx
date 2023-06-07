@@ -234,7 +234,16 @@ const content = [
     category: "yaml",
     link: "yaml-about",
     element: <ps.YamlFileGrammar />,
-  }, 
+  },
+  {
+    key: 27,
+    title: "무한 스크롤 구현하기 (Intersection observer API)",
+    body: "팀프로젝트를 진행하면서 무한스크롤을 이용해서 게시글들을 보여주기로 했다. 페이지네이션이 아닌 무한 스크롤을 선택한 이유는 모바일 환경 지원이 이유이기도 하다. 무한 스크롤을 만들어 본 적이 없어 어떻게 만들어야 하나 찾아보던 중 세 가지 방법으로 만들 수 있다고 했다. 첫번째는 스크롤 이벤트 헨들러를 이용한 방법이고 두번째는 Debounce 와 Throttle를 이용한 방법 마지막으로 ",
+    date: "2023.05.01",
+    category: "react",
+    link: "Infinite-Scroll",
+    element: <ps.InfiniteScroll />,
+  },
 ];
 
 export default content;
@@ -248,7 +257,7 @@ export default content;
     category: "",
     link: "",
     element: <ps.NpmVsYarn />,
-  }, 
+  },
     {
     key: 30,
     title: "팀프로젝트 기록 - 2",
