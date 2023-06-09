@@ -26,8 +26,10 @@ import JsLoop from "./javascript/JsLoop";
 import CustomHook from "./react/CustomHook";
 import YamlFileGrammar from "./Yaml/YamlFileGrammar";
 import InfiniteScroll from "./react/InfiniteScroll";
+import referrerpolicyImg from "./html/referrerpolicyImg"
 
 export default {
+  referrerpolicyImg,
   InfiniteScroll,
   YamlFileGrammar,
   CustomHook,
