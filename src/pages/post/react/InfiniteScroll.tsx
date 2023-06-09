@@ -1,4 +1,3 @@
-import { useRef, useEffect } from "react";
 import PostHeader from "../../../components/post/PostHeader";
 import GiscusApp from "../../../components/post/GiscusApp";
 import { PostContainer, Main, TextBox, ReferenceLink, SubTitle, CodeContainer, List } from "../style";
@@ -76,6 +75,19 @@ export default function InfiniteScroll() {
           <li>rootBounds: 뷰포트의 경계 사각형 정보를 나타내는 DOMRectReadOnly 객체이다.</li>
           <li>target:  관찰 대상 요소에 대한 참조이다. 이를 통해 어떤 요소가 이벤트를 발생시키는지 알 수 있다.</li>
         </List>
+        <TextBox>
+          IntersectionObserver 가 가지고 있는 메소드로는 다음이 있다.
+        </TextBox>
+        <List>
+          <li>IntersectionObserver.observe() : 타켓에 대한 관찰을 시작한다.</li>
+          <li>IntersectionObserver.unobserve() : 타겟에 대한 관찰을 중지한다.</li>
+          <li>IntersectionObserver.disconnect() : 타겟 요소들에 대한 모든 관찰을 중지한다.</li>
+          <li>IntersectionObserver.takeRecords() : 관찰된 모든 대상에 대한 개체 배열을 반환한다 .</li>
+        </List>
+        <TextBox>
+          Intersection Observer API를 잘 이용하면 무한스크롤 뿐만이 아니라 컨텐츠나 이미지의 레이즈 로딩,
+          스크롤마다 변하는 애니메이션 수행등 다양한 방법으로 활용이 가능하다.
+        </TextBox>
         참고자료 :<br />
         <ReferenceLink href="https://developer.mozilla.org/ko/docs/Web/API/Intersection_Observer_API" target="_blank">
           https://developer.mozilla.org/ko/docs/Web/API/Intersection_Observer_API
