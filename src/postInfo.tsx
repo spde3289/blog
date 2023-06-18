@@ -253,6 +253,15 @@ const content = [
     link: "referrerpolicy-img",
     element: <ps.referrerpolicyImg />,
   },
+  {
+    key: 29,
+    title: "타입스크립트 타입 종류",
+    body: "타입스크립트에 대한 수요가 늘어나 타입스크립트를 공부하면서 정리해보려 한다. 타입스크립트는 타입을 지정해 줌으로써 기존 자바스크립트에서 발생하는 에러를 미리 예방 할 수 있다는 장점이 있다. 타입스크립트 기본타입 Boolean 참/거짓(true/false)에 대한 타입이다 Number 값이 숫자이면 다음과 같이 선언한다.",
+    date: "2023.05.09",
+    category: "typescript",
+    link: "typescript-learn",
+    element: <ps.TsLearn />,
+  },
 ];
 
 export default content;
