@@ -27,10 +27,12 @@ import CustomHook from "./react/CustomHook";
 import YamlFileGrammar from "./Yaml/YamlFileGrammar";
 import InfiniteScroll from "./react/InfiniteScroll";
 import referrerpolicyImg from "./html/referrerpolicyImg"
-import TsLearn from "./typescript/tsLearn";
+import TsTypeLearn from "./typescript/tsTypeLearn";
+import InterfaceGenericLearn from "./typescript/interface";
 
 export default {
-  TsLearn,
+  InterfaceGenericLearn,
+  TsTypeLearn,
   referrerpolicyImg,
   InfiniteScroll,
   YamlFileGrammar,

@@ -2,7 +2,7 @@ import PostHeader from "../../../components/post/PostHeader";
 import GiscusApp from "../../../components/post/GiscusApp";
 import { PostContainer, Main, TextBox, ReferenceLink, SubTitle, CodeContainer, List } from "../style";
 
-export default function TsLearn() {
+export default function TsTypeLearn() {
   const code1 = `
     const isTrue: boolean = false;
   `
@@ -76,7 +76,6 @@ export default function TsLearn() {
         }
     }
   `
-
 
   return (
     <PostContainer>
