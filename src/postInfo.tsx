@@ -264,11 +264,11 @@ const content = [
   },
   {
     key: 29,
-    title: "타입스크립트 인터페이스와 제너릭타입",
+    title: "타입스크립트 인터페이스",
     body: "타입스크립트에서는 인터페이스를 활용해 변수의 타입으로 사용할 수 있다. 인터페이스는 클래스와 비슷한데 클래스와는 다르게 정의만 할 뿐 구현이 되지 않는다는 차이점이 있다. 타입스크립트에서 인터페이스는 상호 간에 정의한 약속 혹은 규칙을 의미한다. 인터페이스는 보통 다음과 같은 범주에 대해 정의할 수 있다. ",
     date: "2023.05.13",
     category: "typescript",
-    link: "인터페이스와-타입",
+    link: "typescript-interface",
     element: <ps.InterfaceGenericLearn />,
   },
 ];

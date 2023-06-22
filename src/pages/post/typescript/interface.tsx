@@ -127,7 +127,7 @@ export default function InterfaceGenericLearn() {
   return (
     <PostContainer>
       <PostHeader 
-        title="타입스크립트 인터페이스와 제너릭타입" 
+        title="타입스크립트 인터페이스" 
         tagName="typescript" 
         date='2023.05.13' 
       />
