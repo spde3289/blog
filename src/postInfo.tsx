@@ -271,6 +271,15 @@ const content = [
     link: "typescript-interface",
     element: <ps.InterfaceGenericLearn />,
   },
+  {
+    key: 29,
+    title: "타입스크립트 커스텀타입",
+    body: "커스텀 타입이란? 타입스크립트에는 커스텀 타입이라는게 있다. 커스텀 타입은 말 그대로 타입을 커스텀 하여 만들 수 있다는 말인데 기존 타입에 새로운 이름을 지정해준다거나 새로운 타입을 선언해주는 것 이 가능하다. 커스텀 타입을 사용하면 보다 강력하게 타입을 지정할 수 있다. 위와 같이 사용하면 잘못된 함수의 사용을 막을 수 있다.",
+    date: "2023.05.20",
+    category: "typescript",
+    link: "typescript-customTypes",
+    element: <ps.CustomTypesLearn />,
+  },
 ];
 
 export default content;

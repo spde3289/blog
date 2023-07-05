@@ -29,8 +29,10 @@ import InfiniteScroll from "./react/InfiniteScroll";
 import referrerpolicyImg from "./html/referrerpolicyImg"
 import TsTypeLearn from "./typescript/tsTypeLearn";
 import InterfaceGenericLearn from "./typescript/interface";
+import CustomTypesLearn from "./typescript/customType"
 
 export default {
+  CustomTypesLearn,
   InterfaceGenericLearn,
   TsTypeLearn,
   referrerpolicyImg,
