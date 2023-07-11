@@ -30,8 +30,10 @@ import referrerpolicyImg from "./html/referrerpolicyImg"
 import TsTypeLearn from "./typescript/tsTypeLearn";
 import InterfaceGenericLearn from "./typescript/interface";
 import CustomTypesLearn from "./typescript/customType"
+import GenericsLearn from "./typescript/Generics"
 
 export default {
+  GenericsLearn,
   CustomTypesLearn,
   InterfaceGenericLearn,
   TsTypeLearn,
