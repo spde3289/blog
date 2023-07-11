@@ -2,7 +2,7 @@ import PostHeader from "../../../components/post/PostHeader";
 import GiscusApp from "../../../components/post/GiscusApp";
 import { PostContainer, Main, TextBox, ReferenceLink, SubTitle, CodeContainer, List } from "../style";
 
-export default function ustomTypesLearn() {
+export default function CustomTypesLearn() {
   const code1 = `
     type Name = string;
     type Age = number;

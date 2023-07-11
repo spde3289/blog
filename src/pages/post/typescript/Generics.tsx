@@ -18,9 +18,7 @@ export default function GenericsLearn() {
     returnFunction<string>("10");
     returnFunction<boolean>(true);
   `;
-    const returnFunction = <T extends unknown>(arg: T): T => {
-      return arg;
-    };
+
   const code3 = `
     const returnFunction = <T>(arg: T): T => {
       return arg.length;
