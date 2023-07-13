@@ -289,6 +289,15 @@ const content = [
     link: "typescript-Generics",
     element: <ps.GenericsLearn />,
   },
+  {
+    key: 33,
+    title: "npm ERR! Cannot read properties of null (reading 'edgesOut')",
+    body: "최근 배포를 하던 와중에 npm ERR! Cannot properties of null (reading) 이런 에러가 발생했다. 문제는? 최신버젼의 styled-components에서 npm i styled-components를 수행하는 동안 생기는 문제였다. 해결방법 V5 사용, npm install styled-components@5.3.10 원사 사용, yarn install styled-components ",
+    date: "2023.07.13",
+    category: "Front-end",
+    link: "npm-ERR-Cannot-read-properties-of-null-reading-edgesOut",
+    element: <ps.ErrEdgesOut />,
+  },
 ];
 
 export default content;

@@ -31,8 +31,10 @@ import TsTypeLearn from "./typescript/tsTypeLearn";
 import InterfaceGenericLearn from "./typescript/interface";
 import CustomTypesLearn from "./typescript/customType"
 import GenericsLearn from "./typescript/Generics"
+import ErrEdgesOut from "./FrontEnd/ErrEdgesOut"
 
 export default {
+  ErrEdgesOut,
   GenericsLearn,
   CustomTypesLearn,
   InterfaceGenericLearn,
