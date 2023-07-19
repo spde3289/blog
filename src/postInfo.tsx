@@ -298,6 +298,15 @@ const content = [
     link: "npm-ERR-Cannot-read-properties-of-null-reading-edgesOut",
     element: <ps.ErrEdgesOut />,
   },
+  {
+    key: 34,
+    title: "react에서 addEventListener와 state",
+    body: "최근 개발을 하다 window.addEventListener로 호출한 함수 내에서 state값이 초기 값 그대로 읽히는 경우가 있었다. 아래와 같이 코드를 작성 했을 떄 state값은 계속 변경 되지만 console.log()로 state값을 읽을땐 초기값만 출력이 된다. 이렇게 동작하는 원인이 무엇일까? 이렇게 동작하는 이유는 이벤트 핸들러 함수는 비동기적으로 실행되기 때문에 ",
+    date: "2023.07.18",
+    category: "react",
+    link: "addEventListener&state",
+    element: <ps.EventListenerState />,
+  },
 ];
 
 export default content;

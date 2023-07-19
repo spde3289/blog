@@ -32,8 +32,10 @@ import InterfaceGenericLearn from "./typescript/interface";
 import CustomTypesLearn from "./typescript/customType"
 import GenericsLearn from "./typescript/Generics"
 import ErrEdgesOut from "./FrontEnd/ErrEdgesOut"
+import EventListenerState from "./react/EventListenerState"
 
 export default {
+  EventListenerState,
   ErrEdgesOut,
   GenericsLearn,
   CustomTypesLearn,
