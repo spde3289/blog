@@ -16,7 +16,8 @@ const ReactFragment = () => {
         </TextBox>
         <CodeContainer>
           <pre>
-            <code>{`
+            <code>
+              {`
     const Table = () => {
         return(
             <table>
@@ -35,7 +36,8 @@ const ReactFragment = () => {
             </div>
         )
     }
-                                `}</code>
+              `}
+            </code>
           </pre>
         </CodeContainer>
         <TextBox>일반적으로 div를 사용하면 이런식으로 보여지게 된다.</TextBox>

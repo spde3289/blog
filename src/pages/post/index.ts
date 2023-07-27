@@ -18,7 +18,7 @@ import OSI7Layer from "./Cs/OSI7Layer";
 import CiCdLearn from "./Cs/CiCdLearn";
 import RecoilLearn from "./FrontEnd/RecoilLearn";
 import HTTPAndHTTPSlearn from "./Cs/HTTPAndHTTPSlearn";
-import NpmVsYarn from "./javascript/NpmVsYarn"
+import NpmVsYarn from "./javascript/NpmVsYarn";
 import ThemProjectChimTwo from "./react/chimPlanet/ThemProjectChimTwo";
 import PackageJson from "./javascript/PackageJson";
 import SymbolAbout from "./javascript/Symbol";
@@ -26,15 +26,17 @@ import JsLoop from "./javascript/JsLoop";
 import CustomHook from "./react/CustomHook";
 import YamlFileGrammar from "./Yaml/YamlFileGrammar";
 import InfiniteScroll from "./react/InfiniteScroll";
-import referrerpolicyImg from "./html/referrerpolicyImg"
+import referrerpolicyImg from "./html/referrerpolicyImg";
 import TsTypeLearn from "./typescript/tsTypeLearn";
 import InterfaceGenericLearn from "./typescript/interface";
-import CustomTypesLearn from "./typescript/customType"
-import GenericsLearn from "./typescript/Generics"
-import ErrEdgesOut from "./FrontEnd/ErrEdgesOut"
-import EventListenerState from "./react/EventListenerState"
+import CustomTypesLearn from "./typescript/customType";
+import GenericsLearn from "./typescript/Generics";
+import ErrEdgesOut from "./FrontEnd/ErrEdgesOut";
+import EventListenerState from "./react/EventListenerState";
+import CodePrettier from "./FrontEnd/CodePrettier";
 
 export default {
+  CodePrettier,
   EventListenerState,
   ErrEdgesOut,
   GenericsLearn,

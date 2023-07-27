@@ -26,7 +26,6 @@ export default function ThemProjectChimONE() {
         <SubTitle>첫 회의 2.20(화)</SubTitle>
         <TextBox>
           <strong>
-            
             전체 회의: <br />
           </strong>
           우선 MVP를 완성한 후 유저의 요청사항이나 반응에 따라 추가로 기능들을 만들어나가기로 했다
@@ -63,7 +62,6 @@ export default function ThemProjectChimONE() {
         <SubTitle>두번째 회의 02.25(토)</SubTitle>
         <TextBox>
           <strong>
-            
             전체 회의: <br />
           </strong>
           백엔드 : 공고글에 이미지가 있을 경우 URL형태로 이미지를 보여줄 수 있음을 확인했다. <br />

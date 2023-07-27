@@ -1,6 +1,14 @@
 import PostHeader from "../../../components/post/PostHeader";
 import GiscusApp from "../../../components/post/GiscusApp";
-import { PostContainer, Main, TextBox, ReferenceLink, SubTitle, CodeContainer, List } from "../style";
+import {
+  PostContainer,
+  Main,
+  TextBox,
+  ReferenceLink,
+  SubTitle,
+  CodeContainer,
+  List,
+} from "../style";
 
 export default function CustomTypesLearn() {
   const code1 = `
@@ -30,45 +38,36 @@ export default function CustomTypesLearn() {
 
   return (
     <PostContainer>
-      <PostHeader 
-        title="타입스크립트 커스텀 타입" 
-        tagName="typescript" 
-        date='2023.05.20'
-      />
+      <PostHeader title='타입스크립트 커스텀 타입' tagName='typescript' date='2023.05.20' />
       <Main>
-      <SubTitle>
-        커스텀 타입이란?
-      </SubTitle>
-      <TextBox>
-        타입스크립트에는 커스텀 타입이라는게 있다. 커스텀 타입은 말 그대로 타입을 커스텀 하여 만들 수 있다는 말인데
-        기존 타입에 새로운 이름을 지정해준다거나 새로운 타입을 선언해주는 것 이 가능하다.
-      </TextBox>
-      <CodeContainer>
-        <pre>
-          <code>
-            {code1}
-          </code>
-        </pre>
-      </CodeContainer>
-      <TextBox>
-        커스텀 타입을 사용하면 보다 강력하게 타입을 지정할 수 있다.
-      </TextBox>
-      <CodeContainer>
-        <pre>
-          <code>
-            {code2}
-          </code>
-        </pre>
-      </CodeContainer>
-      <TextBox>
-        위와 같이 사용하면 잘못된 함수의 사용을 막을 수 있다.
-      </TextBox>
+        <SubTitle>커스텀 타입이란?</SubTitle>
+        <TextBox>
+          타입스크립트에는 커스텀 타입이라는게 있다. 커스텀 타입은 말 그대로 타입을 커스텀 하여 만들
+          수 있다는 말인데 기존 타입에 새로운 이름을 지정해준다거나 새로운 타입을 선언해주는 것 이
+          가능하다.
+        </TextBox>
+        <CodeContainer>
+          <pre>
+            <code>{code1}</code>
+          </pre>
+        </CodeContainer>
+        <TextBox>커스텀 타입을 사용하면 보다 강력하게 타입을 지정할 수 있다.</TextBox>
+        <CodeContainer>
+          <pre>
+            <code>{code2}</code>
+          </pre>
+        </CodeContainer>
+        <TextBox>위와 같이 사용하면 잘못된 함수의 사용을 막을 수 있다.</TextBox>
         참고자료 :<br />
-        <ReferenceLink href="https://velog.io/@cjh951114/TypeScript-2.2-%EC%BB%A4%EC%8A%A4%ED%85%80-%ED%83%80%EC%9E%85-%EC%A0%95%EC%9D%98" target="_blank">
+        <ReferenceLink
+          href='https://velog.io/@cjh951114/TypeScript-2.2-%EC%BB%A4%EC%8A%A4%ED%85%80-%ED%83%80%EC%9E%85-%EC%A0%95%EC%9D%98'
+          target='_blank'
+        >
           https://velog.io/@cjh951114/TypeScript
-        </ReferenceLink> <br />
+        </ReferenceLink>{" "}
+        <br />
       </Main>
       <GiscusApp />
     </PostContainer>
   );
-};
+}

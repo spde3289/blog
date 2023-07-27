@@ -7,9 +7,7 @@ export default function ThemProjectChimTwo() {
     <PostContainer>
       <PostHeader title='팀프로젝트 기록 - 2' tagName='react' date='2023.04.06' />
       <Main>
-        <TextBox>
-          프로젝트에서 중반쯤 오니 진행상황에 대해 보고하는
-        </TextBox>
+        <TextBox>프로젝트에서 중반쯤 오니 진행상황에 대해 보고하는</TextBox>
       </Main>
       <GiscusApp />
     </PostContainer>

@@ -1,11 +1,6 @@
-type Color = 
-  | "body" 
-  | "font"
-  | "comment"
-  | "tag"
-  | "currentTag";
+type Color = "body" | "font" | "comment" | "tag" | "currentTag";
 
-interface themePlatte{
+interface themePlatte {
   color: Record<Color, string>;
 }
 
@@ -16,7 +11,7 @@ export const light: themePlatte = {
     comment: "light",
     tag: "rgba(13,12,34,.05)",
     currentTag: "#bbbbbb",
-  }
+  },
 };
 
 export const dark: themePlatte = {

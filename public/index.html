@@ -6,41 +6,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script>
       window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
 
-      gtag('config', 'G-0R57RK9WJF');
+      gtag("config", "G-0R57RK9WJF");
     </script>
     <script type="text/javascript">
-      (function(l) {
-        if (l.search[1] === '/' ) {
-          var decoded = l.search.slice(1).split('&').map(function(s) { 
-            return s.replace(/~and~/g, '&')
-          }).join('?');
-          window.history.replaceState(null, null,
-              l.pathname.slice(0, -1) + decoded + l.hash
-          );
+      (function (l) {
+        if (l.search[1] === "/") {
+          var decoded = l.search
+            .slice(1)
+            .split("&")
+            .map(function (s) {
+              return s.replace(/~and~/g, "&");
+            })
+            .join("?");
+          window.history.replaceState(null, null, l.pathname.slice(0, -1) + decoded + l.hash);
         }
-      }(window.location))
+      })(window.location);
     </script>
-        <script src="https://giscus.app/client.js"
-        data-repo="spde3289/blog"
-        data-repo-id="R_kgDOJkAFdA"
-        data-category="General"
-        data-category-id="DIC_kwDOJkAFdM4CWimU"
-        data-mapping="pathname"
-        data-strict="0"
-        data-reactions-enabled="1"
-        data-emit-metadata="0"
-        data-input-position="bottom"
-        data-theme="light"
-        data-lang="ko"
-        crossorigin="anonymous"
-        async>
-      </script>
-      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-      <link href="https://fonts.googleapis.com/css?family=Jua:400" rel="stylesheet">
-      <link href="https://fonts.googleapis.com/css?family=Gothic+A1:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+    <script
+      src="https://giscus.app/client.js"
+      data-repo="spde3289/blog"
+      data-repo-id="R_kgDOJkAFdA"
+      data-category="General"
+      data-category-id="DIC_kwDOJkAFdM4CWimU"
+      data-mapping="pathname"
+      data-strict="0"
+      data-reactions-enabled="1"
+      data-emit-metadata="0"
+      data-input-position="bottom"
+      data-theme="light"
+      data-lang="ko"
+      crossorigin="anonymous"
+      async
+    ></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Jua:400" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Gothic+A1:100,200,300,400,500,600,700,800,900"
+      rel="stylesheet"
+    />
     <title>spde3289.blog</title>
   </head>
   <body>

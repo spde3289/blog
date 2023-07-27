@@ -4,7 +4,7 @@ import App from "./App.tsx";
 import ScrollToTop from "./components/ScrollToTop";
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
-  <BrowserRouter basename="/blog">
+  <BrowserRouter basename='/blog'>
     <ScrollToTop />
     <App />
   </BrowserRouter>

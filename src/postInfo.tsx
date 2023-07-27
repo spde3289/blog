@@ -307,6 +307,15 @@ const content = [
     link: "addEventListener&state",
     element: <ps.EventListenerState />,
   },
+  {
+    key: 35,
+    title: "코드 포멧팅 prettier",
+    body: "",
+    date: "2023.07.27",
+    category: "Front-End",
+    link: "js-prettier",
+    element: <ps.EventListenerState />,
+  },
 ];
 
 export default content;
