@@ -310,11 +310,11 @@ const content = [
   {
     key: 35,
     title: "코드 포멧팅 prettier",
-    body: "",
+    body: "코드 포멧터 Prettier 여러 사람들과 개발을 하게되면 각자 개발 습관에 따라 세미콜론(;), 줄간격, 행 등이 각각이 달라 코드가 뒤죽박죽이 되는 상황이 생기게 됩니다. 이때 Prettier를 사용하게 되면 정해진 규칙에 따라 모맷팅 해주기 때문에 수고 없이 코드를 짜기만 하면 됩니다. 사용방법 설치가 끝났다면 .prettierrc.json 파일을 만들어 관리해줄 수 있다.",
     date: "2023.07.27",
     category: "Front-End",
     link: "js-prettier",
-    element: <ps.EventListenerState />,
+    element: <ps.CodePrettier />,
   },
 ];
 
