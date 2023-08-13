@@ -2,7 +2,7 @@ import React, { useState, useRef } from "react";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
 import { AiOutlineSearch, AiOutlineClose } from "react-icons/ai";
-import Tag from "../components/Tag";
+import { TextSplitAni } from "../components/TextSplitAni";
 
 const Home = () => {
   const [text, setText] = useState("");
@@ -36,7 +36,7 @@ const Home = () => {
     }
   };
 
-  return (
+  return ( 
     <Main>
       <IntroductionContainder>
         <Introduction>
@@ -45,11 +45,9 @@ const Home = () => {
           개발자 김지훈입니다. <br />
         </Introduction>
         <Categories>
-          <Tag tagName={"HTML"} />
-          <Tag tagName={"CSS"} />
-          <Tag tagName={"JavaScript"} />
-          <Tag tagName={"react"} />
-          <Tag tagName={"문제풀이"} />
+          <div>
+            <TextSplitAni text={"console.log('Hello World')"} />
+          </div>
         </Categories>
       </IntroductionContainder>
       <Container>
@@ -118,11 +116,9 @@ const SearchContainer = styled.div`
   border-radius: 20px;
   padding: 2px;
   padding-left: 10px;
-
   .none {
     display: none;
   }
-
   .positions {
     position: absolute;
     right: 10px;
