@@ -1,7 +1,7 @@
 import { useState, useRef } from "react";
 import styled, { useTheme } from "styled-components";
-import Tag from "../components/Tag";
-import content from "../postInfo";
+import Tag from "./Tag";
+import content from "../../postInfo";
 import { AiOutlineLeft, AiOutlineRight } from "react-icons/ai";
 
 interface ComponentProps {

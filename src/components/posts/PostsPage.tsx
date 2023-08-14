@@ -1,9 +1,9 @@
 import { useState } from "react";
 import styled from "styled-components";
-import Passengers from "../components/post/pagination/Passengers";
-import { SearchBar } from "../components/SearchBar";
-import { TagSlider } from "../components/TagSlider";
-import { useSearchContext } from "../context/searchContext";
+import Passengers from "../pagination/Passengers";
+import { SearchBar } from "../SearchBar";
+import { TagSlider } from "./TagSlider";
+import { useSearchContext } from "../../context/searchContext";
 
 const Posts = () => {
   const [searchValue, ] = useSearchContext()

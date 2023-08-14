@@ -1,5 +1,5 @@
-import PostHeader from "../../../components/post/PostHeader";
-import GiscusApp from "../../../components/post/GiscusApp";
+import PostHeader from "../../../components/posts/post/PostHeader";
+import GiscusApp from "../../../components/posts/post/GiscusApp";
 import { PostContainer, Main, SubTitle, TextBox, ReferenceLink, Table, Td, Th } from "../style";
 
 export default function DisplayGridLearn() {

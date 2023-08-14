@@ -1,5 +1,5 @@
-import PostHeader from "../../../components/post/PostHeader";
-import GiscusApp from "../../../components/post/GiscusApp";
+import PostHeader from "../../../components/posts/post/PostHeader";
+import GiscusApp from "../../../components/posts/post/GiscusApp";
 import code_1 from "./imgs/useEffect_render1/code_1.png";
 import code_2 from "./imgs/useEffect_render1/code_2.png";
 import { PostContainer, Main, TextBox, ImgContainer } from "../style";

@@ -1,7 +1,7 @@
 import React, { useState, useMemo } from "react";
 import styled from "styled-components";
 import { AiOutlineLeft, AiOutlineRight } from "react-icons/ai";
-import ContentBox from "../ContentBox";
+import ContentBox from "../posts/post/ContentBox";
 
 type props = {
   currentPage: number;

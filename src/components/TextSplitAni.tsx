@@ -1,5 +1,5 @@
 import { useState } from "react"
-import useInterval from "../customHook/useInterval";
+import useInterval from "../common/customHook/useInterval";
 
 interface propsType {
   text:string;

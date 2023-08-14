@@ -1,6 +1,6 @@
 import { useState, useMemo } from "react";
 import Pagination from "./Pagination";
-import postInfo from "../../../postInfo";
+import postInfo from "../../postInfo";
 
 type props = {
   value: string | null;

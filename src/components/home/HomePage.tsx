@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import { SearchBar } from "../components/SearchBar";
-import { TextSplitAni } from "../components/TextSplitAni";
+import { SearchBar } from "../SearchBar";
+import { TextSplitAni } from "../TextSplitAni";
 
 const Home = () => {
 

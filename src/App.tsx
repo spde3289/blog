@@ -3,13 +3,13 @@ import { Routes, Route, useLocation } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
 import GlobalStyle from "./GlobalStyled";
 
-import { light, dark } from "./theme";
+import { light, dark } from "./theme/theme";
 
-import Header from "./components/Header";
-import Footer from "./components/Footer";
-import Home from "./pages/Home";
+import Header from "./common/components/Header";
+import Footer from "./common/components/Footer";
+import Home from "./components/home/HomePage";
 import About from "./pages/About";
-import Posts from "./pages/Posts";
+import Posts from "./components/posts/PostsPage";
 
 import content from "./postInfo";
 
