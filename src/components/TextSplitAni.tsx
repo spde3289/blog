@@ -13,10 +13,7 @@ export const TextSplitAni = ({ text }: propsType) => {
     if (text.length > count) {
       setSplitText((pre) => pre + text.split("")[count]);
       setCount((pre) => pre + 1);
-    } /* else {
-      setSplitText("");
-      setCount(0);
-    }; */
+    }
   };
 
   useInterval(() => {

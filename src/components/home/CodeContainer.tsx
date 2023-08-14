@@ -5,13 +5,12 @@ interface props {
 }
 
 const CodeContainer = ({ children }: props) => {
-  console.log("Hello");
   return (
     <Container>
       <CodeContainerHeader>
-        <Dot />
-        <Dot />
-        <Dot />
+        <Dot color="#f75f59"/>
+        <Dot color="#fbbe2f"/>
+        <Dot color="#3acb41"/>
       </CodeContainerHeader>
       <CodeContainerMain>{children}</CodeContainerMain>
     </Container>
@@ -33,12 +32,12 @@ const CodeContainerHeader = styled.div`
   align-items: center;
 `;
 
-const Dot = styled.div`
+const Dot = styled.div<{ color: string }>`
   width: 10px;
   height: 10px;
   border-radius: 99999px;
   margin-left: 6px;
-  background-color: rgb(229, 231, 235);
+  background-color: ${({color})=> color};
 `;
 
 const CodeContainerMain = styled.div`
