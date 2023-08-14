@@ -6,18 +6,12 @@ import { PostContainer, Main, SubTitle, TextBox, CodeContainer, ReferenceLink } 
 export default function StyledComponent() {
   return (
     <PostContainer>
-      <PostHeader
-        title='styled-component를 사용해보자'
-        tagName='styled-component'
-        date='2023.02.03'
-      />
+      <PostHeader title='styled-component를 사용해보자' tagName='styled-component' date='2023.02.03' />
       <Main>
         <TextBox>
-          react를 처음 공부할 때 html과 js는 한 파일에서 작성하는데 css도 한 파일에서 작성 할 수
-          있지 않을까 란 생각이 들어 찾아보다가 styled-component를 알게 되었다. <br />
+          react를 처음 공부할 때 html과 js는 한 파일에서 작성하는데 css도 한 파일에서 작성 할 수 있지 않을까 란 생각이 들어 찾아보다가 styled-component를 알게 되었다. <br />
           <br />
-          styled-component는 js in css 로 말 그대로 js파일 내부에 css를 작성한다는 뜻으로
-          styled-component의 장점으로는 css의 컴포넌트화로 유지보수가 쉬워지고 재사용성이 올라간다.
+          styled-component는 js in css 로 말 그대로 js파일 내부에 css를 작성한다는 뜻으로 styled-component의 장점으로는 css의 컴포넌트화로 유지보수가 쉬워지고 재사용성이 올라간다.
         </TextBox>
         <SubTitle>패키지 설치</SubTitle>
         <CodeContainer>
@@ -58,10 +52,8 @@ export default function StyledComponent() {
           <Title>타이틀1</Title>
         </Box>
         <TextBox>
-          태그이름을 선언해 준후에 styled.태그 뒤에 ``(백틱)을 사용해서 원하는 css를 작성하면 된다.{" "}
-          <br />
-          이때 Title이라는 태그를 중복해서 사용할 때 color색상만 다르게 하고 싶다면 props로 값을
-          넘겨줄 수 있다.
+          태그이름을 선언해 준후에 styled.태그 뒤에 ``(백틱)을 사용해서 원하는 css를 작성하면 된다. <br />
+          이때 Title이라는 태그를 중복해서 사용할 때 color색상만 다르게 하고 싶다면 props로 값을 넘겨줄 수 있다.
         </TextBox>
         <CodeContainer>
           <pre>
@@ -116,9 +108,7 @@ export default function StyledComponent() {
           <Title>타이틀1</Title>
           <SubscribeTitle color='blue'>타이틀2</SubscribeTitle>
         </Box>
-        <ReferenceLink href='https://styled-components.com/'>
-          styled-component 공식문서
-        </ReferenceLink>
+        <ReferenceLink href='https://styled-components.com/'>styled-component 공식문서</ReferenceLink>
       </Main>
       <GiscusApp />
     </PostContainer>

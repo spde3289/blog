@@ -1,11 +1,11 @@
 import styled from "styled-components";
 
 interface props {
-  children: JSX.Element[] | JSX.Element
+  children: JSX.Element[] | JSX.Element;
 }
 
-const CodeContainer = ({children}: props) => {
-  console.log("Hello")
+const CodeContainer = ({ children }: props) => {
+  console.log("Hello");
   return (
     <Container>
       <CodeContainerHeader>
@@ -13,12 +13,10 @@ const CodeContainer = ({children}: props) => {
         <Dot />
         <Dot />
       </CodeContainerHeader>
-      <CodeContainerMain>
-        {children}
-      </CodeContainerMain>
+      <CodeContainerMain>{children}</CodeContainerMain>
     </Container>
-  )
-}
+  );
+};
 
 const Container = styled.div`
   width: 300px;
@@ -47,7 +45,4 @@ const CodeContainerMain = styled.div`
   padding: 20px 12px;
 `;
 
-
-
-
-export default CodeContainer
+export default CodeContainer;

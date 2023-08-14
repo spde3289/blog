@@ -1,14 +1,6 @@
 import PostHeader from "../../../components/posts/post/PostHeader";
 import GiscusApp from "../../../components/posts/post/GiscusApp";
-import {
-  PostContainer,
-  Main,
-  TextBox,
-  ReferenceLink,
-  SubTitle,
-  CodeContainer,
-  List,
-} from "../style";
+import { PostContainer, Main, TextBox, ReferenceLink, SubTitle, CodeContainer, List } from "../style";
 
 export default function TsTypeLearn() {
   const code1 = `
@@ -91,8 +83,7 @@ export default function TsTypeLearn() {
       <Main>
         <TextBox>
           타입스크립트에 대한 수요가 늘어나 타입스크립트를 공부하면서 정리해보려 한다. <br />
-          타입스크립트는 타입을 지정해 줌으로써 기존 자바스크립트에서 발생하는 에러를 미리 예방 할
-          수 있다는 장점이 있다.
+          타입스크립트는 타입을 지정해 줌으로써 기존 자바스크립트에서 발생하는 에러를 미리 예방 할 수 있다는 장점이 있다.
         </TextBox>
         <SubTitle>타입스크립트 기본타입</SubTitle>
         <List>
@@ -136,29 +127,21 @@ export default function TsTypeLearn() {
           </pre>
         </CodeContainer>
         <SubTitle size='sub'>Tuple</SubTitle>
-        <TextBox>
-          Tuple은 배열의 길이가 고정되고 각 요소의 타입이 지정되어 있는 배열 형식을 의미합니다.
-        </TextBox>
+        <TextBox>Tuple은 배열의 길이가 고정되고 각 요소의 타입이 지정되어 있는 배열 형식을 의미합니다.</TextBox>
         <CodeContainer>
           <pre>
             <code>{code5}</code>
           </pre>
         </CodeContainer>
         <SubTitle size='sub'>Enum</SubTitle>
-        <TextBox>
-          Enum은 C, Java와 같은 다른 언어에서 흔하게 쓰이는 타입으로 특정 값(상수)들의 집합을
-          의미합니다.
-        </TextBox>
+        <TextBox>Enum은 C, Java와 같은 다른 언어에서 흔하게 쓰이는 타입으로 특정 값(상수)들의 집합을 의미합니다.</TextBox>
         <CodeContainer>
           <pre>
             <code>{code6}</code>
           </pre>
         </CodeContainer>
         <SubTitle size='sub'>any</SubTitle>
-        <TextBox>
-          any는 모든 타입에 대해서 혀용한다는 의미를 가지고 있다 하지만 너무 남발하게 되면
-          TypeScript를 사용하는 의미를 잃어버리니 조심하도록 하자.
-        </TextBox>
+        <TextBox>any는 모든 타입에 대해서 혀용한다는 의미를 가지고 있다 하지만 너무 남발하게 되면 TypeScript를 사용하는 의미를 잃어버리니 조심하도록 하자.</TextBox>
         <CodeContainer>
           <pre>
             <code>{code7}</code>
@@ -172,10 +155,7 @@ export default function TsTypeLearn() {
           </pre>
         </CodeContainer>
         <SubTitle size='sub'>object</SubTitle>
-        <TextBox>
-          object는 interface, class의 상위 타입이다. object로 정의하면 any타입처럼 모든 값을 할당 할
-          수 있다. 하지만 any와 같이 typeScript를 사용하는 의미가 없어지니 조심하자.
-        </TextBox>
+        <TextBox>object는 interface, class의 상위 타입이다. object로 정의하면 any타입처럼 모든 값을 할당 할 수 있다. 하지만 any와 같이 typeScript를 사용하는 의미가 없어지니 조심하자.</TextBox>
         <CodeContainer>
           <pre>
             <code>{code9}</code>
@@ -189,24 +169,15 @@ export default function TsTypeLearn() {
           </pre>
         </CodeContainer>
         참고자료 :<br />
-        <ReferenceLink
-          href='https://joshua1988.github.io/ts/guide/basic-types.html'
-          target='_blank'
-        >
+        <ReferenceLink href='https://joshua1988.github.io/ts/guide/basic-types.html' target='_blank'>
           https://joshua1988.github.io/ts/guide/basic-types.html
         </ReferenceLink>{" "}
         <br />
-        <ReferenceLink
-          href='https://www.typescriptlang.org/docs/handbook/2/everyday-types.html'
-          target='_blank'
-        >
+        <ReferenceLink href='https://www.typescriptlang.org/docs/handbook/2/everyday-types.html' target='_blank'>
           https://www.typescriptlang.org/docs/handbook/2/everyday-types.html
         </ReferenceLink>{" "}
         <br />
-        <ReferenceLink
-          href='https://joshua1988.github.io/ts/guide/basic-types.html#%ED%83%80%EC%9E%85%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8-%EA%B8%B0%EB%B3%B8-%ED%83%80%EC%9E%85'
-          target='_blank'
-        >
+        <ReferenceLink href='https://joshua1988.github.io/ts/guide/basic-types.html#%ED%83%80%EC%9E%85%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8-%EA%B8%B0%EB%B3%B8-%ED%83%80%EC%9E%85' target='_blank'>
           https://joshua1988.github.io/ts/guide/basic-types.html#
         </ReferenceLink>{" "}
         <br />

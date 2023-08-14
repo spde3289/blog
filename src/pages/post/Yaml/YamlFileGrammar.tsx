@@ -48,15 +48,11 @@ export default function YamlFileGrammar() {
       <Main>
         <SubTitle>yaml이란?</SubTitle>
         <TextBox>
-          yaml은 YAML ain’t markup language의 약어로 마크업 언어가 아닌 데이터에 특화됨 을 보여주는
-          말이다. json 파일의 상위 버젼이라고 생각할 수 도 있다. 주석을 달 수 없고 json의 중괄호와
-          대괄호 남발로 코드길이가 질어지게 된다는 단점을 보안하고자 해서 나온 방식이다. 또한 문법을
-          보면 Python과 매우 유사함을 알 수 있다.
+          yaml은 YAML ain’t markup language의 약어로 마크업 언어가 아닌 데이터에 특화됨 을 보여주는 말이다. json 파일의 상위 버젼이라고 생각할 수 도 있다. 주석을 달 수 없고 json의 중괄호와 대괄호
+          남발로 코드길이가 질어지게 된다는 단점을 보안하고자 해서 나온 방식이다. 또한 문법을 보면 Python과 매우 유사함을 알 수 있다.
         </TextBox>
         <SubTitle>기본 문법</SubTitle>
-        <TextBox>
-          기본적으로 json과 같이 "key: value"와 같이 표기되고 ":" 다음에는 공백 한칸이 필요하다.
-        </TextBox>
+        <TextBox>기본적으로 json과 같이 "key: value"와 같이 표기되고 ":" 다음에는 공백 한칸이 필요하다.</TextBox>
         <CodeContainer>
           <pre>
             <code>{code1}</code>

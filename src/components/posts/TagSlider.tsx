@@ -6,10 +6,10 @@ import { AiOutlineLeft, AiOutlineRight } from "react-icons/ai";
 
 interface ComponentProps {
   tag: string;
-  setTag: React.Dispatch<React.SetStateAction<string>>
+  setTag: React.Dispatch<React.SetStateAction<string>>;
 }
 
-export const TagSlider = ({tag, setTag}:ComponentProps) => {
+export const TagSlider = ({ tag, setTag }: ComponentProps) => {
   const [posState, setPosState] = useState(0);
   const ref = useRef<HTMLDivElement>(null);
   const theme: any = useTheme();
@@ -33,16 +33,16 @@ export const TagSlider = ({tag, setTag}:ComponentProps) => {
           setPosState(0);
         } else {
           setPosState(posState - maxMove);
-        };
-      };
+        }
+      }
       if (type === "right") {
         if (maxWidth - 800 - posState <= maxMove) {
           setPosState(maxWidth - 800);
         } else {
           setPosState(posState + maxMove);
-        };
-      };
-    };
+        }
+      }
+    }
   };
 
   const currentTag = (e: string) => {
@@ -61,12 +61,7 @@ export const TagSlider = ({tag, setTag}:ComponentProps) => {
       <TagList>
         <TagContainer left={posState} ref={ref}>
           {newTagList.map((el) => (
-            <Tag
-              color={el.replace("# ", "") === tag ? theme.color.currentTag : ""}
-              key={el}
-              tagName={el}
-              currentTag={currentTag}
-            />
+            <Tag color={el.replace("# ", "") === tag ? theme.color.currentTag : ""} key={el} tagName={el} currentTag={currentTag} />
           ))}
         </TagContainer>
       </TagList>
@@ -83,7 +78,7 @@ export const TagSlider = ({tag, setTag}:ComponentProps) => {
 
 interface TagContainerProps {
   left: number;
-};
+}
 
 const SliderContainer = styled.div`
   display: flex;
@@ -112,4 +107,3 @@ const SliderButton = styled.div`
   margin-bottom: -4px;
   cursor: pointer;
 `;
-

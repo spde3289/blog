@@ -27,8 +27,7 @@ export default function SementicTag() {
           <br />
           <b>3. 유지보수의 용이성</b> <br />
           <br />
-          div태그만으로 작성된 문서보단 header h1 h2와 같은 태그로 작성된 문서보다 알아보기가 쉬워져
-          유지보수가 용이해진다.
+          div태그만으로 작성된 문서보단 header h1 h2와 같은 태그로 작성된 문서보다 알아보기가 쉬워져 유지보수가 용이해진다.
         </TextBox>
         <SubTitle>Sementic Tag의 종류</SubTitle>
         <TextBox>
@@ -39,12 +38,8 @@ export default function SementicTag() {
           section : 문서의 관련된 구역을 나눌때 사용된다. <br />
           address : 작성자의 주소나 정보등을 작성하는 태그 <br />
         </TextBox>
-        <TextBox>
-          이것 이외에도 아주 많은 sementic tag가 있으니 잘 이용해서 문서를 작성하도록 하자.
-        </TextBox>
-        <ReferenceLink href='https://developer.mozilla.org/ko/docs/Glossary/Semantics'>
-          참고 링크 : https://developer.mozilla.org/ko/docs/Glossary/Semantics
-        </ReferenceLink>
+        <TextBox>이것 이외에도 아주 많은 sementic tag가 있으니 잘 이용해서 문서를 작성하도록 하자.</TextBox>
+        <ReferenceLink href='https://developer.mozilla.org/ko/docs/Glossary/Semantics'>참고 링크 : https://developer.mozilla.org/ko/docs/Glossary/Semantics</ReferenceLink>
       </Main>
       <GiscusApp />
     </PostContainer>

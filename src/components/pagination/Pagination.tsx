@@ -22,16 +22,7 @@ type props = {
   onPageChange: (e: number) => void;
 };
 
-const Pagination = ({
-  currentPage,
-  maxPageLimit,
-  minPageLimit,
-  totalPages,
-  pageData,
-  onPrevClick,
-  onNextClick,
-  onPageChange,
-}: props) => {
+const Pagination = ({ currentPage, maxPageLimit, minPageLimit, totalPages, pageData, onPrevClick, onNextClick, onPageChange }: props) => {
   const [currentNum, setCurrentNum] = useState(1);
   const count: number = pageData.length;
 
@@ -69,14 +60,7 @@ const Pagination = ({
         <ContentPoint>
           <PostColumn>
             {pageData.map((data) => (
-              <ContentBox
-                key={data.key}
-                title={data.title}
-                body={data.body}
-                date={data.date}
-                category={data.category}
-                link={data.link}
-              ></ContentBox>
+              <ContentBox key={data.key} title={data.title} body={data.body} date={data.date} category={data.category} link={data.link}></ContentBox>
             ))}
           </PostColumn>
           <Pages>
@@ -86,11 +70,7 @@ const Pagination = ({
             <Number>
               {page.map((page) =>
                 page <= maxPageLimit && page > minPageLimit ? (
-                  <Page
-                    key={page}
-                    onClick={() => handlePageClick(page)}
-                    scale={currentNum === page ? "1.2" : "1"}
-                  >
+                  <Page key={page} onClick={() => handlePageClick(page)} scale={currentNum === page ? "1.2" : "1"}>
                     {page}
                   </Page>
                 ) : null

@@ -316,6 +316,15 @@ const content = [
     link: "js-prettier",
     element: <ps.CodePrettier />,
   },
+  {
+    key: 36,
+    title: "타입 추론",
+    body: "",
+    date: "2023.08.15",
+    category: "typescript",
+    link: "Type-Inference",
+    element: <ps.TypeInference />,
+  },
 ];
 
 export default content;

@@ -11,18 +11,14 @@ export default function RESTful() {
         <TextBox>
           RESTful 는 REST API의 REST를 잘 따르는 시스템을 RESTful하다 라고 할 수 있다. <br />
           <br />
-          RESTful은 REST를 REST답게 쓰기 위한 방법으로, 누군가가 공식적으로 발표한 것이 아니다. 즉,
-          REST 원리를 따르는 시스템은 RESTful이란 용어로 지칭된다.
+          RESTful은 REST를 REST답게 쓰기 위한 방법으로, 누군가가 공식적으로 발표한 것이 아니다. 즉, REST 원리를 따르는 시스템은 RESTful이란 용어로 지칭된다.
         </TextBox>
         <TextBox>
-          그럼 REST는 무엇일까? REST는 (Representational state transfer)의 약어로 자원을 이름(자원의
-          표현)으로 구분하여 해당 자원의 상태(정보)를 주고 받는 모든 것을 의미한다.
+          그럼 REST는 무엇일까? REST는 (Representational state transfer)의 약어로 자원을 이름(자원의 표현)으로 구분하여 해당 자원의 상태(정보)를 주고 받는 모든 것을 의미한다.
           <br />
-          REST는 클라이언트 측에서 URL형태로 Server에 요청을 할 수 있는데 요청을 보내는 방법으로는
-          HTTP프로토콜의 Method를 사용한다. <br />
+          REST는 클라이언트 측에서 URL형태로 Server에 요청을 할 수 있는데 요청을 보내는 방법으로는 HTTP프로토콜의 Method를 사용한다. <br />
           HTTP프로토콜은 GET, POST, PUT, DELETE와 같은 메서드를 제공한다 <br />
-          위와 같은 메서드를 이용해 요청을 보내면 Server에서는 JSON, XML, TEXT, RSS등 여러 형태로
-          응답을 보내주는데 보통 JSON, XML형태로 데이터를 주고 받는게 일반적이라고 할 수 있다.
+          위와 같은 메서드를 이용해 요청을 보내면 Server에서는 JSON, XML, TEXT, RSS등 여러 형태로 응답을 보내주는데 보통 JSON, XML형태로 데이터를 주고 받는게 일반적이라고 할 수 있다.
         </TextBox>
         <TextBox>
           REST API란 REST 기반으로 서비스 API를 구현한 것 이라고 할 수 있다. <br />
@@ -51,26 +47,19 @@ export default function RESTful() {
         <TextBox>
           <strong>메세지 본문</strong> <br />
           <br />
-          응답 본문에는 리소스 표현이 포함이 되고 서버는 요청 헤더에 포함된 내용을 기반으로 응답을
-          보내준다. 클라이언트는 XML 또는 JSON 형식으로 정보를 요청할 수 있습니다. 예를 들어,
-          클라이언트가 John이라는 사람의 이름과 나이를 요청하면 서버는 다음과 같이 JSON 표현을
-          반환해준다.
+          응답 본문에는 리소스 표현이 포함이 되고 서버는 요청 헤더에 포함된 내용을 기반으로 응답을 보내준다. 클라이언트는 XML 또는 JSON 형식으로 정보를 요청할 수 있습니다. 예를 들어, 클라이언트가
+          John이라는 사람의 이름과 나이를 요청하면 서버는 다음과 같이 JSON 표현을 반환해준다.
           <br />
           {`{"name":"John", "age":30}`}
         </TextBox>
         <TextBox>
           <strong>헤더</strong> <br />
           <br />
-          응답에는 응답에 대한 헤더 또는 메타데이터도 포함이 되는데 이는 응답에 대한 추가 컨텍스트를
-          제공하고 서버, 인코딩, 날짜 및 콘텐츠 유형과 같은 정보를 포함한다.
+          응답에는 응답에 대한 헤더 또는 메타데이터도 포함이 되는데 이는 응답에 대한 추가 컨텍스트를 제공하고 서버, 인코딩, 날짜 및 콘텐츠 유형과 같은 정보를 포함한다.
         </TextBox>
-        <ReferenceLink href='https://aws.amazon.com/ko/what-is/restful-api/'>
-          참고 자료 : https://aws.amazon.com/ko/what-is/restful-api/
-        </ReferenceLink>
+        <ReferenceLink href='https://aws.amazon.com/ko/what-is/restful-api/'>참고 자료 : https://aws.amazon.com/ko/what-is/restful-api/</ReferenceLink>
         <br />
-        <ReferenceLink href='https://gmlwjd9405.github.io/2018/09/21/rest-and-restful.html'>
-          참고 자료 :https://gmlwjd9405.github.io/2018/09/21/rest-and-restful.html
-        </ReferenceLink>
+        <ReferenceLink href='https://gmlwjd9405.github.io/2018/09/21/rest-and-restful.html'>참고 자료 :https://gmlwjd9405.github.io/2018/09/21/rest-and-restful.html</ReferenceLink>
       </Main>
       <GiscusApp />
     </PostContainer>

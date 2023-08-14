@@ -9,14 +9,10 @@ export default function DisplayGridLearn() {
       <Main>
         <TextBox>
           gird는 행과 열이 있는 레이아웃 시스템을 제공한다. <br />
-          1차원 레이아웃을 지원하는 flex와 다르게 좀 더 복잡한 레이아웃을 위해 grid를 사용할 수
-          있다.
+          1차원 레이아웃을 지원하는 flex와 다르게 좀 더 복잡한 레이아웃을 위해 grid를 사용할 수 있다.
         </TextBox>
         <SubTitle>Grid Properties</SubTitle>
-        <TextBox>
-          gird는 flex와 같이 Container와 Item이라는 두가지 개념으로 구분되어 있는데 Container는
-          Item을 감싸는 부모 요소이며 그 안에 Item을 배치 할 수 있다.
-        </TextBox>
+        <TextBox>gird는 flex와 같이 Container와 Item이라는 두가지 개념으로 구분되어 있는데 Container는 Item을 감싸는 부모 요소이며 그 안에 Item을 배치 할 수 있다.</TextBox>
         <SubTitle>Grid Container Properties</SubTitle>
         <TextBox>Container를 위한 속성은 아래와 같다.</TextBox>
         <Table>
@@ -205,8 +201,7 @@ export default function DisplayGridLearn() {
             <tr>
               <Td>grid-area</Td>
               <Td>
-                영역(Area) 이름을 설정하거나, <code>grid-row</code>와 <code>grid-column</code>의
-                단축 속성
+                영역(Area) 이름을 설정하거나, <code>grid-row</code>와 <code>grid-column</code>의 단축 속성
               </Td>
               <Td>
                 grid-area: grid-row-start / grid-column-start / <br />
@@ -261,17 +256,12 @@ export default function DisplayGridLearn() {
             </tr>
           </tbody>
         </Table>
-        <ReferenceLink href='https://www.w3schools.com/css/css_grid.asp'>
-          참고 자료 : https://www.w3schools.com/css/css_grid.asp
-        </ReferenceLink>
+        <ReferenceLink href='https://www.w3schools.com/css/css_grid.asp'>참고 자료 : https://www.w3schools.com/css/css_grid.asp</ReferenceLink>
         <br />
-        <ReferenceLink href='https://studiomeal.com/archives/533'>
-          참고 자료 : https://studiomeal.com/archives/533
-        </ReferenceLink>
+        <ReferenceLink href='https://studiomeal.com/archives/533'>참고 자료 : https://studiomeal.com/archives/533</ReferenceLink>
         <br />
         <ReferenceLink href='https://developer.mozilla.org/ko/docs/Web/CSS/CSS_Grid_Layout/Basic_Concepts_of_Grid_Layout'>
-          참고 자료 :
-          https://developer.mozilla.org/ko/docs/Web/CSS/CSS_Grid_Layout/Basic_Concepts_of_Grid_Layout
+          참고 자료 : https://developer.mozilla.org/ko/docs/Web/CSS/CSS_Grid_Layout/Basic_Concepts_of_Grid_Layout
         </ReferenceLink>
       </Main>
       <GiscusApp />

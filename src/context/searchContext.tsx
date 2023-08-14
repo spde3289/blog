@@ -1,4 +1,4 @@
-import { createContext, useState, useContext, useMemo } from 'react';
+import { createContext, useState, useContext, useMemo } from "react";
 
 /* interface SearchContextValue {
   [
@@ -10,7 +10,7 @@ import { createContext, useState, useContext, useMemo } from 'react';
 }
  */
 interface props {
-  children: JSX.Element
+  children: JSX.Element;
 }
 
 const searchContext = createContext<any | null>(null);
@@ -22,13 +22,11 @@ export function SearchProvider({ children }: props) {
     () => ({
       input: (value: string) => setSearchValue(value),
     }),
-    [setSearchValue],
+    [setSearchValue]
   );
 
-  return (
-    <searchContext.Provider children={children} value={[searchValue, handle]} />
-  );
-};
+  return <searchContext.Provider children={children} value={[searchValue, handle]} />;
+}
 
 export function useSearchContext() {
   return useContext(searchContext);

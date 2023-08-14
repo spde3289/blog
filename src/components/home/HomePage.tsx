@@ -4,8 +4,7 @@ import CodeContainer from "./CodeContainer";
 import { TextSplitAni } from "../TextSplitAni";
 
 const Home = () => {
-  console.log("asd")
-  return ( 
+  return (
     <Main>
       <IntroductionContainder>
         <Introduction>
@@ -15,7 +14,7 @@ const Home = () => {
         </Introduction>
         <CodeContainer>
           <P>
-            <TextSplitAni text={"console.log('Hi, there')"} /> 
+            <TextSplitAni text={"console.log('Hi, there')"} />
             <CurrentBar>|</CurrentBar>
           </P>
         </CodeContainer>
@@ -24,7 +23,6 @@ const Home = () => {
     </Main>
   );
 };
-
 
 const Main = styled.main`
   height: calc(100vh - 495px);

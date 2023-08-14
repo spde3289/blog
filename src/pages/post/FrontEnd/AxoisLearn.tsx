@@ -36,9 +36,7 @@ export default function AxiosLearn() {
             </code>
           </pre>
         </CodeContainer>
-        <ReferenceLink href='https://axios-http.com/'>
-          참고자료 : https://axios-http.com/
-        </ReferenceLink>
+        <ReferenceLink href='https://axios-http.com/'>참고자료 : https://axios-http.com/</ReferenceLink>
       </Main>
       <GiscusApp />
     </PostContainer>

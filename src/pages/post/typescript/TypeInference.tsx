@@ -1,36 +1,19 @@
 import PostHeader from "../../../components/posts/post/PostHeader";
 import GiscusApp from "../../../components/posts/post/GiscusApp";
-import { PostContainer, Main, TextBox, ReferenceLink, SubTitle, CodeContainer, List } from "../style";
+import { PostContainer, Main, TextBox, ReferenceLink, SubTitle, CodeContainer } from "../style";
 
-export default function CustomTypesLearn() {
+export default function TypeInference() {
   const code1 = `
-    type Name = string;
-    type Age = number;
 
-    type Preson = {
-      name : Name;
-      age : Age;
-    };
-
-    const person: Person = {
-      name : Kim,
-      age : 24
-    };
   `;
 
   const code2 = `
-    type Position = "fixed" | "absolute" ;
 
-    const menu = (position:Position = "flex") => {
-      // 어쩌구 저쩌구
-    };
-
-    menu("absolute") // 타입 Position과 맞지 않으면 에러가 발생한다.
   `;
 
   return (
     <PostContainer>
-      <PostHeader title='타입스크립트 커스텀 타입' tagName='typescript' date='2023.05.20' />
+      <PostHeader title='타입스크립트 타입 추론' tagName='typescript' date='2023.08.15' />
       <Main>
         <SubTitle>커스텀 타입이란?</SubTitle>
         <TextBox>
@@ -41,13 +24,6 @@ export default function CustomTypesLearn() {
             <code>{code1}</code>
           </pre>
         </CodeContainer>
-        <TextBox>커스텀 타입을 사용하면 보다 강력하게 타입을 지정할 수 있다.</TextBox>
-        <CodeContainer>
-          <pre>
-            <code>{code2}</code>
-          </pre>
-        </CodeContainer>
-        <TextBox>위와 같이 사용하면 잘못된 함수의 사용을 막을 수 있다.</TextBox>
         참고자료 :<br />
         <ReferenceLink href='https://velog.io/@cjh951114/TypeScript-2.2-%EC%BB%A4%EC%8A%A4%ED%85%80-%ED%83%80%EC%9E%85-%EC%A0%95%EC%9D%98' target='_blank'>
           https://velog.io/@cjh951114/TypeScript

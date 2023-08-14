@@ -24,16 +24,12 @@ const Passengers = ({ value, tag }: props) => {
       setNewList(contentList);
     } else {
       setCurrentPage(1);
-      setNewList(
-        contentList.filter((list) => list.title.toLowerCase().includes(value.toLowerCase()))
-      );
+      setNewList(contentList.filter((list) => list.title.toLowerCase().includes(value.toLowerCase())));
     }
   }, [value, contentList]);
 
   useMemo(() => {
-    tag === "all"
-      ? setContentList(postInfo)
-      : setContentList(postInfo.filter((el) => el.category === tag));
+    tag === "all" ? setContentList(postInfo) : setContentList(postInfo.filter((el) => el.category === tag));
   }, [tag]);
 
   useMemo(() => {
@@ -69,20 +65,7 @@ const Passengers = ({ value, tag }: props) => {
     totalPages,
   };
 
-  return (
-    <>
-      {!loading ? (
-        <Pagination
-          {...pageInfo}
-          onPrevClick={onPrevClick}
-          onNextClick={onNextClick}
-          onPageChange={onPageChange}
-        />
-      ) : (
-        <div />
-      )}
-    </>
-  );
+  return <>{!loading ? <Pagination {...pageInfo} onPrevClick={onPrevClick} onNextClick={onNextClick} onPageChange={onPageChange} /> : <div />}</>;
 };
 
 export default Passengers;

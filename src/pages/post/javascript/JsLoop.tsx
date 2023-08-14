@@ -1,14 +1,6 @@
 import PostHeader from "../../../components/posts/post/PostHeader";
 import GiscusApp from "../../../components/posts/post/GiscusApp";
-import {
-  PostContainer,
-  Main,
-  TextBox,
-  ReferenceLink,
-  CodeContainer,
-  SubTitle,
-  List,
-} from "../style";
+import { PostContainer, Main, TextBox, ReferenceLink, CodeContainer, SubTitle, List } from "../style";
 
 export default function JsLoop() {
   const code1 = `
@@ -93,20 +85,14 @@ export default function JsLoop() {
           </pre>
         </CodeContainer>
         <SubTitle size='sub'>for...in 문</SubTitle>
-        <TextBox>
-          for...in 문은 객체의 속성을 열거할 때 유용하게 활용된다. 하지만 일반적인 배열에도 사용이
-          가능하다.
-        </TextBox>
+        <TextBox>for...in 문은 객체의 속성을 열거할 때 유용하게 활용된다. 하지만 일반적인 배열에도 사용이 가능하다.</TextBox>
         <CodeContainer>
           <pre>
             <code>{code2}</code>
           </pre>
         </CodeContainer>
         <SubTitle size='sub'>for...of 문</SubTitle>
-        <TextBox>
-          for...of 문은 배열이나 이터러블(iterable) 객체의 각 요소들을 반복적으로 순회하는 데
-          사용된다.
-        </TextBox>
+        <TextBox>for...of 문은 배열이나 이터러블(iterable) 객체의 각 요소들을 반복적으로 순회하는 데 사용된다.</TextBox>
         <CodeContainer>
           <pre>
             <code>{code3}</code>
@@ -128,10 +114,7 @@ export default function JsLoop() {
         </CodeContainer>
         <TextBox>
           참고자료 : <br />
-          <ReferenceLink
-            href='https://developer.mozilla.org/ko/docs/Web/JavaScript/Guide/Loops_and_iteration'
-            target='_blank'
-          >
+          <ReferenceLink href='https://developer.mozilla.org/ko/docs/Web/JavaScript/Guide/Loops_and_iteration' target='_blank'>
             https://developer.mozilla.org/ko/docs/Web/JavaScript/Guide/Loops_and_iteration
           </ReferenceLink>{" "}
           <br />

@@ -170,13 +170,9 @@ export default function AxiosLearn() {
             <code>{code6}</code>
           </pre>
         </CodeContainer>
-        <ReferenceLink href='https://axios-http.com/'>
-          참고자료 : https://axios-http.com/
-        </ReferenceLink>
+        <ReferenceLink href='https://axios-http.com/'>참고자료 : https://axios-http.com/</ReferenceLink>
         <br />
-        <ReferenceLink href='https://inpa.tistory.com/entry/AXIOS-%F0%9F%93%9A-%EC%84%A4%EC%B9%98-%EC%82%AC%EC%9A%A9'>
-          참고자료 : https://inpa.tistory.com/entry/AXIOS
-        </ReferenceLink>
+        <ReferenceLink href='https://inpa.tistory.com/entry/AXIOS-%F0%9F%93%9A-%EC%84%A4%EC%B9%98-%EC%82%AC%EC%9A%A9'>참고자료 : https://inpa.tistory.com/entry/AXIOS</ReferenceLink>
       </Main>
       <GiscusApp />
     </PostContainer>

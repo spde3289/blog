@@ -27,9 +27,7 @@ const Header = ({ darkMode, handleDarkMode }: props) => {
               about
             </Link>
           </HeaderMenuItem>
-          <HeaderMenuItem onClick={handleDarkMode}>
-            {darkMode ? <BsFillSunFill /> : <BsFillMoonFill />}
-          </HeaderMenuItem>
+          <HeaderMenuItem onClick={handleDarkMode}>{darkMode ? <BsFillSunFill /> : <BsFillMoonFill />}</HeaderMenuItem>
         </HeaderMenu>
       </NavBar>
     </HeaderBar>

@@ -1,21 +1,21 @@
 import { useState, useRef, useEffect } from "react";
-import { useNavigate, useLocation  } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import styled from "styled-components";
 import { AiOutlineSearch, AiOutlineClose } from "react-icons/ai";
 import { useSearchContext } from "../context/searchContext";
 
 export const SearchBar = () => {
-  const [searchValue, { input }] = useSearchContext()
-  const inputRef = useRef<HTMLInputElement| null>(null);
+  const [searchValue, { input }] = useSearchContext();
+  const inputRef = useRef<HTMLInputElement | null>(null);
   const navigate = useNavigate();
   const location = useLocation();
   const value = location.state?.value;
 
   useEffect(() => {
     if (value !== undefined) {
-      input(value)
+      input(value);
     }
-  },[value])
+  }, [value]);
 
   const inputOnClick = () => {
     if (inputRef.current) {
@@ -52,21 +52,12 @@ export const SearchBar = () => {
         }}
       >
         <AiOutlineSearch className='icon' />
-        <Search
-          placeholder='search'
-          ref={inputRef}
-          value={searchValue}
-          onChange={ChangeText}
-          onKeyDown={OnKeyDown}
-        />
-        <AiOutlineClose
-          className={"icon positions " + (searchValue.length === 0 ? "none" : "")}
-          onClick={DeleteText}
-        />
+        <Search placeholder='search' ref={inputRef} value={searchValue} onChange={ChangeText} onKeyDown={OnKeyDown} />
+        <AiOutlineClose className={"icon positions " + (searchValue.length === 0 ? "none" : "")} onClick={DeleteText} />
       </SearchContainer>
     </Container>
-  )
-}
+  );
+};
 
 const Container = styled.div`
   display: flex;

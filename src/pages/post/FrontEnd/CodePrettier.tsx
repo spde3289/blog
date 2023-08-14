@@ -27,9 +27,8 @@ export default function CodePrettier() {
       <Main>
         <SubTitle>코드 포멧터 Prettier</SubTitle>
         <TextBox>
-          여러 사람들과 개발을 하게되면 각자 개발 습관에 따라 세미콜론(;), 줄간격, 행 등이 각각이
-          달라 코드가 뒤죽박죽이 되는 상황이 생기게 됩니다. 이때 Prettier를 사용하게 되면 정해진
-          규칙에 따라 모맷팅 해주기 때문에 수고 없이 코드를 짜기만 하면 됩니다.
+          여러 사람들과 개발을 하게되면 각자 개발 습관에 따라 세미콜론(;), 줄간격, 행 등이 각각이 달라 코드가 뒤죽박죽이 되는 상황이 생기게 됩니다. 이때 Prettier를 사용하게 되면 정해진 규칙에 따라
+          모맷팅 해주기 때문에 수고 없이 코드를 짜기만 하면 됩니다.
         </TextBox>
         <SubTitle>사용방법</SubTitle>
         <CodeContainer>
@@ -43,14 +42,8 @@ export default function CodePrettier() {
             <code>{code2}</code>
           </pre>
         </CodeContainer>
-        <TextBox>
-          package.json파일 scripts에 prettier --write . 를 추가해주면 간단한 명령어를 실행할 때 마다
-          코드 포맷팅이 실행된다.
-        </TextBox>
-        <TextBox>
-          설정에서 Default Formatter 를 검색해주고 Default Formatter 부분에 Prettier - Code
-          Fromatter 를 지정해주고 Settings에서 Text Editor를 클릭한 후 Formatting를 다시 클릭해준다
-        </TextBox>
+        <TextBox>package.json파일 scripts에 prettier --write . 를 추가해주면 간단한 명령어를 실행할 때 마다 코드 포맷팅이 실행된다.</TextBox>
+        <TextBox>설정에서 Default Formatter 를 검색해주고 Default Formatter 부분에 Prettier - Code Fromatter 를 지정해주고 Settings에서 Text Editor를 클릭한 후 Formatting를 다시 클릭해준다</TextBox>
         <TextBox>
           Format On Paste : 사용자가 코드를 붙여넣기 했을 때, 자동으로 코드를 정렬 <br />
           Format On Save : 사용자가 코드를 저장 했을 때, 자동으로 코드를 정렬 <br />

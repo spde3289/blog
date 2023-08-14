@@ -6,9 +6,9 @@ import { TagSlider } from "./TagSlider";
 import { useSearchContext } from "../../context/searchContext";
 
 const Posts = () => {
-  const [searchValue, ] = useSearchContext()
+  const [searchValue] = useSearchContext();
   const [tag, setTag] = useState("all");
-  
+
   return (
     <PostMain>
       <SearchBar />

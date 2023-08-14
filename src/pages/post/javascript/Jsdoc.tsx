@@ -49,8 +49,7 @@ export default function Jsdoc() {
       <PostHeader title='Jsdoc주석에 대해서 알아보자' tagName='javascript' date='2023.02.26' />
       <Main>
         <TextBox>
-          JSDoc 주석은 JavaScript 코드에 추가되는 문서화 주석이다. <br />이 주석은 함수, 변수,
-          객체의 설명, 타입정보 등을 제공할 수 있다. <br />
+          JSDoc 주석은 JavaScript 코드에 추가되는 문서화 주석이다. <br />이 주석은 함수, 변수, 객체의 설명, 타입정보 등을 제공할 수 있다. <br />
         </TextBox>
         <SubTitle>JSDoc 주석 사용법</SubTitle>
         <CodeContainer>
@@ -84,9 +83,7 @@ export default function Jsdoc() {
           </pre>
         </CodeContainer>
         <img src={example4} alt='JSDoc주석 힌트' />
-        <TextBox>
-          이것 말고도 더 다양한 태그들이 있으니 JSDoc 참고 사이트를 확인해보도록 하자
-        </TextBox>
+        <TextBox>이것 말고도 더 다양한 태그들이 있으니 JSDoc 참고 사이트를 확인해보도록 하자</TextBox>
         <SubTitle>참고 사이트</SubTitle>
         <ReferenceLink href='https://jsdoc.app/' target='_blank'>
           https://jsdoc.app/

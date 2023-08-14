@@ -1,14 +1,6 @@
 import PostHeader from "../../../components/posts/post/PostHeader";
 import GiscusApp from "../../../components/posts/post/GiscusApp";
-import {
-  PostContainer,
-  Main,
-  TextBox,
-  ReferenceLink,
-  SubTitle,
-  CodeContainer,
-  List,
-} from "../style";
+import { PostContainer, Main, TextBox, ReferenceLink, SubTitle, CodeContainer, List } from "../style";
 
 export default function InterfaceGenericLearn() {
   const code1 = `
@@ -138,9 +130,8 @@ export default function InterfaceGenericLearn() {
       <Main>
         <TextBox>
           타입스크립트에서는 인터페이스를 활용해 변수의 타입으로 사용할 수 있다. <br />
-          인터페이스는 클래스와 비슷한데 클래스와는 다르게 정의만 할 뿐 구현이 되지 않는다는
-          차이점이 있다. 타입스크립트에서 인터페이스는 상호 간에 정의한 약속 혹은 규칙을 의미한다.
-          인터페이스는 보통 다음과 같은 범주에 대해 정의할 수 있다.
+          인터페이스는 클래스와 비슷한데 클래스와는 다르게 정의만 할 뿐 구현이 되지 않는다는 차이점이 있다. 타입스크립트에서 인터페이스는 상호 간에 정의한 약속 혹은 규칙을 의미한다. 인터페이스는 보통
+          다음과 같은 범주에 대해 정의할 수 있다.
         </TextBox>
         <List>
           <li>객체의 스펙(속성과 속성의 타입)</li>
@@ -168,8 +159,7 @@ export default function InterfaceGenericLearn() {
         </CodeContainer>
         <SubTitle size='sub'>읽기 전용 속성</SubTitle>
         <TextBox>
-          읽기 전용 속성은 객체를 생성할때 값을 할당하면 그 이후에는 바꿀 수 없는 속성을 의미한다
-          readonly 속성을 앞에 사용하면 된다. <br />
+          읽기 전용 속성은 객체를 생성할때 값을 할당하면 그 이후에는 바꿀 수 없는 속성을 의미한다 readonly 속성을 앞에 사용하면 된다. <br />
           또한 ReadonlyArray{"<T>"}를 사용하면 배열또한 읽기전용으로 지정 할 수 있습니다.
         </TextBox>
         <CodeContainer>
@@ -199,10 +189,7 @@ export default function InterfaceGenericLearn() {
           </pre>
         </CodeContainer>
         <SubTitle size='sub'>클래스 타입</SubTitle>
-        <TextBox>
-          C#이나 자바처럼 타입스크립트에서도 클래스가 일정 조건을 만족하도록 타입 규칙을 정할 수
-          있다.
-        </TextBox>
+        <TextBox>C#이나 자바처럼 타입스크립트에서도 클래스가 일정 조건을 만족하도록 타입 규칙을 정할 수 있다.</TextBox>
         <CodeContainer>
           <pre>
             <code>{code7}</code>
@@ -224,14 +211,11 @@ export default function InterfaceGenericLearn() {
         참고자료 :<br />
         <ReferenceLink href='https://poiemaweb.com/typescript-interface' target='_blank'>
           https://poiemaweb.com/typescript-interface
-        </ReferenceLink>{" "}
+        </ReferenceLink>
         <br />
-        <ReferenceLink
-          href='https://joshua1988.github.io/ts/guide/interfaces.html#%EC%9D%B8%ED%84%B0%ED%8E%98%EC%9D%B4%EC%8A%A4'
-          target='_blank'
-        >
+        <ReferenceLink href='https://joshua1988.github.io/ts/guide/interfaces.html#%EC%9D%B8%ED%84%B0%ED%8E%98%EC%9D%B4%EC%8A%A4' target='_blank'>
           https://joshua1988.github.io/ts/guide/interfaces.html
-        </ReferenceLink>{" "}
+        </ReferenceLink>
         <br />
       </Main>
       <GiscusApp />

@@ -5,22 +5,14 @@ import { PostContainer, Main, SubTitle, TextBox, CodeContainer, ReferenceLink } 
 export default function StyledComponentGlobleStyle() {
   return (
     <PostContainer>
-      <PostHeader
-        title='styled-component 전역 스타일링에 대해 알아보자'
-        tagName='styled-component'
-        date='2023.02.03'
-      />
+      <PostHeader title='styled-component 전역 스타일링에 대해 알아보자' tagName='styled-component' date='2023.02.03' />
       <Main>
         <TextBox>
-          이전에 포스트에서 styled-component 사용법에 대해서 다뤘었는데 오늘은 GlobalStyle과 Theme에
-          대해 알아보겠다.
+          이전에 포스트에서 styled-component 사용법에 대해서 다뤘었는데 오늘은 GlobalStyle과 Theme에 대해 알아보겠다.
           <br />
         </TextBox>
         <SubTitle>GolbalStyle 사용방법</SubTitle>
-        <TextBox>
-          간단하게 createGlobalStyle 이라는 함수를 사용해 css를 작성한 후 최상위 컴포넌트에
-          추가해주면 된다.
-        </TextBox>
+        <TextBox>간단하게 createGlobalStyle 이라는 함수를 사용해 css를 작성한 후 최상위 컴포넌트에 추가해주면 된다.</TextBox>
         <CodeContainer>
           <pre>
             <code>
@@ -69,15 +61,12 @@ export default function StyledComponentGlobleStyle() {
           </pre>
         </CodeContainer>
         <TextBox>
-          이렇게 사용하면 전역으로 css를 설정할 수 있어 불필요하게 중복되는 스타일링을 줄일 수 있다.{" "}
-          <br />
+          이렇게 사용하면 전역으로 css를 설정할 수 있어 불필요하게 중복되는 스타일링을 줄일 수 있다. <br />
         </TextBox>
         <SubTitle>Theme 사용방법</SubTitle>
         <TextBox>
-          ThemeProvider 이라는 함수로 ThemeProvider 로 감싼 내부의 컴포넌트에게 공통된 값을 내려줄
-          수 있다. <br />
-          theme를 사용하면 일관된 디자인을 유지할 수 있다는 장점이 있고 디자인 수정이 필요하다면
-          theme만 변경해주면 된다.
+          ThemeProvider 이라는 함수로 ThemeProvider 로 감싼 내부의 컴포넌트에게 공통된 값을 내려줄 수 있다. <br />
+          theme를 사용하면 일관된 디자인을 유지할 수 있다는 장점이 있고 디자인 수정이 필요하다면 theme만 변경해주면 된다.
         </TextBox>
         <CodeContainer>
           <pre>
@@ -134,13 +123,9 @@ export default function StyledComponentGlobleStyle() {
           </pre>
         </CodeContainer>
         <TextBox>ThemeProvider 함수를 잘 응용하면 다크모드도 간단하게 만들 수 있다.</TextBox>
-        <ReferenceLink href='https://styled-components.com/docs/api#createglobalstyle'>
-          공식문서 : createGlobalStyle
-        </ReferenceLink>
+        <ReferenceLink href='https://styled-components.com/docs/api#createglobalstyle'>공식문서 : createGlobalStyle</ReferenceLink>
         <br />
-        <ReferenceLink href='https://styled-components.com/docs/api#themeprovider'>
-          공식문서 : themeprovider
-        </ReferenceLink>
+        <ReferenceLink href='https://styled-components.com/docs/api#themeprovider'>공식문서 : themeprovider</ReferenceLink>
       </Main>
       <GiscusApp />
     </PostContainer>
