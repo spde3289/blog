@@ -1,7 +1,7 @@
-import React, { useState, useMemo } from "react";
+import { useState, useMemo } from "react";
 import styled from "styled-components";
 import { AiOutlineLeft, AiOutlineRight } from "react-icons/ai";
-import ContentBox from "../posts/post/ContentBox";
+import PostBox from "../posts/post/PostBox";
 
 type props = {
   currentPage: number;
@@ -60,7 +60,7 @@ const Pagination = ({ currentPage, maxPageLimit, minPageLimit, totalPages, pageD
         <ContentPoint>
           <PostColumn>
             {pageData.map((data) => (
-              <ContentBox key={data.key} title={data.title} body={data.body} date={data.date} category={data.category} link={data.link}></ContentBox>
+              <PostBox key={data.key} title={data.title} body={data.body} date={data.date} category={data.category} link={data.link} />
             ))}
           </PostColumn>
           <Pages>
@@ -94,8 +94,10 @@ const ContentPoint = styled.div`
   margin: 0 auto;
 `;
 
+
 const PostColumn = styled.div`
-  height: 812px;
+  min-height: 812px;
+  overflow: hidden;
 `;
 
 const Pages = styled.ul`

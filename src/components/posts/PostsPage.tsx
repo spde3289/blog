@@ -23,7 +23,9 @@ const Posts = () => {
 
 const PostMain = styled.main`
   width: 1000px;
+  min-height: 812px;
   margin: 0 auto;
+  padding-top: 80px;
   font-size: 20px;
 `;
 

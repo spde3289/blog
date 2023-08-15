@@ -29,6 +29,7 @@ const AboutMain = styled.main`
   height: calc(100vh - 385px);
   margin: 0 auto;
   width: 1000px;
+  padding-top: 80px;
   .title {
     margin-bottom: 15px;
     font-size: 24px;

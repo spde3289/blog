@@ -36,7 +36,6 @@ const Header = ({ darkMode, handleDarkMode }: props) => {
 
 const HeaderBar = styled.header`
   height: 75px;
-  margin-bottom: 70px;
   border-bottom: 0.5px solid #a8a8a8;
   display: flex;
   align-items: center;

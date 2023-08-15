@@ -18,7 +18,7 @@ export const TextSplitAni = ({ text }: propsType) => {
 
   useInterval(() => {
     SplitText();
-  }, 300);
+  }, 100);
 
   return <>{splitText}</>;
 };

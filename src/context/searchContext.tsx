@@ -24,7 +24,8 @@ export function SearchProvider({ children }: props) {
     }),
     [setSearchValue]
   );
-
+  
+  console.log(handle);
   return <searchContext.Provider children={children} value={[searchValue, handle]} />;
 }
 

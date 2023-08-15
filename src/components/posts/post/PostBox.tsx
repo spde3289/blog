@@ -9,10 +9,10 @@ type props = {
   date: string;
 };
 
-const ContentBox = ({ category, link, title, body, date }: props) => {
+const PostBox = ({ category, link, title, body, date }: props) => {
   return (
     <Link to={link} state={{ Title: title }}>
-      <PostBox>
+      <PostBoxContainer>
         <PostBoxTitle>{title}</PostBoxTitle>
         <PostBoxContent>{body}</PostBoxContent>
         <PostBoxInfo>
@@ -21,24 +21,25 @@ const ContentBox = ({ category, link, title, body, date }: props) => {
             <Category>{category}</Category>
           </CategoryContainer>
         </PostBoxInfo>
-      </PostBox>
+      </PostBoxContainer>
     </Link>
   );
 };
 
-const PostBox = styled.div`
+const PostBoxContainer = styled.div`
   width: 600px;
   margin: 0 auto 10px;
   padding: 10px;
   border-bottom: 0.3px solid #ccc;
+  &:hover{
+    transform: translate(5px, -5px);
+    transition: transform 0.1s ease-in-out 0s;
+  }
 `;
 
 const PostBoxTitle = styled.h2`
   margin-bottom: 12px;
   font-size: 16px;
-  ${PostBox}:hover & {
-    text-decoration: underline;
-  }
 `;
 
 const PostBoxContent = styled.p`
@@ -67,4 +68,4 @@ const Category = styled.li`
   margin-right: 5px;
 `;
 
-export default ContentBox;
+export default PostBox;

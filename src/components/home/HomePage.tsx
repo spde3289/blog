@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { SearchBar } from "../SearchBar";
 import CodeContainer from "./CodeContainer";
 import { TextSplitAni } from "../TextSplitAni";
+import PostCardContainer from "./postCard/PostCardContainer";
 
 const Home = () => {
   return (
@@ -20,19 +21,20 @@ const Home = () => {
         </CodeContainer>
       </IntroductionContainder>
       <SearchBar />
+      <PostCardContainer />
     </Main>
   );
 };
 
 const Main = styled.main`
-  height: calc(100vh - 495px);
-  margin: 0 auto;
   width: 1000px;
+  padding-top: 80px;
+  margin: 0 auto;
 `;
 
 const IntroductionContainder = styled.div`
   width: 700px;
-  margin: 160px auto 80px;
+  margin: 0 auto 20px;
   display: flex;
   justify-content: space-between;
 `;
