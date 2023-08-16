@@ -10,59 +10,63 @@ interface props {
 const Header = ({ darkMode, handleDarkMode }: props) => {
   return (
     <HeaderBar>
-      <NavBar>
-        <BlogName>
-          <Link to='/' state={{ Title: "Home" }}>
-            spde3289.github.io
-          </Link>
-        </BlogName>
+      <BlogName>
+        <Link to='/' state={{ Title: "Home" }}>
+          spde3289.github.io
+        </Link>
+      </BlogName>
+      <nav>
         <HeaderMenu>
           <HeaderMenuItem>
             <Link to='/posts' state={{ Title: "Post" }}>
-              posts
+              Posts
             </Link>
           </HeaderMenuItem>
           <HeaderMenuItem>
             <Link to='/about' state={{ Title: "About" }}>
-              about
+              About
             </Link>
           </HeaderMenuItem>
-          <HeaderMenuItem onClick={handleDarkMode}>{darkMode ? <BsFillSunFill /> : <BsFillMoonFill />}</HeaderMenuItem>
+          <HeaderMenuItem onClick={handleDarkMode}>
+            {darkMode ? <BsFillSunFill /> : <BsFillMoonFill />}
+          </HeaderMenuItem>
         </HeaderMenu>
-      </NavBar>
+      </nav>
     </HeaderBar>
   );
 };
 
 const HeaderBar = styled.header`
-  height: 75px;
-  border-bottom: 0.5px solid #a8a8a8;
+  height: 88px;
+  width: 100vw;
   display: flex;
+  position: -webkit-sticky;
+  position: sticky;  
+  top: 0;
+  left: 0;
+  z-index: 999;
   align-items: center;
-`;
+  background-color: ${({ theme }) => theme.color.body};
 
-const NavBar = styled.nav`
-  display: flex;
-  justify-content: space-between;
-  margin: 0 auto;
-  width: 1000px;
-  padding: 10px;
+  //background-color: #fff;
 `;
 
 const BlogName = styled.h1`
-  font-size: 24px;
+  font-size: 22px;
   font-weight: bold;
+  margin-left: 32px;
 `;
 
 const HeaderMenu = styled.ul`
   display: flex;
   align-items: center;
-  font-size: 20px;
+  font-size: 17px;
   font-weight: bold;
+  margin-left: 32px;
 `;
 
 const HeaderMenuItem = styled.li`
-  margin-right: 10px;
+  padding: 0 20px;
   &:last-child {
     margin-bottom: -3px;
   }
