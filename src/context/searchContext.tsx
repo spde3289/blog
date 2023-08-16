@@ -2,11 +2,11 @@ import { createContext, useState, useContext, useMemo } from "react";
 
 type SearchContextType = [string, {input: (value: string) => void}]
 
+const SearchContext = createContext<SearchContextType| null>(null);
+
 interface props {
   children: JSX.Element;
 }
-
-const SearchContext = createContext<SearchContextType>(null!);
 
 export function SearchProvider({ children }: props) {
   const [searchValue, setSearchValue] = useState("");
@@ -22,12 +22,11 @@ export function SearchProvider({ children }: props) {
 
 export function useSearchContext() {
   const currentContext = useContext(SearchContext);
-
-    if (!currentContext) {
-      throw new Error(
-        "useCurrentUser has to be used within <CurrentContext.Provider>"
-      );
-    }
+  if (!currentContext) {
+    throw new Error(
+      "useCurrentUser has to be used within <CurrentContext.Provider>"
+    );
+  }
 
   return currentContext;
 }

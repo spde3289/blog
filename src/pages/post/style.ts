@@ -12,8 +12,8 @@ export const Main = styled.main`
 `;
 
 export const SubTitle = styled.h2<{ size?: string }>`
-  font-size: 1.6rem;
-  margin: 30px 0;
+  font-size: 24px;
+  margin: 40px 0;
   ${({ size }) =>
     size === "sub" && {
       "font-size": "1.2rem",
@@ -45,7 +45,6 @@ export const CodeContainer = styled.div`
 `;
 
 export const ReferenceLink = styled.a`
-  margin: 10px 0;
   text-decoration: underline;
 `;
 

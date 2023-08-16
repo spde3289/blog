@@ -325,6 +325,15 @@ const content = [
     link: "Type-Inference",
     element: <ps.TypeInference />,
   },
+  {
+    key: 37,
+    title: "TypeScript 환경에서 createContext 사용하기",
+    body: "",
+    date: "2023.08.16",
+    category: "typescript",
+    link: "typescript-context-api",
+    element: <ps.CreateContextErr />,
+  },
 ];
 
 export default content;

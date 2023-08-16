@@ -54,6 +54,7 @@ const PostTitle = styled.h3`
 
 const PostContent = styled.p`
   font-size: 14px;
+  word-break: break-all;
   white-space: normal;
   display: -webkit-box;
   -webkit-line-clamp: 9;

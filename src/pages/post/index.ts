@@ -35,8 +35,10 @@ import ErrEdgesOut from "./FrontEnd/ErrEdgesOut";
 import EventListenerState from "./react/EventListenerState";
 import CodePrettier from "./FrontEnd/CodePrettier";
 import TypeInference from "./typescript/TypeInference";
+import CreateContextErr from "./typescript/useContextErr";
 
 export default {
+  CreateContextErr,
   TypeInference,
   CodePrettier,
   EventListenerState,

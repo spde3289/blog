@@ -47,6 +47,7 @@ const PostBoxContent = styled.p`
   height: 51px;
   margin: 0 0 12px 20px;
   font-size: 14px;
+  word-break: break-all;
   white-space: normal;
   display: -webkit-box;
   -webkit-line-clamp: 3;
