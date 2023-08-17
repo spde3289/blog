@@ -1,3 +1,4 @@
+
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { BsFillSunFill, BsFillMoonFill } from "react-icons/bs";
@@ -7,7 +8,12 @@ interface props {
   handleDarkMode(): void;
 }
 
+
 const Header = ({ darkMode, handleDarkMode }: props) => {
+  
+  const pathName = location.pathname.split("/");
+  const currentPathName = pathName[pathName.length - 1]
+
   return (
     <HeaderBar>
       <BlogName>
@@ -15,10 +21,10 @@ const Header = ({ darkMode, handleDarkMode }: props) => {
           spde3289.github.io
         </Link>
       </BlogName>
-      <nav>
+      <Nav>
         <HeaderMenu>
           <HeaderMenuItem>
-            <Link to='/posts' state={{ Title: "Post" }}>
+            <Link to='/posts' state={{ Title: "Posts" }}>
               Posts
             </Link>
           </HeaderMenuItem>
@@ -27,18 +33,17 @@ const Header = ({ darkMode, handleDarkMode }: props) => {
               About
             </Link>
           </HeaderMenuItem>
-          <HeaderMenuItem onClick={handleDarkMode}>
-            {darkMode ? <BsFillSunFill /> : <BsFillMoonFill />}
-          </HeaderMenuItem>
         </HeaderMenu>
-      </nav>
+        <div className="Icon" onClick={handleDarkMode}>
+          {darkMode ? <BsFillSunFill /> : <BsFillMoonFill />}
+        </div>
+      </Nav>
     </HeaderBar>
   );
 };
 
 const HeaderBar = styled.header`
   height: 88px;
-  width: 100vw;
   display: flex;
   position: -webkit-sticky;
   position: sticky;  
@@ -47,8 +52,6 @@ const HeaderBar = styled.header`
   z-index: 999;
   align-items: center;
   background-color: ${({ theme }) => theme.color.body};
-
-  //background-color: #fff;
 `;
 
 const BlogName = styled.h1`
@@ -57,18 +60,52 @@ const BlogName = styled.h1`
   margin-left: 32px;
 `;
 
+const Nav = styled.nav`
+  display: flex;
+  .Icon{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    right: 40px;
+    top: 26px;
+    width: 36px;
+    height: 36px;
+    &:hover{
+      border-radius: 999px;
+      background-color: rgba(138, 129, 129, 0.3);
+    }
+  }
+`;
+
 const HeaderMenu = styled.ul`
   display: flex;
   align-items: center;
   font-size: 17px;
   font-weight: bold;
   margin-left: 32px;
+
 `;
 
 const HeaderMenuItem = styled.li`
   padding: 0 20px;
-  &:last-child {
-    margin-bottom: -3px;
+  a{
+    position: relative;
+    
+  }
+  a::after{
+    content: "";
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+  }
+  &:hover{
+    a::after{
+      background-color: rgba(0, 0, 0, 1);
+
+    }
   }
 `;
 
