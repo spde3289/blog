@@ -1,41 +1,40 @@
-
 import styled from "styled-components";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { BsFillSunFill, BsFillMoonFill } from "react-icons/bs";
+import { theme } from "../../theme/theme";
 
 interface props {
-  darkMode: boolean;
+  darkMode: theme;
   handleDarkMode(): void;
 }
 
-
 const Header = ({ darkMode, handleDarkMode }: props) => {
   
-  const pathName = location.pathname.split("/");
-  const currentPathName = pathName[pathName.length - 1]
+  const { pathname } = useLocation();
 
   return (
     <HeaderBar>
       <BlogName>
-        <Link to='/' state={{ Title: "Home" }}>
+        <Link to='/'>
           spde3289.github.io
         </Link>
       </BlogName>
       <Nav>
         <HeaderMenu>
           <HeaderMenuItem>
-            <Link to='/posts' state={{ Title: "Posts" }}>
+            <Wrapper to='/posts' data-selected={pathname === "/posts"}>
               Posts
-            </Link>
+            </Wrapper>
           </HeaderMenuItem>
           <HeaderMenuItem>
-            <Link to='/about' state={{ Title: "About" }}>
+            <Wrapper to='/about'  data-selected={pathname === "/about"}>
               About
-            </Link>
+            </Wrapper>
           </HeaderMenuItem>
         </HeaderMenu>
         <div className="Icon" onClick={handleDarkMode}>
-          {darkMode ? <BsFillSunFill /> : <BsFillMoonFill />}
+          {darkMode === "light" && <BsFillSunFill />}
+          {darkMode === "dark" && <BsFillMoonFill />}
         </div>
       </Nav>
     </HeaderBar>
@@ -46,7 +45,7 @@ const HeaderBar = styled.header`
   height: 88px;
   display: flex;
   position: -webkit-sticky;
-  position: sticky;  
+  position: sticky;
   top: 0;
   left: 0;
   z-index: 999;
@@ -84,27 +83,35 @@ const HeaderMenu = styled.ul`
   font-size: 17px;
   font-weight: bold;
   margin-left: 32px;
-
 `;
 
 const HeaderMenuItem = styled.li`
   padding: 0 20px;
   a{
     position: relative;
-    
   }
   a::after{
     content: "";
     position: absolute;
     bottom: -4px;
     left: 0;
-    width: 100%;
+    width: 0px;
     height: 3px;
   }
   &:hover{
     a::after{
-      background-color: rgba(0, 0, 0, 1);
+      width: 100%;
+      transition: all 0.4s ease-in-out 0s;
+      background-color: ${({ theme }) => theme.color.object};
+    }
+  }
+`;
 
+const Wrapper = styled(Link)`
+  &[data-selected="true"] {
+    &::after{
+      width: 100%;
+      background-color: ${({ theme }) => theme.color.object};
     }
   }
 `;
