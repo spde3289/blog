@@ -328,7 +328,7 @@ const content = [
   {
     key: 37,
     title: "TypeScript 환경에서 createContext 사용하기",
-    body: "",
+    body: "최근 타입스크립트 환경에서 creactContext를 사용하다 아래와 같은 에러가 발생해 createContext 사용방법과 해결방법을 정리해보려 한다. creactContext 사용방법 기본적으로 creactContext를 생성해주면 된다. 그 이후 구성 요소를 context.Provider 로 래핑 해준뒤 useContext로 호출해 사용할 수 있다.",
     date: "2023.08.16",
     category: "typescript",
     link: "typescript-context-api",
