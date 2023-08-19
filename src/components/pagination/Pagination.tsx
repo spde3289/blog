@@ -3,26 +3,29 @@ import styled from "styled-components";
 import { AiOutlineLeft, AiOutlineRight } from "react-icons/ai";
 import PostBox from "../posts/post/PostBox";
 
-type props = {
+type pageData = {
+    key: number;
+    title: string;
+    body: string;
+    date: string;
+    category: string;
+    link: string;
+    element: JSX.Element;
+  }
+
+interface props {
   currentPage: number;
   maxPageLimit: number;
   minPageLimit: number;
   totalPages: number;
-  pageData: {
-    body: string;
-    category: string;
-    date: string;
-    element: any;
-    key: number;
-    link: string;
-    title: string;
-  }[];
+  pageData: pageData[];
   onPrevClick: () => void;
   onNextClick: () => void;
   onPageChange: (e: number) => void;
 };
 
-const Pagination = ({ currentPage, maxPageLimit, minPageLimit, totalPages, pageData, onPrevClick, onNextClick, onPageChange }: props) => {
+const Pagination = (props: props) => {
+  const { currentPage, maxPageLimit, minPageLimit, totalPages, pageData, onPrevClick, onNextClick, onPageChange } = props
   const [currentNum, setCurrentNum] = useState(1);
   const count: number = pageData.length;
 
@@ -59,7 +62,7 @@ const Pagination = ({ currentPage, maxPageLimit, minPageLimit, totalPages, pageD
       ) : (
         <ContentPoint>
           <PostColumn>
-            {pageData.map((data) => (
+            {pageData.slice(currentPage * 5 - 5, currentPage * 5).map((data) => (
               <PostBox key={data.key} title={data.title} body={data.body} date={data.date} category={data.category} link={data.link} />
             ))}
           </PostColumn>

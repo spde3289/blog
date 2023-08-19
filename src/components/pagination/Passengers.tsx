@@ -1,42 +1,41 @@
-import { useState, useMemo } from "react";
+import { useState, useEffect } from "react";
 import Pagination from "./Pagination";
 import postInfo from "../../postInfo";
 
 type props = {
-  value: string | null;
+  value: string;
   tag: string;
 };
 
 const Passengers = ({ value, tag }: props) => {
   const maxPageNumber = 5;
-  const [contentList, setContentList] = useState(postInfo);
-  const [newList, setNewList] = useState(contentList);
-  const [pageData, setPageData] = useState([]);
+  const newPostList = [...postInfo]
+  const [pageData, setPageData] = useState(newPostList);
   const [loading, setLoading] = useState(true);
   const [currentPage, setCurrentPage] = useState(1);
   const [maxPageLimit, setMaxPageLimit] = useState(5);
   const [minPageLimit, setMinPageLimit] = useState(0);
-  const totalPages: number = Math.ceil(newList.length / maxPageNumber);
+  const totalPages = Math.ceil(pageData.length / maxPageNumber);
 
-  useMemo(() => {
-    if (value === null) {
-      setCurrentPage(1);
-      setNewList(contentList);
-    } else {
-      setCurrentPage(1);
-      setNewList(contentList.filter((list) => list.title.toLowerCase().includes(value.toLowerCase())));
+  useEffect(() => {
+    if (tag === "all") {
+      const filterList = newPostList.filter(list =>
+        list.title.toLowerCase().includes(value.toLowerCase())).reverse();
+      setPageData(filterList);
+    } else if (tag !== "all") {
+      const filterList = newPostList.filter(list =>
+        list.title.toLowerCase().includes(value.toLowerCase()) &&
+        list.category === tag).reverse();
+      setPageData(filterList);
     }
-  }, [value, contentList]);
-
-  useMemo(() => {
-    tag === "all" ? setContentList(postInfo) : setContentList(postInfo.filter((el) => el.category === tag));
-  }, [tag]);
-
-  useMemo(() => {
-    const a: any = [...newList].reverse().slice(currentPage * 5 - 5, currentPage * 5);
-    setPageData(a);
     setLoading(false);
-  }, [currentPage, newList]);
+  }, [tag, value, currentPage]);
+
+  useEffect(() => {
+    setCurrentPage(1);
+    setMaxPageLimit(5);
+    setMinPageLimit(0);
+  }, [tag, value]);
 
   const onPageChange = (pageNumber: number): void => {
     setCurrentPage(pageNumber);
@@ -63,9 +62,12 @@ const Passengers = ({ value, tag }: props) => {
     maxPageLimit,
     minPageLimit,
     totalPages,
+    onPrevClick,
+    onNextClick,
+    onPageChange
   };
 
-  return <>{!loading ? <Pagination {...pageInfo} onPrevClick={onPrevClick} onNextClick={onNextClick} onPageChange={onPageChange} /> : <div />}</>;
+  return <>{!loading && <Pagination {...pageInfo} />}</>;
 };
 
 export default Passengers;

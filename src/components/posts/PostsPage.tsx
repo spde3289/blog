@@ -15,7 +15,7 @@ const Posts = () => {
       <Margin />
       <TagSlider tag={tag} setTag={setTag} />
       <PostContainer>
-        <Passengers tag={tag} value={searchValue.length === 0 ? null : searchValue} />
+        <Passengers tag={tag} value={searchValue} />
       </PostContainer>
     </PostMain>
   );
