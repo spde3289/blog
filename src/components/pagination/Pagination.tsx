@@ -95,18 +95,21 @@ const ContentPoint = styled.div`
   -ms-user-select: none;
   user-select: none;
   margin: 0 auto;
+  display: flex;
+  height: 1400px;
+  flex-direction: column;
+  justify-content: space-between;
 `;
 
 
 const PostColumn = styled.div`
-  min-height: 812px;
   overflow: hidden;
 `;
 
 const Pages = styled.ul`
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: center;
   li:hover {
     cursor: pointer;
   }

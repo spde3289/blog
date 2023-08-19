@@ -69,9 +69,7 @@ const SearchContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  width: 540px;
-  border: 1px solid #ccc;
-  border-radius: 20px;
+  width: 100%;
   padding: 2px;
   padding-left: 10px;
   .none {
@@ -88,8 +86,8 @@ const Search = styled.input`
   color: ${({ theme }) => theme.color.font};
   font-size: 16px;
   height: 34px;
-  width: 460px;
-  margin-left: 8px;
+  width: 240px;
+  margin-left: 4px;
   border: none;
   outline: none;
 `;

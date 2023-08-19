@@ -1,12 +1,15 @@
+import { useTheme } from "styled-components";
 import styled from "styled-components";
 
 type props = {
   tagName: string;
   currentTag?: (tag: string) => void | undefined;
-  color?: string;
+  selector: boolean;
 };
 
-const Tag = ({ tagName, currentTag, color }: props): any => {
+const Tag = ({ tagName, currentTag, selector }: props): any => {
+  const theme = useTheme();
+
   const OnClick = () => {
     if (tagName.charAt(0) === "#") {
       const tag: string = tagName.replace("# ", "");
@@ -16,21 +19,22 @@ const Tag = ({ tagName, currentTag, color }: props): any => {
     }
   };
   return (
-    <>
-      <Tech color={color} onClick={OnClick}>
-        {tagName}
-      </Tech>
-    </>
+    <Tech selector={selector ? theme.color.currentTag : theme.color.font} onClick={OnClick}>
+      {tagName}
+    </Tech>
   );
 };
 
-const Tech = styled.div`
+interface TagProps {
+  selector: string
+}
+
+const Tech = styled.div<TagProps>`
   width: max-content;
   font-size: 16px;
   font-weight: 600;
-  border: 1px solid #e6e6e6;
   transition: all 0.2s ease-in-out;
-  background-color: ${({ color, theme }) => (color ? color : theme.color.tag)};
+  color: ${({selector}) => selector};
   border-radius: 10px;
   padding: 7px 9px;
   margin: 3px;

@@ -11,8 +11,8 @@ export const light: themePlatte = {
     object: "#222222",
     font: "#222222",
     comment: "light",
-    tag: "rgba(13,12,34,.05)",
-    currentTag: "#bbbbbb",
+    tag: "#222222",
+    currentTag: "#8ab4f8",
   },
 };
 
@@ -22,7 +22,7 @@ export const dark: themePlatte = {
     object: "#e6e6e6",
     font: "#e6e6e6",
     comment: "dark",
-    tag: "#232326",
-    currentTag: "#563b56",
+    tag: "#e6e6e6",
+    currentTag: "#8ab4f8",
   },
 };

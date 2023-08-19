@@ -16,7 +16,7 @@ const PostBox = ({ category, link, title, body, date }: props) => {
         <PostBoxTitle>{title}</PostBoxTitle>
         <PostBoxContent>{body}</PostBoxContent>
         <PostBoxInfo>
-          <div>{date}</div>
+        <div>{date}</div>
           <CategoryContainer>
             <Category>{category}</Category>
           </CategoryContainer>
@@ -27,10 +27,9 @@ const PostBox = ({ category, link, title, body, date }: props) => {
 };
 
 const PostBoxContainer = styled.div`
-  width: 600px;
   margin: 0 auto 10px;
-  padding: 10px;
-  border-bottom: 0.3px solid #ccc;
+  padding: 40px 0;
+  border-bottom: 1px solid #e4e4e4;
   &:hover{
     transform: translate(5px, -5px);
     transition: transform 0.1s ease-in-out 0s;
@@ -39,14 +38,14 @@ const PostBoxContainer = styled.div`
 
 const PostBoxTitle = styled.h2`
   margin-bottom: 12px;
-  font-size: 16px;
+  font-size: 26px;
+  line-height: 38px;
+  letter-spacing: -.02em;
 `;
 
 const PostBoxContent = styled.p`
-  width: 580px;
-  height: 51px;
-  margin: 0 0 12px 20px;
-  font-size: 14px;
+  margin: 25px 0 30px;
+  font-size: 16px;
   word-break: break-all;
   white-space: normal;
   display: -webkit-box;

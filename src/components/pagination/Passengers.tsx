@@ -67,7 +67,10 @@ const Passengers = ({ value, tag }: props) => {
     onPageChange
   };
 
-  return <>{!loading && <Pagination {...pageInfo} />}</>;
+  return <>
+    {!loading && <Pagination {...pageInfo} />}
+    {loading && <div />}
+  </>;
 };
 
 export default Passengers;

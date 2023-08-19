@@ -1,8 +1,6 @@
-import { useState, useRef } from "react";
 import styled, { useTheme } from "styled-components";
 import Tag from "./Tag";
 import content from "../../postInfo";
-import { AiOutlineLeft, AiOutlineRight } from "react-icons/ai";
 
 interface ComponentProps {
   tag: string;
@@ -10,40 +8,13 @@ interface ComponentProps {
 }
 
 export const TagSlider = ({ tag, setTag }: ComponentProps) => {
-  const [posState, setPosState] = useState(0);
-  const ref = useRef<HTMLDivElement>(null);
-  const theme: any = useTheme();
-
   const category: string[] = content.map((el) => el.category);
-  const uniqueArr: string[] = category
-    .filter((element, index) => {
-      return category.indexOf(element) === index;
-    })
-    .map((el) => "# " + el);
+  const uniqueArr: string[] = category.filter((element, index) => {
+    return category.indexOf(element) === index;
+  }).map((el) => "# " + el);
+
   const newTagList: string[] = [...uniqueArr];
   newTagList.unshift("# all");
-
-  const OnClick = (type: string) => {
-    if (ref.current) {
-      const maxWidth: number = ref.current.offsetWidth;
-      const maxMove: number = 700;
-
-      if (type === "left") {
-        if (posState - maxMove <= 0) {
-          setPosState(0);
-        } else {
-          setPosState(posState - maxMove);
-        }
-      }
-      if (type === "right") {
-        if (maxWidth - 800 - posState <= maxMove) {
-          setPosState(maxWidth - 800);
-        } else {
-          setPosState(posState + maxMove);
-        }
-      }
-    }
-  };
 
   const currentTag = (e: string) => {
     setTag(e);
@@ -51,59 +22,38 @@ export const TagSlider = ({ tag, setTag }: ComponentProps) => {
 
   return (
     <SliderContainer>
-      <SliderButton
-        onClick={() => {
-          OnClick("left");
-        }}
-      >
-        <AiOutlineLeft className='icon' />
-      </SliderButton>
-      <TagList>
-        <TagContainer left={posState} ref={ref}>
-          {newTagList.map((el) => (
-            <Tag color={el.replace("# ", "") === tag ? theme.color.currentTag : ""} key={el} tagName={el} currentTag={currentTag} />
-          ))}
-        </TagContainer>
-      </TagList>
-      <SliderButton
-        onClick={() => {
-          OnClick("right");
-        }}
-      >
-        <AiOutlineRight className='icon' />
-      </SliderButton>
+      <Title>
+        TAGS
+      </Title>
+      <TagContainer>
+        {newTagList.map((el) => (
+          <Tag
+            key={el}
+            selector={el.replace("# ", "") === tag}
+            tagName={el}
+            currentTag={currentTag}
+          />
+        ))}
+      </TagContainer>
     </SliderContainer>
   );
 };
 
-interface TagContainerProps {
-  left: number;
-}
-
 const SliderContainer = styled.div`
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  align-items: flex-start;
   justify-content: center;
   margin-bottom: 30px;
 `;
 
-const TagList = styled.div`
-  position: relative;
-  width: 800px;
-  height: 42px;
-  display: flex;
-  overflow: hidden;
+const Title = styled.h3`
+  margin-bottom: 16px;
+  font-size: 18px;
+  line-height: 1.5;
 `;
 
-const TagContainer = styled.div<TagContainerProps>`
-  position: absolute;
-  left: ${(props) => -props.left + "px"};
+const TagContainer = styled.div`
   display: flex;
-  transition: all 500ms ease-in-out 0s;
-`;
-
-const SliderButton = styled.div`
-  color: ${({ theme }) => theme.color.font};
-  margin-bottom: -4px;
-  cursor: pointer;
+  flex-wrap: wrap;
 `;

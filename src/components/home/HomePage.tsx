@@ -20,7 +20,6 @@ const Home = () => {
           </P>
         </CodeContainer>
       </IntroductionContainder>
-      <SearchBar />
       <PostCardContainer />
     </Main>
   );

@@ -11,22 +11,30 @@ const Posts = () => {
 
   return (
     <PostMain>
-      <SearchBar />
-      <Margin />
-      <TagSlider tag={tag} setTag={setTag} />
-      <PostContainer>
-        <Passengers tag={tag} value={searchValue} />
-      </PostContainer>
+      <Container>
+        <PostContainer>
+          <Passengers tag={tag} value={searchValue} />
+        </PostContainer>
+        <SideBar>
+          <SearchBar />
+          <Margin />
+          <TagSlider tag={tag} setTag={setTag} />
+        </SideBar>
+      </Container>
     </PostMain>
   );
 };
 
 const PostMain = styled.main`
-  width: 1000px;
   min-height: 812px;
-  margin: 0 auto;
   padding-top: 80px;
   font-size: 20px;
+  `;
+
+const Container = styled.div`
+  width: 1280px;
+  margin: 0 auto;
+  display: flex;
 `;
 
 const Margin = styled.div`
@@ -34,8 +42,14 @@ const Margin = styled.div`
 `;
 
 const PostContainer = styled.div`
-  width: 662px;
+  max-width: 790px!important;
+    padding-left: 40px;
   margin: 0 auto;
+`;
+
+const SideBar = styled.div`
+  margin-left: 80px; 
+  width: 320px;
 `;
 
 export default Posts;
