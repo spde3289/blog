@@ -3,8 +3,8 @@ import styled from "styled-components";
 
 type props = {
   tagName: string;
-  currentTag?: (tag: string) => void | undefined;
-  selector: boolean;
+  currentTag?: (tag: string) => void;
+  selector?: boolean;
 };
 
 const Tag = ({ tagName, currentTag, selector }: props): any => {
@@ -19,14 +19,14 @@ const Tag = ({ tagName, currentTag, selector }: props): any => {
     }
   };
   return (
-    <Tech selector={selector ? theme.color.currentTag : theme.color.font} onClick={OnClick}>
+    <Tech color={selector ? theme.color.currentTag : theme.color.font} onClick={OnClick}>
       {tagName}
     </Tech>
   );
 };
 
 interface TagProps {
-  selector: string
+  color: string
 }
 
 const Tech = styled.div<TagProps>`
@@ -34,7 +34,7 @@ const Tech = styled.div<TagProps>`
   font-size: 16px;
   font-weight: 600;
   transition: all 0.2s ease-in-out;
-  color: ${({selector}) => selector};
+  color: ${({color}) => color};
   border-radius: 10px;
   padding: 7px 9px;
   margin: 3px;
