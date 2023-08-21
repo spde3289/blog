@@ -1,68 +1,73 @@
-import PostHeader from "../../../components/posts/post/PostHeader";
-import GiscusApp from "../../../components/posts/post/GiscusApp";
-import { PostContainer, Main, TextBox, ReferenceLink, SubTitle, CodeContainer, List } from "../style";
+import PostHeader from "@/components/posts/post/PostHeader";
+import GiscusApp from "@/components/posts/post/GiscusApp";
+import { PostContainer, Main, TextBox, ReferenceLink, SubTitle, List } from "../style";
+import CodeContainer from "@/common/components/CodeContainer";
+
+
+const code1 = `
+  const Form = () => {
+    const [id, setId] = useState("");
+    const [password, setPassword] = useState("");
+
+    const handleId = (e) => {
+      setId(e.target.value);
+    }
+
+    const handlePassword = (e) => {
+      setPassword(e.target.value);
+    }
+
+    return(
+      <>
+        <label>
+          id :
+          <input value={id} onChange={handleId}/>
+        </label>
+        <label>
+          password :
+          <input value={password} onChange={handlePassword}/>
+        </label>
+      </>
+    )
+  }
+
+`;
+
+const code2 = `
+  const app = () => {
+    const idForm = useFormInput("");
+    const passwordForm = useFormInput("");
+
+    return(
+      <>
+        <label>
+          id :
+          <input value={idForm.value} onChange={idForm.onChange}/>
+        </label>
+        <label>
+          password :
+          <input value={passwordForm.value} onChange={passwordForm.onChange}/>
+        </label>
+      </>
+    )
+  }
+
+  const useFormInput = (Value) => {
+    const [value, setValue] = useState(Value);
+  
+    function handleChange(e) {
+      setValue(e.target.value);
+    }
+  
+    return {
+      value: value,
+      onChange: handleChange
+    };
+  }
+
+`;
 
 export default function CustomHook() {
-  const code1 = `
-    const Form = () => {
-      const [id, setId] = useState("");
-      const [password, setPassword] = useState("");
-
-      const handleId = (e) => {
-        setId(e.target.value);
-      }
-
-      const handlePassword = (e) => {
-        setPassword(e.target.value);
-      }
-
-      return(
-        <>
-          <label>
-            id :
-            <input value={id} onChange={handleId}/>
-          </label>
-          <label>
-            password :
-            <input value={password} onChange={handlePassword}/>
-          </label>
-        </>
-      )
-    }
-  `;
-
-  const code2 = `
-    const app = () => {
-      const idForm = useFormInput("");
-      const passwordForm = useFormInput("");
-
-      return(
-        <>
-          <label>
-            id :
-            <input value={idForm.value} onChange={idForm.onChange}/>
-          </label>
-          <label>
-            password :
-            <input value={passwordForm.value} onChange={passwordForm.onChange}/>
-          </label>
-        </>
-      )
-    }
-
-    const useFormInput = (Value) => {
-      const [value, setValue] = useState(Value);
-    
-      function handleChange(e) {
-        setValue(e.target.value);
-      }
-    
-      return {
-        value: value,
-        onChange: handleChange
-      };
-    }
-  `;
   return (
     <PostContainer>
       <PostHeader title='React 커스텀 Hook 만들기' tagName='react' date='2023.04.20' />
@@ -79,15 +84,11 @@ export default function CustomHook() {
         </List>
         <TextBox>다음과 같이 아이디와 비번의 값을 입력받는 컴포넌트가 있다.</TextBox>
         <CodeContainer>
-          <pre>
-            <code>{code1}</code>
-          </pre>
+          {code1}
         </CodeContainer>
         <TextBox>위에 있는 코드에서 중복되는 로직이 보일거다. 우리는 이제 이걸 커스텀 훅으로 만들어 재사용성을 높혀 보도록 하겠다.</TextBox>
         <CodeContainer>
-          <pre>
-            <code>{code2}</code>
-          </pre>
+          {code2}
         </CodeContainer>
         <TextBox>
           물론 커스텀 훅이 없어도 개발하는데 지장을 주지는 않지만 잘만 사용하면 아주 편리한 기능이니 어렵더라도 잘 활용하도록 해야겠다는 생각이 들었다. 또한 커스텀 훅을 이용하면 재사용성도 올라가고

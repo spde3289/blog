@@ -1,106 +1,115 @@
-import PostHeader from "../../../components/posts/post/PostHeader";
-import GiscusApp from "../../../components/posts/post/GiscusApp";
-import { PostContainer, Main, SubTitle, TextBox, CodeContainer, ReferenceLink } from "../style";
+import PostHeader from "@/components/posts/post/PostHeader";
+import GiscusApp from "@/components/posts/post/GiscusApp";
+import { PostContainer, Main, SubTitle, TextBox, ReferenceLink } from "../style";
+import CodeContainer from "@/common/components/CodeContainer";
+
+
+const code1 = `
+  //GET
+  axios.get(url, [config])
+
+  //POST
+  axios.post(url[, data[, config]])
+
+  //PUT
+  axios.put(url[, data[, config]])
+  
+  //DELETE
+  axios.delete(url[, config])
+
+`;
+
+const code2 = `
+  axios.get('/user/12345')
+  .then(function (response) {
+    console.log(response.data); // data는 서버가 제공하는 응답이다.
+    console.log(response.status);   // status는 HTTP 상태 코드이다.
+    console.log(response.statusText); // statusText는 HTTP 상태 메시지이다.
+    console.log(response.headers); // // headers 서버가 응답 한 헤더는 모든 헤더 이름이 소문자로 제공한다
+    console.log(response.config); config는 요청을 위해 Axios가 제공하는 구성이다.
+  });
+
+`;
+
+const code3 = `
+  // user에게 할당된 id 값과 함께 요청을 합니다.
+  axios.get('/user?ID=12345')
+    .then(function (response) {
+      // 성공했을 때
+    })
+    .catch(function (error) {
+      // 에러가 났을 때
+    })
+    .finally(function () {
+      // 항상 실행되는 함수
+    });
+  
+  // 위와는 같지만, 옵션을 주고자 할 때는 이렇게 요청을 합니다.
+  axios.get('/user', {
+      params: {
+        ID: 12345
+      }
+    })
+    .then(function (response) {
+      // 성공했을 때
+    })
+    .catch(function (error) {
+      // 에러가 났을 때
+    })
+    .finally(function () {
+      // 항상 실행되는 함수
+    });  
+
+  // async/await 를 쓰고 싶다면 async 함수/메소드를 만듭니다. 
+  async function getUser() {
+    try {
+      const response = await axios.get('/user?ID=12345');
+      console.log(response);
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
+`;
+
+const code4 = `
+  axios.post("url", {
+    firstName: 'Fred',
+    lastName: 'Flintstone'
+    })
+    .then(function (response) {
+        // response  
+    }).catch(function (error) {
+        // 오류발생시 실행
+    })
+
+`;
+
+const code5 = `
+  axios.delete('/user?ID=12345')
+    .then(function (response) {
+      // handle success
+    })
+    .catch(function (error) {
+      // handle error
+    })
+
+`;
+
+const code6 = `
+  axios.put("url", {
+      username: "",
+      password: ""
+    })
+    .then(function (response) {
+      // response  
+    }).catch(function (error) {
+      // 오류발생시 실행
+    })
+
+`;
 
 export default function AxiosLearn() {
-  const code1 = `
-    //GET
-    axios.get(url, [config])
-
-    //POST
-    axios.post(url[, data[, config]])
-
-    //PUT
-    axios.put(url[, data[, config]])
-    
-    //DELETE
-    axios.delete(url[, config])
-  `;
-
-  const code2 = `
-    axios.get('/user/12345')
-    .then(function (response) {
-      console.log(response.data); // data는 서버가 제공하는 응답이다.
-      console.log(response.status);   // status는 HTTP 상태 코드이다.
-      console.log(response.statusText); // statusText는 HTTP 상태 메시지이다.
-      console.log(response.headers); // // headers 서버가 응답 한 헤더는 모든 헤더 이름이 소문자로 제공한다
-      console.log(response.config); config는 요청을 위해 Axios가 제공하는 구성이다.
-    });
-  `;
-
-  const code3 = `
-    // user에게 할당된 id 값과 함께 요청을 합니다.
-    axios.get('/user?ID=12345')
-      .then(function (response) {
-        // 성공했을 때
-      })
-      .catch(function (error) {
-        // 에러가 났을 때
-      })
-      .finally(function () {
-        // 항상 실행되는 함수
-      });
-    
-    // 위와는 같지만, 옵션을 주고자 할 때는 이렇게 요청을 합니다.
-    axios.get('/user', {
-        params: {
-          ID: 12345
-        }
-      })
-      .then(function (response) {
-        // 성공했을 때
-      })
-      .catch(function (error) {
-        // 에러가 났을 때
-      })
-      .finally(function () {
-        // 항상 실행되는 함수
-      });  
-  
-    // async/await 를 쓰고 싶다면 async 함수/메소드를 만듭니다. 
-    async function getUser() {
-      try {
-        const response = await axios.get('/user?ID=12345');
-        console.log(response);
-      } catch (error) {
-        console.error(error);
-      }
-    }
-  `;
-
-  const code4 = `
-    axios.post("url", {
-      firstName: 'Fred',
-      lastName: 'Flintstone'
-      })
-      .then(function (response) {
-          // response  
-      }).catch(function (error) {
-          // 오류발생시 실행
-      })
-  `;
-
-  const code5 = `
-    axios.delete('/user?ID=12345')
-      .then(function (response) {
-        // handle success
-      })
-      .catch(function (error) {
-        // handle error
-      })
-  `;
-
-  const code6 = `
-    axios.put("url", {
-        username: "",
-        password: ""
-      })
-      .then(function (response) {
-        // response  
-      }).catch(function (error) {
-        // 오류발생시 실행
-      })
-  `;
 
   return (
     <PostContainer>
@@ -120,15 +129,11 @@ export default function AxiosLearn() {
           이렇게 4가지의 HTTP 메서드를 이용하여 통신할 수 있다. <br />
         </TextBox>
         <CodeContainer>
-          <pre>
-            <code>{code1}</code>
-          </pre>
+          {code1}
         </CodeContainer>
         <SubTitle size='sub'>응답 데이터</SubTitle>
         <CodeContainer>
-          <pre>
-            <code>{code2}</code>
-          </pre>
+          {code2}
         </CodeContainer>
         <SubTitle size='sub'>axios GET</SubTitle>
         <TextBox>
@@ -136,9 +141,7 @@ export default function AxiosLearn() {
           단순한 데이터(게시글 목록, 사용자 목록), 파라미터 데이터를 포함시키는 경우
         </TextBox>
         <CodeContainer>
-          <pre>
-            <code>{code3}</code>
-          </pre>
+          {code3}
         </CodeContainer>
         <SubTitle size='sub'>axios POST</SubTitle>
         <TextBox>
@@ -146,9 +149,7 @@ export default function AxiosLearn() {
           회원가입, 게시글 작성 등의 작업에서 사용할 수 있다.
         </TextBox>
         <CodeContainer>
-          <pre>
-            <code>{code4}</code>
-          </pre>
+          {code4}
         </CodeContainer>
         <SubTitle size='sub'>axios DELETE</SubTitle>
         <TextBox>
@@ -156,9 +157,7 @@ export default function AxiosLearn() {
           게시글 삭제, 사용자 삭제 등의 작업에서 사용할 수 있다
         </TextBox>
         <CodeContainer>
-          <pre>
-            <code>{code5}</code>
-          </pre>
+          {code5}
         </CodeContainer>
         <SubTitle size='sub'>axios PUT</SubTitle>
         <TextBox>
@@ -166,9 +165,7 @@ export default function AxiosLearn() {
           게시글 수정, 사용자 정보 업데이트 등의 작업에서 사용된다.
         </TextBox>
         <CodeContainer>
-          <pre>
-            <code>{code6}</code>
-          </pre>
+          {code6}
         </CodeContainer>
         <ReferenceLink href='https://axios-http.com/'>참고자료 : https://axios-http.com/</ReferenceLink>
         <br />

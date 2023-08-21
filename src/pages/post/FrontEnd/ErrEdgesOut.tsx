@@ -1,6 +1,6 @@
-import PostHeader from "../../../components/posts/post/PostHeader";
-import GiscusApp from "../../../components/posts/post/GiscusApp";
-import { PostContainer, Main, TextBox, ReferenceLink, SubTitle, CodeContainer } from "../style";
+import PostHeader from "@/components/posts/post/PostHeader";
+import GiscusApp from "@/components/posts/post/GiscusApp";
+import { PostContainer, Main, TextBox, ReferenceLink, SubTitle } from "../style";
 
 export default function ErrEdgesOut() {
   return (

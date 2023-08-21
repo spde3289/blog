@@ -1,28 +1,31 @@
 import PostHeader from "../../../components/posts/post/PostHeader";
 import GiscusApp from "../../../components/posts/post/GiscusApp";
-import { PostContainer, Main, TextBox, ReferenceLink, SubTitle, CodeContainer, List } from "../style";
+import { PostContainer, Main, TextBox, ReferenceLink, SubTitle, List } from "../style";
+import CodeContainer from "@/common/components/CodeContainer";
+
+const code1 = `
+  let options = {
+    root: null, // 뷰포트 설정 
+    rootMargin: '0px', // root가 가진 마진을 나타낸다.
+    threshold: 1.0 // 
+  };
+
+  const callback = (entries, observer) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) { // 요소가 관측이 되면 실행된다.
+        // 실행할 코드
+      }
+    });
+  };
+
+  // 인스턴트 생성
+  let observer = new IntersectionObserver(callback, options);
+  // 타겟 요소 관찰 시작
+  observer.observe(target.current);
+  
+`;
 
 export default function InfiniteScroll() {
-  const code1 = `
-    let options = {
-      root: null, // 뷰포트 설정 
-      rootMargin: '0px', // root가 가진 마진을 나타낸다.
-      threshold: 1.0 // 
-    };
-
-    const callback = (entries, observer) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) { // 요소가 관측이 되면 실행된다.
-          // 실행할 코드
-        }
-      });
-    };
-
-    // 인스턴트 생성
-    let observer = new IntersectionObserver(callback, options);
-    // 타겟 요소 관찰 시작
-    observer.observe(target.current);
-  `;
 
   return (
     <PostContainer>
@@ -40,9 +43,7 @@ export default function InfiniteScroll() {
         </TextBox>
         <SubTitle>사용방법</SubTitle>
         <CodeContainer>
-          <pre>
-            <code>{code1}</code>
-          </pre>
+          {code1}
         </CodeContainer>
         <TextBox>
           new IntersectionObserver()를 이용해 인스턴스를 생성해준다. callback은 관찰 대상이 보이면 실행되는 함수이다. options은 관찰이 시작되는 상황에 대해 설정할 수 있다. <br />

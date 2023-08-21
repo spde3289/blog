@@ -1,5 +1,5 @@
-import PostHeader from "../../../components/posts/post/PostHeader";
-import GiscusApp from "../../../components/posts/post/GiscusApp";
+import PostHeader from "@/components/posts/post/PostHeader";
+import GiscusApp from "@/components/posts/post/GiscusApp";
 import HashRouter from "./imgs/Router404/HashRouter.png";
 import Not404 from "./imgs/Router404/404.html.png";
 import Script from "./imgs/Router404/script.png";

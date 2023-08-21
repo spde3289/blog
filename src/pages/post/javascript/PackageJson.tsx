@@ -1,6 +1,6 @@
-import PostHeader from "../../../components/posts/post/PostHeader";
-import GiscusApp from "../../../components/posts/post/GiscusApp";
-import { PostContainer, Main, TextBox, CodeContainer, ReferenceLink, SubTitle, List } from "../style";
+import PostHeader from "@/components/posts/post/PostHeader";
+import GiscusApp from "@/components/posts/post/GiscusApp";
+import { PostContainer, Main, TextBox, ReferenceLink, SubTitle, List } from "../style";
 
 export default function PackageJson() {
   return (

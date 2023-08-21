@@ -1,46 +1,50 @@
-import PostHeader from "../../../components/posts/post/PostHeader";
-import GiscusApp from "../../../components/posts/post/GiscusApp";
-import { PostContainer, Main, TextBox, ReferenceLink, SubTitle, CodeContainer } from "../style";
+import { PostHeader, GiscusApp } from "@/components/posts/post";
+import { PostContainer, Main, TextBox, ReferenceLink, SubTitle } from "../style";
+import CodeContainer from "@/common/components/CodeContainer";
+
+const code1 = `
+  key: value
+
+  name: yaml
+  age: 30
+
+`;
+
+const code2 = `
+  int: 1
+  string: "string"
+  boolean: true
+
+`;
+
+const code3 = `
+  #오브젝트
+  key: 
+  key: value
+  key: value
+
+  # 또는
+
+  key: {
+    key: value,
+    key: value
+  }
+
+  
+  # 배열
+    key:
+  - item
+  - item
+
+  # 또는
+
+  key: [
+    item, item
+  ]
+
+`;
 
 export default function YamlFileGrammar() {
-  const code1 = `
-    key: value
-
-    name: yaml
-    age: 30
-  `;
-
-  const code2 = `
-    int: 1
-    string: "string"
-    boolean: true
-  `;
-
-  const code3 = `
-    #오브젝트
-    key: 
-    key: value
-    key: value
-
-    # 또는
-
-    key: {
-      key: value,
-      key: value
-    }
-
-    
-    # 배열
-      key:
-    - item
-    - item
-
-    # 또는
-
-    key: [
-      item, item
-    ]
-  `;
 
   return (
     <PostContainer>
@@ -54,21 +58,15 @@ export default function YamlFileGrammar() {
         <SubTitle>기본 문법</SubTitle>
         <TextBox>기본적으로 json과 같이 "key: value"와 같이 표기되고 ":" 다음에는 공백 한칸이 필요하다.</TextBox>
         <CodeContainer>
-          <pre>
-            <code>{code1}</code>
-          </pre>
+          {code1}
         </CodeContainer>
         <TextBox>그리고 int, string, boolean 을 지원한다</TextBox>
         <CodeContainer>
-          <pre>
-            <code>{code2}</code>
-          </pre>
+          {code2}
         </CodeContainer>
         <TextBox>오브젝트와 배열의 표현 또한 가능하다.</TextBox>
         <CodeContainer>
-          <pre>
-            <code>{code3}</code>
-          </pre>
+          {code3}
         </CodeContainer>
         참고자료 :<br />
         <ReferenceLink href='https://subicura.com/k8s/prepare/yaml.html' target='_blank'>

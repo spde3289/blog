@@ -1,7 +1,6 @@
-import PostHeader from "@/components/posts/post/PostHeader";
-import GiscusApp from "@/components/posts/post/GiscusApp";
-import CodeContainer from "@/common/components/CodeContainer";
+import { PostHeader, GiscusApp } from "@/components/posts/post";
 import { PostContainer, Main, TextBox, ReferenceLink, SubTitle } from "../style";
+import CodeContainer from "@/common/components/CodeContainer";
 
 const code1 = `
   //ERR

@@ -1,5 +1,5 @@
-import PostHeader from "../../../components/posts/post/PostHeader";
-import GiscusApp from "../../../components/posts/post/GiscusApp";
+import PostHeader from "@/components/posts/post/PostHeader";
+import GiscusApp from "@/components/posts/post/GiscusApp";
 import Bj4344 from "./imgs/BJ4344/BJ4344.png";
 import { PostContainer, Main, TextBox, ImgContainer, SubTitle, ReferenceLink } from "../style";
 

@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import PostHeader from "../../../components/posts/post/PostHeader";
-import GiscusApp from "../../../components/posts/post/GiscusApp";
+import PostHeader from "@/components/posts/post/PostHeader";
+import GiscusApp from "@/components/posts/post/GiscusApp";
 import { PostContainer, Main, SubTitle, TextBox, ReferenceLink } from "../style";
 import OSI7 from "./imgs/OSI7/OSI_7.jpg";
 

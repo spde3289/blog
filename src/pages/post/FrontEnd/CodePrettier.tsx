@@ -1,25 +1,29 @@
 import PostHeader from "../../../components/posts/post/PostHeader";
 import GiscusApp from "../../../components/posts/post/GiscusApp";
-import { PostContainer, Main, TextBox, ReferenceLink, SubTitle, CodeContainer } from "../style";
+import { PostContainer, Main, TextBox, ReferenceLink, SubTitle } from "../style";
+import CodeContainer from "@/common/components/CodeContainer";
+
+const code1 = `
+  yarn add prettier
+
+  npm i prettier
+
+`;
+
+const code2 = `
+  {
+    "tabWidth": 2, // 탭 간격
+    "useTabs": false, // 탭 대신 스페이스를 사용여부
+    "singleQuote": false, // 작은따옴표(')를 사용할지 큰 따옴표를 사용할지(") true일시 (')
+    "semi": true, // 세미콜론 사용여부
+    "jsxSingleQuote": true, // JSX에서 작은 따옴표를 사용여부
+    "trailingComma": "es5", // 객체나 배열의 마지막 요소에 쉼표를 붙일지 여부
+    "printWidth": 100 // 한 줄의 최대길이를 지정한다.
+  }
+
+`;
 
 export default function CodePrettier() {
-  const code1 = `
-    yarn add prettier
-
-    npm i prettier
-  `;
-
-  const code2 = `
-    {
-      "tabWidth": 2, // 탭 간격
-      "useTabs": false, // 탭 대신 스페이스를 사용여부
-      "singleQuote": false, // 작은따옴표(')를 사용할지 큰 따옴표를 사용할지(") true일시 (')
-      "semi": true, // 세미콜론 사용여부
-      "jsxSingleQuote": true, // JSX에서 작은 따옴표를 사용여부
-      "trailingComma": "es5", // 객체나 배열의 마지막 요소에 쉼표를 붙일지 여부
-      "printWidth": 100 // 한 줄의 최대길이를 지정한다.
-    }
-  `;
 
   return (
     <PostContainer>
@@ -32,15 +36,11 @@ export default function CodePrettier() {
         </TextBox>
         <SubTitle>사용방법</SubTitle>
         <CodeContainer>
-          <pre>
-            <code>{code1}</code>
-          </pre>
+          {code1}
         </CodeContainer>
         <TextBox>설치가 끝났다면 .prettierrc.json 파일을 만들어 관리해줄 수 있다.</TextBox>
         <CodeContainer>
-          <pre>
-            <code>{code2}</code>
-          </pre>
+          {code2}
         </CodeContainer>
         <TextBox>package.json파일 scripts에 prettier --write . 를 추가해주면 간단한 명령어를 실행할 때 마다 코드 포맷팅이 실행된다.</TextBox>
         <TextBox>설정에서 Default Formatter 를 검색해주고 Default Formatter 부분에 Prettier - Code Fromatter 를 지정해주고 Settings에서 Text Editor를 클릭한 후 Formatting를 다시 클릭해준다</TextBox>
