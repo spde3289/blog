@@ -292,7 +292,7 @@ const content = [
   {
     key: 33,
     title: "npm ERR! Cannot read properties of null (reading 'edgesOut')",
-    body: "최근 배포를 하던 와중에 npm ERR! Cannot properties of null (reading) 이런 에러가 발생했다. 문제는? 최신버젼의 styled-components에서 npm i styled-components를 수행하는 동안 생기는 문제였다. 해결방법 V5 사용, npm install styled-components@5.3.10 원사 사용, yarn install styled-components ",
+    body: "최근 배포를 하던 와중에 npm ERR! Cannot properties of null (reading) 이런 에러가 발생했다. 문제는? 최신버젼의 styled-components에서 npm i styled-components를 수행하는 동안 생기는 문제였다. 해결방법 V5 사용, npm install styled-components@5.3.10 원사 사용, yarn install styled-components 베타 버전을 사용하려면,npm install styled-components@latest 나의 경우에는 npm install styled-components@latest 를 사용해 해결했다. ",
     date: "2023.07.13",
     category: "Front-end",
     link: "npm-ERR-Cannot-read-properties-of-null-reading-edgesOut",
@@ -328,7 +328,7 @@ const content = [
   {
     key: 37,
     title: "TypeScript 환경에서 createContext 사용하기",
-    body: "최근 타입스크립트 환경에서 creactContext를 사용하다 아래와 같은 에러가 발생해 createContext 사용방법과 해결방법을 정리해보려 한다. creactContext 사용방법 기본적으로 creactContext를 생성해주면 된다. 그 이후 구성 요소를 context.Provider 로 래핑 해준뒤 useContext로 호출해 사용할 수 있다.",
+    body: "최근 타입스크립트 환경에서 creactContext를 사용하다 아래와 같은 에러가 발생해 createContext 사용방법과 해결방법을 정리해보려 한다. creactContext 사용방법 기본적으로 creactContext를 생성해주면 된다. 그 이후 구성 요소를 context.Provider 로 래핑 해준뒤 useContext로 호출해 사용할 수 있다. 만약 기본값이 없다면 null으로 지정해주면된다. 여기서 문제가 발생했는데 .Provider로 래핑해준 후 사용해주려 하니 위와 같은 에러가 발생했다.",
     date: "2023.08.16",
     category: "typescript",
     link: "typescript-context-api",
