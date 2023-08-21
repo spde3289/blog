@@ -2,32 +2,21 @@ import styled from "styled-components";
 
 const About = () => {
   return (
-    <>
-      <AboutMain>
-        <AboutMe>
-          <h2 className='title'>About Me</h2>
-          이곳에 저의 성장과정과 근황을 올리려고 합니다.
-          <br />
-          개발블로그를 시작한 김지훈 이라고 합니다.
-          <br />
-        </AboutMe>
-        <TimeLineSection>
-          <h2 className='title'>Time Line</h2>
-          <TimeLine>
-            <div>2021년 12월 개발시작</div>
-          </TimeLine>
-          <TimeLine>
-            <div>2022년 9월 개발블로그 시작</div>
-          </TimeLine>
-        </TimeLineSection>
-      </AboutMain>
-    </>
+    <AboutMain>
+      <AboutMe>
+        <h2 className='title'>About Me</h2>
+        이곳에 저의 성장과정과 근황을 올리려고 합니다.
+        <br />
+        개발블로그를 시작한 김지훈 이라고 합니다.
+        <br />
+      </AboutMe>
+    </AboutMain>
   );
 };
 
 const AboutMain = styled.main`
-  height: calc(100vh - 385px);
   margin: 0 auto;
+  height: 68vh;
   width: 1000px;
   padding-top: 80px;
   .title {
@@ -40,7 +29,7 @@ const AboutMe = styled.div`
   padding: 15px;
 `;
 
-const TimeLineSection = styled.div`
+/* const TimeLineSection = styled.div`
   margin-top: 50px;
   padding: 15px;
 `;
@@ -57,6 +46,6 @@ const TimeLine = styled.div`
     border-radius: 10px;
     transform: translatex(-50%);
   }
-`;
+`; */
 
 export default About;

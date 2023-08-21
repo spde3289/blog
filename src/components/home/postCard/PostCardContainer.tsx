@@ -16,8 +16,8 @@ const PostCardContainer = () => {
           <PostCard
             key={data.key}
             title={data.title}
-            body={data.body}
             date={data.date}
+            body={data.body}
             category={data.category}
             link={data.link}
           />
@@ -32,15 +32,13 @@ const Container = styled.div`
 `;
 
 const SubTitle = styled.h2`
-  margin-left: 29px;
   font-size: 22px;
   font-weight: 700;
 `;
 
 const PostContainer = styled.div`
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
+  flex-direction: column;
 `;
 
 export default PostCardContainer;

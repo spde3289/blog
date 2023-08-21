@@ -29,13 +29,8 @@ const PostCard = ({ category, link, title, body, date }: props) => {
 }
 
 const Container = styled.div`
-  width: 213px;
-  height: 263px;
-  box-sizing: border-box;
-  padding: 10px;
-  border-radius: 20px;
-  background-color: #b9a7a71c;
-  margin-top: 20px;
+  border-bottom: 1px solid #e4e4e4;
+  padding: 32px 0;
   &:hover{
     transform: translateY(-10px);
     transition: transform 0.1s ease-in-out 0s;
@@ -57,7 +52,7 @@ const PostContent = styled.p`
   word-break: break-all;
   white-space: normal;
   display: -webkit-box;
-  -webkit-line-clamp: 9;
+  -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
 `;

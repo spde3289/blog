@@ -26,8 +26,10 @@ const Footer = () => {
 
 const FooterBar = styled.footer`
   display: flex;
+  width: 1000px;
   justify-content: flex-end;
   padding: 40px 20px;
+  margin: 0 auto;
   .title {
     padding-bottom: 10px;
   };

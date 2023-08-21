@@ -10,6 +10,7 @@ import Footer from "./common/components/Footer";
 import Home from "./components/home/HomePage";
 import About from "./components/about/About";
 import Posts from "./components/posts/PostsPage";
+import Archives from "./components/archives/Archives";
 
 import content from "./pages/postPageInfo/postInfo";
 
@@ -37,6 +38,7 @@ function App() {
             <Route key={post.key} path={post.link} element={post.element} />
           ))}
         </Route>
+        <Route path='/archives' element={<Archives />}/>
       </Routes>
       <Footer />
     </ThemeProvider>

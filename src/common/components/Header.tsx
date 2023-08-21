@@ -31,6 +31,11 @@ const Header = ({ darkMode, handleDarkMode }: props) => {
               About
             </Wrapper>
           </HeaderMenuItem>
+          <HeaderMenuItem>
+            <Wrapper to='/archives'  data-selected={pathname === "/archives"}>
+              Archives
+            </Wrapper>
+          </HeaderMenuItem>
         </HeaderMenu>
         <div className="Icon" onClick={handleDarkMode}>
           {darkMode === "light" && <BsFillSunFill />}
