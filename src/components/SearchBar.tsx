@@ -2,7 +2,7 @@ import { useRef, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import styled from "styled-components";
 import { AiOutlineSearch, AiOutlineClose } from "react-icons/ai";
-import { useSearchContext } from "../context/searchContext";
+import { useSearchContext } from "@/context/searchContext";
 
 export const SearchBar = () => {
   const [searchValue, { input }] = useSearchContext();

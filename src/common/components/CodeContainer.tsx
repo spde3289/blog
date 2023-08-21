@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 interface props {
-  children: JSX.Element[] | JSX.Element;
+  children: JSX.Element[] | JSX.Element| string;
 }
 
 const CodeContainer = ({ children }: props) => {
@@ -12,14 +12,21 @@ const CodeContainer = ({ children }: props) => {
         <Dot color="#fbbe2f"/>
         <Dot color="#3acb41"/>
       </CodeContainerHeader>
-      <CodeContainerMain>{children}</CodeContainerMain>
+      <CodeContainerMain>
+        <pre>
+          <code>
+            {children}
+          </code>
+        </pre>
+      </CodeContainerMain>
     </Container>
   );
 };
 
 const Container = styled.div`
-  width: 300px;
-  height: 100px;
+  font-family: 'Nanum Gothic Coding';
+  min-width: 300px;
+  height: min-content;
   background-color: rgba(30, 41, 59, 1);
   border-radius: 12px;
 `;
@@ -41,7 +48,9 @@ const Dot = styled.div<{ color: string }>`
 `;
 
 const CodeContainerMain = styled.div`
-  padding: 20px 12px;
+  padding: 10px 12px;
+  color: #fff;
+  font-size: 16px;
 `;
 
 export default CodeContainer;

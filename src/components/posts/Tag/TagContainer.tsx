@@ -1,6 +1,6 @@
-import styled, { useTheme } from "styled-components";
+import styled from "styled-components";
 import Tag from "./Tag";
-import content from "../../postInfo";
+import content from "@/pages/postPageInfo/postInfo";
 
 interface ComponentProps {
   tag: string;

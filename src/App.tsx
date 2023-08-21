@@ -8,10 +8,10 @@ import { light, dark, theme } from "./theme/theme";
 import Header from "./common/components/Header";
 import Footer from "./common/components/Footer";
 import Home from "./components/home/HomePage";
-import About from "./pages/About";
+import About from "./components/about/About";
 import Posts from "./components/posts/PostsPage";
 
-import content from "./postInfo";
+import content from "./pages/postPageInfo/postInfo";
 
 function App() {
   const [darkMode, setDarkMode] = useState<theme>("light");

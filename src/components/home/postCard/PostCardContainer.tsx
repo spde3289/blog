@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import PostCard from "./PostCard";
-import postInfo from "../../../postInfo";
+import postInfo from "@/pages/postPageInfo/postInfo";
 
 const PostCardContainer = () => {
 

@@ -37,11 +37,12 @@ export const ImgContainer = styled.div`
 `;
 
 export const CodeContainer = styled.div`
+  font-family: 'Nanum Gothic Coding' !important;
   margin: 20px;
   background-color: #282c34;
   text-align: left;
   color: #abb2bf;
-  font-size: 15px;
+  font-size: 16px;
 `;
 
 export const ReferenceLink = styled.a`

@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import Pagination from "./Pagination";
-import postInfo from "../../postInfo";
+import postInfo from "@/pages/postPageInfo/postInfo";
 
 type props = {
   value: string;

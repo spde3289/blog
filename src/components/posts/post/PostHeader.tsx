@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import Tag from "../Tag";
 
 type props = {
   tagName: string;
@@ -11,9 +10,8 @@ const PostHeader = ({ tagName, title, date }: props) => {
   return (
     <>
       <ContentHeader>
-        <Tag tagName={tagName} />
         <Title>{title}</Title>
-        <Info>{date}</Info>
+        <Info>{date} · {tagName}</Info>
       </ContentHeader>
     </>
   );
@@ -31,8 +29,8 @@ const Title = styled.h1`
   margin: 20px 0;
 `;
 
-const Info = styled.div`
-  font-size: 14px;
+const Info = styled.p`
+  font-size: 16px;
 `;
 
 export default PostHeader;

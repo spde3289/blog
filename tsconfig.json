@@ -5,6 +5,10 @@
     "module": "ESNext",
     "skipLibCheck": true,
     "typeRoots": ["./node_modules/@types", "@types"],
+    "baseUrl": "src",
+    "paths": {
+      "@/*": ["*"]
+    },
 
     /* Bundler mode */
     "moduleResolution": "bundler",

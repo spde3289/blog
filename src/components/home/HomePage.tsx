@@ -1,6 +1,5 @@
 import styled from "styled-components";
-import { SearchBar } from "../SearchBar";
-import CodeContainer from "./CodeContainer";
+import CodeContainer from "@/common/components/CodeContainer";
 import { TextSplitAni } from "../TextSplitAni";
 import PostCardContainer from "./postCard/PostCardContainer";
 
@@ -32,14 +31,12 @@ const Main = styled.main`
 `;
 
 const IntroductionContainder = styled.div`
-  width: 700px;
   margin: 0 auto 20px;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
 `;
 
 const Introduction = styled.p`
-  font-family: "Jua";
   font-size: 36px;
 `;
 

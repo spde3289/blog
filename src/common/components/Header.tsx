@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { Link, useLocation } from "react-router-dom";
 import { BsFillSunFill, BsFillMoonFill } from "react-icons/bs";
-import { theme } from "../../theme/theme";
+import { theme } from "@/theme/theme";
 
 interface props {
   darkMode: theme;

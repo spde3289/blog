@@ -1,7 +1,7 @@
 import { useState, useMemo } from "react";
 import styled from "styled-components";
 import { AiOutlineLeft, AiOutlineRight } from "react-icons/ai";
-import PostBox from "../posts/post/PostBox";
+import PostBox from "@/components/posts/post/PostBox";
 
 type pageData = {
     key: number;

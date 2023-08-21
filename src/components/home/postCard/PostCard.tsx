@@ -12,7 +12,7 @@ type props = {
 const PostCard = ({ category, link, title, body, date }: props) => {
 
   return (
-    <Link to={"posts/" +link} state={{ Title: title }}>
+    <Link to={"posts/" + link}>
       <Container>
         <PostTitle>
           {title}

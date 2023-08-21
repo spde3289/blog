@@ -1,6 +1,12 @@
 import { createGlobalStyle } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
+  @font-face {
+    font-family: 'Nanum Gothic Coding';
+    src:url("./assets/NanumGothicCoding-2.5/NanumGothicCoding-Bold.ttf") format('woff2'),
+        url("./assets/NanumGothicCoding-2.5/NanumGothicCoding.ttf") format('woff2');
+  } 
+
   body {
     background-color: ${({ theme }) => theme.color.body};
     color : ${({ theme }) => theme.color.font};
@@ -10,10 +16,10 @@ const GlobalStyle = createGlobalStyle`
   };
 
   ul, li {
-  text-decoration: none;
-  list-style:none;
-  padding-left:0px;
-  margin: 0;
+    text-decoration: none;
+    list-style:none;
+    padding-left:0px;
+    margin: 0;
   };
 
   h2, p {

@@ -1,4 +1,4 @@
-import ps from "./pages/post";
+import ps from ".";
 
 const content = [
   {
