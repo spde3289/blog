@@ -6,7 +6,7 @@ import { SearchProvider } from "@/context/searchContext";
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <BrowserRouter basename="/blog">
-    <ScrollToTop/>
+    <ScrollToTop />
     <SearchProvider>
       <App />
     </SearchProvider>
