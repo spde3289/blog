@@ -13,7 +13,7 @@ export const Main = styled.main`
 
 export const SubTitle = styled.h2<{ size?: string }>`
   font-size: 24px;
-  margin: 40px 0;
+  margin: 40px 0 20px;
   ${({ size }) =>
     size === "sub" && {
       "font-size": "1.2rem",

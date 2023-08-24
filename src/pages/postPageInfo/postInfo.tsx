@@ -334,6 +334,15 @@ const content = [
     link: "typescript-context-api",
     element: <ps.CreateContextErr />,
   },
+  {
+    key: 38,
+    title: "팀프로젝트 후기",
+    body: "",
+    date: "2023.08.25",
+    category: "react",
+    link: "team-project-chim-2",
+    element: <ps.ThemProjectChimTwo />,
+  },
 ];
 
 export default content;
