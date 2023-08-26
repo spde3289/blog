@@ -1,14 +1,9 @@
 import styled from "styled-components";
 import content from "@/pages/postPageInfo/postInfo";
+import { PieChart } from "recharts";
 
 export const options = {
   title: "태그별 게시글 개수",
-    animation: {
-    startup: true,
-    easing: "linear",
-    duration: 1500,
-  },
-    legend: "none",  
 };
 
 
@@ -20,6 +15,7 @@ const About = () => {
 
   const result: PieChartInterface = {};
   const data: (string | number)[][] = [["카테고리", "게시글 개수"]];
+  
   
   content.forEach((x) => { 
     result[x.category] = (result[x.category] || 0)+1; 
@@ -54,7 +50,7 @@ const AboutMain = styled.main`
   }
 `;
 
-const AboutMe = styled.div`
+const AboutMe = styled.p`
   padding: 15px;
 `;
 

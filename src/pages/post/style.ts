@@ -14,10 +14,15 @@ export const Main = styled.main`
 export const SubTitle = styled.h2<{ size?: string }>`
   font-size: 24px;
   margin: 40px 0 20px;
-  ${({ size }) =>
+  ${({ size }) => 
     size === "sub" && {
-      "font-size": "1.2rem",
-    }};
+      "font-size": "20px",
+  }};
+`;
+
+export const Subheading = styled.h3`
+  font-size: 16px;
+  margin: 12px 0;
 `;
 
 export const TextBox = styled.p`
