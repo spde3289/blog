@@ -10,7 +10,7 @@ const Archives = () => {
         </Title>
         <TimeLineSection>
           <TimeLine>
-            <Date className="year">2023</Date>
+            <Date className="year">2023</Date><Note>접속자 20명 달성 목표</Note>
           </TimeLine>
           <TimeLine>
             <Date>08.22</Date><Note>디자인 변경및 시멘틱한 코드변경 완료</Note>
@@ -39,7 +39,7 @@ const Archives = () => {
         </TimeLineSection>
         <TimeLineSection>
           <TimeLine>
-            <Date className="year">2022</Date>
+            <Date className="year">2022</Date><Note>블로그 개발 완료</Note>
           </TimeLine>
           <TimeLine>
             <Date>12.04</Date><Note>개발 블로그 시작</Note>
@@ -74,42 +74,57 @@ const TimeLine = styled.li`
   margin-bottom: 20px;
   &:before {
     content: "";
-    height: 42px;
-    width: 4px;
-    top: 15px;
-    left: 70px;
     display: inline-block;
     position: absolute;
-    background-color: #c2c6cc;
+    width: 4px;
+    height: 42px;
+    top: 10px;
+    left: 80px;
+    background-color: rgba(0, 0, 0, 0.075);
+  }
+  &:first-child {
+    &:before {
+      height: 42px;
+      top: 15px;
+      left: 80px;
+    }
   }
   &:last-child{
-      &:before {
-        content: none;
+    &:before {
+      content: none;
     }
   }
 `;
 
 const Date = styled.span`
-  margin-right: 20px;
+  padding-right: 20px;
   position: relative;
   font-size: 16px;
-
   &.year{
-    font-size: 24px
+    font-size: 24px;
+    padding-right: 4px;
   }
-
+  &.year::after{
+    width: 12px;
+    height: 12px;
+    top: -4px;
+    left: 22px;
+    border: 3px solid #c2c6cc;
+    box-shadow: 0 0 2px 0 #c2c6cc;
+    background-color:#fff;
+  }
   &:after {
     content: "";
-    position: absolute;
+    position: relative;
     display: inline-block;
-    height: 10px;
-    width: 10px;
-    top: 4px;
-    left: 66px;
-    align-self: center;
+    width: 7px;
+    height: 7px;
+    top: -4px;
+    left: 36.5px;
+    box-sizing: border-box;
     background-color:#c2c6cc;
-    border: 1.5px solid #c2c6cc;;
-    border-radius: 10px;
+    box-shadow: 0 0 3px 0 #c2c6cc;
+    border-radius: 50%;
   }
 `;
 
