@@ -48,9 +48,7 @@ const code2 = `
   }
 `;
 
-
 export default function EventListenerState() {
-
   return (
     <PostContainer>
       <PostHeader title='react에서 addEventListener와 state' tagName='react' date='2023.07.18' />
@@ -60,9 +58,7 @@ export default function EventListenerState() {
           최근 개발을 하다 window.addEventListener로 호출한 함수 내에서 state값이 초기 값 그대로 읽히는 경우가 있었다. <br />
           아래와 같이 코드를 작성 했을 떄 state값은 계속 변경 되지만 console.log()로 state값을 읽을땐 초기값만 출력이 된다.
         </TextBox>
-        <CodeContainer>
-          {code1}
-        </CodeContainer>
+        <CodeContainer>{code1}</CodeContainer>
         <TextBox>
           이렇게 동작하는 원인이 무엇일까? 이렇게 동작하는 이유는 이벤트 핸들러 함수는 비동기적으로 실행되기 때문에 함수가 호출될 떄의 상태를 유지하면서 실행되기 때문이다. 그래서 state값이 초기 값으로
           고정되는 것 이다.
@@ -71,9 +67,7 @@ export default function EventListenerState() {
         <TextBox>
           이를 해결하는 방법은 useEffect deps에 state를 추가해주면 된다. 그럼 state값이 변경 될 때 마다 리랜더링 되면서 최근값을 반영 하는 함수가 새롭게 선언되면서 초기에 의도한 대로 동작한다.
         </TextBox>
-        <CodeContainer>
-          {code2}
-        </CodeContainer>
+        <CodeContainer>{code2}</CodeContainer>
         참고자료 :<br />
         <ReferenceLink href='https://stackoverflow.com/questions/66213641/react-keypress-event-taking-only-initial-state-values-and-not-updated-values' target='_blank'>
           https://stackoverflow.com/questions/66213641/react-keypress-event-taking-only-initial-state-values-and-not-updated-values

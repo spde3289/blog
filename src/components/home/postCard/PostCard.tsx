@@ -10,28 +10,23 @@ type props = {
 };
 
 const PostCard = ({ category, link, title, body, date }: props) => {
-
   return (
     <Link to={"posts/" + link}>
       <Container>
-        <PostTitle>
-          {title}
-        </PostTitle>
-        <PostContent>
-          {body}
-        </PostContent>
+        <PostTitle>{title}</PostTitle>
+        <PostContent>{body}</PostContent>
         <PostFooter>
           {date} · {category}
         </PostFooter>
       </Container>
     </Link>
-  )
-}
+  );
+};
 
 const Container = styled.div`
   border-bottom: 1px solid #e4e4e4;
   padding: 32px 0;
-  &:hover{
+  &:hover {
     transform: translateY(-10px);
     transition: transform 0.1s ease-in-out 0s;
   }
@@ -57,7 +52,6 @@ const PostContent = styled.p`
   overflow: hidden;
 `;
 
-
 const PostFooter = styled.p`
   margin-top: 15px;
   font-size: 14px;
@@ -69,4 +63,4 @@ const PostFooter = styled.p`
   overflow: hidden;
 `;
 
-export default PostCard
+export default PostCard;

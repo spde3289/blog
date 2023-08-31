@@ -88,24 +88,14 @@ const ReactFragment = () => {
           이는 jsx를 사용하면서 return은 두개의 값을 반환 할 수 없어 하나의 최상위 태그를 사용해야 하기 때문이다. <br />
           이때 Fragment를 사용하면 의미 없는 태그 사용을 막을 수 있다.
         </TextBox>
-        <CodeContainer>
-          {code1}
-        </CodeContainer>
+        <CodeContainer>{code1}</CodeContainer>
         <TextBox>일반적으로 div를 사용하면 이런식으로 보여지게 된다.</TextBox>
-        <CodeContainer>
-          {code2}
-        </CodeContainer>
+        <CodeContainer>{code2}</CodeContainer>
         <TextBox>이때 Fragment 를 사용하게 되면</TextBox>
-        <CodeContainer>
-          {code3}
-        </CodeContainer>
-        <CodeContainer>
-          {code4}
-        </CodeContainer>
+        <CodeContainer>{code3}</CodeContainer>
+        <CodeContainer>{code4}</CodeContainer>
         <TextBox>이렇게 깔끔하게 보여지게 된다. 이때 {`<></>`} 빈 태그를 사용하면 Fragment 선언을 생략하고 사용할 수 있다.</TextBox>
-        <CodeContainer>
-          {code5}
-        </CodeContainer>
+        <CodeContainer>{code5}</CodeContainer>
         <TextBox>
           참고 문서 : <ReferenceLink href='https://reactjs.org/docs/forwarding-refs.html'>https://reactjs.org/docs/forwarding-refs.html</ReferenceLink>
         </TextBox>

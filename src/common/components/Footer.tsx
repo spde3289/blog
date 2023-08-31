@@ -32,14 +32,14 @@ const FooterBar = styled.footer`
   margin: 0 auto;
   .title {
     padding-bottom: 10px;
-  };
+  }
 `;
 
 const Footerinfo = styled.p`
   font-size: 15px;
   .Icon {
     padding: 8px;
-  };
+  }
 `;
 
 const Link = styled.a`

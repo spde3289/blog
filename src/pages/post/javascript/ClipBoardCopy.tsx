@@ -31,9 +31,7 @@ export default function ClipBoardCopy() {
         <TextBox>
           텍스트를 복사하는 기능을 만들고 싶을 때 클립보드 기능을 이용하면 쉽게 만들 수 있다 <br />
         </TextBox>
-        <CodeContainer>
-          {code1}
-        </CodeContainer>
+        <CodeContainer>{code1}</CodeContainer>
         <TextBox>
           이렇게 클립보드API를 이용하면 간단하게 클립보드를 이용한 복사기능을 만들 수 있다. <br />
           이때 주의사항이 있는데 클립보드에 엑세스 하면 암호나 신용카드 번호와 같이 중요한 정보에 엑세스 할 수 있는 문제가 생긴다 <br />
@@ -42,9 +40,7 @@ export default function ClipBoardCopy() {
         </TextBox>
         <ReferenceLink href='https://developer.mozilla.org/ko/docs/Web/API/Clipboard_API'>클립보드 공식 API</ReferenceLink>
         <TextBox>클립보드를 사용 할 수 없는 상황이라면 document.execCommand 기능을 이용하면 된다.</TextBox>
-        <CodeContainer>
-          {code2}
-        </CodeContainer>
+        <CodeContainer>{code2}</CodeContainer>
         <ReferenceLink href='https://developer.mozilla.org/en-US/docs/Web/API/Document/execCommand'>execCommand 공식 문서</ReferenceLink>
       </Main>
       <GiscusApp />

@@ -11,7 +11,9 @@ const PostHeader = ({ tagName, title, date }: props) => {
     <>
       <ContentHeader>
         <Title>{title}</Title>
-        <Info>{date} · {tagName}</Info>
+        <Info>
+          {date} · {tagName}
+        </Info>
       </ContentHeader>
     </>
   );

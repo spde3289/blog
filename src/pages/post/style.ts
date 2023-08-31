@@ -14,10 +14,10 @@ export const Main = styled.main`
 export const SubTitle = styled.h2<{ size?: string }>`
   font-size: 24px;
   margin: 40px 0 20px;
-  ${({ size }) => 
+  ${({ size }) =>
     size === "sub" && {
       "font-size": "20px",
-  }};
+    }};
 `;
 
 export const Subheading = styled.h3`
@@ -42,7 +42,7 @@ export const ImgContainer = styled.div`
 `;
 
 export const CodeContainer = styled.div`
-  font-family: 'Nanum Gothic Coding' !important;
+  font-family: "Nanum Gothic Coding" !important;
   margin: 20px;
   background-color: #282c34;
   text-align: left;

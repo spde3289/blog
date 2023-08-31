@@ -87,7 +87,6 @@ const code10 = `
 
 `;
 export default function TsTypeLearn() {
-
   return (
     <PostContainer>
       <PostHeader title='타입스크립트 타입 종류' tagName='typescript' date='2023.05.09' />
@@ -111,54 +110,34 @@ export default function TsTypeLearn() {
         </List>
         <SubTitle size='sub'>Boolean</SubTitle>
         <TextBox>참/거짓(true/false)에 대한 타입이다</TextBox>
-        <CodeContainer>
-          {code1}
-        </CodeContainer>
+        <CodeContainer>{code1}</CodeContainer>
         <SubTitle size='sub'>Number</SubTitle>
         <TextBox>값이 숫자이면 다음과 같이 선언한다.</TextBox>
-        <CodeContainer>
-          {code2}
-        </CodeContainer>
+        <CodeContainer>{code2}</CodeContainer>
         <SubTitle size='sub'>String</SubTitle>
         <TextBox>값이 문자열이면 다음과 같이 선언한다.</TextBox>
-        <CodeContainer>
-          {code3}
-        </CodeContainer>
+        <CodeContainer>{code3}</CodeContainer>
         <SubTitle size='sub'>Array</SubTitle>
         <TextBox>값이 배열일 경우 다음과 같이 선언한다.</TextBox>
-        <CodeContainer>
-          {code4}
-        </CodeContainer>
+        <CodeContainer>{code4}</CodeContainer>
         <SubTitle size='sub'>Tuple</SubTitle>
         <TextBox>Tuple은 배열의 길이가 고정되고 각 요소의 타입이 지정되어 있는 배열 형식을 의미합니다.</TextBox>
-        <CodeContainer>
-          {code5}
-        </CodeContainer>
+        <CodeContainer>{code5}</CodeContainer>
         <SubTitle size='sub'>Enum</SubTitle>
         <TextBox>Enum은 C, Java와 같은 다른 언어에서 흔하게 쓰이는 타입으로 특정 값(상수)들의 집합을 의미합니다.</TextBox>
-        <CodeContainer>
-          {code6}
-        </CodeContainer>
+        <CodeContainer>{code6}</CodeContainer>
         <SubTitle size='sub'>any</SubTitle>
         <TextBox>any는 모든 타입에 대해서 혀용한다는 의미를 가지고 있다 하지만 너무 남발하게 되면 TypeScript를 사용하는 의미를 잃어버리니 조심하도록 하자.</TextBox>
-        <CodeContainer>
-          {code7}
-        </CodeContainer>
+        <CodeContainer>{code7}</CodeContainer>
         <SubTitle size='sub'>void</SubTitle>
         <TextBox>void는 어떤 값도 존재 할 수 없을을 나타낸다.</TextBox>
-        <CodeContainer>
-          {code8}
-        </CodeContainer>
+        <CodeContainer>{code8}</CodeContainer>
         <SubTitle size='sub'>object</SubTitle>
         <TextBox>object는 interface, class의 상위 타입이다. object로 정의하면 any타입처럼 모든 값을 할당 할 수 있다. 하지만 any와 같이 typeScript를 사용하는 의미가 없어지니 조심하자.</TextBox>
-        <CodeContainer>
-          {code9}
-        </CodeContainer>
+        <CodeContainer>{code9}</CodeContainer>
         <SubTitle size='sub'>Never</SubTitle>
         <TextBox>Never타입은 절대 발생할 수 없는 타입을 나타낸다.</TextBox>
-        <CodeContainer>
-{         code10}
-        </CodeContainer>
+        <CodeContainer>{code10}</CodeContainer>
         참고자료 :<br />
         <ReferenceLink href='https://joshua1988.github.io/ts/guide/basic-types.html' target='_blank'>
           https://joshua1988.github.io/ts/guide/basic-types.html

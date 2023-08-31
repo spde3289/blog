@@ -26,7 +26,7 @@ const Tag = ({ tagName, currentTag, selector }: props): any => {
 };
 
 interface TagProps {
-  color: string
+  color: string;
 }
 
 const Tech = styled.div<TagProps>`
@@ -34,7 +34,7 @@ const Tech = styled.div<TagProps>`
   font-size: 16px;
   font-weight: 600;
   transition: all 0.2s ease-in-out;
-  color: ${({color}) => color};
+  color: ${({ color }) => color};
   border-radius: 10px;
   padding: 7px 9px;
   margin: 3px;

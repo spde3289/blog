@@ -6,25 +6,21 @@ export const options = {
   title: "태그별 게시글 개수",
 };
 
-
 interface PieChartInterface {
-  [key: string]: number
+  [key: string]: number;
 }
 
 const About = () => {
-
   const result: PieChartInterface = {};
   const data: (string | number)[][] = [["카테고리", "게시글 개수"]];
-  
-  
-  content.forEach((x) => { 
-    result[x.category] = (result[x.category] || 0)+1; 
+
+  content.forEach((x) => {
+    result[x.category] = (result[x.category] || 0) + 1;
   });
-  
+
   for (const arr in result) {
     data.push([arr, result[arr]]);
-  }; 
-  
+  }
 
   return (
     <AboutMain>

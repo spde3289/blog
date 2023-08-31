@@ -4,14 +4,14 @@ import { AiOutlineLeft, AiOutlineRight } from "react-icons/ai";
 import PostBox from "@/components/posts/post/PostBox";
 
 type pageData = {
-    key: number;
-    title: string;
-    body: string;
-    date: string;
-    category: string;
-    link: string;
-    element: JSX.Element;
-  }
+  key: number;
+  title: string;
+  body: string;
+  date: string;
+  category: string;
+  link: string;
+  element: JSX.Element;
+};
 
 interface props {
   currentPage: number;
@@ -22,10 +22,10 @@ interface props {
   onPrevClick: () => void;
   onNextClick: () => void;
   onPageChange: (e: number) => void;
-};
+}
 
 const Pagination = (props: props) => {
-  const { currentPage, maxPageLimit, minPageLimit, totalPages, pageData, onPrevClick, onNextClick, onPageChange } = props
+  const { currentPage, maxPageLimit, minPageLimit, totalPages, pageData, onPrevClick, onNextClick, onPageChange } = props;
   const [currentNum, setCurrentNum] = useState(1);
   const count: number = pageData.length;
 
@@ -100,7 +100,6 @@ const ContentPoint = styled.div`
   flex-direction: column;
   justify-content: space-between;
 `;
-
 
 const PostColumn = styled.div`
   overflow: hidden;

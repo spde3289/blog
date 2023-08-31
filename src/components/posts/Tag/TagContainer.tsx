@@ -9,9 +9,11 @@ interface ComponentProps {
 
 export const TagSlider = ({ tag, setTag }: ComponentProps) => {
   const category: string[] = content.map((el) => el.category);
-  const uniqueArr: string[] = category.filter((element, index) => {
-    return category.indexOf(element) === index;
-  }).map((el) => "# " + el);
+  const uniqueArr: string[] = category
+    .filter((element, index) => {
+      return category.indexOf(element) === index;
+    })
+    .map((el) => "# " + el);
 
   const newTagList: string[] = [...uniqueArr];
   newTagList.unshift("# all");
@@ -22,17 +24,10 @@ export const TagSlider = ({ tag, setTag }: ComponentProps) => {
 
   return (
     <SliderContainer>
-      <Title>
-        TAGS
-      </Title>
+      <Title>TAGS</Title>
       <TagContainer>
         {newTagList.map((el) => (
-          <Tag
-            key={el}
-            selector={el.replace("# ", "") === tag}
-            tagName={el}
-            currentTag={currentTag}
-          />
+          <Tag key={el} selector={el.replace("# ", "") === tag} tagName={el} currentTag={currentTag} />
         ))}
       </TagContainer>
     </SliderContainer>

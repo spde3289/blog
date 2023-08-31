@@ -3,7 +3,6 @@ import GiscusApp from "@/components/posts/post/GiscusApp";
 import { PostContainer, Main, SubTitle, TextBox, ReferenceLink } from "../style";
 import CodeContainer from "@/common/components/CodeContainer";
 
-
 const code1 = `
   //GET
   axios.get(url, [config])
@@ -110,7 +109,6 @@ const code6 = `
 `;
 
 export default function AxiosLearn() {
-
   return (
     <PostContainer>
       <PostHeader title='Axios를 배워보자' tagName='Front_end' date='2023.02.21' />
@@ -128,45 +126,33 @@ export default function AxiosLearn() {
           get(조회), post(등록및 전송), put(수정), delete(삭제) <br />
           이렇게 4가지의 HTTP 메서드를 이용하여 통신할 수 있다. <br />
         </TextBox>
-        <CodeContainer>
-          {code1}
-        </CodeContainer>
+        <CodeContainer>{code1}</CodeContainer>
         <SubTitle size='sub'>응답 데이터</SubTitle>
-        <CodeContainer>
-          {code2}
-        </CodeContainer>
+        <CodeContainer>{code2}</CodeContainer>
         <SubTitle size='sub'>axios GET</SubTitle>
         <TextBox>
           get 메서드를 사용하는 상황은 이러하다. <br />
           단순한 데이터(게시글 목록, 사용자 목록), 파라미터 데이터를 포함시키는 경우
         </TextBox>
-        <CodeContainer>
-          {code3}
-        </CodeContainer>
+        <CodeContainer>{code3}</CodeContainer>
         <SubTitle size='sub'>axios POST</SubTitle>
         <TextBox>
           새로운 리소스를 생성하여 서버에 제출할 때 사용된다. <br />
           회원가입, 게시글 작성 등의 작업에서 사용할 수 있다.
         </TextBox>
-        <CodeContainer>
-          {code4}
-        </CodeContainer>
+        <CodeContainer>{code4}</CodeContainer>
         <SubTitle size='sub'>axios DELETE</SubTitle>
         <TextBox>
           서버에서 리소스를 삭제할 때 사용한다. <br />
           게시글 삭제, 사용자 삭제 등의 작업에서 사용할 수 있다
         </TextBox>
-        <CodeContainer>
-          {code5}
-        </CodeContainer>
+        <CodeContainer>{code5}</CodeContainer>
         <SubTitle size='sub'>axios PUT</SubTitle>
         <TextBox>
           서버에서 리소스를 업데이트 또는 교체할 떄 사용한다. <br />
           게시글 수정, 사용자 정보 업데이트 등의 작업에서 사용된다.
         </TextBox>
-        <CodeContainer>
-          {code6}
-        </CodeContainer>
+        <CodeContainer>{code6}</CodeContainer>
         <ReferenceLink href='https://axios-http.com/'>참고자료 : https://axios-http.com/</ReferenceLink>
         <br />
         <ReferenceLink href='https://inpa.tistory.com/entry/AXIOS-%F0%9F%93%9A-%EC%84%A4%EC%B9%98-%EC%82%AC%EC%9A%A9'>참고자료 : https://inpa.tistory.com/entry/AXIOS</ReferenceLink>

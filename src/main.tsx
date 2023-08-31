@@ -5,7 +5,7 @@ import ScrollToTop from "@/utill/ScrollToTop.ts";
 import { SearchProvider } from "@/context/searchContext";
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
-  <BrowserRouter basename="/blog">
+  <BrowserRouter basename='/blog'>
     <ScrollToTop />
     <SearchProvider>
       <App />

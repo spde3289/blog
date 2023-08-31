@@ -71,7 +71,6 @@ const code5 = `
 `;
 
 export default function JsLoop() {
-
   return (
     <PostContainer>
       <PostHeader title='자바스크립트 반복문' tagName='javascript' date='2023.04.15' />
@@ -86,29 +85,19 @@ export default function JsLoop() {
         </List>
         <SubTitle size='sub'>for 문</SubTitle>
         <TextBox>for 문은 특정한 조건이 거짓이 될 때 까지 반복한다.</TextBox>
-        <CodeContainer>
-          {code1}
-        </CodeContainer>
+        <CodeContainer>{code1}</CodeContainer>
         <SubTitle size='sub'>for...in 문</SubTitle>
         <TextBox>for...in 문은 객체의 속성을 열거할 때 유용하게 활용된다. 하지만 일반적인 배열에도 사용이 가능하다.</TextBox>
-        <CodeContainer>
-          {code2}
-        </CodeContainer>
+        <CodeContainer>{code2}</CodeContainer>
         <SubTitle size='sub'>for...of 문</SubTitle>
         <TextBox>for...of 문은 배열이나 이터러블(iterable) 객체의 각 요소들을 반복적으로 순회하는 데 사용된다.</TextBox>
-        <CodeContainer>
-          {code3}
-        </CodeContainer>
+        <CodeContainer>{code3}</CodeContainer>
         <SubTitle size='sub'>while 문</SubTitle>
         <TextBox>while 문은 주어진 조건식이 참이 될 때 까지 반복한다.</TextBox>
-        <CodeContainer>
-          {code4}
-        </CodeContainer>
+        <CodeContainer>{code4}</CodeContainer>
         <SubTitle size='sub'>do...while 문</SubTitle>
         <TextBox>do...while 문은 우선 코드를 실행 한 후 조건식이 참이면 반복하여 실행한다.</TextBox>
-        <CodeContainer>
-          {code5}
-        </CodeContainer>
+        <CodeContainer>{code5}</CodeContainer>
         <TextBox>
           참고자료 : <br />
           <ReferenceLink href='https://developer.mozilla.org/ko/docs/Web/JavaScript/Guide/Loops_and_iteration' target='_blank'>

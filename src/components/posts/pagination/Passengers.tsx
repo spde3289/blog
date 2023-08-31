@@ -9,7 +9,7 @@ type props = {
 
 const Passengers = ({ value, tag }: props) => {
   const maxPageNumber = 5;
-  const newPostList = [...postInfo]
+  const newPostList = [...postInfo];
   const [pageData, setPageData] = useState(newPostList);
   const [loading, setLoading] = useState(true);
   const [currentPage, setCurrentPage] = useState(1);
@@ -19,13 +19,10 @@ const Passengers = ({ value, tag }: props) => {
 
   useEffect(() => {
     if (tag === "all") {
-      const filterList = newPostList.filter(list =>
-        list.title.toLowerCase().includes(value.toLowerCase())).reverse();
+      const filterList = newPostList.filter((list) => list.title.toLowerCase().includes(value.toLowerCase())).reverse();
       setPageData(filterList);
     } else if (tag !== "all") {
-      const filterList = newPostList.filter(list =>
-        list.title.toLowerCase().includes(value.toLowerCase()) &&
-        list.category === tag).reverse();
+      const filterList = newPostList.filter((list) => list.title.toLowerCase().includes(value.toLowerCase()) && list.category === tag).reverse();
       setPageData(filterList);
     }
     setLoading(false);
@@ -64,13 +61,15 @@ const Passengers = ({ value, tag }: props) => {
     totalPages,
     onPrevClick,
     onNextClick,
-    onPageChange
+    onPageChange,
   };
 
-  return <>
-    {!loading && <Pagination {...pageInfo} />}
-    {loading && <div />}
-  </>;
+  return (
+    <>
+      {!loading && <Pagination {...pageInfo} />}
+      {loading && <div />}
+    </>
+  );
 };
 
 export default Passengers;

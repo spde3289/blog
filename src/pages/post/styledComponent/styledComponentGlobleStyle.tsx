@@ -85,7 +85,7 @@ const code4 = `
     background-color: \${ ({theme}) => theme.color.box };
   \`;
 
-`
+`;
 
 export default function StyledComponentGlobleStyle() {
   return (
@@ -98,12 +98,8 @@ export default function StyledComponentGlobleStyle() {
         </TextBox>
         <SubTitle>GolbalStyle 사용방법</SubTitle>
         <TextBox>간단하게 createGlobalStyle 이라는 함수를 사용해 css를 작성한 후 최상위 컴포넌트에 추가해주면 된다.</TextBox>
-        <CodeContainer>
-          {code1}
-        </CodeContainer>
-        <CodeContainer>
-          {code2}
-        </CodeContainer>
+        <CodeContainer>{code1}</CodeContainer>
+        <CodeContainer>{code2}</CodeContainer>
         <TextBox>
           이렇게 사용하면 전역으로 css를 설정할 수 있어 불필요하게 중복되는 스타일링을 줄일 수 있다. <br />
         </TextBox>
@@ -112,12 +108,8 @@ export default function StyledComponentGlobleStyle() {
           ThemeProvider 이라는 함수로 ThemeProvider 로 감싼 내부의 컴포넌트에게 공통된 값을 내려줄 수 있다. <br />
           theme를 사용하면 일관된 디자인을 유지할 수 있다는 장점이 있고 디자인 수정이 필요하다면 theme만 변경해주면 된다.
         </TextBox>
-        <CodeContainer>
-          {code3}
-        </CodeContainer>
-        <CodeContainer>
-          {code4}
-        </CodeContainer>
+        <CodeContainer>{code3}</CodeContainer>
+        <CodeContainer>{code4}</CodeContainer>
         <TextBox>ThemeProvider 함수를 잘 응용하면 다크모드도 간단하게 만들 수 있다.</TextBox>
         <ReferenceLink href='https://styled-components.com/docs/api#createglobalstyle'>공식문서 : createGlobalStyle</ReferenceLink>
         <br />

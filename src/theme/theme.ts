@@ -1,5 +1,5 @@
 type Color = "body" | "object" | "font" | "comment" | "tag" | "currentTag";
-export type theme = "dark" | "light" 
+export type theme = "dark" | "light";
 
 interface themePlatte {
   color: Record<Color, string>;

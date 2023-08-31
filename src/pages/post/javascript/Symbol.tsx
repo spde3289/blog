@@ -4,7 +4,6 @@ import { PostContainer, Main, TextBox, ReferenceLink, SubTitle, ImgContainer } f
 import SymbolObject from "./imgs/Symbol/SymbolObject.png";
 import CodeContainer from "@/common/components/CodeContainer";
 
-
 const code1 = `
   const mySymbol = Symbol();
 
@@ -46,7 +45,6 @@ const code4 = `
 `;
 
 export default function SymbolAbout() {
-
   return (
     <PostContainer>
       <PostHeader title='Symbol에 대해서' tagName='javascript' date='2023.04.11' />
@@ -54,22 +52,14 @@ export default function SymbolAbout() {
         <TextBox>Symbol은 ES6에서 추가된 7번째 데이터 타입이다. 심볼은 주로 이름의 충돌 위험이 없는 객체의 프로퍼티 키를 만들기 위해서 사용한다.</TextBox>
         <SubTitle>Symbol의 생성</SubTitle>
         <TextBox>Symbol은 Symbol()함수를 호출하어 생성한다 이때 생성된 Symbol은 객체가 아니라 변경 불가능한 원시타입의 값이다.</TextBox>
-        <CodeContainer>
-          {code1}
-        </CodeContainer>
+        <CodeContainer>{code1}</CodeContainer>
         <TextBox>이렇게 보면 생성자 함수로 객체를 생성하는 것처럼 보이지만 Symbol함수는 String, Number, Boolean 생성자와 달리 new 연산자와 함께 호출하지 않는다.</TextBox>
-        <CodeContainer>
-          {code2}
-        </CodeContainer>
+        <CodeContainer>{code2}</CodeContainer>
         <TextBox>Symbol함수에는 문자열을 인수로 전달할 수 있는데 이 문자열은 심벌 값에 대한 설명, 디버깅 용도로만 사용된다.</TextBox>
-        <CodeContainer>
-          {code3}
-        </CodeContainer>
+        <CodeContainer>{code3}</CodeContainer>
         <SubTitle>Symbol과 프로퍼티 은닉</SubTitle>
         <TextBox>어떠한 외부에서 가져온 객체에 값을 추가해야 하는 상황이 있다고 할때 symbol을 이용할 수 있다.</TextBox>
-        <CodeContainer>
-          {code4}
-        </CodeContainer>
+        <CodeContainer>{code4}</CodeContainer>
         <TextBox>심벌은 중복되지 않는 상수 값을 생성하는 것은 물론 기존에 작성된 코드에 영향을 주지 않고 새로운 프로퍼티를 추가하기 위해 도입되었다.</TextBox>
         <SubTitle>Symbol 객체</SubTitle>
         <TextBox>한번 브라우저 콘솔에서 Symbol함수를 참조해보자</TextBox>

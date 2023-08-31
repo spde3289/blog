@@ -128,7 +128,6 @@ const code9 = `
 
 `;
 export default function InterfaceGenericLearn() {
-
   return (
     <PostContainer>
       <PostHeader title='타입스크립트 인터페이스' tagName='typescript' date='2023.05.13' />
@@ -147,54 +146,36 @@ export default function InterfaceGenericLearn() {
         </List>
         <SubTitle>인터페이스 알아보기</SubTitle>
         <TextBox>인터페이스는 변수의 타입으로 사용할 수 있다.</TextBox>
-        <CodeContainer>
-          {code1}
-        </CodeContainer>
+        <CodeContainer>{code1}</CodeContainer>
         <SubTitle size='sub'>옵셔널 속성</SubTitle>
         <TextBox>
           인터페이스에는 ? 를 사용해서 옵셔널한 속성을 부여할 수 있다. <br />
           옵셔널한 속성을 부여하면 모든 속성을 사용하지 않아도 된다.
         </TextBox>
-        <CodeContainer>
-          {code2}
-        </CodeContainer>
+        <CodeContainer>{code2}</CodeContainer>
         <SubTitle size='sub'>읽기 전용 속성</SubTitle>
         <TextBox>
           읽기 전용 속성은 객체를 생성할때 값을 할당하면 그 이후에는 바꿀 수 없는 속성을 의미한다 readonly 속성을 앞에 사용하면 된다. <br />
           또한 ReadonlyArray{"<T>"}를 사용하면 배열또한 읽기전용으로 지정 할 수 있습니다.
         </TextBox>
-        <CodeContainer>
-          {code3}
-        </CodeContainer>
-        <CodeContainer>
-          {code4}
-        </CodeContainer>
+        <CodeContainer>{code3}</CodeContainer>
+        <CodeContainer>{code4}</CodeContainer>
         <SubTitle size='sub'>객체 선언과 관련된 타입 체킹</SubTitle>
         <TextBox>타입스크립트를 사용한다면 좀 더 엄밀한 속성 검사를 진행한다.</TextBox>
-        <CodeContainer>
-          {code5}
-        </CodeContainer>
+        <CodeContainer>{code5}</CodeContainer>
         <TextBox>
           인터페이스에 선언되어 있는 속성과 다를경우 오탈자 점검을 요하는 오류가 난다. <br />
           만일 이런 타입 추론을 무시하고 싶다면 아래와 같이 선언한다.
         </TextBox>
-        <CodeContainer>
-          {code6}
-        </CodeContainer>
+        <CodeContainer>{code6}</CodeContainer>
         <SubTitle size='sub'>클래스 타입</SubTitle>
         <TextBox>C#이나 자바처럼 타입스크립트에서도 클래스가 일정 조건을 만족하도록 타입 규칙을 정할 수 있다.</TextBox>
-        <CodeContainer>
-          {code7}
-        </CodeContainer>
+        <CodeContainer>{code7}</CodeContainer>
         <SubTitle size='sub'>인터페이스 확장</SubTitle>
         <TextBox>클래스와 마찬가지로 인터페이스도 인터페이스 간 확장이 가능하다.</TextBox>
-        <CodeContainer>
-          {code8}
-        </CodeContainer>
+        <CodeContainer>{code8}</CodeContainer>
         <TextBox>혹은 아래와 같이 여러 인터페이스를 상속받아 사용할 수 있다.</TextBox>
-        <CodeContainer>
-          {code9}
-        </CodeContainer>
+        <CodeContainer>{code9}</CodeContainer>
         참고자료 :<br />
         <ReferenceLink href='https://poiemaweb.com/typescript-interface' target='_blank'>
           https://poiemaweb.com/typescript-interface

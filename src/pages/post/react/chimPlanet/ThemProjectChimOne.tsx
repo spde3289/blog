@@ -49,7 +49,7 @@ export default function ThemProjectChimONE() {
           <br />
           기능 구현분배에 대해선 디자인이 나온 후에 정하기로 했다.
         </TextBox>
-        <SubTitle>두번째 회의 02.25(토)</SubTitle>
+        <SubTitle id="두번째 회의 02.25(토)">두번째 회의 02.25(토)</SubTitle>
         <TextBox>
           <strong>
             전체 회의: <br />

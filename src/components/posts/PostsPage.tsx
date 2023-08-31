@@ -48,7 +48,7 @@ const PostContainer = styled.div`
 `;
 
 const SideBar = styled.div`
-  margin-left: 80px; 
+  margin-left: 80px;
   width: 320px;
 `;
 

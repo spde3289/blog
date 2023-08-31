@@ -9,15 +9,12 @@ interface props {
 }
 
 const Header = ({ darkMode, handleDarkMode }: props) => {
-  
   const { pathname } = useLocation();
 
   return (
     <HeaderBar>
       <BlogName>
-        <Link to='/'>
-          spde3289.github.io
-        </Link>
+        <Link to='/'>spde3289.github.io</Link>
       </BlogName>
       <Nav>
         <HeaderMenu>
@@ -27,17 +24,17 @@ const Header = ({ darkMode, handleDarkMode }: props) => {
             </Wrapper>
           </HeaderMenuItem>
           <HeaderMenuItem>
-            <Wrapper to='/about'  data-selected={pathname === "/about"}>
+            <Wrapper to='/about' data-selected={pathname === "/about"}>
               About
             </Wrapper>
           </HeaderMenuItem>
           <HeaderMenuItem>
-            <Wrapper to='/archives'  data-selected={pathname === "/archives"}>
+            <Wrapper to='/archives' data-selected={pathname === "/archives"}>
               Archives
             </Wrapper>
           </HeaderMenuItem>
         </HeaderMenu>
-        <div className="Icon" onClick={handleDarkMode}>
+        <div className='Icon' onClick={handleDarkMode}>
           {darkMode === "light" && <BsFillSunFill />}
           {darkMode === "dark" && <BsFillMoonFill />}
         </div>
@@ -66,7 +63,7 @@ const BlogName = styled.h1`
 
 const Nav = styled.nav`
   display: flex;
-  .Icon{
+  .Icon {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -75,7 +72,7 @@ const Nav = styled.nav`
     top: 26px;
     width: 36px;
     height: 36px;
-    &:hover{
+    &:hover {
       border-radius: 999px;
       background-color: rgba(138, 129, 129, 0.3);
     }
@@ -92,10 +89,10 @@ const HeaderMenu = styled.ul`
 
 const HeaderMenuItem = styled.li`
   padding: 0 20px;
-  a{
+  a {
     position: relative;
   }
-  a::after{
+  a::after {
     content: "";
     position: absolute;
     bottom: -4px;
@@ -103,8 +100,8 @@ const HeaderMenuItem = styled.li`
     width: 0px;
     height: 3px;
   }
-  &:hover{
-    a::after{
+  &:hover {
+    a::after {
       width: 100%;
       transition: all 0.4s ease-in-out 0s;
       background-color: ${({ theme }) => theme.color.object};
@@ -114,7 +111,7 @@ const HeaderMenuItem = styled.li`
 
 const Wrapper = styled(Link)`
   &[data-selected="true"] {
-    &::after{
+    &::after {
       width: 100%;
       background-color: ${({ theme }) => theme.color.object};
     }

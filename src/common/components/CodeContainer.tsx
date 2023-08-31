@@ -1,22 +1,20 @@
 import styled from "styled-components";
 
 interface props {
-  children: JSX.Element[] | JSX.Element| string;
+  children: JSX.Element[] | JSX.Element | string;
 }
 
 const CodeContainer = ({ children }: props) => {
   return (
     <Container>
       <CodeContainerHeader>
-        <Dot color="#f75f59"/>
-        <Dot color="#fbbe2f"/>
-        <Dot color="#3acb41"/>
+        <Dot color='#f75f59' />
+        <Dot color='#fbbe2f' />
+        <Dot color='#3acb41' />
       </CodeContainerHeader>
       <CodeContainerMain>
         <pre>
-          <code>
-            {children}
-          </code>
+          <code>{children}</code>
         </pre>
       </CodeContainerMain>
     </Container>
@@ -24,7 +22,7 @@ const CodeContainer = ({ children }: props) => {
 };
 
 const Container = styled.div`
-  font-family: 'Nanum Gothic Coding';
+  font-family: "Nanum Gothic Coding";
   min-width: 300px;
   height: min-content;
   background-color: rgba(30, 41, 59, 1);
@@ -44,7 +42,7 @@ const Dot = styled.div<{ color: string }>`
   height: 10px;
   border-radius: 99999px;
   margin-left: 6px;
-  background-color: ${({color})=> color};
+  background-color: ${({ color }) => color};
 `;
 
 const CodeContainerMain = styled.div`

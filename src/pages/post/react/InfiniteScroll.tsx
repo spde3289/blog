@@ -26,7 +26,6 @@ const code1 = `
 `;
 
 export default function InfiniteScroll() {
-
   return (
     <PostContainer>
       <PostHeader title='무한 스크롤 구현하기 (Intersection observer API)' tagName='react' date='2023.05.01' />
@@ -42,9 +41,7 @@ export default function InfiniteScroll() {
           실행되어 스크롤 이벤트에서 발생하는 성능 저하 같은 문제없이 사용 할 수 있다.
         </TextBox>
         <SubTitle>사용방법</SubTitle>
-        <CodeContainer>
-          {code1}
-        </CodeContainer>
+        <CodeContainer>{code1}</CodeContainer>
         <TextBox>
           new IntersectionObserver()를 이용해 인스턴스를 생성해준다. callback은 관찰 대상이 보이면 실행되는 함수이다. options은 관찰이 시작되는 상황에 대해 설정할 수 있다. <br />
           observer.observe()은 관찰 대상을 시작한다는 말이다. 대상 element가 관찰이 되면 위에 있는 callback. 함수가 실행된다. callback은 (entries, observer)를 인수로 가지게 된다. <br />

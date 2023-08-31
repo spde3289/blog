@@ -45,7 +45,6 @@ const code3 = `
 `;
 
 export default function YamlFileGrammar() {
-
   return (
     <PostContainer>
       <PostHeader title='yaml파일 문법' tagName='yaml' date='2023.04.24' />
@@ -57,17 +56,11 @@ export default function YamlFileGrammar() {
         </TextBox>
         <SubTitle>기본 문법</SubTitle>
         <TextBox>기본적으로 json과 같이 "key: value"와 같이 표기되고 ":" 다음에는 공백 한칸이 필요하다.</TextBox>
-        <CodeContainer>
-          {code1}
-        </CodeContainer>
+        <CodeContainer>{code1}</CodeContainer>
         <TextBox>그리고 int, string, boolean 을 지원한다</TextBox>
-        <CodeContainer>
-          {code2}
-        </CodeContainer>
+        <CodeContainer>{code2}</CodeContainer>
         <TextBox>오브젝트와 배열의 표현 또한 가능하다.</TextBox>
-        <CodeContainer>
-          {code3}
-        </CodeContainer>
+        <CodeContainer>{code3}</CodeContainer>
         참고자료 :<br />
         <ReferenceLink href='https://subicura.com/k8s/prepare/yaml.html' target='_blank'>
           https://subicura.com/k8s/prepare/yaml.html
