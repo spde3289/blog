@@ -343,6 +343,15 @@ const content = [
     link: "team-project-chim-2",
     element: <ps.ThemProjectChimTwo />,
   },
+  {
+    key: 39,
+    title: "discord.js로 봇을 만들어보자",
+    body: "프로젝트 소개 메이플스토리라는 게임을 하다가 디스코드로 내 캐릭터에 대한 정보를 볼 수 있으면 편하겠다는 생각이 들었고, 친구와 이야기 하다 너무 재미있을 것 같아 당장 만들어보았다. discord.js가 너무 잘 만들어져 있어 생각보다 간단하게 만들 수 있었다. 프로젝트 사용한 라이브러리 axios를 이용해 HTTP 요청으로 웹에 대한 정보를 가져와 cheerio를 이용해 웹에 대한 데이터를 쉽게 가공해 원하는 정보를 가져올 수 있도록 했다. ",
+    date: "2023.09.08",
+    category: "node.js",
+    link: "create-discord-bot-1",
+    element: <ps.CreateDiscordBotOne />,
+  },
 ];
 
 export default content;

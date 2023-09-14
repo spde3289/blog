@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import content from "@/pages/postPageInfo/postInfo";
-import { PieChart } from "recharts";
+import { PieChart, Pie, ResponsiveContainer } from "recharts";
 
 export const options = {
   title: "태그별 게시글 개수",
@@ -12,16 +12,16 @@ interface PieChartInterface {
 
 const About = () => {
   const result: PieChartInterface = {};
-  const data: (string | number)[][] = [["카테고리", "게시글 개수"]];
+  const data: any[] = [];
 
   content.forEach((x) => {
     result[x.category] = (result[x.category] || 0) + 1;
   });
 
   for (const arr in result) {
-    data.push([arr, result[arr]]);
+    data.push({"name": arr, "value": result[arr]});
   }
-
+  console.log(data, result);
   return (
     <AboutMain>
       <AboutMe>
@@ -31,6 +31,9 @@ const About = () => {
         개발블로그를 시작한 김지훈 이라고 합니다.
         <br />
       </AboutMe>
+      <PieChart width={600} height={600}>
+        <Pie data={data} dataKey="value" nameKey="name" cx="50%" cy="50%" outerRadius={250} fill="#8884d8" />
+      </PieChart>
     </AboutMain>
   );
 };

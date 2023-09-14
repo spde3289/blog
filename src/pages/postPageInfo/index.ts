@@ -36,8 +36,10 @@ import EventListenerState from "../post/react/EventListenerState";
 import CodePrettier from "../post/FrontEnd/CodePrettier";
 import TypeInference from "../post/typescript/TypeInference";
 import CreateContextErr from "../post/typescript/useContextErr";
+import CreateDiscordBotOne from "../post/Node.js/CreateDiscordBotOne/CreateDiscordBotOne"
 
 export default {
+  CreateDiscordBotOne,
   CreateContextErr,
   TypeInference,
   CodePrettier,
