@@ -352,6 +352,15 @@ const content = [
     link: "create-discord-bot-1",
     element: <ps.CreateDiscordBotOne />,
   },
+  {
+    key: 40,
+    title: "프론트엔드 기술면접 정리 - 1",
+    body: "앞으로의 기술면접을 대비해 그동안 공부했던걸 한번 정리해보려 한다. Web 브라우저 렌더링 순서 1. 주소창에 입력된 주소를 통해 서버를 찾아간다. 2. 이후 DNS가 연결해줄 곳을 찾는다 3. 서버에서 HTML 파일을 클라이언트로 보내준다 4. HTML문서는 파싱되어 DOM을 생성한다.(객체 형식) 5. 중간에 CSS를 로드하는 link혹은 style 태그를 만나면 HTML파싱 중지후 CSS파싱을 시작한다",
+    date: "2023.09.21",
+    category: "Cs",
+    link: "DeveloperInterviewOne",
+    element: <ps.DeveloperInterviewOne />,
+  },
 ];
 
 export default content;
