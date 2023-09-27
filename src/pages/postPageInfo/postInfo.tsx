@@ -361,6 +361,15 @@ const content = [
     link: "DeveloperInterviewOne",
     element: <ps.DeveloperInterviewOne />,
   },
+  {
+    key: 41,
+    title: "프론트엔드 기술면접 정리 - 2",
+    body: "Http HTTP 통신이란? (Hypertext Transfer Protocol) 웹 프로토콜 중에 하나. 인터넷으로 데이터를 주고받을 수 있는 통긴규약. Request와 Reponse로 이뤄져 있음. Http와 Https의 차이 Http - 암호화 X - 빠름 Https - 보안, 암호화 O - 설치 및 인증서 유지에 대한 비용이 듦 - 중간에 정보를 탈취해도 볼 수 없도록 암호화를 지원한다. CORS CORS(Cross-Origin Resource Sharing)란?",
+    date: "2023.09.27",
+    category: "Cs",
+    link: "DeveloperInterviewTwo",
+    element: <ps.DeveloperInterviewTwo />,
+  },
 ];
 
 export default content;

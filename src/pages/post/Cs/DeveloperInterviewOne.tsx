@@ -49,6 +49,9 @@ export default function DeveloperInterviewOne() {
           spa는 Single Page Application으로 최초 한번 페이지 전체를 로딩한 후 데이터만 변경해서 사용할 수 있는 웹 어플리케이션이다.
           하나의 페이지에서만 실행된다는 특징이 있다
         </TextBox>
+        <SubTitle>
+          JavaScript
+        </SubTitle>
         <Subheading>
           호이스팅이란?
         </Subheading>

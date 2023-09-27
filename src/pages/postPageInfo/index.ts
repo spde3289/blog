@@ -38,8 +38,10 @@ import TypeInference from "../post/typescript/TypeInference";
 import CreateContextErr from "../post/typescript/useContextErr";
 import CreateDiscordBotOne from "../post/Node.js/CreateDiscordBotOne/CreateDiscordBotOne"
 import DeveloperInterviewOne from "../post/Cs/DeveloperInterviewOne"
+import DeveloperInterviewTwo from "../post/Cs/DeveloperInterviewTwo"
 
 export default {
+  DeveloperInterviewTwo,
   DeveloperInterviewOne,
   CreateDiscordBotOne,
   CreateContextErr,
