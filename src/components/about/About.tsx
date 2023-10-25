@@ -32,7 +32,7 @@ const About = () => {
         <br />
       </AboutMe>
       <PieChart width={600} height={600}>
-        <Pie data={data} dataKey="value" nameKey="name" cx="50%" cy="50%" outerRadius={250} fill="#8884d8" />
+        <Pie data={data} dataKey="value" nameKey="name" cx="50%" cy="50%" outerRadius={250} fill="#746fc7" />
       </PieChart>
     </AboutMain>
   );

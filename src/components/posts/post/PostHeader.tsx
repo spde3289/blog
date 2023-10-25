@@ -22,7 +22,7 @@ const PostHeader = ({ tagName, title, date }: props) => {
 const ContentHeader = styled.header`
   width: 1000px;
   padding: 12px;
-  margin-top: 20px;
+  margin: 20px 0;
   border-bottom: 1px solid #ccc;
 `;
 

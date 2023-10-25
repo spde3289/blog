@@ -39,6 +39,7 @@ export const ImgContainer = styled.div`
   align-content: center;
   align-items: center;
   font-size: 14px;
+  margin: 10px;
 `;
 
 export const CodeContainer = styled.div`

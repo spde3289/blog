@@ -370,6 +370,15 @@ const content = [
     link: "DeveloperInterviewTwo",
     element: <ps.DeveloperInterviewTwo />,
   },
+  {
+    key: 42,
+    title: "discord.js로 봇을 만들어보자 - 2",
+    body: "봇 개발 여기에는 문제점이 있었는데 크롤링을 인기도 랭킹에서 하다보니 인기도가 0인 캐릭터들은 검색이 되지 않는 문제가 있었다. 이 문제를 해결하기 위해선 종합랭킹 에서 크롤링을 해와야하는데 여기는 일반월드와 리부트월드가 나눠져 있어서 조건문을 통해 일반월드 검색 결과가 없다면 리부트월드를 검색 하도록 변경했다. 이렇게 가져온 데이터를 이전보다 더 잘 보여주고 싶어서 찾아보니 Embeds라는 기능이",
+    date: "2023.10.05",
+    category: "node.js",
+    link: "create-discord-bot-2",
+    element: <ps.CreateDiscordBotTwo />,
+  },
 ];
 
 export default content;
