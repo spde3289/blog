@@ -379,6 +379,15 @@ const content = [
     link: "create-discord-bot-2",
     element: <ps.CreateDiscordBotTwo />,
   },
+  {
+    key: 43,
+    title: "discord.js로 봇을 만들어보자 - 3",
+    body: "",
+    date: "2023.10.25",
+    category: "node.js",
+    link: "create-discord-bot-3",
+    element: <ps.CreateDiscordBotThree />,
+  },
 ];
 
 export default content;

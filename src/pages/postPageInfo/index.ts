@@ -40,8 +40,10 @@ import CreateDiscordBotOne from "../post/Node.js/CreateDiscordBotOne/CreateDisco
 import CreateDiscordBotTwo from "../post/Node.js/CreateDiscordBotTwo/CreateDiscordBotTwo"
 import DeveloperInterviewOne from "../post/Cs/DeveloperInterviewOne"
 import DeveloperInterviewTwo from "../post/Cs/DeveloperInterviewTwo"
+import CreateDiscordBotThree from "../post/Node.js/CreateDiscordBotThree/CreateDiscordBotThree"
 
 export default {
+  CreateDiscordBotThree,
   CreateDiscordBotTwo,
   DeveloperInterviewTwo,
   DeveloperInterviewOne,
