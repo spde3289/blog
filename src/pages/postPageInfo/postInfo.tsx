@@ -388,6 +388,15 @@ const content = [
     link: "create-discord-bot-3",
     element: <ps.CreateDiscordBotThree />,
   },
+  {
+    key: 44,
+    title: "node 버전관리 nvm",
+    body: "NVM 모듈 node를 사용하다보면 개발환경에 따라 버전을 변경해야하는 상황이 오게 된다. 이때 nvm을 사용한다면 편리하게 버전을 변경하며 사용할 수 있다. NVM 설치 여기에 있는 링크에 들어가서 nvm-setup.exe나 nvm-setup.zip 파일을 받아 설치를 해주면 된다. NVM 사용법 설치를 해주었다면 사용법은 간단하다. nvm -v // nvm 버젼 확인 nvm current // 현재 사용중인  노드버전 확인",
+    date: "2024.01.26",
+    category: "node.js",
+    link: "how-to-use-nvm",
+    element: <ps.HowToUseNvm />,
+  },
 ];
 
 export default content;
