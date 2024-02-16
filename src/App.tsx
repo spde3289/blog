@@ -16,7 +16,6 @@ import Archives from "./components/archives/Archives";
 
 import content from "./pages/postPageInfo/postInfo";
 
-
 function App() {
   const [darkMode, setDarkMode] = useState<theme>("light");
 
@@ -38,14 +37,14 @@ function App() {
           <Route path='/about' element={<About />} />
           <Route path='/posts'>
             <Route path='/posts' element={<Posts />} />
-              {content.map((post) => (
-                <Route key={post.key} path={post.link} element={post.element} />
-                ))}
-            </Route>
+            {content.map((post) => (
+              <Route key={post.key} path={post.link} element={post.element} />
+            ))}
+          </Route>
           <Route path='/archives' element={<Archives />} />
         </Routes>
       </PostLayout>
-        <Footer />
+      <Footer />
     </ThemeProvider>
   );
 }

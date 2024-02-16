@@ -397,6 +397,15 @@ const content = [
     link: "how-to-use-nvm",
     element: <ps.HowToUseNvm />,
   },
+  {
+    key: 43,
+    title: "discord.js로 봇을 만들어보자 - 4",
+    body: "얼마전에 메이플 공식 api가 업데이트 됐다고 해서 디스코드 봇을 업데이트하기로 했다. 그래서 메이플 공식 api사용법과 이번에 추가한 내용을 블로그에 담으려 한다. api Key 발급 여기 공식 api 주소에 들어가 로그인을 한 뒤 어플리케이션 등록을 진행하면 된다. 여기에서 서비스 단계인지 출시 단계인지 선택하는 항목이 있는데 그 둘의 차이점은 초당 최대 허용량과 일일 최대 허용량으로 나뉜다.",
+    date: "2024.02.15",
+    category: "node.js",
+    link: "create-discord-bot-4",
+    element: <ps.CreateDiscordBotFour />,
+  },
 ];
 
 export default content;

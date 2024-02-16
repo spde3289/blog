@@ -42,8 +42,10 @@ import DeveloperInterviewOne from "../post/Cs/DeveloperInterviewOne"
 import DeveloperInterviewTwo from "../post/Cs/DeveloperInterviewTwo"
 import CreateDiscordBotThree from "../post/Node.js/CreateDiscordBotThree/CreateDiscordBotThree"
 import HowToUseNvm from "../post/Node.js/nvm/HowToUseNvm"
+import CreateDiscordBotFour from "../post/Node.js/CreateDiscordBotFour/CreateDiscordBotFour";
 
 export default {
+  CreateDiscordBotFour,
   HowToUseNvm,
   CreateDiscordBotThree,
   CreateDiscordBotTwo,
