@@ -36,15 +36,12 @@ import EventListenerState from "../post/react/EventListenerState";
 import CodePrettier from "../post/FrontEnd/CodePrettier";
 import TypeInference from "../post/typescript/TypeInference";
 import CreateContextErr from "../post/typescript/useContextErr";
-import CreateDiscordBotOne from "../post/Node.js/CreateDiscordBotOne/CreateDiscordBotOne"
-import CreateDiscordBotTwo from "../post/Node.js/CreateDiscordBotTwo/CreateDiscordBotTwo"
-import DeveloperInterviewOne from "../post/Cs/DeveloperInterviewOne"
-import DeveloperInterviewTwo from "../post/Cs/DeveloperInterviewTwo"
-import CreateDiscordBotThree from "../post/Node.js/CreateDiscordBotThree/CreateDiscordBotThree"
-import HowToUseNvm from "../post/Node.js/nvm/HowToUseNvm"
-import CreateDiscordBotFour from "../post/Node.js/CreateDiscordBotFour/CreateDiscordBotFour";
+import DeveloperInterviewOne from "../post/Cs/DeveloperInterviewOne";
+import DeveloperInterviewTwo from "../post/Cs/DeveloperInterviewTwo";
+import { CreateDiscordBotFive, CreateDiscordBotOne, CreateDiscordBotTwo, CreateDiscordBotThree, CreateDiscordBotFour, HowToUseNvm } from "../post/Node.js";
 
 export default {
+  CreateDiscordBotFive,
   CreateDiscordBotFour,
   HowToUseNvm,
   CreateDiscordBotThree,
