@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 interface props {
-  children: /* JSX.Element[] */ /*  | JSX.Element  */ string;
+  children: JSX.Element[]  | JSX.Element | string;
 }
 
 const CodeContainer = ({ children }: props) => {
