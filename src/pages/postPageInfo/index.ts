@@ -3,6 +3,7 @@ import Router404 from "../post/react/Router404";
 import BJ1712 from "../post/BaekjunProblem/BJ1712";
 import BJ2292 from "../post/BaekjunProblem/BJ2292";
 import BJ4344 from "../post/BaekjunProblem/BJ4344";
+import BJ25206 from "../post/BaekjunProblem/BJ25206";
 import ReactFragment from "../post/react/React-Fragment";
 import ClipBoardCopy from "../post/javascript/ClipBoardCopy";
 import StyledComponent from "../post/styledComponent/styledComponent";
@@ -41,6 +42,7 @@ import DeveloperInterviewTwo from "../post/Cs/DeveloperInterviewTwo";
 import { CreateDiscordBotFive, CreateDiscordBotOne, CreateDiscordBotTwo, CreateDiscordBotThree, CreateDiscordBotFour, HowToUseNvm } from "../post/Node.js";
 
 export default {
+  BJ25206,
   CreateDiscordBotFive,
   CreateDiscordBotFour,
   HowToUseNvm,

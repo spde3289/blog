@@ -415,6 +415,15 @@ const content = [
     link: "create-discord-bot-5",
     element: <ps.CreateDiscordBotFive />,
   },
+  {
+    key: 47,
+    title: "백준 25206번 알고리즘[node.js]",
+    body: "문제 인하대학교 컴퓨터공학과를 졸업하기 위해서는, 전공평점이 3.3 이상이거나 졸업고사를 통과해야 한다. 그런데 아뿔싸, 치훈이는 깜빡하고 졸업고사를 응시하지 않았다는 사실을 깨달았다! 치훈이의 전공평점을 계산해주는 프로그램을 작성해보자. 전공평점은 전공과목별 (학점 × 과목평점)의 합을 학점의 총합으로 나눈 값이다. 인하대학교 컴퓨터공학과의 등급에 따른 과목평점은 다음 표와 같다. ",
+    date: "2024.02.27",
+    category: "백준 문제풀이",
+    link: "BJ25206",
+    element: <ps.BJ25206 />,
+  },
 ];
 
 export default content;

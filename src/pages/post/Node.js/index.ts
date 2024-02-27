@@ -5,4 +5,4 @@ import CreateDiscordBotFour from "./CreateDiscordBotFour/CreateDiscordBotFour";
 import CreateDiscordBotFive from "./CreateDiscordBotFive/CreateDiscordBotFive";
 import HowToUseNvm from "./nvm/HowToUseNvm";
 
-export { CreateDiscordBotFive, CreateDiscordBotOne, CreateDiscordBotTwo, CreateDiscordBotThree, CreateDiscordBotFour, HowToUseNvm };
+export { CreateDiscordBotFive, CreateDiscordBotOne, CreateDiscordBotTwo, CreateDiscordBotThree, CreateDiscordBotFour, HowToUseNvm, };
