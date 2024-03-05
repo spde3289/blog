@@ -40,8 +40,10 @@ import CreateContextErr from "../post/typescript/useContextErr";
 import DeveloperInterviewOne from "../post/Cs/DeveloperInterviewOne";
 import DeveloperInterviewTwo from "../post/Cs/DeveloperInterviewTwo";
 import { CreateDiscordBotFive, CreateDiscordBotOne, CreateDiscordBotTwo, CreateDiscordBotThree, CreateDiscordBotFour, HowToUseNvm } from "../post/Node.js";
+import PerformanceTest from "../post/FrontEnd/PerformanceTest.js";
 
 export default {
+  PerformanceTest,
   BJ25206,
   CreateDiscordBotFive,
   CreateDiscordBotFour,

@@ -424,6 +424,15 @@ const content = [
     link: "BJ25206",
     element: <ps.BJ25206 />,
   },
+  {
+    key: 48,
+    title: "프론트엔드 성능 측정",
+    body: "웹 성능이란 웹 성능은 페이지의 로딩 시간, 렌더링 속도, 사용자 경험등을 나타내는 말이다. 따라서 웹 성능 측정은 아주 중요한 과정이며 오늘은 웹 성능 측정 도구중 하나인 Lighthouse에 대해서 기록하도록 하겠다. Lighthouse Lighthouse는 구글에서 개발한 웹 페이지 성능 측정 도구로 크롬 브라우저에 내장되어 있어 개발자도구에서 Light 탭을 이용해 사용할 수 있다.",
+    date: "2024.03.05",
+    category: "Front-end",
+    link: "PerformanceTest",
+    element: <ps.PerformanceTest />,
+  },
 ];
 
 export default content;
