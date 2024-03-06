@@ -41,8 +41,10 @@ import DeveloperInterviewOne from "../post/Cs/DeveloperInterviewOne";
 import DeveloperInterviewTwo from "../post/Cs/DeveloperInterviewTwo";
 import { CreateDiscordBotFive, CreateDiscordBotOne, CreateDiscordBotTwo, CreateDiscordBotThree, CreateDiscordBotFour, HowToUseNvm } from "../post/Node.js";
 import PerformanceTest from "../post/FrontEnd/PerformanceTest.js";
+import FontOptimization from "../post/FrontEnd/FontOptimization.js";
 
 export default {
+  FontOptimization,
   PerformanceTest,
   BJ25206,
   CreateDiscordBotFive,

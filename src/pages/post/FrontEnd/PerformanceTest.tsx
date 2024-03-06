@@ -1,7 +1,6 @@
 import PostHeader from "@/components/posts/post/PostHeader";
 import GiscusApp from "@/components/posts/post/GiscusApp";
 import { PostContainer, Main, TextBox, ImgContainer, SubTitle, ReferenceLink } from "../style";
-import CodeContainer from "@/common/components/CodeContainer";
 import { img1, img2, img3 } from "./PerformanceTestImgs";
 
 export default function PerformanceTest() {
@@ -43,6 +42,9 @@ export default function PerformanceTest() {
         <SubTitle>진단</SubTitle>
         <ImgContainer>
           <img src={img3} alt='성능 측정 이미지' />
+        </ImgContainer>
+        <ImgContainer>
+          <img src={img2} alt='성능 측정 이미지' />
         </ImgContainer>
         <TextBox>
           1. First Contentful Paint는 브라우저가 첫 번째 DOM 컨텐츠를 렌더링하는데 걸리는 시간을 나타낸다. <br />

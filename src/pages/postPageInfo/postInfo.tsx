@@ -433,6 +433,15 @@ const content = [
     link: "PerformanceTest",
     element: <ps.PerformanceTest />,
   },
+  {
+    key: 49,
+    title: "웹폰트 최적화",
+    body: "웹 폰트가 동작하는 방법 우선 최적화를 진행하기 전에 웹 폰트가 어떻게 동작하는지 알아보도록 하겠다. 아래의 사진은 브라우저가 렌더링 하는 과정이다. 1. 브라우저가 HTML 문서을 요청한다. 2. 브라우저가 HTML 응답을 파싱하고 DOM을 구성하기 시작한다. 3. 브라우저가 CSS, JS 및 기타 리소스를 발견하고 요청을 전달한다. 4. 브라우저는 모든 CSS 코넻늑 ㅏ수신된 후 CSSOM을 생성하고 이를 DOM트리와 결합하여 렌더링 트리를 구성한다. ",
+    date: "2024.03.06",
+    category: "Front-end",
+    link: "웹폰트-최적화",
+    element: <ps.FontOptimization />,
+  },
 ];
 
 export default content;
