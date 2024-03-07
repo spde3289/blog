@@ -10,7 +10,7 @@ interface props {
 
 const Header = ({ darkMode, handleDarkMode }: props) => {
   const { pathname } = useLocation();
-
+  const path = pathname.split('/')[1];
   return (
     <HeaderBar>
       <BlogName>
@@ -19,17 +19,17 @@ const Header = ({ darkMode, handleDarkMode }: props) => {
       <Nav>
         <HeaderMenu>
           <HeaderMenuItem>
-            <Wrapper to='/posts' data-selected={pathname === "/posts"}>
+            <Wrapper to='/posts' data-selected={path === "posts"}>
               Posts
             </Wrapper>
           </HeaderMenuItem>
           <HeaderMenuItem>
-            <Wrapper to='/about' data-selected={pathname === "/about"}>
+            <Wrapper to='/about' data-selected={path === "about"}>
               About
             </Wrapper>
           </HeaderMenuItem>
           <HeaderMenuItem>
-            <Wrapper to='/archives' data-selected={pathname === "/archives"}>
+            <Wrapper to='/archives' data-selected={path === "archives"}>
               Archives
             </Wrapper>
           </HeaderMenuItem>

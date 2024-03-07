@@ -1,21 +1,12 @@
-import { useRef, useEffect } from "react";
-import { useNavigate, useLocation } from "react-router-dom";
+import React, { useState, useRef } from "react";
 import styled from "styled-components";
 import { AiOutlineSearch, AiOutlineClose } from "react-icons/ai";
 import { useSearchContext } from "@/context/searchContext";
 
-export const SearchBar = () => {
-  const [searchValue, { input }] = useSearchContext();
+export const SearchBar = React.memo(() => {
+  const [, { input }] = useSearchContext();
+  const [value, setValue] = useState<string>("");
   const inputRef = useRef<HTMLInputElement | null>(null);
-  const navigate = useNavigate();
-  const location = useLocation();
-  const value = location.state?.value;
-
-  useEffect(() => {
-    if (value !== undefined) {
-      input(value);
-    }
-  }, [value]);
 
   const inputOnClick = () => {
     if (inputRef.current) {
@@ -24,24 +15,23 @@ export const SearchBar = () => {
   };
 
   const ChangeText = (e: React.ChangeEvent<HTMLInputElement>): void => {
-    input(e.target.value);
+    setValue(e.target.value);
   };
 
   const DeleteText = () => {
     input("");
+    setValue("");
   };
+  let timeout: any = null;
+  const onSearchHandler = (e: React.KeyboardEvent<HTMLInputElement>): void => {
+    console.log(e.target);
+    clearTimeout(timeout);
 
-  const OnKeyDown = (e: React.KeyboardEvent<HTMLInputElement>): void => {
-    if (e.key === "Enter" && searchValue !== undefined) {
-      navigate("/posts", {
-        state: {
-          Title: "post",
-          value: searchValue,
-        },
-      });
-    } else if (searchValue === null && e.key === "Enter") {
-      alert("검색어를 입력해주세요");
-    }
+    // Make a new timeout set to go off in 1000ms (1 second)
+    timeout = setTimeout(function () {
+      input(value);
+      console.log("Input Value:", value);
+    }, 1000);
   };
 
   return (
@@ -49,15 +39,14 @@ export const SearchBar = () => {
       <SearchContainer
         onClick={() => {
           inputOnClick();
-        }}
-      >
+        }}>
         <AiOutlineSearch className='icon' />
-        <Search placeholder='search' ref={inputRef} value={searchValue} onChange={ChangeText} onKeyDown={OnKeyDown} />
-        <AiOutlineClose className={"icon positions " + (searchValue.length === 0 ? "none" : "")} onClick={DeleteText} />
+        <Search placeholder='search' ref={inputRef} value={value} onChange={ChangeText} onKeyUp={onSearchHandler} />
+        <AiOutlineClose className={"icon positions " + (value.length === 0 ? "none" : "")} onClick={DeleteText} />
       </SearchContainer>
     </Container>
   );
-};
+});
 
 const Container = styled.div`
   display: flex;

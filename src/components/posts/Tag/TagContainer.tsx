@@ -1,3 +1,4 @@
+import React from "react";
 import styled from "styled-components";
 import Tag from "./Tag";
 import content from "@/pages/postPageInfo/postInfo";
@@ -7,7 +8,7 @@ interface ComponentProps {
   setTag: React.Dispatch<React.SetStateAction<string>>;
 }
 
-export const TagSlider = ({ tag, setTag }: ComponentProps) => {
+export const TagSlider = React.memo(({ tag, setTag }: ComponentProps) => {
   const category: string[] = content.map((el) => el.category);
   const uniqueArr: string[] = category
     .filter((element, index) => {
@@ -32,7 +33,7 @@ export const TagSlider = ({ tag, setTag }: ComponentProps) => {
       </TagContainer>
     </SliderContainer>
   );
-};
+});
 
 const SliderContainer = styled.div`
   display: flex;
