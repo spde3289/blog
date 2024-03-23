@@ -445,11 +445,11 @@ const content = [
   {
     key: 50,
     title: "[Next] 이미지 최적화",
-    body: "",
+    body: "Next를 이용해 팀프로젝트를 진행하던 중 Next에서는 img태그 대신 Next에서 제공하는 Image컴포넌트를 사용하는걸 알게 되었다. Image컴포넌트가 제공하는 기능과 장점에 대해 알아보려한다. Next/Image 컴포넌트의 기능 Image 컴포넌트가 제공하는 기능은 다음과 같다. 이미지 크기 최적화와 최신 이미지 포맷 지원 CLS방지 이미지 블러 기능",
     date: "2024.03.23",
     category: "Next",
     link: "Next이미지-최적화",
-    element: <ps.ImageTag />
+    element: <ps.ImageTag />,
   },
 ];
 
