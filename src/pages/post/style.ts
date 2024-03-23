@@ -62,6 +62,7 @@ export const List = styled.ul`
   margin-bottom: 20px;
   li {
     list-style: circle;
+    margin-bottom: 8px;
   }
 `;
 

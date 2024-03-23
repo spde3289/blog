@@ -442,6 +442,15 @@ const content = [
     link: "웹폰트-최적화",
     element: <ps.FontOptimization />,
   },
+  {
+    key: 50,
+    title: "[Next] 이미지 최적화",
+    body: "",
+    date: "2024.03.23",
+    category: "Next",
+    link: "Next이미지-최적화",
+    element: <ps.ImageTag />
+  },
 ];
 
 export default content;
