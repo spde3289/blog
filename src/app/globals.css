@@ -2,20 +2,123 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@layer utilities {
+  .content::before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-color: rgba(43, 193, 188, 0.438);
+    opacity: 0;
+    z-index: 40;
+    transition: opacity 0.35s ease-in-out;
+  }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  .content:hover::before {
+    opacity: 0.3;
+  }
+
+  .virtual::before {
+    content: "";
+    width: 2px;
+    height: 100%;
+    left: 50%;
+    top: 34px;
+    background-color: #d8d8d8;
+    position: absolute;
+  }
+
+  .copy-button {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    padding: 4px 8px;
+    font-size: 12px;
+    /* background-color: #f3f4f6; */
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* 부드러운 색상 변화 */
+  }
+
+  .copy-button:hover {
+    background-color: #e5e7eb; /* 마우스 호버 시 색상 변경 */
+  }
+
+  .check-button {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    padding: 4px 8px;
+    font-size: 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    background-color: #4caf50; /* 녹색 배경 */
+    color: white; /* 텍스트 색은 흰색 */
+    border-color: #45a049; /* 테두리 색 */
+    font-size: 14px;
+  }
+
+  .markdown-body {
+    box-sizing: border-box;
+    min-width: 200px;
+    max-width: 980px;
+    padding: 45px;
+  }
+
+  @media (max-width: 767px) {
+    .markdown-body {
+      padding: 15px;
+    }
   }
 }
 
+:root {
+  --eaeaea: #eaeaea;
+  --header-size: 121px;
+}
+
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  background-color: #ffff;
+  color: #242424;
+  overflow-y: scroll;
+}
+
+ul,
+li {
+  text-decoration: none;
+  list-style: none;
+  padding-left: 0px;
+  margin: 0;
+}
+
+h2,
+p {
+  margin: 0;
+  font-weight: 600;
+}
+
+h3 {
+  font-weight: 500;
+  font-size: 1.2rem;
+}
+
+p {
+  font-weight: 400;
+  font-size: 1rem;
+}
+
+a {
+  text-decoration: none;
+  color: #242424;
+}
+
+input {
+  cursor: text;
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
 }

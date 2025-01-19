@@ -1,0 +1,12 @@
+{
+  "overrides": [
+    {
+      "files": "*.md",
+      "options": {
+        "proseWrap": "never",
+        "printWidth": 120,
+        "htmlWhitespaceSensitivity": "ignore"
+      }
+    }
+  ]
+}
