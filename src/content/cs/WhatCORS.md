@@ -20,7 +20,7 @@ CORS를 살펴보면 서버가 요청에 대한 응답을 차단하는 것 처�
 
 ## CORS 동작 유형 
 
-## Simple Request 
+### Simple Request 
 
 이름 그대로 단순 요청은 사전 요청 없이 서버로 요청을 보내 이루어집니다. 서버에서 Access-Control-Allow-Origin를 보내주면 브라우저에서 CORS 정책 위반 여부를 검사합니다. 아무 요청이나 단순 요청이 되는건 아니고 조건을 충족해야만 합니다. 조건 1. 조건 2. 조건 3. 
     HTTP 메서스 GET, POST, HEAD중 하나
@@ -30,7 +30,7 @@ CORS를 살펴보면 서버가 요청에 대한 응답을 차단하는 것 처�
 ![백엔드 이미지](/img/cs/WhatCORS/Simple.png)
 까다로운 조건 때문에 단순 요청보단 사전 요청이 많이 일어납니다.
 
-## Preflight Request 
+### Preflight Request 
 
 사전 요청은 서버에 OPTIONS 메서드를 사용하여 CORS 정책을 확인하는 요청입니다.
 
@@ -42,7 +42,7 @@ CORS를 살펴보면 서버가 요청에 대한 응답을 차단하는 것 처�
 
 사전 요청은 보안을 강화하는 목적으로썬 매우 훌륭하지만 실제 요청에 걸리는 시간이 늘어난다는 단점이 있는데 Access-Control-Max-Age를 이용하면 사전 요청에 대한 응답을 캐싱해 다음 요청을 보낼땐 사전 요청없이 실제 요청을 보낼 수 있습니다.
 
-## Credentialed Request 
+### Credentialed Request 
 
 마지막으로 인증된 요청은 클라이언트가 인증 정보를 포함해 서버로 보내는 요청인데 이 인증 정보에 주로 쿠키, Authorization 헤더와 같은 정보를 포함합니다. 인증된 요청에 대한 과정을 설명하자면
 
@@ -76,7 +76,7 @@ axios.post('https://api.example.com/data', {
 })
 ```
  
-    서버는 Access-Control-Allow-Credentials 헤더를 설정해 인증된 요청에 대해 허용할 수 있습니다. 이때 헤더의 값은 true로 설정되어야 합니다. 또한 Access-Control-Allow-Origin 헤더의 값은 * (와일드카드)를 사용할 수 없으면 명시적인 도메인을 설정해야 합니다.
+>서버는 Access-Control-Allow-Credentials 헤더를 설정해 인증된 요청에 대해 허용할 수 있습니다. 이때 헤더의 값은 true로 설정되어야 합니다. 또한 Access-Control-Allow-Origin 헤더의 값은 * (와일드카드)를 사용할 수 없으면 명시적인 도메인을 설정해야 합니다.
 
 ## CORS를 해결하는 방법 
 

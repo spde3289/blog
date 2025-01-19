@@ -7,15 +7,15 @@ date: "2024.05.11"
 
 ## 사용할 AWS 서비스 
 
-## ACM 
+### ACM 
 
 AWS Certificate Manager로 SSL/TLS 인증서를 생성, 관리 및 배포하는 AWS 서비스 입니다.
 
-## EC2 
+### EC2 
 
 Elastic Compute Cloud로 AWS에서 제공하는 가상 서버 서비스 입니다.
 
-## Amazon Route 53 
+### Amazon Route 53 
 
 AWS에서 제공하는 클라우드 기반의 DNS(Domain Name System) 서비스입니다. 웹 트래픽을 라우팅하고 도메인 등록과 같은 기능을 제공합니다.
 
