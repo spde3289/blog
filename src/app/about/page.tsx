@@ -1,9 +1,7 @@
-import { getAllPosts } from "@/lib/markdown";
 import { FaBirthdayCake, FaGithubSquare } from "react-icons/fa";
 import { MdLocationPin, MdOutlineAlternateEmail } from "react-icons/md";
 
 const AboutPage = () => {
-  const allPosts = getAllPosts();
   return (
     <div className="w-11/12 sm:w-5/6 lg:w-4/6 mx-auto flex flex-col gap-12 ">
       <section>

@@ -2,6 +2,7 @@ import CodeBlock from "@/components/CodeBlock";
 import PostsContainer from "@/components/post/PostsContainer";
 import { getAllPosts } from "@/lib/markdown";
 import Link from "next/link";
+import { Suspense } from "react";
 import { BsArrowRight } from "react-icons/bs";
 
 const Home = () => {
@@ -20,14 +21,16 @@ const Home = () => {
         />
       </div>
       <div className="mt-10 sm:px-6 flex flex-col items-center gap-4 relative">
-        <PostsContainer title="최근 게시글 목록" postArray={posts}>
-          <Link
-            className="flex items-center gap-1 text-sm hover:text-cyan-800"
-            href="/posts"
-          >
-            전체 게시글 보기 <BsArrowRight className="mt-[1px]" />
-          </Link>
-        </PostsContainer>
+        <Suspense fallback={<div>Loading...</div>}>
+          <PostsContainer title="최근 게시글 목록" postArray={posts}>
+            <Link
+              className="flex items-center gap-1 text-sm hover:text-cyan-800"
+              href="/posts"
+            >
+              전체 게시글 보기 <BsArrowRight className="mt-[1px]" />
+            </Link>
+          </PostsContainer>
+        </Suspense>
       </div>
     </div>
   );
