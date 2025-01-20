@@ -48,6 +48,7 @@ export const getAllPosts = (): getAllPostsType => {
   // 각 카테고리를 순회하며 파일을 읽어옵니다.
   categories.forEach((category) => {
     const categoryPath = path.join(contentDir, category);
+
     if (fs.statSync(categoryPath).isDirectory()) {
       const fileNames = fs.readdirSync(categoryPath); // 각 카테고리 내의 파일들
 

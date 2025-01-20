@@ -26,7 +26,9 @@ export default async function PostPage({ params }: PageProps) {
     >
       <h1 style={{ marginBottom: "4px" }}>{metadata.title}</h1>
       <div className="flex justify-between mb-4">
-        <p style={{ marginBottom: "0" }}>{metadata.tags}</p>
+        <p style={{ marginBottom: "0" }} className="text-gray-500">
+          {metadata.tags}
+        </p>
         <p style={{ marginBottom: "0" }} className="text-gray-500">
           작성일 : {metadata.date}
         </p>
