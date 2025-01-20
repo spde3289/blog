@@ -1,7 +1,9 @@
 import Header from "@/components/layout/Header";
 import type { Metadata } from "next";
 import { Noto_Sans_KR } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
+const GA_ID = process.env.NEXT_PUBLIC_GA_ID;
 
 const NotoSansKR = Noto_Sans_KR({
   subsets: ["latin"], // 사용할 언어 서브셋
@@ -25,6 +27,23 @@ export default function RootLayout({
     <html lang="ko">
       <body className={`${NotoSansKR.className} antialiased scrollBar`}>
         <Header />
+        {/* Google Analytics Script */}
+        {GA_ID && (
+          <>
+            <Script
+              async
+              src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
+            />
+            <Script id="google-analytics">
+              {`
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', '${GA_ID}');
+              `}
+            </Script>
+          </>
+        )}
         <link
           href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.1.0/github-markdown.css"
           rel="stylesheet"

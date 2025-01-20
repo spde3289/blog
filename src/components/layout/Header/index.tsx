@@ -1,23 +1,16 @@
 "use client";
+import Form from "next/form";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 import { useRef, useState } from "react";
 import { AiOutlineClose, AiOutlineSearch } from "react-icons/ai";
 
 const Header = () => {
   const [inputValue, setInputValue] = useState("");
   const inputRef = useRef<HTMLInputElement | null>(null);
-  const router = useRouter();
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
     setInputValue(value);
-  };
-  const handleSearch = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (inputValue.trim()) {
-      router.push(`/search?q=${inputValue}`);
-    }
   };
 
   const DeleteText = () => {
@@ -61,16 +54,17 @@ const Header = () => {
               <div className="text-sm">About</div>
             </Link>
           </nav>
-          <form
+          <Form
+            action="/search"
             onClick={inputOnClick}
-            onSubmit={handleSearch}
-            className=" wrapperClassName flex h-fit relative text-sm box-border"
+            className="wrapperClassName flex h-fit relative text-sm box-border"
           >
             <AiOutlineSearch
               size={18}
               className="hidden sm:block absolute left-3 top-1/2 -translate-y-1/2"
             />
             <input
+              name="q"
               type="text"
               placeholder="search..."
               onChange={handleInputChange}
@@ -86,7 +80,7 @@ const Header = () => {
                 inputValue.length === 0 ? "hidden" : ""
               }`}
             />
-          </form>
+          </Form>
         </div>
       </div>
     </header>
