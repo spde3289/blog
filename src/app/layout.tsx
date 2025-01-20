@@ -28,7 +28,7 @@ export default function RootLayout({
       <body className={`${NotoSansKR.className} antialiased scrollBar`}>
         <Header />
         {/* Google Analytics Script */}
-        <GoogleAnalytics gaId="G-9BJR5PBP5Z" />
+        {GA_ID && <GoogleAnalytics gaId={GA_ID} />}
         <link
           href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.1.0/github-markdown.css"
           rel="stylesheet"
