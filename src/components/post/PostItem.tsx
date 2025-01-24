@@ -21,7 +21,7 @@ const PostItem = ({ post }: PostItemProps) => {
     <div className="w-10/12 lg:w-8/12 border shadow-custom-inset overflow-hidden rounded-xl ">
       <Link className="w-full flex content relative" href={post.href}>
         <div className="w-full sm:w-3/5 p-3 sm:p-7 sm:pr-5">
-          <h1 className="text-xl mb-2 line-clamp-2 text-gray-950 ">
+          <h1 className="text-xl mb-2 line-clamp-2 text-gray-950">
             {post.metadata.title}
           </h1>
           <p className="overflow-hidden text-ellipsis line-clamp-2 mb-4 leading-normal">
@@ -36,10 +36,10 @@ const PostItem = ({ post }: PostItemProps) => {
           <Image
             src={post.img}
             fill
-            sizes="(min-width: 808px) 50vw, 100vw"
             priority
+            sizes="(min-width: 808px) 50vw, 100vw"
             className="hidden sm:block"
-            style={{ objectFit: "cover" }}
+            style={{ objectFit: "fill" }}
             quality={100} // 품질을 조정할 수 있습니다.
             alt="대표 이미지"
           />

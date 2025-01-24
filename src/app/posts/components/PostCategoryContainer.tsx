@@ -2,7 +2,7 @@
 import PostsContainer from "@/components/post/PostsContainer";
 import { getAllPostsType, getAllcategorysType } from "@/lib/markdown";
 import { useSearchParams } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 interface PostCategoryContainerProps {
   posts: getAllPostsType;
@@ -13,13 +13,27 @@ const PostCategoryContainer = ({
   posts,
   categorys,
 }: PostCategoryContainerProps) => {
-  const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const searchParams = useSearchParams();
-  const query = searchParams.get("page") || "";
+  const pageQuery = searchParams.get("page") || "";
+  const categoryQuery = searchParams.get("category") || "";
+  const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (categoryQuery) {
+      setSelectedCategory(categoryQuery);
+    } else {
+      setSelectedCategory(null);
+    }
+  }, [categoryQuery]);
 
   const handelCategory = (category: string) => {
-    if (category === selectedCategory) setSelectedCategory(null); // 기본 상태
-    if (category !== selectedCategory) setSelectedCategory(category); // 카테고리 선택
+    console.log(category);
+
+    if (category === selectedCategory) setSelectedCategory(null);
+
+    if (category !== selectedCategory) setSelectedCategory(category);
+
+    // routerHandler(category);
   };
 
   const filteredPosts = selectedCategory
@@ -30,10 +44,11 @@ const PostCategoryContainer = ({
     <>
       <div className="w-full space-y-2 flex flex-col items-center">
         <PostsContainer
-          page={Number(query)}
+          page={Number(pageQuery)}
           isPagination={true}
           title="게시글 목록"
           isCategory={selectedCategory !== null}
+          category={selectedCategory}
           postArray={filteredPosts}
         />
       </div>
@@ -41,7 +56,7 @@ const PostCategoryContainer = ({
         <h2 className="">카테고리</h2>
         <div className="flex text-sm  md:text-base sm:block w-full flex-wrap gap-x-7 justify-center">
           {categorys.map((category) => (
-            <div
+            <button
               key={category.name}
               onClick={() => handelCategory(category.name)}
               className={`${
@@ -52,7 +67,7 @@ const PostCategoryContainer = ({
             >
               <span>{category.name}</span>
               <span className="text-sm"> ({category.count})</span>
-            </div>
+            </button>
           ))}
         </div>
       </div>
