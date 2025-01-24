@@ -14,6 +14,7 @@ interface PostContainerProps {
   isPagination?: boolean; // 페이지네이션 기능 활성화
   page?: number;
   isCategory?: boolean;
+  category?: string | null;
 }
 
 const maxPost = 5; // 한번에 보여줄 게시글 개수
@@ -26,6 +27,7 @@ const PostsContainer = ({
   isPagination = false,
   page,
   isCategory,
+  category,
 }: PostContainerProps) => {
   const router = useRouter();
   const pathname = usePathname();
@@ -54,29 +56,42 @@ const PostsContainer = ({
 
   // 카테고리 변경시 1페이지로 초기화
   useEffect(() => {
-    if (isCategory) {
+    console.log(isCategory);
+    const currentParams = new URLSearchParams(searchParams);
+    if (isCategory && pathname === "/posts") {
       setPagination({
         currentPage: 1,
         currentButton: 1,
       });
+      currentParams.set("page", `1`);
+      currentParams.set("category", `${category}`);
+
+      router.push(`/posts?${currentParams.toString()}`, {
+        scroll: false,
+      });
     }
-  }, [isCategory]);
+    if (!isCategory && pathname === "/posts") {
+      console.log(isCategory);
+      currentParams.delete("category");
+      router.push(`/posts?${currentParams.toString()}`, {
+        scroll: false,
+      });
+    }
+  }, [category]);
 
   // 페이지 파라미터
   const routerHandler = (num: number) => {
+    const currentParams = new URLSearchParams(searchParams);
+    // 새로운 쿼리 파라미터 추가
+    currentParams.set("page", `${num}`);
+
     if (pathname === "/posts") {
-      router.push(`/posts?page=${num}`, {
+      router.push(`/posts?${currentParams.toString()}`, {
         scroll: false,
       });
     }
     if (pathname === "/search") {
-      const currentParams = new URLSearchParams(searchParams);
-
-      // 새로운 쿼리 파라미터 추가
-      currentParams.set("page", `${num}`); // 빈 값으로 추가
-
       // URL 업데이트
-      // router.push(`/search?${currentParams.toString()}`);
       router.push(`/search?${currentParams.toString()}`, {
         scroll: false,
       });

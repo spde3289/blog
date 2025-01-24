@@ -25,7 +25,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko">
-      <body className={`${NotoSansKR.className} antialiased scrollBar`}>
+      <body className={`${NotoSansKR.className} antialiased`}>
         <Header />
         {/* Google Analytics Script */}
         {GA_ID && <GoogleAnalytics gaId={GA_ID} />}
