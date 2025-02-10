@@ -24,7 +24,7 @@ const PostItem = ({ post }: PostItemProps) => {
           <h1 className="text-xl mb-2 line-clamp-2 text-gray-950">
             {post.metadata.title}
           </h1>
-          <p className="overflow-hidden text-ellipsis line-clamp-2 mb-4 leading-normal">
+          <p className="overflow-hidden text-ellipsis break-all line-clamp-2 mb-4 leading-normal">
             {post.content}
           </p>
           <div className="text-gray-600 text-sm flex gap justify-between">

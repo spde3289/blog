@@ -1,5 +1,5 @@
 ---
-title: 팀프로젝트 후기
+title: 침플레닛 회고록
 tags: [react]
 date: "2023.08.25"
 ---

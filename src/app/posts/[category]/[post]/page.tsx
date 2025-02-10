@@ -22,7 +22,7 @@ export default async function PostPage({ params }: PageProps) {
   return (
     <main
       style={{ margin: "0 auto" }}
-      className="prose mx-auto p-4 markdown-body"
+      className="prose mx-auto p-4 markdown-body "
     >
       <h1 style={{ marginBottom: "4px" }}>{metadata.title}</h1>
       <div className="flex justify-between mb-4">

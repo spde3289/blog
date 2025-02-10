@@ -3,7 +3,6 @@ title: next.js의 Hydration
 tags: [next]
 date: "2024.07.27"
 ---
-
 Next.js 공식문서를 읽어보던 중 중요한 개념이 보여 정리하고 넘어가려고 합니다.
 
 우선 Hydration을 알기 전에 React와 Next의 기본 동작 방식에 대해 알아야 합니다.  
