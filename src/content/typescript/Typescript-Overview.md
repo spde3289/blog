@@ -3,7 +3,6 @@ title: 타입스크립트 정리
 tags: [typescript]
 date: "2024.08.17"
 ---
-
 타입스크립트를 사용한 지 1년 정도가 되었는데 그동안 작성했던 타입스크립트 정리 글에 잘못된 부분들이 많아
 이 게시글을 작성하며 다시 정리해 보려고 합니다.
 
@@ -294,5 +293,19 @@ function handleStatus(status: Status) {
   }
 }
 ```
+### `?` 옵셔널 프로퍼티
+객체 타입에서 필수 속성이 아닌 선택적으로 지정합니다.
+```typescript
+interface User {
+  name: string;
+  age?: number; // 옵셔널 프로퍼티
+}
+
+// age?는 number | undefined 으로 해석됩니다.
+```
+
+## 마치며
+여기까지 타입스크립트의 문법과 타입의 종류에 대해서 정리했는데   
+다음 주에는 타입스크립트의 유틸리티 타입에 대해 정리해 보도록 하겠습니다.
 
 [타입스크립트 공식문서](https://www.typescriptlang.org/)

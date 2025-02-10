@@ -56,7 +56,6 @@ const PostsContainer = ({
 
   // 카테고리 변경시 1페이지로 초기화
   useEffect(() => {
-    console.log(isCategory);
     const currentParams = new URLSearchParams(searchParams);
     if (isCategory && pathname === "/posts") {
       setPagination({
@@ -71,7 +70,6 @@ const PostsContainer = ({
       });
     }
     if (!isCategory && pathname === "/posts") {
-      console.log(isCategory);
       currentParams.delete("category");
       router.push(`/posts?${currentParams.toString()}`, {
         scroll: false,

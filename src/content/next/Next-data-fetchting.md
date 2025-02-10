@@ -3,7 +3,6 @@ title: next.js의 데이터 패칭
 tags: [next]
 date: "2024.08.03"
 ---
-
 next.js에서 데이터를 가져올 때 사용되는 함수들이 있습니다.
 `getStaticProps()` `getStaticPaths()` `getServerSideProps()`
 전부 데이터를 가져올 때 사용되는 함수지만 차이점이 있어서 이에 대한 정보를 정리해보려 합니다.

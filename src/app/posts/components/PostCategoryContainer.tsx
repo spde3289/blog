@@ -2,7 +2,7 @@
 import PostsContainer from "@/components/post/PostsContainer";
 import { getAllPostsType, getAllcategorysType } from "@/lib/markdown";
 import { useSearchParams } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect, useState, MouseEvent } from "react";
 
 interface PostCategoryContainerProps {
   posts: getAllPostsType;
