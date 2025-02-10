@@ -75,6 +75,7 @@ const PostsContainer = ({
         scroll: false,
       });
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [category]);
 
   // 페이지 파라미터
