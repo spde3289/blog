@@ -36,6 +36,7 @@ const PostsContainer = ({
     currentPage: 1,
     currentButton: 1,
   });
+  // console.log(postArray);
 
   // page 파라미터로 페이지 이동
   useEffect(() => {
