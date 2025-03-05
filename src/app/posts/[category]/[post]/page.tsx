@@ -1,9 +1,46 @@
 import { getAllPosts, getPost } from "@/lib/markdown";
 import "highlight.js/styles/github.css"; // GitHub 스타일
+import { Metadata } from "next";
 import HighlightedCode from "./components/HighlightedCode";
 
 interface PageProps {
   params: Promise<{ category: string; post: string }>;
+}
+
+export async function generateMetadata({
+  params,
+}: PageProps): Promise<Metadata> {
+  const { category, post } = await params;
+
+  const postData = await getPost(category, post);
+
+  if (!postData) {
+    return {
+      title: "게시글을 찾을 수 없습니다.",
+      description: "요청하신 게시글이 존재하지 않습니다.",
+    };
+  }
+
+  const { metadata } = postData;
+
+  return {
+    title: metadata.title,
+    description: metadata.description || "이 글에 대한 설명이 없습니다.",
+    openGraph: {
+      title: metadata.title,
+      description: metadata.description || "이 글에 대한 설명이 없습니다.",
+      url: `https://spde3289.dev/${category}/${post}`,
+      type: "article",
+      publishedTime: metadata.date,
+      images: metadata.image ? [metadata.image] : [],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: metadata.title,
+      description: metadata.description || "이 글에 대한 설명이 없습니다.",
+      images: metadata.image ? [metadata.image] : [],
+    },
+  };
 }
 
 export function generateStaticParams() {
@@ -15,14 +52,14 @@ export function generateStaticParams() {
 }
 
 export default async function PostPage({ params }: PageProps) {
-  const { category, post } = await params; // await을 사용하여 params를 처리
+  const { category, post } = await params;
 
   const { metadata, contentHtml } = await getPost(category, post);
 
   return (
     <main
       style={{ margin: "0 auto" }}
-      className="prose mx-auto p-4 markdown-body "
+      className="prose mx-auto p-4 markdown-body"
     >
       <h1 style={{ marginBottom: "4px" }}>{metadata.title}</h1>
       <div className="flex justify-between mb-4">
