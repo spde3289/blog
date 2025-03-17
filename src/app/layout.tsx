@@ -1,8 +1,12 @@
+import Backdrop from "@/components/layout/Backdrop";
 import Header from "@/components/layout/Header";
+import NavBar from "@/components/layout/NavBar";
+import DesigeProvider from "@/components/porvider/DesigeProvider";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import type { Metadata } from "next";
 import { Noto_Sans_KR } from "next/font/google";
 import "./globals.css";
+
 const GA_ID = process.env.NEXT_PUBLIC_GA_ID;
 
 const NotoSansKR = Noto_Sans_KR({
@@ -25,19 +29,24 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko">
-      <body className={`${NotoSansKR.className} antialiased`}>
-        <Header />
+      <body
+        className={`${NotoSansKR.className} antialiased dark:bg-gray-900 dark:text-white/90`}
+      >
         {/* Google Analytics Script */}
         {GA_ID && <GoogleAnalytics gaId={GA_ID} />}
         <link
           href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.1.0/github-markdown.css"
           rel="stylesheet"
         />
-        <main className="w-full h-full relative">
-          <div className=" lg:max-w-1400 lg:mx-auto px-0 lg:px-24 mb-5">
+        <DesigeProvider>
+          <Header />
+          <NavBar />
+          <Backdrop />
+          <main className="w-full max-w-1024 m-0 lg:mx-auto h-full">
             {children}
-          </div>
-        </main>
+          </main>
+        </DesigeProvider>
+        <div id="modal-root" />
       </body>
     </html>
   );
