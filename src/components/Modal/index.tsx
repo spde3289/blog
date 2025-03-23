@@ -1,15 +1,17 @@
 "use client";
 
+import { motion } from "framer-motion";
 import { ReactNode, useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 
 interface ModalProps {
+  id?: string;
   isOpen: boolean;
   onClose: () => void;
   children: ReactNode;
 }
 
-const Modal = ({ isOpen, onClose, children }: ModalProps) => {
+const Modal = ({ isOpen, onClose, children, id }: ModalProps) => {
   const [modalRoot, setModalRoot] = useState<HTMLElement | null>(null);
 
   useEffect(() => {
@@ -34,13 +36,24 @@ const Modal = ({ isOpen, onClose, children }: ModalProps) => {
   if (!isOpen || !modalRoot) return null;
 
   return createPortal(
-    <div
+    <motion.div
       className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-start justify-center overflow-y-auto py-20 "
       onClick={onClose} // 배경 클릭 시 닫기
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      onAnimationComplete={() => {
+        console.log("asdasd");
+      }}
     >
-      <div
+      <motion.div
+        layoutId={id}
+        initial={{ scale: 0.5, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        exit={{ scale: 0.5, opacity: 0 }}
+        transition={{ duration: 0.3 }}
         className="bg-white dark:bg-neutral-900 p-6 rounded-lg shadow-lg w-full max-w-[768px]"
-        onClick={(e) => e.stopPropagation()} // 내부 클릭 시 닫히지 않도록 이벤트 전파 방지
+        onClick={(e) => e.stopPropagation()}
       >
         <div className="mb-4">{children}</div>
         <button
@@ -49,8 +62,8 @@ const Modal = ({ isOpen, onClose, children }: ModalProps) => {
         >
           닫기
         </button>
-      </div>
-    </div>,
+      </motion.div>
+    </motion.div>,
     modalRoot
   );
 };

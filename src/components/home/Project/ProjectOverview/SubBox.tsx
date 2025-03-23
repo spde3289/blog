@@ -19,8 +19,8 @@ const SubBox = ({ module, centerPosition }: ProjectOverviewProps) => {
   const position = {
     startX:
       module.position === "왼쪽"
-        ? size.width
-        : centerPosition.x * 2 - size.width,
+        ? size.width * 2
+        : centerPosition.x * 2 - size.width * 2,
     startY: module.y,
     endX: module.position === "왼쪽" ? centerPosition.x : centerPosition.x,
     endY: centerPosition.y,
@@ -35,11 +35,11 @@ const SubBox = ({ module, centerPosition }: ProjectOverviewProps) => {
           module.position === "왼쪽"
             ? {
                 left: 0,
-                top: `${module.y - size.height / 2}px`,
+                top: `${module.y - size.height}px`,
               }
             : {
                 right: 0,
-                top: `${module.y - size.height / 2}px`,
+                top: `${module.y - size.height}px`,
               }
         }
       >

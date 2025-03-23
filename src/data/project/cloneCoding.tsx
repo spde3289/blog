@@ -1,4 +1,4 @@
-import ProjectOverview from "@/components/Project/ProjectOverview";
+import ProjectOverview from "@/components/home/Project/ProjectOverview";
 import { CoreModulesType, ProjectType } from "./index";
 
 const mainProject: CoreModulesType = {

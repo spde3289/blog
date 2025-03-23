@@ -10,12 +10,12 @@ import "./globals.css";
 const GA_ID = process.env.NEXT_PUBLIC_GA_ID;
 
 const NotoSansKR = Noto_Sans_KR({
-  subsets: ["latin"], // 사용할 언어 서브셋
-  weight: ["300", "400", "500", "600", "700"], // 사용할 폰트 두께
-  style: ["normal"], // 사용할 스타일
-  display: "swap", // 폰트 로딩 전략
+  subsets: ["latin"],
+  weight: ["400", "700"], // 필요한 두께 지정 (선택)
+  display: "swap", // 렌더링 최적화 옵션
+  preload: true, // 성능 최적화를 위해 preload
+  // variable: "--font-noto-sans-kr", // 커스텀 변수 사용 시
 });
-
 export const metadata: Metadata = {
   title: "spde3289의 개발 블로그",
   description:
@@ -30,7 +30,7 @@ export default function RootLayout({
   return (
     <html lang="ko">
       <body
-        className={`${NotoSansKR.className} antialiased dark:bg-gray-900 dark:text-white/90`}
+        className={`${NotoSansKR.className} antialiased dark:bg-gray-900 dark:text-white/90 overflow-hidden`}
       >
         {/* Google Analytics Script */}
         {GA_ID && <GoogleAnalytics gaId={GA_ID} />}
@@ -42,7 +42,7 @@ export default function RootLayout({
           <Header />
           <NavBar />
           <Backdrop />
-          <main className="w-full max-w-1024 m-0 lg:mx-auto h-full">
+          <main className="w-full h-[calc(100vh-65px)] overflow-y-scroll scroll-smooth">
             {children}
           </main>
         </DesigeProvider>

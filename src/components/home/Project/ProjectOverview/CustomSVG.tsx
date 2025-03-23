@@ -39,8 +39,8 @@ const CustomSVG: React.FC<CustomSVGProps> = ({
 
   const controlX = (position.startX + centerPosition.x) / 2;
   const controlY = position.startY - 50;
-
-  const pathD = `M ${position.startX},${position.startY} Q ${controlX},${controlY} ${position.endX},${position.endY}`;
+  //Q ${controlX},${controlY}
+  const pathD = `M ${position.startX},${position.startY}  ${position.endX},${position.endY}`;
 
   const isLeft = module.position === "왼쪽";
   const id = module.contents.replaceAll(" ", "");

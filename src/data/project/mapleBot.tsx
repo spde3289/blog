@@ -1,10 +1,10 @@
-import ProjectOverview from "@/components/Project/ProjectOverview";
+import ProjectOverview from "@/components/home/Project/ProjectOverview";
 import { CoreModulesType, ProjectType } from "./index";
 
 const mainProject: CoreModulesType = {
   y: 100,
   position: "중앙",
-  contents: "메이플스토리 디스코드 봇",
+  contents: "메이플 디스코드 봇",
 };
 
 const Modules: CoreModulesType[] = [
@@ -32,7 +32,7 @@ const MapleBotProject = () => {
 };
 
 const mapleBotContents: ProjectType = {
-  title: "메이플스토리 디스코드 봇",
+  title: "메이플 디스코드 봇",
   description: "보스 정보 조회 와 캐릭터 정보 검색이 가능한 디스코드 봇",
   tags: ["개인 프로젝트", "디스코드 봇"],
   href: "https://discord.com/oauth2/authorize?client_id=1147940307145609287&permissions=8&scope=bot",

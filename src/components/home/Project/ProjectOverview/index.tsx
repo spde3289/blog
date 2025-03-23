@@ -1,7 +1,7 @@
 "use client";
 import { CoreModulesGroupType } from "@/data/project";
 import useElementSize from "@/hooks/useElementSize";
-import { useMemo } from "react";
+import { useLayoutEffect, useState } from "react";
 import SubBox from "./SubBox";
 
 interface ProjectCoreModulesProps {
@@ -15,14 +15,11 @@ const ProjectCoreModules = ({
 }: ProjectCoreModulesProps) => {
   const { mainProject, modules } = coreModules;
   const { ref, size } = useElementSize<HTMLDivElement>();
+  const [centerPosition, setCenterPosition] = useState({ x: 0, y: 0 });
 
-  const centerPosition = useMemo(
-    () => ({
-      x: size.width / 2,
-      y: size.height / 2,
-    }),
-    [size]
-  );
+  useLayoutEffect(() => {
+    setCenterPosition({ x: size.width, y: size.height });
+  }, [size]);
 
   return (
     <div

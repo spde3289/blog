@@ -11,6 +11,9 @@ export default {
   darkMode: "class",
   theme: {
     extend: {
+      fontFamily: {
+        sans: ["var(--font-noto-sans-kr)", "sans-serif"],
+      },
       screens: {
         "2xsm": "375px",
         xsm: "425px",
