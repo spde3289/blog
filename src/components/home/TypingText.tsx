@@ -9,8 +9,9 @@ const TypingText = ({
   text: string;
   delay?: number;
 }) => {
+  // text-pretty font-medium mt-3 -tracking-4 text-5xl md:text-6xl md:leading-[4rem] text-neutral-900 dark:text-neutral-100
   return (
-    <h1 className="md:text-6xl font-bold flex flex-wrap mb-4">
+    <h1 className="w-[250px] xsm:w-full text-4xl sm:text-5xl lg:text-6xl font-bold flex flex-wrap mb-4 title-text">
       {text.split("").map((char, index) => (
         <motion.span
           key={char + index}

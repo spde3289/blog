@@ -17,7 +17,7 @@ const HomeSection = ({ title, children, className }: HomeSectionProps) => {
       viewport={{ once: true, amount: 0.8 }}
       className={`${className}`}
     >
-      <h2 className="text-4xl font-black text-black pb-[2rem]">{title}</h2>
+      <h2 className="text-4xl font-black title-text pb-[2rem]">{title}</h2>
       {children}
     </motion.section>
   );

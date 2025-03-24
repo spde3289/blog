@@ -19,7 +19,7 @@ const Project = ({ project }: ProjectProps) => {
         onClick={() => setIsOpen(true)}
         layoutId={`card-${project.title}`}
         style={project.img ? {} : { justifyContent: "space-between" }}
-        className={`group h-72 pb-3 cursor-pointer overflow-hidden flex flex-col justify-between border rounded-xl bg-box`}
+        className={`group w-[244px] h-72 pb-3 cursor-pointer overflow-hidden flex flex-col justify-between border rounded-xl bg-box opacity-100`}
       >
         {/* 프로젝트 이미지 */}
         {project.img && (
@@ -57,7 +57,7 @@ const Project = ({ project }: ProjectProps) => {
         <div className="px-2 flex gap-2 transition-opacity duration-300 ">
           {project.tags.map((tag) => (
             <div
-              className="flex items-center justify-center text-xs bg-white border px-1 py-0.5 rounded"
+              className="flex items-center justify-center text-xs bg-white dark:bg-neutral-700/40 border border-neutral-300 dark:border-neutral-700 px-1 py-0.5 rounded"
               key={tag}
             >
               {tag}

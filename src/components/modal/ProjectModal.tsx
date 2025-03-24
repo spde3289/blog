@@ -37,7 +37,7 @@ const ProjectModal = ({ isOpen, onClose, children, id }: ModalProps) => {
 
   return createPortal(
     <motion.div
-      className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-start justify-center overflow-y-auto py-20 "
+      className="fixed inset-0 bg-black dark:bg-opacity-20 bg-opacity-50 z-50 flex items-start justify-center overflow-y-auto py-20 "
       onClick={onClose} // 배경 클릭 시 닫기
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}

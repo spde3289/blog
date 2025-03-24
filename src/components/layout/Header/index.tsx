@@ -1,25 +1,9 @@
 "use client";
 
 import ThemeToggleButton from "@/components/common/ThemeToggleButton";
-import { useSidebar } from "@/contexts/SidebarContext";
 import Link from "next/link";
 
 const Header = () => {
-  const {
-    isMobileOpen,
-    toggleSidebar,
-    toggleMobileSidebar,
-    // closeMobileSidebar,
-  } = useSidebar();
-
-  const handleToggle = () => {
-    if (window.innerWidth >= 991) {
-      toggleSidebar();
-    } else {
-      toggleMobileSidebar();
-    }
-  };
-
   return (
     <header className="h-12 fixed top-0 left-0 w-full z-50 backdrop-blur-custom ">
       <div className="px-4 lg:px-6 w-full h-full flex items-center">
