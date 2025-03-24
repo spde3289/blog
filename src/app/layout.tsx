@@ -30,7 +30,7 @@ export default function RootLayout({
   return (
     <html lang="ko">
       <body
-        className={`${NotoSansKR.className} antialiased dark:bg-gray-900 dark:text-white/90 overflow-hidden`}
+        className={`${NotoSansKR.className} antialiased bg-white dark:bg-neutral-900 dark:text-white/90`}
       >
         {/* Google Analytics Script */}
         {GA_ID && <GoogleAnalytics gaId={GA_ID} />}
@@ -42,9 +42,7 @@ export default function RootLayout({
           <Header />
           <NavBar />
           <Backdrop />
-          <main className="w-full h-[calc(100vh-65px)] overflow-y-scroll scroll-smooth">
-            {children}
-          </main>
+          <main className="w-full pt-12 ">{children}</main>
         </DesigeProvider>
         <div id="modal-root" />
       </body>

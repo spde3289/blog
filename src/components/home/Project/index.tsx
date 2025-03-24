@@ -1,5 +1,5 @@
 "use client";
-import Modal from "@/components/Modal"; // 모달 컴포넌트 불러오기
+import ProjectModal from "@/components/modal/ProjectModal"; // 모달 컴포넌트 불러오기
 import { ProjectType } from "@/data/project";
 import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
@@ -88,13 +88,13 @@ const Project = ({ project }: ProjectProps) => {
         </div> */}
       </motion.div>
       <AnimatePresence>
-        <Modal
+        <ProjectModal
           id={`card-${project.title}`}
           isOpen={isOpen}
           onClose={() => setIsOpen(false)}
         >
           {project.contents}
-        </Modal>
+        </ProjectModal>
       </AnimatePresence>
     </>
   );

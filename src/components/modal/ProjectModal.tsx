@@ -11,7 +11,7 @@ interface ModalProps {
   children: ReactNode;
 }
 
-const Modal = ({ isOpen, onClose, children, id }: ModalProps) => {
+const ProjectModal = ({ isOpen, onClose, children, id }: ModalProps) => {
   const [modalRoot, setModalRoot] = useState<HTMLElement | null>(null);
 
   useEffect(() => {
@@ -68,4 +68,4 @@ const Modal = ({ isOpen, onClose, children, id }: ModalProps) => {
   );
 };
 
-export default Modal;
+export default ProjectModal;

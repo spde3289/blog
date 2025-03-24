@@ -31,6 +31,8 @@ export default {
         "theme-xs": ["12px", "18px"],
       },
       colors: {
+        background: "var(--background)",
+        foreground: "var(--foreground)",
         current: "currentColor",
         transparent: "transparent",
         white: "#FFFFFF",
@@ -140,8 +142,6 @@ export default {
         "theme-purple": {
           500: "#7A5AF8",
         },
-        background: "var(--background)",
-        foreground: "var(--foreground)",
       },
       maxWidth: {
         1400: "1400px",
