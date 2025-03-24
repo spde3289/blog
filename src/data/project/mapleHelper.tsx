@@ -27,7 +27,7 @@ const MapleHelperProject = () => {
       <div className="flex gap-2">
         {mapleHelperContents.tags.map((tag) => (
           <div
-            className="flex items-center justify-center text-xs w-fit bg-slate-200 px-1 py-0.5 rounded"
+            className="flex items-center justify-center text-xs w-fit tag-bg px-1 py-0.5 rounded"
             key={tag}
           >
             {tag}

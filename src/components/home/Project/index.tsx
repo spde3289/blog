@@ -57,7 +57,7 @@ const Project = ({ project }: ProjectProps) => {
         <div className="px-2 flex gap-2 transition-opacity duration-300 ">
           {project.tags.map((tag) => (
             <div
-              className="flex items-center justify-center text-xs bg-white dark:bg-neutral-700/40 border border-neutral-300 dark:border-neutral-700 px-1 py-0.5 rounded"
+              className="flex items-center justify-center text-xs tag-bg px-1 py-0.5 rounded"
               key={tag}
             >
               {tag}
