@@ -1,7 +1,14 @@
 "use client";
 
 import type React from "react";
-import { createContext, useContext, useEffect, useMemo, useState } from "react";
+import {
+  createContext,
+  useCallback,
+  useContext,
+  useEffect,
+  useMemo,
+  useState,
+} from "react";
 
 export type Theme = "light" | "dark" | "system";
 
@@ -19,7 +26,7 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({
   const [theme, setThemeState] = useState<Theme>("system");
   const [resolvedTheme, setResolvedTheme] = useState<"light" | "dark">("light");
 
-  const applyTheme = (t: Theme) => {
+  const applyTheme = useCallback((t: Theme) => {
     const isSystem = t === "system";
     const systemPrefersDark = window.matchMedia(
       "(prefers-color-scheme: dark)"
@@ -28,34 +35,34 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({
 
     setResolvedTheme(finalTheme);
     document.documentElement.classList.toggle("dark", finalTheme === "dark");
-  };
+  }, []);
 
-  const setTheme = (newTheme: Theme) => {
-    setThemeState(newTheme);
-    localStorage.setItem("theme", newTheme);
-    applyTheme(newTheme);
-  };
+  const setTheme = useCallback(
+    (newTheme: Theme) => {
+      setThemeState(newTheme);
+      localStorage.setItem("theme", newTheme);
+      applyTheme(newTheme);
+    },
+    [applyTheme]
+  );
 
-  // 초기 테마 설정
+  // 초기 테마 설정 + 시스템 테마 변경 감지
   useEffect(() => {
-    const stored = localStorage.getItem("theme") as Theme | null;
-    const initialTheme = stored || "system";
-    setThemeState(initialTheme);
-    applyTheme(initialTheme);
+    const stored = (localStorage.getItem("theme") as Theme | null) ?? "system";
+    setThemeState(stored);
+    applyTheme(stored);
 
     const systemWatcher = window.matchMedia("(prefers-color-scheme: dark)");
     const listener = () => {
-      if (theme === "system") {
-        applyTheme("system");
-      }
+      if (stored === "system") applyTheme("system");
     };
     systemWatcher.addEventListener("change", listener);
     return () => systemWatcher.removeEventListener("change", listener);
-  }, [theme]);
+  }, [applyTheme]);
 
   const value = useMemo(
     () => ({ theme, resolvedTheme, setTheme }),
-    [theme, resolvedTheme]
+    [theme, resolvedTheme, setTheme]
   );
 
   return (

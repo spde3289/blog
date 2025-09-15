@@ -1,8 +1,6 @@
 import HomeSection from "@/components/home/HomeSection";
 import InterViewCard from "@/components/home/InterViewCard";
-import Project from "@/components/home/Project";
 import TypingText from "@/components/home/TypingText";
-import ProjectArr from "@/data/project";
 import { FiAtSign, FiGithub } from "react-icons/fi";
 
 const Home = () => {
@@ -21,23 +19,12 @@ const Home = () => {
           </p>
         </div>
       </section>
-      {/* <section
-        className="mx-auto w-full md:w-fit 2xl:max-w-[1152px] px-6 min-[1260px]:max-2xl:px-[168px] pb-10 mb-10 fade-in-project select-none "
-        title="Project"
-      >
-        <h2 className="text-5xl font-black pb-[2rem]">Project</h2>
-        <div className="flex justify-center gap-4 flex-wrap">
-          {ProjectArr.map((project) => (
-            <Project key={project.title} project={project} />
-          ))}
-        </div>
-      </section> */}
-      <HomeSection className="mb-20 " title="Interview">
+      <HomeSection className="mb-20" title="Interview">
         <InterViewCard questions="개발자를 시작하게 된 계기가 무엇인가요?">
-          전공은 전기공학이지만{" "}
+          전공은 전기공학이지만
           <strong>일상에서 겪는 문제를 기술로 해결해보고 싶다</strong>는 생각에
           개발을 시작했습니다.
-          <br /> React로 개발 블로그를 만들고 GitHub Pages로 배포하면서{" "}
+          <br /> React로 개발 블로그를 만들고 GitHub Pages로 배포하면서
           <strong>서비스 운영의 재미</strong>를 느꼈고
           <br />
           이후 Next.js, TypeScript, AWS 등으로 기술을 확장하며 본격적으로
@@ -48,18 +35,18 @@ const Home = () => {
           부분이 가장 어려웠습니다.
           <br />
           <strong>개발자 입장과 사용자 입장의 차이</strong>를 체감하게 됐고
-          <br />그 경험 덕분에 지금은 기능 구현을 넘어{" "}
+          <br />그 경험 덕분에 지금은 기능 구현을 넘어
           <strong>문제 해결형 개발자</strong>로 한 걸음 더 성장하고 있다고
           있다고 생각합니다.
         </InterViewCard>
         <InterViewCard questions="향후 어떤 개발자로 성장하고 싶나요?">
-          저는 단순히 기술 스택에 능숙한 개발자가 아니라{" "}
+          저는 단순히 기술 스택에 능숙한 개발자가 아니라
           <strong>
             사용자의 문제를 이해하고 그것을 기술로 풀어낼 수 있는 개발자
           </strong>
           가 되고 싶습니다. <br />
-          실제로 여러 프로젝트를 통해 <em>'왜 만들까'</em> 를 먼저 고민하게
-          되었고 <br /> 앞으로도{" "}
+          실제로 여러 프로젝트를 통해 <em>&apos;왜 만들까&apos;</em> 를 먼저
+          고민하게 되었고 <br /> 앞으로도
           <strong>사용자 중심의 사고와 기술적 실행력을 함께 갖춘 개발자</strong>
           로 성장하고자 합니다.
         </InterViewCard>
