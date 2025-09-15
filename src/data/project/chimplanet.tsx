@@ -1,5 +1,6 @@
 import ProjectOverview from "@/components/home/Project/ProjectOverview";
 import { CoreModulesType, ProjectType } from "./index";
+import ProjectContents from "@/components/home/Project/contents";
 
 const mainProject: CoreModulesType = {
   y: 100,
@@ -23,11 +24,13 @@ const coreModules = {
 
 const ChimplanetProject = () => {
   return (
-    <div>
-      <p>메이플스토리에 대한 다양한 유틸리티를 제공하는 서비스</p>
-      <p>응 모달 내용임</p>
-      <ProjectOverview height="500" coreModules={coreModules} />
-    </div>
+    <ProjectContents tags={chimplanetContents.tags} title="침플래닛">
+      <div className=" px-10 ">
+        <p>메이플스토리에 대한 다양한 유틸리티를 제공하는 서비스</p>
+        <p>응 모달 내용임</p>
+        <ProjectOverview height="500" coreModules={coreModules} />
+      </div>
+    </ProjectContents>
   );
 };
 

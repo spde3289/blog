@@ -78,7 +78,7 @@ export const getAllPosts = (): getAllPostsType => {
           // 메타데이터와 파일 이름을 결합하여 결과 배열에 추가
           allPosts.push({
             category: category,
-            href: `/posts/${category}/${fileName.replace(/\.md$/, "")}`,
+            href: `/blog/${category}/${fileName.replace(/\.md$/, "")}`,
             post: fileName.replace(/\.md$/, ""),
             metadata,
             content,

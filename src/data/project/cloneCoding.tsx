@@ -1,3 +1,4 @@
+import ProjectContents from "@/components/home/Project/contents";
 import ProjectOverview from "@/components/home/Project/ProjectOverview";
 import { CoreModulesType, ProjectType } from "./index";
 
@@ -23,11 +24,13 @@ const coreModules = {
 
 const CloneCodingProject = () => {
   return (
-    <div>
-      <p>HTML, CSS, JavaScript와 React를 이용한 클론코딩</p>
-      <p>응 모달 내용임</p>
-      <ProjectOverview height="500" coreModules={coreModules} />
-    </div>
+    <ProjectContents tags={cloneCodingContents.tags} title="클론코딩">
+      <div className=" px-10 ">
+        <p>메이플스토리를 즐기며 여러 유틸리티 서비스를 제공하는</p>
+        <p>응 모달 내용임</p>
+        <ProjectOverview height="500" coreModules={coreModules} />
+      </div>
+    </ProjectContents>
   );
 };
 

@@ -1,3 +1,4 @@
+import ProjectContents from "@/components/home/Project/contents";
 import ProjectOverview from "@/components/home/Project/ProjectOverview";
 import { CoreModulesType, ProjectType } from "./index";
 
@@ -23,11 +24,13 @@ const coreModules = {
 
 const LiveChatProject = () => {
   return (
-    <div>
-      <p>사용자 의견 수렴을 위한 실시간 채팅 서비스</p>
-      <p>응 모달 내용임</p>
-      <ProjectOverview height="500" coreModules={coreModules} />
-    </div>
+    <ProjectContents tags={liveChatContents.tags} title="라이브 챗">
+      <div className=" px-10 ">
+        <p>메이플스토리에 대한 다양한 유틸리티를 제공하는 서비스</p>
+        <p>응 모달 내용임</p>
+        <ProjectOverview height="500" coreModules={coreModules} />
+      </div>
+    </ProjectContents>
   );
 };
 

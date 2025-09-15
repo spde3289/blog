@@ -10,6 +10,7 @@ export interface CoreModulesType {
   y: number;
   contents: string;
   position: "중앙" | "왼쪽" | "오른쪽";
+  sub?: string[];
 }
 
 export interface CoreModulesGroupType {

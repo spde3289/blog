@@ -42,9 +42,6 @@ const ProjectModal = ({ isOpen, onClose, children, id }: ModalProps) => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      onAnimationComplete={() => {
-        console.log("asdasd");
-      }}
     >
       <motion.div
         layoutId={id}
@@ -52,7 +49,7 @@ const ProjectModal = ({ isOpen, onClose, children, id }: ModalProps) => {
         animate={{ scale: 1, opacity: 1 }}
         exit={{ scale: 0.5, opacity: 0 }}
         transition={{ duration: 0.3 }}
-        className="bg-white dark:bg-neutral-900 p-6 rounded-lg shadow-lg w-full max-w-[768px]"
+        className="bg-neutral-50 dark:bg-neutral-800  p-6 rounded-lg shadow-lg w-full max-w-[768px]"
         onClick={(e) => e.stopPropagation()}
       >
         <div className="mb-4">{children}</div>

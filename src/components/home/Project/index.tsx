@@ -19,11 +19,11 @@ const Project = ({ project }: ProjectProps) => {
         onClick={() => setIsOpen(true)}
         layoutId={`card-${project.title}`}
         style={project.img ? {} : { justifyContent: "space-between" }}
-        className={`group w-[244px] h-72 pb-3 cursor-pointer overflow-hidden flex flex-col justify-between border rounded-xl bg-box opacity-100`}
+        className={`group w-[350px] h-[300px] pb-3 cursor-pointer overflow-hidden flex flex-col border rounded-xl bg-box opacity-100`}
       >
         {/* 프로젝트 이미지 */}
         {project.img && (
-          <div className="w-full h-full mb-2">
+          <div className="w-full mb-2">
             <Image
               unoptimized
               src={project.img}
@@ -39,32 +39,33 @@ const Project = ({ project }: ProjectProps) => {
             />
           </div>
         )}
-        <div className="px-4 transition-opacity duration-300 ">
-          <h2
-            style={
-              project.img
-                ? {}
-                : { marginTop: "20px", justifyContent: "space-between" }
-            }
-            className="font-bold text-xl mb-1"
-          >
-            {project.title}
-          </h2>
-          <p className="text-base w-full break-keep mb-4">
-            {project.description}
-          </p>
-        </div>
-        <div className="px-2 flex gap-2 transition-opacity duration-300 ">
-          {project.tags.map((tag) => (
-            <div
-              className="flex items-center justify-center text-xs tag-bg px-1 py-0.5 rounded"
-              key={tag}
+        <div className="h-full flex-1 flex flex-col justify-between">
+          <div className="px-4 transition-opacity duration-300 ">
+            <h2
+              style={
+                project.img
+                  ? {}
+                  : { marginTop: "20px", justifyContent: "space-between" }
+              }
+              className="font-bold text-xl mb-1"
             >
-              {tag}
-            </div>
-          ))}
+              {project.title}
+            </h2>
+            <p className="text-base w-full break-keep mb-4">
+              {project.description}
+            </p>
+          </div>
+          <div className="px-2 flex gap-2 transition-opacity duration-300 ">
+            {project.tags.map((tag) => (
+              <div
+                className="flex items-center justify-center text-xs tag-bg px-1.5 py-0.5 rounded"
+                key={tag}
+              >
+                {tag}
+              </div>
+            ))}
+          </div>
         </div>
-
         {/* <div className="h-72 w-[242px] opacity-0 -z-1 rounded-xl fixed group-hover:z-10 group-hover:opacity-100 border bg-black bg-opacity-80 flex flex-col items-center justify-center gap-4 transition-opacity duration-300 ">
           <motion.button
             whileHover={{ scale: 1.1 }}
