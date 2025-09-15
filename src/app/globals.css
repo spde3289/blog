@@ -14,6 +14,10 @@
 }
 
 @layer base {
+  html {
+    scrollbar-color: rgba(160, 160, 160, 0.5) transparent;
+  }
+
   :root {
     --eaeaea: #eaeaea;
     --header-size: 121px;
@@ -22,8 +26,8 @@
   body {
     margin: 0;
     background-color: #ffff;
-    color: #242424;
-    overflow-y: scroll;
+    color: #1a1a1a;
+    letter-spacing: -1px;
   }
 
   ul,
@@ -64,6 +68,48 @@
 }
 
 @layer components {
+  .shadow-custom-inset {
+    --tw-shadow: inset 0 -1px 0 0 var(--eaeaea);
+    --tw-shadow-colored: inset 0 -1px 0 0 var(--tw-shadow-color);
+    box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
+      var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .fade-in {
+    opacity: 0; /* 초기엔 안 보이게 */
+    animation: fadeIn 1s ease-out forwards;
+    animation-delay: 1.5s; /* 2.5초 후에 실행 */
+  }
+
+  @keyframes fadeIn-project {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      visibility: visible;
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .fade-in-project {
+    visibility: hidden;
+    animation: fadeIn-project 1s ease-out forwards;
+    animation-delay: 2.5s; /* 2.5초 후에 실행 */
+  }
+
   .content::before {
     content: "";
     width: 100%;
@@ -95,7 +141,6 @@
     right: 8px;
     padding: 4px 8px;
     font-size: 12px;
-    /* background-color: #f3f4f6; */
     border-radius: 4px;
     cursor: pointer;
     transition: background-color 0.3s ease; /* 부드러운 색상 변화 */
@@ -123,6 +168,7 @@
   .CodeBlock {
     background: #f6f8fa !important;
   }
+
   .markdown-body {
     box-sizing: border-box;
     min-width: 200px;
@@ -139,5 +185,49 @@
     .markdown-body {
       padding: 15px;
     }
+  }
+
+  @keyframes hoverEffect {
+    from {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    to {
+      opacity: 0;
+      transform: translateY(200px);
+    }
+  }
+
+  @keyframes after-cardEffect {
+    from {
+      opacity: 0;
+      transform: translateY(0);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(200px);
+    }
+  }
+
+  .ani:hover #project-card {
+    animation: hoverEffect 2s ease-in-out;
+  }
+
+  .ani:hover #after-card {
+    animation: after-cardEffect 2s ease-in-out;
+  }
+}
+
+@layer utilities {
+  .bg-box {
+    @apply bg-neutral-50 dark:bg-neutral-800/40 border border-neutral-300 dark:border-neutral-700;
+  }
+
+  .tag-bg {
+    @apply bg-white dark:bg-neutral-700/40 border border-neutral-300 dark:border-neutral-700;
+  }
+
+  .title-text {
+    @apply text-black dark:text-white;
   }
 }

@@ -58,7 +58,7 @@ const PostsContainer = ({
   // 카테고리 변경시 1페이지로 초기화
   useEffect(() => {
     const currentParams = new URLSearchParams(searchParams);
-    if (isCategory && pathname === "/posts") {
+    if (isCategory && pathname === "/blog") {
       setPagination({
         currentPage: 1,
         currentButton: 1,
@@ -66,13 +66,13 @@ const PostsContainer = ({
       currentParams.set("page", `1`);
       currentParams.set("category", `${category}`);
 
-      router.push(`/posts?${currentParams.toString()}`, {
+      router.push(`/blog?${currentParams.toString()}`, {
         scroll: false,
       });
     }
-    if (!isCategory && pathname === "/posts") {
+    if (!isCategory && pathname === "/blog") {
       currentParams.delete("category");
-      router.push(`/posts?${currentParams.toString()}`, {
+      router.push(`/blog?${currentParams.toString()}`, {
         scroll: false,
       });
     }
@@ -85,8 +85,8 @@ const PostsContainer = ({
     // 새로운 쿼리 파라미터 추가
     currentParams.set("page", `${num}`);
 
-    if (pathname === "/posts") {
-      router.push(`/posts?${currentParams.toString()}`, {
+    if (pathname === "/blog") {
+      router.push(`/blog?${currentParams.toString()}`, {
         scroll: false,
       });
     }
