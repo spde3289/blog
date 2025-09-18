@@ -1,6 +1,6 @@
 ---
 title: Socket.io에 대해서
-tags: [FrontEnd]
+tags: [frontEnd]
 date: "2024.04.13"
 ---
 ## Socket.io에 대해서 

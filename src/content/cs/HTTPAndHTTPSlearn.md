@@ -1,6 +1,6 @@
 ---
 title: HTTP/HTTPS의 개념
-tags: [network]
+tags: [cs]
 date: "2023.03.25"
 ---
 ## HTTP/HTTPS란? 

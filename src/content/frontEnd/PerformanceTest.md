@@ -1,6 +1,6 @@
 ---
 title: 프론트엔드 성능 측정
-tags: [FrontEnd]
+tags: [frontEnd]
 date: "2024.03.05"
 ---
 ## 웹 성능이란 

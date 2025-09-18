@@ -1,6 +1,6 @@
 ---
 title: 웹폰트 최적화
-tags: [FrontEnd]
+tags: [frontEnd]
 date: "2024.03.06"
 ---
 ## 웹 폰트가 동작하는 방법 

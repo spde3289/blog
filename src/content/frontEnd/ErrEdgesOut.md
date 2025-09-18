@@ -1,6 +1,6 @@
 ---
 title: npm ERR! Cannot read properties of null (reading 'edgesOut')
-tags: [FrontEnd]
+tags: [frontEnd]
 date: "2023.07.13"
 ---
 최근 배포를 하던 와중에 npm ERR! Cannot properties of null (reading) 이런 에러가 발생했다.

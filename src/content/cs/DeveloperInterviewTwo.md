@@ -1,6 +1,6 @@
 ---
 title: 프론트엔드 기술면접 정리 - 2
-tags: [Computer Science]
+tags: [cs]
 date: "2023.09.27"
 ---
 ## Http 

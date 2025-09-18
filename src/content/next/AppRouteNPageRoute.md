@@ -1,6 +1,6 @@
 ---
 title: Next 앱 라우팅과 페이지 라우팅
-tags: [Next.js]
+tags: [next]
 date: "2024.03.23"
 ---
 React를 사용 할 때는 react-router-dom 라이브러리를 사용 했지만 Next.js에는 라이브러리 없이 라우팅이 가능하다.

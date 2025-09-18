@@ -1,12 +1,8 @@
-import HomeSection from "@/components/home/HomeSection";
-import InterViewCard from "@/components/home/InterViewCard";
-import TypingText from "@/components/home/TypingText";
-import { FiAtSign, FiGithub } from "react-icons/fi";
-
 const Home = () => {
   return (
     <div className="flex flex-col items-center gap-20">
-      <section className="mx-auto w-full 2xl:max-w-[1152px] px-6 min-[1260px]:max-2xl:px-[168px] pb-10 pt-[46px] lg:pt-32 flex flex-col gap-12">
+      <div></div>
+      {/* <section className="mx-auto w-full 2xl:max-w-[1152px] px-6 min-[1260px]:max-2xl:px-[168px] pb-10 pt-[46px] lg:pt-32 flex flex-col gap-12">
         <div className="md:max-w-fit">
           <TypingText text="여러 개발 관련 주제를 다룹니다." />
           <p className=" font-medium max-w-[600px] text-lg md:text-xl leading-tight fade-in break-keep">
@@ -76,7 +72,7 @@ const Home = () => {
             <FiAtSign />
           </a>
         </div>
-      </HomeSection>
+      </HomeSection> */}
     </div>
   );
 };
