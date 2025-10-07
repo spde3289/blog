@@ -36,6 +36,7 @@ export default {
         current: "currentColor",
         transparent: "transparent",
         white: "#FFFFFF",
+
         black: "#101828",
         brand: {
           25: "#F2F7FF",
