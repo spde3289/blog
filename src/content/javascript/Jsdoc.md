@@ -22,6 +22,7 @@ JSDoc 주석은 JavaScript 코드에 추가되는 문서화 주석이다. 이 �
 
 ```
 ![백엔드 이미지](/img/javascript/Jsdoc/example1.png)
+
 이와 같이 함수를 호출 할 때 주석를 보여주게 된다.
 
 ## @deprecated 
