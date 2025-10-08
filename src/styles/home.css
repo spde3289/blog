@@ -32,4 +32,16 @@
   .blur-ball--3 {
     @apply size-1/3 -top-20 left-96 border-[16px] border-[#FFF859];
   }
+
+  .section-container {
+    @apply w-[1160px] py-20;
+  }
+
+  .section-title {
+    @apply text-5xl text-white font-bold mb-16 text-center;
+  }
+
+  .section-item-wrapper {
+    @apply flex items-center gap-13;
+  }
 }

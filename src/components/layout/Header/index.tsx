@@ -7,7 +7,7 @@ import { useEffect, useState } from "react";
 
 const Header = ({
   triggerId = "header-trigger",
-  showWhenVisible = true,
+  showWhenVisible = false,
   rootMargin = "0px 0px 0px 0px",
   threshold = 0.1,
 }) => {
