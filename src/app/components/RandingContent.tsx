@@ -13,7 +13,7 @@ const RandingContent = () => {
   // 스크롤 정도에 따라 좌우 이동 (최대 ±100px)
   const move = Math.min(scroll * 0.3, 1000);
   return (
-    <section className="h-screen w-full relative flex justify-center items-center flex-col">
+    <section className="h-screen w-full  relative flex justify-center items-center flex-col">
       <div className="blur-ball blur-ball--1"></div>
       <div className="blur-ball blur-ball--2"></div>
       <div className="blur-ball blur-ball--3"></div>
@@ -35,22 +35,15 @@ const RandingContent = () => {
           spde3289
         </span>
       </div>
-      <div
-        className="flex gap-4 transition-transform duration-300"
-        style={{
-          transform: `translateX(${move}px)`,
-        }}
-      >
+      <div className="flex gap-4 transition-transform duration-300">
         <a
           href="https://www.spde3289.dev/blog"
-          style={{ transform: `translateX(${-move}px)` }}
           className="transition-transform duration-300"
         >
           blog
         </a>
         <a
           href="https://github.com/spde3289"
-          style={{ transform: `translateX(${move}px)` }}
           className="transition-transform duration-300"
         >
           github

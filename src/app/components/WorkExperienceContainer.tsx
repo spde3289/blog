@@ -23,7 +23,7 @@ const WorkExpreienceContainer = () => {
   return (
     <section className="section-container">
       <h2 className="section-title ">경력</h2>
-      <div className="section-item-wrapper flex-col">
+      <div className="section-item-wrapper justify-center flex-col sm:flex-row gap-13">
         {workExperienceItems.map((work) => (
           <WorkExperienceCard key={work.title} workExperience={work} />
         ))}

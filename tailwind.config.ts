@@ -1,5 +1,4 @@
 import type { Config } from "tailwindcss";
-import defaultTheme from "tailwindcss/defaultTheme";
 
 export default {
   content: [
@@ -14,12 +13,12 @@ export default {
       fontFamily: {
         sans: ["var(--font-noto-sans-kr)", "sans-serif"],
       },
-      screens: {
-        "2xsm": "375px",
-        xsm: "425px",
-        "3xl": "2000px",
-        ...defaultTheme.screens,
-      },
+      // screens: {
+      //   "2xsm": "375px",
+      //   xsm: "425px",
+      //   "3xl": "2000px",
+      //   ...defaultTheme.screens,
+      // },
       fontSize: {
         "title-2xl": ["72px", "90px"],
         "title-xl": ["60px", "72px"],
@@ -149,7 +148,7 @@ export default {
         1024: "1024px",
       },
       backdropBlur: {
-        custom: "5px", // 사용자 정의 블러 값
+        custom: "7px", // 사용자 정의 블러 값
       },
       backgroundSize: {
         "auto-0.5rem": "auto 0.5rem",

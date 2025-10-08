@@ -20,7 +20,7 @@ const InterviewContainer = () => {
   return (
     <section className="section-container">
       <h2 className="section-title ">인터뷰</h2>
-      <div className="section-item-wrapper flex-col">
+      <div className="section-item-wrapper flex-col gap-13">
         {interviewItems.map((interview) => (
           <InterviewCard key={interview.questions} interview={interview} />
         ))}

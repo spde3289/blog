@@ -8,7 +8,7 @@ import WorkExpreienceContainer from "./components/WorkExperienceContainer";
 
 const Home = () => {
   return (
-    <main className="flex flex-col items-center bg-[#232323] bg-gradient-to-b from-[#131313] to-[#313131] noise-before text-[#f3f3f3]">
+    <main className="flex flex-col items-center bg-gradient-to-b from-[#000000] to-[#313131] noise-before text-[#f3f3f3] overflow-hidden">
       <RandingContent />
       <ProjectPortfolioContainer />
       <InterviewContainer />

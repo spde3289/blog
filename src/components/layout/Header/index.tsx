@@ -17,6 +17,7 @@ const Header = ({
 
   useEffect(() => {
     const target = document.getElementById(triggerId);
+    console.log(target);
     if (!target) return; // 페이지에 트리거가 없는 경우 안전하게 무시
 
     const io = new IntersectionObserver(
@@ -34,7 +35,7 @@ const Header = ({
 
     io.observe(target);
     return () => io.disconnect();
-  }, [triggerId, showWhenVisible, rootMargin, threshold]);
+  }, [triggerId, showWhenVisible, rootMargin, threshold, pathName]);
 
   console.log(pathName);
 
@@ -45,11 +46,11 @@ const Header = ({
   return (
     <header
       className={[
-        "fixed inset-x-0 top-0 z-50",
-        "backdrop-blur-md bg-black/60",
+        "fixed inset-x-0 top-0 z-999999 h-12",
+        "backdrop-blur-custom bg-inherit/60",
         "border-b border-white/10",
         "transition-opacity duration-500",
-        visible ? "opacity-100" : "opacity-0 pointer-events-none",
+        visible ? "opacity-100 " : "opacity-0 pointer-events-none",
       ].join(" ")}
       aria-hidden={!visible}
     >

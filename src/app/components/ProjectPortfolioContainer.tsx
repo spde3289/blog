@@ -7,7 +7,7 @@ interface ProjectPortfolioProps {
 
 const ProjectPortfolioCard = ({ info }: ProjectPortfolioProps) => {
   return (
-    <div className="flex gap-4 ">
+    <div className="flex-col-reverse md:flex-row flex gap-4 ">
       <div className="flex-1">
         <div className="mb-4">
           <h3 className="text-3xl font-bold mb-1">{info.title}</h3>
@@ -42,7 +42,7 @@ const ProjectPortfolioCard = ({ info }: ProjectPortfolioProps) => {
       </div>
       <div>
         <img
-          className="h-[330px] w-auto"
+          className="h-40 sm:h-[330px] w-auto"
           src={info.img.src}
           alt={info.img.alt}
           {...info.img.options}
@@ -56,7 +56,7 @@ const ProjectPortfolioContainer = () => {
   return (
     <section className="section-container">
       <h2 className="section-title ">프로젝트</h2>
-      <div className="section-item-wrapper flex-col">
+      <div className="section-item-wrapper flex-col gap-13">
         <ProjectPortfolioCard info={mapleHelperInfo} />
         <ProjectPortfolioCard info={mapleHelperInfo} />
       </div>
