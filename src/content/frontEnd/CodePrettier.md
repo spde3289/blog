@@ -1,6 +1,6 @@
 ---
 title: 코드 포멧팅 prettier
-tags: [FrontEnd]
+tags: [frontEnd]
 date: "2023.07.27"
 ---
 ## 코드 포멧터 Prettier 

@@ -1,6 +1,6 @@
 ---
 title: CORS란?
-tags: [Cs]
+tags: [cs]
 date: "2024.05.04"
 ---
 Express를 이용해 백엔드를 개발하던 중 CORS에러가 발생하게 되었습니다. cors 라이브러리를 이용해 문제를 해결했지만 이 cors가 무엇인지 또 어떻게 해결해야 하는지를 기록하려고 합니다. CORS를 알기 이전에 Same-Origin정책과 Cross-Origin에 대해서 알아야 하는데 Same-Origin은 웹 보안 모델에서 같은 Origin에서 제공됨을 의미합니다. 반대로 Cross-Origin는 서로 다른 출처임을 의미합니다.

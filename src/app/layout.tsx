@@ -1,7 +1,5 @@
-import Backdrop from "@/components/layout/Backdrop";
 import Header from "@/components/layout/Header";
-import NavBar from "@/components/layout/NavBar";
-import DesigeProvider from "@/components/porvider/DesigeProvider";
+import DesigeProvider from "@/components/provider/DesigeProvider";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import type { Metadata } from "next";
 import { Noto_Sans_KR } from "next/font/google";
@@ -40,9 +38,9 @@ export default function RootLayout({
         />
         <DesigeProvider>
           <Header />
-          <NavBar />
-          <Backdrop />
-          <main className="w-full pt-12 ">{children}</main>
+          {/* <NavBar />
+          <Backdrop /> */}
+          {children}
         </DesigeProvider>
         <div id="modal-root" />
       </body>

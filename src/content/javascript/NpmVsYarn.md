@@ -1,6 +1,6 @@
 ---
 title: npm vs yarn
-tags: [javascript]
+tags: [javaScript]
 date: "2023.03.30"
 ---
 ## npm 

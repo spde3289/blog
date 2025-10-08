@@ -1,6 +1,6 @@
 ---
 title: Jsdoc주석에 대해서 알아보자
-tags: [javascript]
+tags: [javaScript]
 date: "2023.02.26"
 ---
 JSDoc 주석은 JavaScript 코드에 추가되는 문서화 주석이다. 이 주석은 함수, 변수, 객체의 설명, 타입정보 등을 제공할 수 있다. 

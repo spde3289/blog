@@ -1,6 +1,6 @@
 ---
 title: 클로저란 무엇인가?
-tags: [javascript]
+tags: [javaScript]
 date: "2024.08.31"
 ---
 오늘은 you don`t know javascript를 읽고 클로저라는 개념에 대해 정리해 보도록 하겠습니다.

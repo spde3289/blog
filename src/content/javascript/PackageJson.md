@@ -1,6 +1,6 @@
 ---
 title: package.json에 대해서
-tags: [javascript]
+tags: [javaScript]
 date: "2023.04.06"
 ---
 ## package.json이란? 

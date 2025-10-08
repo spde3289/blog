@@ -1,6 +1,6 @@
 ---
 title: Express란 무엇인가?
-tags: [BackEnd]
+tags: [backEnd]
 date: "2024.04.27"
 ---
 Express는 Node.js에서 가장 인기 있는 웹 애플리케이션 프레임워크로 HTTP 요청 및 응답을 처리하는데 필요한 많은 기능들을 이용해 추상화된 API를 제공할 수 있습니다.

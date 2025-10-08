@@ -1,6 +1,6 @@
 ---
 title: 자바스크립트의 값과 레퍼런스
-tags: [javascript]
+tags: [javaScript]
 date: "2024.06.08"
 ---
 오늘은 you don`t Know JavaScript 책을 읽고 그 내용에 관해 글을 써보겠습니다.

@@ -1,6 +1,6 @@
 ---
 title: Prototype 이해하기
-tags: [frontEnd]
+tags: [javaScript]
 date: "2024.11.16"
 ---
 자바스크립트는 객체 지향 언어로 객체를 상속하기 위해 프로토타입이라는 방식을 사용합니다.

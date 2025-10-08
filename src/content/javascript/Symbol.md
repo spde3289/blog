@@ -1,6 +1,6 @@
 ---
 title: Symbol에 대해서
-tags: [javascript]
+tags: [javaScript]
 date: "2023.04.11"
 ---
 Symbol은 ES6에서 추가된 7번째 데이터 타입이다. 심볼은 주로 이름의 충돌 위험이 없는 객체의 프로퍼티 키를 만들기 위해서 사용한다.

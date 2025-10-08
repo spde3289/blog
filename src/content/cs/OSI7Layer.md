@@ -1,6 +1,6 @@
 ---
 title: 7계층에 대해 알아보자
-tags: [Computer Science]
+tags: [cs]
 date: "2023.03.12"
 ---
 ## 7계층이란? 

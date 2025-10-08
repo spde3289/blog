@@ -1,6 +1,6 @@
 ---
 title: require와 import의 차이점
-tags: [javascript]
+tags: [javaScript]
 date: "2024.09.07"
 ---
 라이브쳇 개발을 하며 백엔드 서비스에는 require를 프론트 서비스에는 import를 사용했는데 문뜩 

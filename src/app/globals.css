@@ -15,6 +15,7 @@
 
 @layer base {
   html {
+    font-weight: 500;
     scrollbar-color: rgba(160, 160, 160, 0.5) transparent;
   }
 
@@ -32,6 +33,7 @@
 
   ul,
   li {
+    list-style: none;
     text-decoration: none;
     padding-left: 0px;
     margin: 0;

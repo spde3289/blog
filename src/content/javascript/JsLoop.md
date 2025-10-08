@@ -1,6 +1,6 @@
 ---
 title: 자바스크립트 반복문
-tags: [javascript]
+tags: [javaScript]
 date: "2023.04.15"
 ---
 ## 반복문의 종류 
