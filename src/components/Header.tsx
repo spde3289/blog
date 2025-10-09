@@ -1,6 +1,6 @@
 "use client";
 
-import ThemeToggleButton from "@/components/common/ThemeToggleButton";
+import ThemeToggleButton from "@/components/Theme/ThemeToggleButton";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -17,9 +17,9 @@ const Header = ({
 
   useEffect(() => {
     const target = document.getElementById(triggerId);
-    console.log(target);
+    console.log("트리거 === ", target);
+    if (target === null) setVisible(true);
     if (!target) return; // 페이지에 트리거가 없는 경우 안전하게 무시
-
     const io = new IntersectionObserver(
       (entries) => {
         console.log(entries);
@@ -46,25 +46,26 @@ const Header = ({
   return (
     <header
       className={[
-        "fixed inset-x-0 top-0 z-999999 h-12",
+        "fixed inset-x-0 top-0 z-999999 h-12 -translate-y-12 ",
         "backdrop-blur-custom bg-inherit/60",
-        "border-b border-white/10",
-        "transition-opacity duration-500",
-        visible ? "opacity-100 " : "opacity-0 pointer-events-none",
+        "transition duration-500",
+        visible
+          ? "opacity-100 translate-y-0"
+          : "opacity-0 pointer-events-none -translate-y-12",
       ].join(" ")}
-      aria-hidden={!visible}
     >
-      {/* <header className="h-12 fixed top-0 left-0 w-full z-50 backdrop-blur-custom "> */}
       <div className="px-4 lg:px-6 w-full h-full flex items-center">
-        <nav className="flex w-full gap-2 md:gap-4 items-center">
-          <Link
-            className="text-xl lg:text-2xl font-bold text-black dark:text-white "
-            href="/"
-          >
+        <nav
+          className={[
+            "flex w-full gap-2 md:gap-4 items-center",
+            pathName === "/" ? "text-white" : "text-gray-dark dark:text-white",
+          ].join(" ")}
+        >
+          <Link className="text-xl lg:text-2xl font-bold " href="/">
             spde3289.dev
           </Link>
-          <div className="w-px bg-neutral-300 dark:bg-neutral-700 h-3.5 shrink-0"></div>
-          <Link className="text-sm font-bold dark:text-white " href="/blog">
+          <div className="w-px bg-neutral-300/50 dark:bg-neutral-700 h-3.5 shrink-0"></div>
+          <Link className="text-sm font-bold " href="/blog">
             Blog
           </Link>
         </nav>

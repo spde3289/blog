@@ -1,9 +1,10 @@
-import Header from "@/components/layout/Header";
-import DesigeProvider from "@/components/provider/DesigeProvider";
+import Header from "@/components/Header";
+import { ThemeProvider } from "@/contexts/ThemeContext";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import type { Metadata } from "next";
 import { Noto_Sans_KR } from "next/font/google";
 import "./globals.css";
+import "@/styles/highlight.css";
 
 const GA_ID = process.env.NEXT_PUBLIC_GA_ID;
 
@@ -32,16 +33,14 @@ export default function RootLayout({
       >
         {/* Google Analytics Script */}
         {GA_ID && <GoogleAnalytics gaId={GA_ID} />}
-        <link
+        {/* <link
           href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.1.0/github-markdown.css"
           rel="stylesheet"
-        />
-        <DesigeProvider>
+        /> */}
+        <ThemeProvider>
           <Header />
-          {/* <NavBar />
-          <Backdrop /> */}
           {children}
-        </DesigeProvider>
+        </ThemeProvider>
         <div id="modal-root" />
       </body>
     </html>

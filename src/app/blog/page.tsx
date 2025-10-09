@@ -6,10 +6,12 @@ export default async function PostsPage() {
   const posts = getAllPosts();
   const categorys = getAllcategorys();
   return (
-    <Suspense fallback={<div>Loading...</div>}>
-      <div className="flex flex-col-reverse sm:flex-row items-center sm:items-start">
-        <PostCategoryContainer posts={posts} categorys={categorys} />
-      </div>
-    </Suspense>
+    <div className="p-10">
+      <Suspense fallback={<div>Loading...</div>}>
+        <div className="flex flex-col-reverse sm:flex-row items-center sm:items-start">
+          <PostCategoryContainer posts={posts} categorys={categorys} />
+        </div>
+      </Suspense>
+    </div>
   );
 }

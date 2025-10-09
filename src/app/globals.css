@@ -79,25 +79,21 @@
 
   @keyframes fadeIn {
     from {
-      opacity: 0;
-      transform: translateY(-20px);
+      scale: 1.4;
     }
     to {
-      opacity: 1;
-      transform: translateY(0);
+      scale: 1;
     }
   }
 
   .fade-in {
-    opacity: 0; /* 초기엔 안 보이게 */
     animation: fadeIn 1s ease-out forwards;
-    animation-delay: 1.5s; /* 2.5초 후에 실행 */
   }
 
   @keyframes fadeIn-project {
     from {
       opacity: 0;
-      transform: translateY(-20px);
+      transform: translateY(-5px);
     }
     to {
       visibility: visible;
@@ -108,8 +104,8 @@
 
   .fade-in-project {
     visibility: hidden;
-    animation: fadeIn-project 1s ease-out forwards;
-    animation-delay: 2.5s; /* 2.5초 후에 실행 */
+    animation: fadeIn-project 0.5s ease-out forwards;
+    animation-delay: 1s; /* 2.5초 후에 실행 */
   }
 
   .content::before {

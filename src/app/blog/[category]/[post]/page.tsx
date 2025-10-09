@@ -1,5 +1,5 @@
 import { getAllPosts, getPost } from "@/lib/markdown";
-import "highlight.js/styles/github.css"; // GitHub 스타일
+// import "highlight.js/styles/github.css"; // GitHub 스타일
 import { Metadata } from "next";
 import HighlightedCode from "./components/HighlightedCode";
 
@@ -57,10 +57,7 @@ export default async function PostPage({ params }: PageProps) {
   const { metadata, contentHtml } = await getPost(category, post);
 
   return (
-    <main
-      style={{ margin: "0 auto" }}
-      className="prose mx-auto p-4 markdown-body"
-    >
+    <main style={{ margin: "0 auto" }} className="mx-auto p-4 markdown-body">
       <h1 style={{ marginBottom: "4px" }}>{metadata.title}</h1>
       <div className="flex justify-between mb-4">
         <p style={{ marginBottom: "0" }} className="text-gray-500">

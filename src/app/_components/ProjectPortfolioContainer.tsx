@@ -1,5 +1,7 @@
 import { mapleHelperInfo } from "@/data/project";
 import ProjectDataInterface from "@/data/project/projectDataType";
+import ContentsContainer from "./content/ContentsContainer";
+import Title from "./content/Title";
 
 interface ProjectPortfolioProps {
   info: ProjectDataInterface;
@@ -7,7 +9,7 @@ interface ProjectPortfolioProps {
 
 const ProjectPortfolioCard = ({ info }: ProjectPortfolioProps) => {
   return (
-    <div className="flex-col-reverse md:flex-row flex gap-4 ">
+    <div className="flex-col-reverse md:flex-row flex gap-4 reveal">
       <div className="flex-1">
         <div className="mb-4">
           <h3 className="text-3xl font-bold mb-1">{info.title}</h3>
@@ -40,7 +42,7 @@ const ProjectPortfolioCard = ({ info }: ProjectPortfolioProps) => {
           ))}
         </ul>
       </div>
-      <div>
+      <div className="reveal-left">
         <img
           className="h-40 sm:h-[330px] w-auto"
           src={info.img.src}
@@ -54,13 +56,13 @@ const ProjectPortfolioCard = ({ info }: ProjectPortfolioProps) => {
 
 const ProjectPortfolioContainer = () => {
   return (
-    <section className="section-container">
-      <h2 className="section-title ">프로젝트</h2>
+    <ContentsContainer>
+      <Title title="프로젝트" />
       <div className="section-item-wrapper flex-col gap-13">
         <ProjectPortfolioCard info={mapleHelperInfo} />
         <ProjectPortfolioCard info={mapleHelperInfo} />
       </div>
-    </section>
+    </ContentsContainer>
   );
 };
 

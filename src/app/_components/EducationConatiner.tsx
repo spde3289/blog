@@ -1,4 +1,6 @@
 import educationItmes, { Education } from "@/data/education";
+import ContentsContainer from "./content/ContentsContainer";
+import Title from "./content/Title";
 
 interface EducationCardProps {
   education: Education;
@@ -6,7 +8,7 @@ interface EducationCardProps {
 
 const EducationCard = ({ education }: EducationCardProps) => {
   return (
-    <div>
+    <div className="reveal">
       <h3 className="mb-1 text-2xl font-bold">{education.title}</h3>
       <div className="mb-2 text-sm">{education.date}</div>
       <ul className="pl-4 list-disc">
@@ -20,14 +22,14 @@ const EducationCard = ({ education }: EducationCardProps) => {
 
 const EducationContainer = () => {
   return (
-    <section className="section-container">
-      <h2 className="section-title ">교육</h2>
+    <ContentsContainer>
+      <Title title="교육" />
       <div className="section-item-wrapper flex-col gap-13 sm:flex-row justify-center">
         {educationItmes.map((education) => (
           <EducationCard key={education.title} education={education} />
         ))}
       </div>
-    </section>
+    </ContentsContainer>
   );
 };
 
