@@ -1,3 +1,6 @@
+"use client";
+import useElementOnScreen from "@/hooks/useElementOnScreen";
+
 interface TitleProps {
   title: string;
   style?: string;
@@ -7,8 +10,15 @@ interface TitleProps {
 }
 
 const Title = ({ style, title, attr }: TitleProps) => {
+  const { ref, isVisible } = useElementOnScreen();
   return (
-    <h2 className={`section-title reveal ${style}`} {...attr}>
+    <h2
+      ref={ref}
+      className={`section-title transition-all ${
+        isVisible ? "reveal" : "opacity-0 "
+      } ${style}`}
+      {...attr}
+    >
       {title}
     </h2>
   );

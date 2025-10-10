@@ -77,37 +77,6 @@
       var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
   }
 
-  @keyframes fadeIn {
-    from {
-      scale: 1.4;
-    }
-    to {
-      scale: 1;
-    }
-  }
-
-  .fade-in {
-    animation: fadeIn 1s ease-out forwards;
-  }
-
-  @keyframes fadeIn-project {
-    from {
-      opacity: 0;
-      transform: translateY(-5px);
-    }
-    to {
-      visibility: visible;
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  .fade-in-project {
-    visibility: hidden;
-    animation: fadeIn-project 0.5s ease-out forwards;
-    animation-delay: 1s; /* 2.5초 후에 실행 */
-  }
-
   .content::before {
     content: "";
     width: 100%;

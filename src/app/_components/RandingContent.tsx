@@ -1,33 +1,50 @@
-"use client";
 import Link from "next/link";
-import { useEffect, useState } from "react";
 
 const RandingContent = () => {
-  const [scroll, setScroll] = useState(0);
-
-  useEffect(() => {
-    const handleScroll = () => setScroll(window.scrollY);
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  // 스크롤 정도에 따라 좌우 이동 (최대 ±100px)
-  const move = Math.min(scroll * 0.3, 1000);
   return (
-    <section className="h-screen w-full  relative flex justify-center items-center flex-col">
-      <div className="blur-ball blur-ball--1 fade-in"></div>
-      <div className="blur-ball blur-ball--2 fade-in"></div>
-      <div className="blur-ball blur-ball--3 fade-in"></div>
-      <div className="z-9 flex justify-center items-center flex-col mb-16 fade-in-project">
-        <h2 className="font-bold text-3xl md:text-5xl lg:text-7xl text-white mb-4">
+    <section className="h-screen w-full relative flex justify-center items-center flex-col">
+      <div className="blur-ball blur-ball--1 fade-sequence"></div>
+      <div className="blur-ball blur-ball--2 fade-sequence"></div>
+      <div className="blur-ball blur-ball--3 fade-sequence"></div>
+      <div className="z-9 flex justify-center items-center flex-col mb-16">
+        <h2
+          style={{
+            animationDelay: "1.3s", // ← 여기!
+          }}
+          className="fade-in-project font-bold text-3xl md:text-5xl lg:text-7xl text-white mb-4"
+        >
           개발자 김지훈입니다.
         </h2>
-        <p className="px-2 text-center font-medium break-keep text-lg md:text-2xl lg:text-4xl mb-4">
-          1인 개발자로서 다양한 서비스를 개발하고 있습니다. <br />
-          사용자들이 불편함을 느끼는 문제를 빠르게 해결하는 것을 즐기며 <br />
+        <p
+          style={{
+            animationDelay: "1.6s", // ← 여기!
+          }}
+          className="fade-in-project ani-delay-1200 px-2 text-center font-medium break-keep text-lg md:text-2xl lg:text-4xl "
+        >
+          1인 개발자로서 다양한 서비스를 개발하고 있습니다.
+        </p>
+        <p
+          style={{
+            animationDelay: "1.8s", // ← 여기!
+          }}
+          className="fade-in-project ani-delay-1200 px-2 text-center font-medium break-keep text-lg md:text-2xl lg:text-4xl"
+        >
+          사용자들이 불편함을 느끼는 문제를 빠르게 해결하는 것을 즐기며
+        </p>
+        <p
+          style={{
+            animationDelay: "2s", // ← 여기!
+          }}
+          className="fade-in-project ani-delay-1200 px-2 text-center font-medium break-keep text-lg md:text-2xl lg:text-4xl mb-4"
+        >
           직접 기획부터 운영까지 경험을 쌓아왔습니다.
         </p>
-        <span className="text-white font-black text-lg md:text-2xl lg:text-4xl flex gap-2">
+        <span
+          style={{
+            animationDelay: "2.2s", // ← 여기!
+          }}
+          className="fade-in-project  text-white font-black text-lg md:text-2xl lg:text-4xl flex gap-2"
+        >
           <img
             className="size-9 lg:size-12"
             src="/img/common/ic_spde3289.png"
@@ -36,7 +53,12 @@ const RandingContent = () => {
           spde3289
         </span>
       </div>
-      <div className="flex gap-4 transition-transform duration-300 fade-in-project">
+      <div
+        style={{
+          animationDelay: "2.2s", // ← 여기!
+        }}
+        className="fade-in-project flex gap-4 transition-transform duration-300 fade-in-project"
+      >
         <Link href="/blog" className="transition-transform duration-300">
           blog
         </Link>

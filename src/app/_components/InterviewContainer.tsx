@@ -1,7 +1,9 @@
+"use client";
+
 import interviewItems from "@/data/interview";
+import useElementOnScreen from "@/hooks/useElementOnScreen";
 import ContentsContainer from "./content/ContentsContainer";
 import Title from "./content/Title";
-
 interface InterviewCardProps {
   interview: {
     questions: string;
@@ -10,8 +12,14 @@ interface InterviewCardProps {
 }
 
 const InterviewCard = ({ interview }: InterviewCardProps) => {
+  const { ref, isVisible } = useElementOnScreen();
   return (
-    <div className="text-center reveal">
+    <div
+      ref={ref}
+      className={`text-center transition-all ${
+        isVisible ? "reveal" : "opacity-0 "
+      }`}
+    >
       <h3 className="text-2xl font-bold mb-3 w">Q. {interview.questions}</h3>
       <p className="whitespace-pre-line">A. {interview.answers}</p>
     </div>
