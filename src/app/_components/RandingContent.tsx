@@ -23,17 +23,17 @@ const RandingContent = () => {
         >
           1인 개발자로서 다양한 서비스를 개발하고 있습니다.
         </p>
-        <p
+        {/* <p
           style={{
             animationDelay: "1.8s", // ← 여기!
           }}
           className="fade-in-project ani-delay-1200 px-2 text-center font-medium break-keep text-lg md:text-2xl lg:text-4xl"
         >
           사용자들이 불편함을 느끼는 문제를 빠르게 해결하는 것을 즐기며
-        </p>
+        </p> */}
         <p
           style={{
-            animationDelay: "2s", // ← 여기!
+            animationDelay: "1.8s", // ← 여기!
           }}
           className="fade-in-project ani-delay-1200 px-2 text-center font-medium break-keep text-lg md:text-2xl lg:text-4xl mb-4"
         >
@@ -41,7 +41,7 @@ const RandingContent = () => {
         </p>
         <span
           style={{
-            animationDelay: "2.2s", // ← 여기!
+            animationDelay: "2s", // ← 여기!
           }}
           className="fade-in-project  text-white font-black text-lg md:text-2xl lg:text-4xl flex gap-2"
         >

@@ -22,15 +22,15 @@ const InterviewCard = ({ interview }: InterviewCardProps) => {
   return (
     <div
       ref={ref}
-      className={`text-center transition-all delay-500 ${
-        isVisible ? "reveal" : "opacity-0"
-      }`}
+      className={`text-center transition-all w-full p-2 border  border-white/50 rounded-lg ${
+        isVisible ? "reveal delay-500" : "opacity-0"
+      } ${isOpen ? "bg-neutral-800 delay-0" : "bg-neutral-800/50"}`}
     >
       <h3
         onClick={toggleDropdown}
-        className="flex justify-center items-center text-2xl font-bold mb-3 transition-all delay-500 cursor-pointer"
+        className="flex justify-center items-center text-xl font-medium text-white transition-all delay-500 cursor-pointer"
       >
-        Q. {interview.questions}
+        Q . {interview.questions}
         <span
           className={`ml-2 transition-transform duration-300 ${
             isOpen ? "rotate-180" : "rotate-0"
@@ -42,13 +42,15 @@ const InterviewCard = ({ interview }: InterviewCardProps) => {
 
       {/* grid 트릭 적용 */}
       <div
-        className={`grid transition-[grid-template-rows] duration-300 ease-in-out overflow-hidden ${
-          isOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
+        className={` grid transition-[grid-template-rows] duration-300 ease-in-out overflow-hidden ${
+          isOpen
+            ? "grid-rows-[1fr] mt-2 border-t pt-1 border-white/30"
+            : "grid-rows-[0fr] "
         }`}
       >
         <div className="min-h-0">
-          <p className="whitespace-pre-line text-lg leading-relaxed">
-            A. {interview.answers}
+          <p className="whitespace-pre-line text-lg leading-relaxed text-white/80">
+            {interview.answers}
           </p>
         </div>
       </div>

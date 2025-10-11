@@ -4,7 +4,6 @@ import InterviewContainer from "./_components/InterviewContainer";
 import ProjectPortfolioContainer from "./_components/ProjectPortfolioContainer";
 import RandingContent from "./_components/RandingContent";
 import StackConatiner from "./_components/StackContainer";
-import WorkExpreienceContainer from "./_components/WorkExperienceContainer";
 
 const Home = () => {
   return (
@@ -13,7 +12,7 @@ const Home = () => {
       <ProjectPortfolioContainer />
       <InterviewContainer />
       <EducationContainer />
-      <WorkExpreienceContainer />
+      {/* <WorkExpreienceContainer /> */}
       <StackConatiner />
     </main>
   );

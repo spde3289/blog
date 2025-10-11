@@ -1,7 +1,9 @@
 "use client";
 
+import ImageCard from "@/components/ImageCard";
 import { mapleHelperInfo } from "@/data/project";
 import ProjectDataInterface from "@/data/project/projectDataType";
+import items from "@/data/stack";
 import useElementOnScreen from "@/hooks/useElementOnScreen";
 import ContentsContainer from "./content/ContentsContainer";
 import Title from "./content/Title";
@@ -23,24 +25,26 @@ const ProjectPortfolioCard = ({ info }: ProjectPortfolioProps) => {
       <div className="flex-1">
         <div className="mb-4">
           <h3 className="text-3xl font-bold mb-1">{info.title}</h3>
-          <div className="text-sm mb-2">{info.date}</div>
+          <div className="text-sm mb-2 text-white/70">{info.date}</div>
           <div className="flex gap-6">
             <div>
               <div className="font-bold">타입</div>
               <div>
                 {info.types.map((type) => (
-                  <div key={type}>{type}</div>
+                  <div className="" key={type}>
+                    {type}
+                  </div>
                 ))}
               </div>
             </div>
             <div className="flex-1">
               <div className="font-bold">스택</div>
-              <div className="flex flex-wrap gap-x-2 gap-y-0.5">
-                {info.stack.framework?.map((stack) => (
-                  <div key={stack}>{stack}</div>
+              <div className="flex flex-wrap gap-2 max-w-80 w-fit">
+                {items.stackItems.map((item) => (
+                  <ImageCard key={item.title} img={item.img} size="size-7" />
                 ))}
-                {info.stack.library?.map((stack) => (
-                  <div key={stack}>{stack}</div>
+                {items.toolItmes.map((item) => (
+                  <ImageCard key={item.title} img={item.img} size="size-7" />
                 ))}
               </div>
             </div>
