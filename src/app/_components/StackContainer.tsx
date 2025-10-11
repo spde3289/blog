@@ -1,4 +1,7 @@
+"use client";
+
 import items, { Stack } from "@/data/stack";
+import useElementOnScreen from "@/hooks/useElementOnScreen";
 import ContentsContainer from "./content/ContentsContainer";
 import Title from "./content/Title";
 
@@ -25,10 +28,11 @@ const StackCard = ({ stack }: StackCardProps) => {
 };
 
 const StackConatiner = () => {
+  const { ref, isVisible } = useElementOnScreen();
   return (
     <ContentsContainer>
       <Title title="기술" />
-      <div className="mb-12  reveal">
+      <div ref={ref} className={`mb-12 ${isVisible ? "reveal" : "opacity-0 "}`}>
         <div className="flex justify-center gap-4">
           <div className="text-center text-2xl font-bold mb-6">스택</div>
           <div className="text-center text-2xl font-bold mb-6">도구</div>
