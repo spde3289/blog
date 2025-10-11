@@ -57,14 +57,17 @@ const RandingContent = () => {
         style={{
           animationDelay: "2.2s", // ← 여기!
         }}
-        className="fade-in-project flex gap-4 transition-transform duration-300 fade-in-project"
+        className="fade-in-project text-white/70 flex gap-4 transition-transform duration-300 fade-in-project"
       >
-        <Link href="/blog" className="transition-transform duration-300">
+        <Link
+          href="/blog"
+          className="transition-transform duration-300 hover:scale-110 hover:text-white hover:font-semibold"
+        >
           blog
         </Link>
         <Link
           href="https://github.com/spde3289"
-          className="transition-transform duration-300"
+          className="transition-transform duration-300 hover:scale-110 hover:text-white hover:font-semibold"
         >
           github
         </Link>

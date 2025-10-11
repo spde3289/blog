@@ -58,6 +58,14 @@
       transform: scale(1.08);
     }
   }
+  @keyframes dropDown {
+    from {
+      height: 0px;
+    }
+    to {
+      height: 40px;
+    }
+  }
 }
 
 @layer components {
@@ -145,5 +153,10 @@
     opacity: 1;
     animation: fadeRight linear both;
     animation-timeline: scroll();
+  }
+
+  .drop-down {
+    transition: all;
+    animation: dropDown ease-in-out 0.18s alternate;
   }
 }
