@@ -1,5 +1,5 @@
 export interface Stack {
-  title: string;
+  category: "프론트엔드" | "라이브러리" | "도구" | "환경 및 배포";
   img: {
     src: string;
     alt: string;
@@ -11,64 +11,61 @@ export interface Stack {
 
 const stackItems: Stack[] = [
   {
-    title: "JavaScript",
+    category: "프론트엔드",
     img: {
       src: "/img/thumbnail.png",
-      alt: "자바스크립트 로고",
+      alt: "JavaScript",
     },
   },
   {
-    title: "TypeScript",
+    category: "프론트엔드",
     img: {
       src: "/img/thumbnail.png",
-      alt: "자바스크립트 로고",
+      alt: "TypeScript",
     },
   },
   {
-    title: "React",
+    category: "프론트엔드",
     img: {
       src: "/img/thumbnail.png",
-      alt: "자바스크립트 로고",
+      alt: "React",
     },
   },
   {
-    title: "Next.js",
+    category: "프론트엔드",
     img: {
       src: "/img/thumbnail.png",
-      alt: "자바스크립트 로고",
+      alt: "Next.js",
     },
   },
   {
-    title: "TailWindCSS",
+    category: "라이브러리",
     img: {
       src: "/img/thumbnail.png",
-      alt: "자바스크립트 로고",
+      alt: "TailWind CSS",
     },
   },
   {
-    title: "Styled-Component",
+    category: "라이브러리",
     img: {
       src: "/img/thumbnail.png",
-      alt: "자바스크립트 로고",
+      alt: "Styled-component",
+    },
+  },
+  {
+    category: "도구",
+    img: {
+      src: "/img/thumbnail.png",
+      alt: "figma",
+    },
+  },
+  {
+    category: "도구",
+    img: {
+      src: "/img/thumbnail.png",
+      alt: "Notion",
     },
   },
 ];
 
-const toolItmes: Stack[] = [
-  {
-    title: "Figma",
-    img: {
-      src: "/img/thumbnail.png",
-      alt: "피그마 로고",
-    },
-  },
-  {
-    title: "Notion",
-    img: {
-      src: "/img/thumbnail.png",
-      alt: "노션 로고",
-    },
-  },
-];
-
-export default { stackItems, toolItmes };
+export default stackItems;

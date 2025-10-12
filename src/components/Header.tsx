@@ -5,9 +5,6 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
-
-
-
 const Header = ({
   triggerId = "header-trigger",
   showWhenVisible = false,
@@ -20,15 +17,14 @@ const Header = ({
 
   useEffect(() => {
     const target = document.getElementById(triggerId);
-    console.log("트리거 === ", target);
+
     if (target === null) setVisible(true);
     if (!target) return; // 페이지에 트리거가 없는 경우 안전하게 무시
     const io = new IntersectionObserver(
       (entries) => {
-        console.log(entries);
         const entry = entries[0];
         // 트리거가 보일 때 표시: showWhenVisible=true
-        // 트리거가 보일 때 숨김:  showWhenVisible=false
+        // 트리거가 보일 때 숨김: showWhenVisible=false
         setVisible(
           showWhenVisible ? entry.isIntersecting : !entry.isIntersecting
         );
@@ -39,12 +35,6 @@ const Header = ({
     io.observe(target);
     return () => io.disconnect();
   }, [triggerId, showWhenVisible, rootMargin, threshold, pathName]);
-
-  console.log(pathName);
-
-  if (pathName === "/") {
-    // return;
-  }
 
   return (
     <header
@@ -67,7 +57,13 @@ const Header = ({
           <Link className="text-xl lg:text-2xl font-bold " href="/">
             spde3289.dev
           </Link>
-          <div className="w-px bg-neutral-300/50 dark:bg-neutral-700 h-3.5 shrink-0"></div>
+          <div
+            className={`${
+              pathName === "/"
+                ? "bg-neutral-300/50"
+                : "bg-neutral-300/50 dark:bg-neutral-700"
+            } w-px h-3.5 shrink-0`}
+          ></div>
           <Link className="text-sm font-bold " href="/blog">
             Blog
           </Link>

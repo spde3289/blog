@@ -12,11 +12,13 @@ interface WorkExpreienceCardProps {
 
 const WorkExperienceCard = ({ workExperience }: WorkExpreienceCardProps) => {
   return (
-    <div className="reveal">
+    <div className="reveal w-10/12 sm:pl-4 lg:h-72 lg:w-64 shadow-[0_4px_23px_0_rgba(12,12,12,0.15)] backdrop-blur-[15px]  bg-neutral-800/30 p-5 border-white/30 rounded-lg border">
       <h3 className="mb-1 text-2xl font-bold">{workExperience.title}</h3>
-      <div className="mb-1 text-sm text-white/70">{workExperience.date} </div>
-      <div className="mb-2 text-sm">{workExperience.position} </div>
-      <ul className="pl-4 list-disc ">
+      <div className="mb-1 text-sm text-[#A6A6A6]">{workExperience.date} </div>
+      <div className="mb-2 text-sm text-[#A6A6A6]">
+        {workExperience.position}{" "}
+      </div>
+      <ul className="pl-5 list-disc text-[#cacaca]">
         {workExperience.discription.map((disc) => (
           <li key={disc}>{disc}</li>
         ))}
@@ -36,11 +38,13 @@ const EducationCard = ({ education, isLastChild }: EducationCardProps) => {
     <>
       <div
         ref={ref}
-        className={`reveal p-6 ${isVisible ? "reveal" : "opacity-0 "}`}
+        className={`reveal w-10/12 sm:pl-4 lg:h-72 lg:w-64 shadow-[0_4px_23px_0_rgba(12,12,12,0.15)] backdrop-blur-[15px] bg-neutral-800/50 p-5 border-white/30 rounded-lg border ${
+          isVisible ? "reveal" : "opacity-0 "
+        }`}
       >
-        <h3 className="mb-1 text-2xl font-bold">{education.title}</h3>
-        <div className="mb-2 text-sm text-white/70">{education.date}</div>
-        <ul className="pl-4 list-disc">
+        <h3 className="text-2xl font-bold mb-1">{education.title}</h3>
+        <div className="mb-2 text-sm text-[#A6A6A6]">{education.date}</div>
+        <ul className="pl-5 list-disc text-[#cacaca]">
           {education.discription.map((disc) => (
             <li key={disc}>{disc}</li>
           ))}
@@ -59,7 +63,7 @@ const EducationContainer = () => {
         <p className="flex-shrink-0 text-xs md:text-sm text-[#d4d4d4]">교육</p>
         <div className="w-full h-[1px] bg-gradient-to-r from-[#555]"></div>
       </div>
-      <div className="section-item-wrapper flex-col gap-13 sm:flex-row justify-center">
+      <div className="section-item-wrapper flex-col gap-13 lg:flex-row justify-center">
         {educationItmes.map((education, index) => (
           <EducationCard
             key={education.title}

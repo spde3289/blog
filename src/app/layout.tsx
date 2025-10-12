@@ -1,10 +1,11 @@
 import Header from "@/components/Header";
+import ScrollToTopButton from "@/components/ScrolltoTopButton";
 import { ThemeProvider } from "@/contexts/ThemeContext";
+import "@/styles/highlight.css";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import type { Metadata } from "next";
 import { Noto_Sans_KR } from "next/font/google";
 import "./globals.css";
-import "@/styles/highlight.css";
 
 const GA_ID = process.env.NEXT_PUBLIC_GA_ID;
 
@@ -40,6 +41,7 @@ export default function RootLayout({
         <ThemeProvider>
           <Header />
           {children}
+          <ScrollToTopButton />
         </ThemeProvider>
         <div id="modal-root" />
       </body>

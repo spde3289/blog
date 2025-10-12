@@ -30,6 +30,16 @@
       transform: translateY(0);
     }
   }
+  @keyframes fadeOut-project {
+    from {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    to {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+  }
   @keyframes fadeUp {
     from {
       opacity: 0;
@@ -82,7 +92,7 @@
   }
 
   .blur-ball--3 {
-    @apply size-1/3 -top-10 left-1/2 border-[16px] border-[#FFF859];
+    @apply size-1/3 -top-28 left-1/2 border-[16px] border-[#FFF859];
   }
 
   @screen sm {
@@ -91,20 +101,20 @@
     }
 
     .blur-ball--2 {
-      @apply w-1/2 h-2/5 -rotate-12 -top-16 left-24;
+      @apply w-1/2 h-2/5 -rotate-12 -top-32 left-24;
     }
 
     .blur-ball--3 {
-      @apply size-1/3 -top-20 left-96 border-[16px] border-[#FFF859];
+      @apply size-1/3 -top-40 left-96 border-[24px] border-[#FFF859];
     }
   }
 
   .section-container {
-    @apply lg:w-[1024px] lg:py-20 md:w-[768px] md:py-16 w-[100%] px-6 py-12 snap-start;
+    @apply lg:w-[1024px] lg:py-20 md:w-[768px] md:py-16 w-[100%] px-6 py-12;
   }
 
   .section-title {
-    @apply text-3xl text-white/90 font-semibold mb-10 text-center;
+    @apply text-[#efeff1] text-4xl font-black pb-11 text-center;
   }
 
   .section-item-wrapper {
@@ -132,6 +142,11 @@
   }
 
   .fade-in-project {
+    opacity: 0;
+    animation: fadeIn-project 0.3s ease-out forwards;
+  }
+
+  .fade-out-project {
     opacity: 0;
     animation: fadeIn-project 0.3s ease-out forwards;
   }

@@ -11,31 +11,23 @@ const RandingContent = () => {
           style={{
             animationDelay: "1.3s", // ← 여기!
           }}
-          className="fade-in-project font-bold text-3xl md:text-5xl lg:text-7xl text-white mb-4"
+          className="fade-in-project text-5xl font-normal mb-8 relative z-10 w-full text-center max-sm:text-2xl max-lg:text-3xl text-white"
         >
-          개발자 김지훈입니다.
+          개발자 <strong>김지훈</strong>입니다.
         </h2>
         <p
           style={{
             animationDelay: "1.6s", // ← 여기!
           }}
-          className="fade-in-project ani-delay-1200 px-2 text-center font-medium break-keep text-lg md:text-2xl lg:text-4xl "
+          className="fade-in-project ani-delay-1200 font-normal text-xl text-center max-md:text-sm max-lg:text-base "
         >
           1인 개발자로서 다양한 서비스를 개발하고 있습니다.
         </p>
-        {/* <p
-          style={{
-            animationDelay: "1.8s", // ← 여기!
-          }}
-          className="fade-in-project ani-delay-1200 px-2 text-center font-medium break-keep text-lg md:text-2xl lg:text-4xl"
-        >
-          사용자들이 불편함을 느끼는 문제를 빠르게 해결하는 것을 즐기며
-        </p> */}
         <p
           style={{
             animationDelay: "1.8s", // ← 여기!
           }}
-          className="fade-in-project ani-delay-1200 px-2 text-center font-medium break-keep text-lg md:text-2xl lg:text-4xl mb-4"
+          className="fade-in-project mb-2 ani-delay-1200 font-normal text-xl text-center max-md:text-sm max-lg:text-base"
         >
           직접 기획부터 운영까지 경험을 쌓아왔습니다.
         </p>
@@ -43,10 +35,10 @@ const RandingContent = () => {
           style={{
             animationDelay: "2s", // ← 여기!
           }}
-          className="fade-in-project  text-white font-black text-lg md:text-2xl lg:text-4xl flex gap-2"
+          className="fade-in-project text-white font-semibold text-xl text-center max-md:text-sm max-lg:text-base flex items-center gap-2"
         >
           <img
-            className="size-9 lg:size-12"
+            className="size-9 lg:size-9"
             src="/img/common/ic_spde3289.png"
             alt="지훈 아이콘"
           />

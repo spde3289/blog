@@ -22,13 +22,17 @@ const InterviewCard = ({ interview }: InterviewCardProps) => {
   return (
     <div
       ref={ref}
-      className={`text-center transition-all w-full p-2 border  border-white/50 rounded-lg ${
-        isVisible ? "reveal delay-500" : "opacity-0"
-      } ${isOpen ? "bg-neutral-800 delay-0" : "bg-neutral-800/50"}`}
+      className={`text-center transition-all w-full p-2 sm:p-3 lg:p-4 border text-[#EFEFF1] rounded-lg ${
+        isVisible ? "reveal delay-500 pt-2 sm:pt-3 lg:pt-4 " : "opacity-0"
+      } ${
+        isOpen
+          ? "bg-neutral-800 border-white/50 delay-0"
+          : "bg-neutral-800/50 border-white/30"
+      }`}
     >
       <h3
         onClick={toggleDropdown}
-        className="flex justify-center items-center text-xl font-medium text-white transition-all delay-500 cursor-pointer"
+        className="flex justify-center break-words whitespace-normal items-center text-lg md:text-2xl font-bold transition-all delay-500 cursor-pointer"
       >
         Q . {interview.questions}
         <span
@@ -36,7 +40,7 @@ const InterviewCard = ({ interview }: InterviewCardProps) => {
             isOpen ? "rotate-180" : "rotate-0"
           }`}
         >
-          <KeyboardArrowSVG fill="#ffffff" />
+          <KeyboardArrowSVG width="28px" fill="#EFEFF1" />
         </span>
       </h3>
 
@@ -44,12 +48,12 @@ const InterviewCard = ({ interview }: InterviewCardProps) => {
       <div
         className={` grid transition-[grid-template-rows] duration-300 ease-in-out overflow-hidden ${
           isOpen
-            ? "grid-rows-[1fr] mt-2 border-t pt-1 border-white/30"
-            : "grid-rows-[0fr] "
+            ? "grid-rows-[1fr]  mt-2 sm:mt-3 lg:mt-4  py-2 lg:py-4  border-t border-white/30"
+            : "grid-rows-[0fr]  py-0 "
         }`}
       >
         <div className="min-h-0">
-          <p className="whitespace-pre-line text-lg leading-relaxed text-white/80">
+          <p className="break-words whitespace-normal text-lg leading-relaxed">
             {interview.answers}
           </p>
         </div>
@@ -62,7 +66,7 @@ const InterviewContainer = () => {
   return (
     <ContentsContainer>
       <Title title="인터뷰" />
-      <div className="section-item-wrapper flex-col gap-13">
+      <div className="section-item-wrapper flex-col gap-8">
         {interviewItems.map((interview) => (
           <InterviewCard key={interview.questions} interview={interview} />
         ))}
