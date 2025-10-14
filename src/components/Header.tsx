@@ -68,7 +68,7 @@ const Header = ({
             Blog
           </Link>
         </nav>
-        <ThemeToggleButton />
+        {pathName !== "/" && <ThemeToggleButton />}
       </div>
     </header>
   );
