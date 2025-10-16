@@ -10,15 +10,6 @@ export default {
   darkMode: "class",
   theme: {
     extend: {
-      fontFamily: {
-        sans: ["var(--font-noto-sans-kr)", "sans-serif"],
-      },
-      // screens: {
-      //   "2xsm": "375px",
-      //   xsm: "425px",
-      //   "3xl": "2000px",
-      //   ...defaultTheme.screens,
-      // },
       fontSize: {
         "title-2xl": ["72px", "90px"],
         "title-xl": ["60px", "72px"],

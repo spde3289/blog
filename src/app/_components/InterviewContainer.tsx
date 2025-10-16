@@ -2,7 +2,7 @@
 
 import interviewItems from "@/data/interview";
 import useElementOnScreen from "@/hooks/useElementOnScreen";
-import KeyboardArrowSVG from "@/svg/KeyboardArrowSVG";
+import KeyboardArrowSVG from "@/svg/ArrowHeadSVG";
 import { useState } from "react";
 import ContentsContainer from "./content/ContentsContainer";
 import Title from "./content/Title";
@@ -40,7 +40,7 @@ const InterviewCard = ({ interview }: InterviewCardProps) => {
             isOpen ? "rotate-180" : "rotate-0"
           }`}
         >
-          <KeyboardArrowSVG width="28px" fill="#EFEFF1" />
+          <KeyboardArrowSVG className="size-6 md:size-9 lg:size-12" />
         </span>
       </h3>
 
@@ -48,7 +48,7 @@ const InterviewCard = ({ interview }: InterviewCardProps) => {
       <div
         className={` grid transition-[grid-template-rows] duration-300 ease-in-out overflow-hidden ${
           isOpen
-            ? "grid-rows-[1fr]  mt-2 sm:mt-3 lg:mt-4  py-2 lg:py-4  border-t border-white/30"
+            ? "grid-rows-[1fr]  mt-2 sm:mt-3 lg:mt-4 py-2 lg:py-4 border-t border-white/30"
             : "grid-rows-[0fr]  py-0 "
         }`}
       >

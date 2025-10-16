@@ -17,8 +17,8 @@ interface PostContainerProps {
   category?: string | null;
 }
 
-const maxPost = 5; // 한번에 보여줄 게시글 개수
-const maxButton = 5; // 한번에 보여줄 버튼 개수
+const MAX_POST = 5; // 한번에 보여줄 게시글 개수
+const MAX_BUTTON = 5; // 한번에 보여줄 버튼 개수
 
 const PostsContainer = ({
   postArray,
@@ -36,7 +36,6 @@ const PostsContainer = ({
     currentPage: 1,
     currentButton: 1,
   });
-  // console.log(postArray);
 
   // page 파라미터로 페이지 이동
   useEffect(() => {
@@ -44,7 +43,7 @@ const PostsContainer = ({
       setPagination({
         currentPage: page,
         currentButton:
-          Math.ceil(page / maxButton) * maxButton - (maxButton - 1),
+          Math.ceil(page / MAX_BUTTON) * MAX_BUTTON - (MAX_BUTTON - 1),
       });
     }
     if (page === 0) {
@@ -99,18 +98,18 @@ const PostsContainer = ({
   };
 
   // 최대 버튼 개수 생성
-  const tatalPageButton = Math.ceil(postArray.length / maxPost);
+  const tatalPageButton = Math.ceil(postArray.length / MAX_POST);
   const arr = [...new Array(tatalPageButton)].map((_, i) => i + 1);
 
   // 보여지는 게시글
   const currentPosts = postArray.slice(
-    (pagination.currentPage - 1) * maxPost,
-    maxPost + (pagination.currentPage - 1) * maxPost
+    (pagination.currentPage - 1) * MAX_POST,
+    MAX_POST + (pagination.currentPage - 1) * MAX_POST
   );
   // 보여지는 버튼
   const button = [...arr].slice(
     pagination.currentButton - 1,
-    maxButton + (pagination.currentButton - 1)
+    MAX_BUTTON + (pagination.currentButton - 1)
   );
 
   // 페이지 핸들러
@@ -122,7 +121,7 @@ const PostsContainer = ({
   // 버튼 핸들러
   const handelButton = (direction: string) => {
     if (direction === "next") {
-      const nextButton = pagination.currentButton + maxButton;
+      const nextButton = pagination.currentButton + MAX_BUTTON;
 
       if (nextButton <= tatalPageButton) {
         setPagination({
@@ -134,7 +133,7 @@ const PostsContainer = ({
     }
 
     if (direction === "pre") {
-      const prevButton = pagination.currentButton - maxButton;
+      const prevButton = pagination.currentButton - MAX_BUTTON;
 
       if (prevButton > 0) {
         setPagination({
@@ -148,10 +147,6 @@ const PostsContainer = ({
 
   return (
     <>
-      <div className="flex w-10/12 lg:w-8/12 justify-between items-end">
-        <h2 className="">{title}</h2>
-        {children}
-      </div>
       {currentPosts.map((post) => (
         <PostItem post={post} key={post.metadata.title} />
       ))}
@@ -179,7 +174,7 @@ const PostsContainer = ({
             </button>
           ))}
           <PageButton
-            abled={pagination.currentButton + maxButton > tatalPageButton}
+            abled={pagination.currentButton + MAX_BUTTON > tatalPageButton}
             handelButton={handelButton}
             arrow="next"
           >

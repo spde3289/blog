@@ -1,5 +1,5 @@
 "use client";
-import PostsContainer from "@/components/post/PostsContainer";
+import PostsContainer from "@/app/blog/components/post/PostsContainer";
 import { getAllPostsType, getAllcategorysType } from "@/lib/markdown";
 import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -52,7 +52,7 @@ const PostCategoryContainer = ({
           postArray={filteredPosts}
         />
       </div>
-      <div className="sm:w-40 lg:sticky lg:top-24 lg:h-fit w-full px-2 mb-4">
+      {/* <div className="sm:w-40 lg:sticky lg:top-24 lg:h-fit w-full px-2 mb-4">
         <h2 className="">카테고리</h2>
         <div className="flex text-sm  md:text-base sm:block w-full flex-wrap gap-x-7 justify-center">
           {categorys.map((category) => (
@@ -70,7 +70,7 @@ const PostCategoryContainer = ({
             </button>
           ))}
         </div>
-      </div>
+      </div> */}
     </>
   );
 };

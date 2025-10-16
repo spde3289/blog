@@ -18,7 +18,7 @@ const PostItem = ({ post }: PostItemProps) => {
   // console.log(post);
 
   return (
-    <div className="w-10/12 lg:w-8/12 border shadow-custom-inset overflow-hidden rounded-xl ">
+    <div className=" border shadow-custom-inset overflow-hidden rounded-xl ">
       <Link className="w-full flex content relative" href={post.href}>
         <div className="w-full sm:w-3/5 p-3 sm:p-7 sm:pr-5">
           <h1 className="text-xl mb-2 line-clamp-2 text-gray-950">
