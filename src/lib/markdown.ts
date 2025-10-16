@@ -28,7 +28,7 @@ export const getPost = async (category: string, post: string) => {
 export type metadataType = {
   title: string;
   tags: string[];
-  data: string;
+  date: string;
 };
 
 export type getAllPostsType = Array<{
@@ -72,7 +72,7 @@ export const getAllPosts = (): getAllPostsType => {
           const metadata: metadataType = {
             title: data.title || "Default Title", // title이 없으면 기본값 설정
             tags: Array.isArray(data.tags) ? data.tags : [], // tags가 배열이 아니면 빈 배열
-            data: data.date || "Unknown", // date가 없으면 기본값 설정
+            date: data.date || "Unknown", // date가 없으면 기본값 설정
           };
 
           // 메타데이터와 파일 이름을 결합하여 결과 배열에 추가
@@ -91,7 +91,7 @@ export const getAllPosts = (): getAllPostsType => {
   });
 
   return allPosts.sort((a, b) => {
-    return b.metadata.data.localeCompare(a.metadata.data);
+    return b.metadata.date.localeCompare(a.metadata.date);
   });
 };
 
