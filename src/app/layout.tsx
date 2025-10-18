@@ -33,7 +33,7 @@ export default function RootLayout({
           {children}
           <ScrollToTopButton />
         </ThemeProvider>
-        <div id="modal-root" />
+        {/* <div id="modal-root" /> */}
       </body>
     </html>
   );

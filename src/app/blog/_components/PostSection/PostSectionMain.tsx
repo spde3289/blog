@@ -1,8 +1,10 @@
+import ModalTriggerButton from "@/components/ModalTriggerButton";
 import { getAllPostsType } from "@/lib/markdown";
 import ArrowHeadSVG from "@/svg/ArrowHeadSVG";
+import ArticleSVG from "@/svg/ArticleSVG";
 import ListSVG from "@/svg/ListSVG";
 import Link from "next/link";
-import { Suspense } from "react";
+import { Suspense, useState } from "react";
 
 interface PostSectionMainProps {
   posts: getAllPostsType;
@@ -10,14 +12,70 @@ interface PostSectionMainProps {
 }
 
 const PostSectionMain = ({ posts }: PostSectionMainProps) => {
+  const [currentView, setCurrentView] = useState("목록 보기");
+
+  const handleCurrentView = (e: React.MouseEvent<HTMLDivElement>) => {
+    const target = e.target as HTMLElement;
+    if (
+      target.textContent === "목록 보기" ||
+      target.textContent === "본문 보기"
+    ) {
+      setCurrentView(target.textContent);
+    }
+  };
+
   return (
     <div>
       <div className="flex justify-between items-center mb-4">
         <div className="text-sm sm:text-base">{posts.length} articles</div>
-        <button className="inline-flex items-center justify-center h-8 px-3 py-2 gap-x-1 text-xs sm:text-sm whitespace-nowrap border rounded-full transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 border-neutral-300 dark:border-neutral-700 text-neutral-900 dark:text-neutral-100 bg-white dark:bg-neutral-900 hover:bg-neutral-100 dark:hover:bg-neutral-800/70 active:bg-neutral-200 dark:active:bg-neutral-700 focus-visible:outline-neutral-700 dark:focus-visible:outline-brand">
-          <div>List view</div>
-          <ListSVG className="size-5" />
-        </button>
+        <ModalTriggerButton
+          containerProps={{ onClick: handleCurrentView }}
+          title={currentView}
+          icon={
+            currentView === "목록 보기" ? (
+              <ListSVG className="size-4" />
+            ) : (
+              <ArticleSVG className="size-4" />
+            )
+          }
+          closeOnSelfClick={true}
+          modalRootId="view-modal"
+        >
+          <button
+            type="button"
+            className={`flex grow whitespace-nowrap text-sm items-center px-2 py-1.5 pr-10 w-full text-left rounded select-none outline-none hover:bg-neutral-100 dark:hover:bg-neutral-800/70 focus:bg-neutral-100 dark:focus:bg-neutral-800/70  ${
+              currentView === "목록 보기"
+                ? "text-neutral-900 dark:text-[#eafe7c] font-semibold"
+                : "text-neutral-600 dark:text-neutral-400"
+            }`}
+            role="menuitem"
+            // tabindex="-1"
+            data-orientation="vertical"
+            data-radix-collection-item=""
+          >
+            <ListSVG className="size-4 mr-2" />
+            <span className="text-sm whitespace-nowrap dark:text-brand flex grow items-center gap-x-2">
+              목록 보기
+            </span>
+          </button>
+          <button
+            type="button"
+            className={`flex grow whitespace-nowrap text-sm items-center px-2 py-1.5 pr-10 w-full text-left rounded select-none outline-none hover:bg-neutral-100 dark:hover:bg-neutral-800/70 focus:bg-neutral-100 dark:focus:bg-neutral-800/70  ${
+              currentView === "본문 보기"
+                ? "text-neutral-900 dark:text-[#eafe7c] font-semibold"
+                : "text-neutral-600 dark:text-neutral-400"
+            }`}
+            role="menuitem"
+            // tabindex="-1"
+            data-orientation="vertical"
+            data-radix-collection-item=""
+          >
+            <ArticleSVG className="size-4 mr-2" />
+            <span className="text-sm whitespace-nowrap dark:text-brand flex grow items-center gap-x-2">
+              본문 보기
+            </span>
+          </button>
+        </ModalTriggerButton>
       </div>
       <div className="flex flex-col gap-4">
         <Suspense fallback={<div>Loading...</div>}>

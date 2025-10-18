@@ -1,8 +1,24 @@
+import ModalTriggerButton from "@/components/ModalTriggerButton";
+import { getAllcategorysType } from "@/lib/markdown";
 import ArrowHeadSVG from "@/svg/ArrowHeadSVG";
 import SearchSVG from "@/svg/SearchSVG";
 import SortSVG from "@/svg/SortSVG";
 
-const PostSectionHeader = () => {
+interface PostSectionHeaderProps {
+  currentCategorys: string[];
+  onChange: React.ChangeEventHandler<HTMLInputElement>;
+  onClick: React.MouseEventHandler<HTMLDivElement>;
+  sort: string;
+  categorys: getAllcategorysType;
+}
+
+const PostSectionHeader = ({
+  currentCategorys,
+  sort,
+  onChange,
+  onClick,
+  categorys,
+}: PostSectionHeaderProps) => {
   return (
     <div className="flex gap-2 flex-col sm:flex-row ">
       <div className="relative flex-1">
@@ -14,14 +30,73 @@ const PostSectionHeader = () => {
         />
       </div>
       <div className="flex justify-end sm:justify-normal gap-2">
-        <button className="inline-flex items-center justify-center h-8 px-3 py-2 gap-x-1 text-xs sm:text-sm whitespace-nowrap border rounded-full transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 border-neutral-300 dark:border-neutral-700 text-neutral-900 dark:text-neutral-100 bg-white dark:bg-neutral-900 hover:bg-neutral-100 dark:hover:bg-neutral-800/70 active:bg-neutral-200 dark:active:bg-neutral-700 focus-visible:outline-neutral-700 dark:focus-visible:outline-brand">
-          <div>Tags</div>
-          <ArrowHeadSVG className="size-6 mt-1" />
-        </button>
-        <button className="inline-flex items-center justify-center h-8 px-3 py-2 gap-x-1 text-xs sm:text-sm whitespace-nowrap border rounded-full transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 border-neutral-300 dark:border-neutral-700 text-neutral-900 dark:text-neutral-100 bg-white dark:bg-neutral-900 hover:bg-neutral-100 dark:hover:bg-neutral-800/70 active:bg-neutral-200 dark:active:bg-neutral-700 focus-visible:outline-neutral-700 dark:focus-visible:outline-brand">
-          <div className="">Sort by</div>
-          <SortSVG className="size-5" />
-        </button>
+        <ModalTriggerButton
+          title="카테고리"
+          icon={<ArrowHeadSVG className="size-5" />}
+          containerProps={{ onChange }}
+          modalRootId="tags-modal"
+        >
+          {categorys.map((el) => (
+            <div
+              key={el.name}
+              className="whitespace-nowrap p-1 text-sm text-neutral-600 dark:text-neutral-400 flex items-center"
+            >
+              <input
+                id={el.name}
+                type="checkbox"
+                defaultChecked={currentCategorys.includes(el.name)}
+                className="size-4 mr-2 appearance-none rounded fill-neutral-300 dark:fill-neutral-700 text-neutral-900 dark:text-neutral-100 bg-transparent border-neutral-300 dark:border-neutral-700 disabled:!bg-neutral-300 dark:disabled:!bg-neutral-700 disabled:cursor-not-allowed focus:ring-transparent focus:ring-offset-transparent focus:outline-neutral-700 dark:focus:outline-neutral-300 cursor-pointer"
+              />{" "}
+              <label className=" cursor-pointer w-20" htmlFor={el.name}>
+                {el.name}
+              </label>
+            </div>
+          ))}
+        </ModalTriggerButton>
+        <ModalTriggerButton
+          containerProps={{ onClick }}
+          title="정렬"
+          icon={<SortSVG className="size-4" />}
+          closeOnSelfClick={true}
+          modalRootId="sort-modal"
+        >
+          <button
+            type="button"
+            className="flex grow items-center px-2 py-1.5 pr-10 w-full text-left rounded select-none outline-none hover:bg-neutral-100 dark:hover:bg-neutral-800/70 focus:bg-neutral-100 dark:focus:bg-neutral-800/70"
+            role="menuitem"
+            // tabindex="-1"
+            data-orientation="vertical"
+            data-radix-collection-item=""
+          >
+            <span
+              className={` text-sm whitespace-nowrap flex grow items-center gap-x-2 ${
+                sort === "최신순"
+                  ? "text-neutral-900 dark:text-[#eafe7c] font-semibold"
+                  : "text-neutral-600 dark:text-neutral-400"
+              }`}
+            >
+              최신순
+            </span>
+          </button>
+          <button
+            type="button"
+            className="flex grow items-center px-2 py-1.5 pr-10 w-full text-left rounded select-none outline-none hover:bg-neutral-100 dark:hover:bg-neutral-800/70 focus:bg-neutral-100 dark:focus:bg-neutral-800/70"
+            role="menuitem"
+            // tabindex="-1"
+            data-orientation="vertical"
+            data-radix-collection-item=""
+          >
+            <span
+              className={` text-sm whitespace-nowrap flex grow items-center gap-x-2 ${
+                sort === "시간순"
+                  ? "text-neutral-900 dark:text-[#eafe7c] font-semibold"
+                  : "text-neutral-600 dark:text-neutral-400"
+              }`}
+            >
+              시간순
+            </span>
+          </button>
+        </ModalTriggerButton>
       </div>
     </div>
   );
