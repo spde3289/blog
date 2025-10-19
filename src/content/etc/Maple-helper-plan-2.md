@@ -1,6 +1,7 @@
 ---
 title: 메이플 헬퍼 기획 - 2
-tags: [etc]
+tags: [etc, 메이플 헬퍼]
+series: 메이플 헬퍼
 date: "2024.10.12"
 ---
 

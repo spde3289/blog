@@ -34,7 +34,7 @@ const PostSectionMain = ({ posts, searchText }: PostSectionMainProps) => {
           onClick={handleCurrentView}
         />
       </div>
-      <ul className="flex flex-col gap-4">
+      <ul className="flex flex-col gap-4 list-none">
         <Suspense fallback={<div>Loading...</div>}>
           {currentView === "목록 보기"
             ? posts.map((post) => (

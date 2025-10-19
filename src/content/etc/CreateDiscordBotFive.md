@@ -1,6 +1,7 @@
 ---
 title: discord.js로 봇을 만들어보자 - 5
-tags: [etc]
+series: 디스코드 봇 만들기
+tags: [etc, 디스코드 봇 만들기]
 date: "2024.02.19"
 ---
 ## CSR 웹 사이트 크롤링 
