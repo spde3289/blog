@@ -7,7 +7,7 @@ import { memo } from "react";
 
 interface CategoryModalButtonProps {
   currentCategories: string[];
-  onChange: React.ChangeEventHandler<HTMLInputElement>;
+  onChange: React.ChangeEventHandler<HTMLDivElement>;
   categorys: getAllcategorysType;
 }
 
@@ -98,8 +98,8 @@ const SortModalButton = memo(({ onClick, sort }: SortModalButtonProps) => {
 interface PostSectionHeaderProps {
   currentCategories: string[];
   onChange: {
-    handleSetCategorys: React.ChangeEventHandler<HTMLInputElement>;
-    handleSearchText: React.ChangeEventHandler<HTMLInputElement>;
+    handleSetCategorys: React.ChangeEventHandler<HTMLDivElement>;
+    handleSearchText: React.ChangeEventHandler<HTMLDivElement>;
   };
   onClick: React.MouseEventHandler<HTMLDivElement>;
   sort: string;

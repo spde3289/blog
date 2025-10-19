@@ -9,7 +9,7 @@ import Highlight from "./Highlight";
 
 interface ViewModalButtonProps {
   currentView: "목록 보기" | "본문 보기";
-  onClick: (e: React.MouseEvent<HTMLDivElement>) => void;
+  onClick: React.MouseEventHandler<HTMLDivElement>;
 }
 
 const ViewModalButton = memo(
@@ -77,8 +77,8 @@ const PostSectionMain = ({ posts, searchText }: PostSectionMainProps) => {
     "목록 보기"
   );
 
-  const handleCurrentView = useCallback(
-    (e: React.MouseEvent<HTMLDivElement>) => {
+  const handleCurrentView: React.MouseEventHandler<HTMLDivElement> =
+    useCallback((e) => {
       const target = e.target as HTMLElement;
       if (
         target.textContent === "목록 보기" ||
@@ -86,9 +86,7 @@ const PostSectionMain = ({ posts, searchText }: PostSectionMainProps) => {
       ) {
         setCurrentView(target.textContent);
       }
-    },
-    []
-  );
+    }, []);
 
   return (
     <div>

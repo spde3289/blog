@@ -18,36 +18,39 @@ const PostSection = ({ posts, categorys }: PostSectionProps) => {
 
   const debouncedQuery = useDebouncedValue(searchText);
 
-  const handleSetCategorys = useCallback(
-    (e: React.ChangeEvent<HTMLInputElement>) => {
-      const { id, checked } = e.target;
+  const handleSetCategorys: React.ChangeEventHandler<HTMLDivElement> =
+    useCallback((e) => {
+      const target = e.target as HTMLElement;
+      if (target instanceof HTMLInputElement) {
+        const { id, checked } = target;
 
-      setCurrentCategories((prev) => {
-        if (checked) {
-          return prev.includes(id) ? prev : [...prev, id]; // 중복 방지
-        } else {
-          return prev.filter((item) => item !== id); // 체크 해제 시 제거
-        }
-      });
+        setCurrentCategories((prev) => {
+          if (checked) {
+            return prev.includes(id) ? prev : [...prev, id]; // 중복 방지
+          } else {
+            return prev.filter((item) => item !== id); // 체크 해제 시 제거
+          }
+        });
+      }
+    }, []);
+
+  const handleSort: React.MouseEventHandler<HTMLDivElement> = useCallback(
+    (e) => {
+      const target = e.target as HTMLElement;
+
+      if (target.textContent === "시간순" || target.textContent === "최신순") {
+        setSort(target.textContent);
+      }
     },
     []
   );
 
-  const handleSearchText = useCallback(
-    (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleSearchText: React.ChangeEventHandler<HTMLInputElement> =
+    useCallback((e) => {
       const { value } = e.target;
 
       setSearchText(value);
-    },
-    []
-  );
-  const handleSort = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
-    const target = e.target as HTMLElement;
-
-    if (target.textContent === "시간순" || target.textContent === "최신순") {
-      setSort(target.textContent);
-    }
-  }, []);
+    }, []);
 
   const filteredPosts = useMemo(() => {
     const byCategory =
