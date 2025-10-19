@@ -1,3 +1,5 @@
+import { memo } from "react";
+
 interface ListSVGProps {
   className: string;
 }
@@ -14,4 +16,4 @@ const ListSVG = ({ className = "" }: ListSVGProps) => {
   );
 };
 
-export default ListSVG;
+export default memo(ListSVG);

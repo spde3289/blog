@@ -1,3 +1,5 @@
+import { memo } from "react";
+
 interface ArrowHeadSVGProps {
   className: string;
 }
@@ -14,4 +16,4 @@ const ArrowHeadSVG = ({ className = "" }: ArrowHeadSVGProps) => {
   );
 };
 
-export default ArrowHeadSVG;
+export default memo(ArrowHeadSVG);

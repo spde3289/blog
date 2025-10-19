@@ -1,3 +1,5 @@
+import { memo } from "react";
+
 interface SearchSVGProps {
   className: string;
 }
@@ -14,4 +16,4 @@ const SearchSVG = ({ className = "" }: SearchSVGProps) => {
   );
 };
 
-export default SearchSVG;
+export default memo(SearchSVG);

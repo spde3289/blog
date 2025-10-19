@@ -1,3 +1,5 @@
+import { memo } from "react";
+
 interface SortSVGProps {
   className: string;
 }
@@ -14,4 +16,4 @@ const SortSVG = ({ className = "" }: SortSVGProps) => {
   );
 };
 
-export default SortSVG;
+export default memo(SortSVG);

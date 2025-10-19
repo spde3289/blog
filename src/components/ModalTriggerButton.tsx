@@ -20,7 +20,7 @@ const ModalTriggerButton = ({
   icon,
   closeOnSelfClick = false,
   children,
-  containerProps, // ✅ onChange/onClick/onInput/onKeyDown 등을 여기로
+  containerProps, // onChange/onClick/onInput/onKeyDown 등을 여기로
 }: ModalTriggerButtonProps) => {
   const [modalRoot, setModalRoot] = useState<HTMLElement | null>(null);
   const [isOpen, setIsOpen] = useState(false);
