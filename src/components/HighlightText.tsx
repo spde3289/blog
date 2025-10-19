@@ -23,7 +23,7 @@ interface HighlightProps {
 }
 
 /** 텍스트 내 검색어 하이라이트 */
-const Highlight = ({
+const HighlightText = ({
   text,
   query,
   markClassName = "bg-yellow-200 dark:bg-yellow-500/60 rounded-sm",
@@ -50,4 +50,4 @@ const Highlight = ({
   );
 };
 
-export default Highlight;
+export default HighlightText;

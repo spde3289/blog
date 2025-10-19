@@ -1,7 +1,6 @@
 import Header from "@/components/Header";
 import ScrollToTopButton from "@/components/ScrolltoTopButton";
 import { ThemeProvider } from "@/contexts/ThemeContext";
-import "@/styles/highlight.css";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import type { Metadata } from "next";
 import "./globals.css";
@@ -24,10 +23,6 @@ export default function RootLayout({
       <body className={` bg-white dark:bg-neutral-900 dark:text-white/90`}>
         {/* Google Analytics Script */}
         {GA_ID && <GoogleAnalytics gaId={GA_ID} />}
-        {/* <link
-          href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.1.0/github-markdown.css"
-          rel="stylesheet"
-        /> */}
         <ThemeProvider>
           <Header />
           {children}

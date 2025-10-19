@@ -2,6 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  ul {
+    list-style: disc;
+  }
+
+  ol {
+    list-style: decimal;
+  }
+}
+
 @layer utilities {
   .copy-button {
     position: absolute;
@@ -33,9 +43,9 @@
     font-size: 14px;
   }
 
-  .CodeBlock {
+  /* code {
     background: #f6f8fa !important;
-  }
+  } */
 
   .markdown-body {
     box-sizing: border-box;

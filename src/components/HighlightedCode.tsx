@@ -1,5 +1,9 @@
 "use client";
 
+import "@/styles/highlight.css";
+import "@/styles/github.css";
+import "@/styles/post.css";
+
 import { useEffect } from "react";
 import Highlight from "react-highlight";
 
@@ -17,6 +21,7 @@ const CheckSvg = `<svg aria-hidden="true" height="16" viewBox="0 0 16 16" versio
 const HighlightedCode = ({ contentHtml }: HighlightedCodeProps) => {
   useEffect(() => {
     const codeBlocks = document.querySelectorAll("pre");
+
     codeBlocks.forEach((block) => {
       if (block.querySelector(".copy-button")) return;
 

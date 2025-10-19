@@ -1,9 +1,6 @@
-import "@/styles/post.css";
-
+import HighlightedCode from "@/components/HighlightedCode";
 import { getAllPosts, getPost } from "@/lib/markdown";
-// import "highlight.js/styles/github.css"; // GitHub 스타일
 import { Metadata } from "next";
-import HighlightedCode from "./components/HighlightedCode";
 
 interface PageProps {
   params: Promise<{ category: string; post: string }>;

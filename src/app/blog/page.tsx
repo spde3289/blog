@@ -5,6 +5,7 @@ import SeriesAside from "./_components/SeriesAside";
 export default async function PostsPage() {
   const posts = getAllPosts();
   const categorys = getAllcategorys();
+
   return (
     <>
       <h2 className="hidden lg:block text-pretty text-neutral-900 dark:text-neutral-100 text-xl font-semibold mb-4">
