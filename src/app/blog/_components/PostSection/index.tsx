@@ -65,7 +65,7 @@ const PostSection = ({ posts, categorys }: PostSectionProps) => {
       const hay = `${p.metadata.title} ${p.content ?? ""}`.toLowerCase();
       return hay.includes(q);
     });
-  }, [currentCategories, debouncedQuery]);
+  }, [posts, currentCategories, debouncedQuery]);
 
   const displayedPosts =
     sort === "시간순" ? [...filteredPosts].reverse() : filteredPosts;

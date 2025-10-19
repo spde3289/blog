@@ -29,10 +29,9 @@ const WorkExperienceCard = ({ workExperience }: WorkExpreienceCardProps) => {
 
 interface EducationCardProps {
   education: Education;
-  isLastChild: boolean;
 }
 
-const EducationCard = ({ education, isLastChild }: EducationCardProps) => {
+const EducationCard = ({ education }: EducationCardProps) => {
   const { ref, isVisible } = useElementOnScreen();
   return (
     <>
@@ -64,12 +63,8 @@ const EducationContainer = () => {
         <div className="w-full h-[1px] bg-gradient-to-r from-[#555]"></div>
       </div>
       <div className="section-item-wrapper flex-col gap-13 lg:flex-row justify-center">
-        {educationItmes.map((education, index) => (
-          <EducationCard
-            key={education.title}
-            education={education}
-            isLastChild={educationItmes.length - 1 === index}
-          />
+        {educationItmes.map((education) => (
+          <EducationCard key={education.title} education={education} />
         ))}
       </div>
       <div className="flex gap-4 items-center md:max-w-[768px] mx-auto mt-12 mb-8">
