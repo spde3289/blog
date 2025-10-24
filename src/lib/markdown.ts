@@ -27,7 +27,7 @@ export const getPost = async (category: string, post: string) => {
 
 export type metadataType = {
   title: string;
-  series: string;
+  series?: string;
   tags: string[];
   date: string;
 };

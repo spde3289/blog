@@ -1,7 +1,7 @@
 import ModalTriggerButton from "@/components/ModalTriggerButton";
 import { getAllcategorysType } from "@/lib/markdown";
-import ArrowHeadSVG from "@/svg/ArrowHeadSVG";
 import { memo } from "react";
+import { POSTSECTION_TEXT } from "..";
 
 interface CategoryModalButtonProps {
   currentCategories: string[];
@@ -16,8 +16,8 @@ const CategoryModalButton = ({
 }: CategoryModalButtonProps) => {
   return (
     <ModalTriggerButton
-      title="카테고리"
-      icon={<ArrowHeadSVG className="size-5" />}
+      title={POSTSECTION_TEXT.header.categoryButton.text}
+      icon={POSTSECTION_TEXT.header.categoryButton.svg}
       containerProps={{ onChange }}
       modalRootId="tags-modal"
     >

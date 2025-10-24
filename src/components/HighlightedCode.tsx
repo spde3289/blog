@@ -1,14 +1,14 @@
 "use client";
 
-import "@/styles/highlight.css";
+// import { metadataType } from "@/lib/markdown";
 import "@/styles/github.css";
+import "@/styles/highlight.css";
 import "@/styles/post.css";
-
 import { useEffect } from "react";
 import Highlight from "react-highlight";
-
 interface HighlightedCodeProps {
   contentHtml: string;
+  metadata: { [key: string]: any };
 }
 
 const CopySvg = `<svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-copy js-clipboard-copy-icon">
@@ -18,7 +18,7 @@ const CheckSvg = `<svg aria-hidden="true" height="16" viewBox="0 0 16 16" versio
   <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path>
 </svg>`;
 
-const HighlightedCode = ({ contentHtml }: HighlightedCodeProps) => {
+const HighlightedCode = ({ metadata, contentHtml }: HighlightedCodeProps) => {
   useEffect(() => {
     const codeBlocks = document.querySelectorAll("pre");
 
@@ -31,6 +31,7 @@ const HighlightedCode = ({ contentHtml }: HighlightedCodeProps) => {
 
       // 복사 이벤트 핸들러
       button.addEventListener("click", () => {
+        console.log(button);
         const code = block.querySelector("code")?.textContent || "";
         navigator.clipboard.writeText(code).then(() => {
           button.innerHTML = CheckSvg;
@@ -52,9 +53,25 @@ const HighlightedCode = ({ contentHtml }: HighlightedCodeProps) => {
   }, [contentHtml]);
 
   return (
-    <>
+    <div className="markdown-body m-0 mx-auto">
+      <div>
+        <h1 style={{ marginBottom: "4px" }}>{metadata.title}</h1>
+        <div className="flex justify-between mb-4">
+          <div
+            style={{ marginBottom: "0" }}
+            className="flex text-sm gap-2 text-gray-500"
+          >
+            {metadata.tags.map((tag: string) => (
+              <div key={tag}># {tag}</div>
+            ))}
+          </div>
+          <p style={{ marginBottom: "0" }} className="text-gray-500 text-sm">
+            작성일 : {metadata.date}
+          </p>
+        </div>
+      </div>
       <Highlight innerHTML={true}>{contentHtml}</Highlight>
-    </>
+    </div>
   );
 };
 

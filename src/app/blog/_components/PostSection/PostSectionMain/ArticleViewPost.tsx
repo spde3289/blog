@@ -36,18 +36,10 @@ const ArticleViewPost = ({ post, searchText }: ArticleViewPostProps) => {
     return (
       <li className="border group flex flex-col items-center gap-2 rounded-lg bg-white text-neutral-90 dark:bg-neutral-800/40 border-neutral-200 dark:border-neutral-700">
         <article className="mx-auto max-w-[886px] p-4 markdown-body">
-          <h1 className="mb-1">{post.metadata.title}</h1>
-          <div className="mb-4 flex justify-between text-gray-500">
-            <p className="m-0">
-              {post.metadata.tags.map((tag) => (
-                <span key={tag} className="text-sm line-clamp-1">
-                  # {tag}
-                </span>
-              ))}
-            </p>
-            <p className="m-0">작성일 : {post.metadata.date}</p>
-          </div>
-          <HighlightedCode contentHtml={htmlContents} />
+          <HighlightedCode
+            metadata={post.metadata}
+            contentHtml={htmlContents}
+          />
         </article>
         <div
           onClick={() => setIsArticleOpen((pre) => !pre)}

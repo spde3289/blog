@@ -34,7 +34,7 @@
   --color-fg-muted: #8b949e;
   --color-fg-subtle: #484f58;
   --color-canvas-default: inherit;
-  --color-canvas-subtle: #161b22;
+  --color-canvas-subtle: #0d1117;
   --color-border-default: #30363d;
   --color-border-muted: #21262d;
   --color-neutral-muted: rgba(110, 118, 129, 0.4);
@@ -42,6 +42,11 @@
   --color-accent-emphasis: #1f6feb;
   --color-attention-subtle: rgba(187, 128, 9, 0.15);
   --color-danger-fg: #f85149;
+}
+
+h2,
+h3 {
+  scroll-margin-top: 80px;
 }
 
 .markdown-body {
@@ -138,7 +143,7 @@
 
 .markdown-body a {
   background-color: transparent;
-  color: var(--color-accent-fg);
+  color: var(--color-fg-muted);
   text-decoration: none;
 }
 
@@ -911,7 +916,7 @@
 
 .markdown-body .highlight pre,
 .markdown-body pre {
-  margin: 16px;
+  padding: 16px;
   overflow: auto;
   font-size: 85%;
   line-height: 1.45;
