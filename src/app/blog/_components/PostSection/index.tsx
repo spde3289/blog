@@ -46,6 +46,8 @@ export const POSTSECTION_TEXT = {
   },
 } as const;
 
+const DefaultSort = POSTSECTION_TEXT.header.sortButton.sort[0];
+
 interface PostSectionProps {
   posts: getAllPostsType;
   categorys: getAllcategorysType;
@@ -54,7 +56,7 @@ interface PostSectionProps {
 const PostSection = ({ posts, categorys }: PostSectionProps) => {
   const [searchText, setSearchText] = useState("");
   const [currentCategories, setCurrentCategories] = useState<string[]>([]);
-  const [currentSort, setCurrentSort] = useState<Sort>("최신순");
+  const [currentSort, setCurrentSort] = useState<Sort>(DefaultSort);
 
   const debouncedQuery = useDebouncedValue(searchText);
 
@@ -101,7 +103,7 @@ const PostSection = ({ posts, categorys }: PostSectionProps) => {
   }, [posts, currentCategories, debouncedQuery]);
 
   const displayedPosts =
-    currentSort === "시간순" ? [...filteredPosts].reverse() : filteredPosts;
+    currentSort === DefaultSort ? filteredPosts : [...filteredPosts].reverse();
 
   return (
     <section className="flex-1 flex gap-4 sm:gap-8 flex-col">

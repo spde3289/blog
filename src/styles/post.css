@@ -49,10 +49,12 @@
     border-radius: 1px;
     background-color: #e7e9ec;
   }
+
   .toc::-webkit-scrollbar-thumb {
     background: #585858; /* gray-300 */
     border-radius: 9999px;
   }
+
   html.dark .toc::-webkit-scrollbar {
     background-color: #353535;
   }

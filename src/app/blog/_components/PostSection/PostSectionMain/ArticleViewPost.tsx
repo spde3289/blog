@@ -1,4 +1,4 @@
-import HighlightedCode from "@/components/HighlightedCode";
+import HighlightCode from "@/components/HighlightCode";
 import HighlightText from "@/components/HighlightText";
 import { metadataType } from "@/lib/markdown";
 import ArrowHeadSVG from "@/svg/ArrowHeadSVG";
@@ -29,6 +29,7 @@ const ArticleViewPost = ({ post, searchText }: ArticleViewPostProps) => {
       const processed = await remark().use(gfm).use(html).process(post.content);
 
       setHtmlContents(processed.toString());
+      // setHtmlContents(post.content);
     }
   };
 
@@ -36,10 +37,7 @@ const ArticleViewPost = ({ post, searchText }: ArticleViewPostProps) => {
     return (
       <li className="border group flex flex-col items-center gap-2 rounded-lg bg-white text-neutral-90 dark:bg-neutral-800/40 border-neutral-200 dark:border-neutral-700">
         <article className="mx-auto max-w-[886px] p-4 markdown-body">
-          <HighlightedCode
-            metadata={post.metadata}
-            contentHtml={htmlContents}
-          />
+          <HighlightCode metadata={post.metadata} contentHtml={htmlContents} />
         </article>
         <div
           onClick={() => setIsArticleOpen((pre) => !pre)}

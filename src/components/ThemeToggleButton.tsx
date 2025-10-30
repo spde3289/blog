@@ -34,7 +34,7 @@ const ThemeItem = ({
   );
 };
 
-const ThemeToggleButton: React.FC = () => {
+const ThemeToggleButton = () => {
   const { theme, setTheme, resolvedTheme } = useTheme();
   const [isOpen, setIsOpen] = useState(false);
   const [modalRoot, setModalRoot] = useState<HTMLElement | null>(null);

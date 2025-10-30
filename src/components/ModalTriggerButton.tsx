@@ -10,7 +10,7 @@ interface ModalTriggerButtonProps {
   closeOnSelfClick?: boolean;
   icon: JSX.Element;
 
-  // ✅ 포털 컨텐츠 루트에 그대로 전달할 이벤트/속성들
+  // 포털 컨텐츠 루트에 그대로 전달할 이벤트/속성들
   containerProps?: React.HTMLAttributes<HTMLDivElement>;
 }
 
@@ -71,7 +71,7 @@ const ModalTriggerButton = ({
         createPortal(
           <div
             ref={contentRef}
-            // ✅ 위임: 여기에 모든 이벤트를 붙임
+            // 위임: 여기에 모든 이벤트를 붙임
             onClick={handleSelfClick} // 자체 클릭 닫기 + 사용자 onClick 병행
             onChange={containerProps?.onChange} // 체크박스/라디오/셀렉트 변경
             onInput={containerProps?.onInput} // 텍스트 입력 등
