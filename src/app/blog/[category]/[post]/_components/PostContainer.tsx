@@ -1,6 +1,7 @@
 "use client";
 
 import HighlightCode from "@/components/HighlightCode";
+import { PostMetaData } from "@/lib/markdown";
 import "@/styles/github.css";
 import "@/styles/highlight.css";
 import "@/styles/post.css";
@@ -8,10 +9,10 @@ import { useEffect, useState } from "react";
 
 interface HighlightedCodeProps {
   contentHtml: string;
-  metadata: { [key: string]: any };
+  metadata: PostMetaData;
 }
 
-const useBuildHtmlAndToc = (contentHtml: string) => {
+const buildHtmlAndToc = (contentHtml: string) => {
   const parser = new DOMParser();
   const doc = parser.parseFromString(contentHtml, "text/html");
   const headings = Array.from(doc.querySelectorAll("h2, h3"));
@@ -42,8 +43,7 @@ const PostContainer = ({ metadata, contentHtml }: HighlightedCodeProps) => {
   const [sub, setSub] = useState<TocItem[]>([]);
 
   useEffect(() => {
-    const htmlTest = useBuildHtmlAndToc(contentHtml);
-
+    const htmlTest = buildHtmlAndToc(contentHtml);
     setHtml(htmlTest.html.innerHTML);
     setSub(htmlTest.toc);
   }, [contentHtml]);

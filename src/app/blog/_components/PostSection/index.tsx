@@ -1,7 +1,7 @@
 "use client";
 
 import useDebouncedValue from "@/hooks/useDebouncedValue";
-import { getAllPostsType, getAllcategorysType } from "@/lib/markdown";
+import { Categorys, Post } from "@/lib/markdown";
 import ArrowHeadSVG from "@/svg/ArrowHeadSVG";
 import ArticleSVG from "@/svg/ArticleSVG";
 import ListSVG from "@/svg/ListSVG";
@@ -49,8 +49,8 @@ export const POSTSECTION_TEXT = {
 const DefaultSort = POSTSECTION_TEXT.header.sortButton.sort[0];
 
 interface PostSectionProps {
-  posts: getAllPostsType;
-  categorys: getAllcategorysType;
+  posts: Post[];
+  categorys: Categorys;
 }
 
 const PostSection = ({ posts, categorys }: PostSectionProps) => {

@@ -1,4 +1,4 @@
-import { getAllPostsType } from "@/lib/markdown";
+import { Post } from "@/lib/markdown";
 import { JSX, memo, Suspense, useCallback, useState } from "react";
 import { POSTSECTION_TEXT } from "..";
 import ArticleViewPost from "./ArticleViewPost";
@@ -6,7 +6,7 @@ import ListViewPost from "./ListViewPost";
 import ViewModalButton from "./ViewModalButton";
 
 interface PostSectionMainProps {
-  posts: getAllPostsType;
+  posts: Post[];
   searchText: string;
 }
 
