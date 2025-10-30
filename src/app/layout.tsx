@@ -1,21 +1,12 @@
 import Header from "@/components/Header";
 import ScrollToTopButton from "@/components/ScrolltoTopButton";
 import { ThemeProvider } from "@/contexts/ThemeContext";
-import "@/styles/highlight.css";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import type { Metadata } from "next";
-import { Noto_Sans_KR } from "next/font/google";
 import "./globals.css";
 
 const GA_ID = process.env.NEXT_PUBLIC_GA_ID;
 
-const NotoSansKR = Noto_Sans_KR({
-  subsets: ["latin"],
-  weight: ["400", "700"], // 필요한 두께 지정 (선택)
-  display: "swap", // 렌더링 최적화 옵션
-  preload: true, // 성능 최적화를 위해 preload
-  // variable: "--font-noto-sans-kr", // 커스텀 변수 사용 시
-});
 export const metadata: Metadata = {
   title: "spde3289의 개발 블로그",
   description:
@@ -29,21 +20,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko">
-      <body
-        className={`${NotoSansKR.className} antialiased bg-white dark:bg-neutral-900 dark:text-white/90`}
-      >
+      <body className={` bg-white dark:bg-neutral-900 dark:text-white/90`}>
         {/* Google Analytics Script */}
         {GA_ID && <GoogleAnalytics gaId={GA_ID} />}
-        {/* <link
-          href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.1.0/github-markdown.css"
-          rel="stylesheet"
-        /> */}
         <ThemeProvider>
           <Header />
           {children}
           <ScrollToTopButton />
         </ThemeProvider>
-        <div id="modal-root" />
+        {/* <div id="modal-root" /> */}
       </body>
     </html>
   );

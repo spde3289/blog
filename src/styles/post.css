@@ -2,6 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  ul {
+    list-style: disc;
+  }
+
+  ol {
+    list-style: decimal;
+  }
+}
+
 @layer utilities {
   .copy-button {
     position: absolute;
@@ -33,15 +43,31 @@
     font-size: 14px;
   }
 
-  .CodeBlock {
-    background: #f6f8fa !important;
+  /* WebKit (Chrome, Edge, Safari) */
+  .toc::-webkit-scrollbar {
+    width: 2px;
+    border-radius: 1px;
+    background-color: #e7e9ec;
+  }
+
+  .toc::-webkit-scrollbar-thumb {
+    background: #585858; /* gray-300 */
+    border-radius: 9999px;
+  }
+
+  html.dark .toc::-webkit-scrollbar {
+    background-color: #353535;
+  }
+
+  html.dark .toc::-webkit-scrollbar-thumb {
+    background: #ececec; /* gray-600 (dark) */
   }
 
   .markdown-body {
     box-sizing: border-box;
     min-width: 200px;
     max-width: 980px;
-    padding: 45px;
+    padding: 8px 16px;
   }
 
   .icon {

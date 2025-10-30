@@ -27,8 +27,9 @@ export const getPost = async (category: string, post: string) => {
 
 export type metadataType = {
   title: string;
+  series?: string;
   tags: string[];
-  data: string;
+  date: string;
 };
 
 export type getAllPostsType = Array<{
@@ -71,8 +72,9 @@ export const getAllPosts = (): getAllPostsType => {
 
           const metadata: metadataType = {
             title: data.title || "Default Title", // title이 없으면 기본값 설정
+            series: data.series,
             tags: Array.isArray(data.tags) ? data.tags : [], // tags가 배열이 아니면 빈 배열
-            data: data.date || "Unknown", // date가 없으면 기본값 설정
+            date: data.date || "Unknown", // date가 없으면 기본값 설정
           };
 
           // 메타데이터와 파일 이름을 결합하여 결과 배열에 추가
@@ -91,7 +93,7 @@ export const getAllPosts = (): getAllPostsType => {
   });
 
   return allPosts.sort((a, b) => {
-    return b.metadata.data.localeCompare(a.metadata.data);
+    return b.metadata.date.localeCompare(a.metadata.date);
   });
 };
 
@@ -111,4 +113,73 @@ export const getAllcategorys = (): getAllcategorysType => {
       return { name: category, count: fileNames.length };
     });
   return categories;
+};
+
+type SeriesPost = {
+  href: string;
+  metadata: metadataType;
+  content: string;
+};
+
+export type SeriesGroup = {
+  series: string; // 시리즈명(원문)
+  posts: SeriesPost[]; // 이 시리즈에 속한 글들
+};
+
+export const getSeriesGroups = (): SeriesGroup[] => {
+  const groups = new Map<string, SeriesGroup>();
+  const categories = fs.readdirSync(contentDir); // content 폴더 내의 모든 카테고리 이름
+
+  // 각 카테고리를 순회
+  categories.forEach((category) => {
+    const categoryPath = path.join(contentDir, category);
+
+    // 해당 카테고리 안의 .md 파일 목록
+    const fileNames = fs.readdirSync(categoryPath); // 각 카테고리 내의 파일들
+
+    // 각 파일 순회
+    fileNames.forEach((fileName) => {
+      const filePath = path.join(categoryPath, fileName);
+      const fileContents = fs.readFileSync(filePath, "utf8");
+      const { data, content } = matter(fileContents);
+
+      // series 필드 유효성 검사
+      const series =
+        typeof data.series === "string" && data.series.trim().length > 0
+          ? data.series.trim()
+          : null;
+      if (!series) return; // 시리즈 없는 글은 스킵
+
+      const slug = fileName.replace(/\.md$/, "");
+      const metadata: metadataType = {
+        title: data.title ?? "Default Title",
+        series,
+        tags: Array.isArray(data.tags) ? data.tags : [],
+        date: data.date ?? "Unknown",
+      };
+
+      const post: SeriesPost = {
+        href: `/blog/${category}/${slug}`,
+        metadata,
+        content,
+      };
+
+      // 시리즈 키(소문자)로 그룹핑
+      const key = series.toLowerCase();
+      if (!groups.has(key)) {
+        groups.set(key, { series, posts: [] });
+      }
+      groups.get(key)!.posts.push(post);
+    });
+  });
+
+  // 각 시리즈 그룹 내부의 글 정렬 (최신순)
+  groups.forEach((group) => {
+    group.posts.sort((a, b) => b.metadata.date.localeCompare(a.metadata.date));
+  });
+
+  // 시리즈명으로 정렬
+  return Array.from(groups.values()).sort((a, b) =>
+    a.series.localeCompare(b.series, "ko")
+  );
 };

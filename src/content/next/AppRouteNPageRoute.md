@@ -9,8 +9,6 @@ React를 사용 할 때는 react-router-dom 라이브러리를 사용 했지만 
 
 Next.js 에서는 2개의 방법으로 라우팅이 가능하다. 하나는 기존에 있던 클라이언트 중심의 Pages Router이고 Next.js 13에 추가 된 서버 중심의 App Router가 있다.
 
-##    
-
 [https://nextjs.org/docs/pages/building-your-application/routing](https://nextjs.org/docs/pages/building-your-application/routing) 
 
 Page Router는 pages 디렉터리 에 파일이 추가 된다면 경로를 사용할 수 있다.
