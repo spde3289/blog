@@ -1,4 +1,4 @@
-import { getAllcategorysType } from "@/lib/markdown";
+import { Categorys } from "@/lib/markdown";
 import { POSTSECTION_TEXT, Sort } from "..";
 import CategoryModalButton from "./CategoryModalButton";
 import SortModalButton from "./SortModalButton";
@@ -11,7 +11,7 @@ interface PostSectionHeaderProps {
   };
   onClick: (sort: Sort) => void;
   currentSort: string;
-  categorys: getAllcategorysType;
+  categorys: Categorys;
 }
 
 const PostSectionHeader = ({

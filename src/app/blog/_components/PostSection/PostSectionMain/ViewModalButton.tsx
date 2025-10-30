@@ -19,7 +19,7 @@ const ViewModalButton = ({ onClick, currentView }: ViewModalButtonProps) => {
       closeOnSelfClick={true}
       modalRootId="view-modal"
     >
-      {viewButtonItems.map((item, index) => (
+      {viewButtonItems.map((item) => (
         <button
           key={item.text}
           onClick={() =>

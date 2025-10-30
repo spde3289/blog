@@ -1,5 +1,6 @@
 "use client";
 
+import { PostMetaData } from "@/lib/markdown";
 import "@/styles/github.css";
 import "@/styles/highlight.css";
 import "@/styles/post.css";
@@ -8,7 +9,7 @@ import Highlight from "react-highlight";
 
 interface HighlightedCodeProps {
   contentHtml: string;
-  metadata: { [key: string]: any };
+  metadata: PostMetaData;
 }
 
 const CopySvg = `<svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true">

@@ -5,6 +5,25 @@ import { remark } from "remark";
 import gfm from "remark-gfm"; // GitHub Flavored Markdown 플러그인
 import html from "remark-html";
 
+export type PostMetaData = {
+  title: string;
+  series?: string;
+  tags: string[];
+  date: string;
+  description?: string;
+  image?: string;
+};
+
+export type Post = {
+  category: string;
+  post: string;
+  metadata: PostMetaData;
+  content: string;
+  excerpt: string;
+  href: string;
+  img: string;
+};
+
 const contentDir = path.join(process.cwd(), "src/content"); // 'src/content' 경로 수정
 
 export const getPost = async (category: string, post: string) => {
@@ -20,31 +39,14 @@ export const getPost = async (category: string, post: string) => {
 
   return {
     post,
-    metadata: data,
+    metadata: data as PostMetaData,
     contentHtml,
   };
 };
 
-export type metadataType = {
-  title: string;
-  series?: string;
-  tags: string[];
-  date: string;
-};
-
-export type getAllPostsType = Array<{
-  category: string;
-  post: string;
-  metadata: metadataType;
-  content: string;
-  excerpt: string;
-  href: string;
-  img: string;
-}>;
-
-export const getAllPosts = (): getAllPostsType => {
+export const getAllPosts = (): Post[] => {
   const categories = fs.readdirSync(contentDir); // content 폴더 내의 모든 카테고리 이름
-  const allPosts: getAllPostsType = [];
+  const allPosts: Post[] = [];
 
   // 각 카테고리를 순회하며 파일을 읽어옵니다.
   categories.forEach((category) => {
@@ -70,7 +72,7 @@ export const getAllPosts = (): getAllPostsType => {
 
           const excerpt = content.split("\n")[0];
 
-          const metadata: metadataType = {
+          const metadata: PostMetaData = {
             title: data.title || "Default Title", // title이 없으면 기본값 설정
             series: data.series,
             tags: Array.isArray(data.tags) ? data.tags : [], // tags가 배열이 아니면 빈 배열
@@ -97,9 +99,9 @@ export const getAllPosts = (): getAllPostsType => {
   });
 };
 
-export type getAllcategorysType = { name: string; count: number }[];
+export type Categorys = { name: string; count: number }[];
 
-export const getAllcategorys = (): getAllcategorysType => {
+export const getAllcategorys = (): Categorys => {
   const directoryNames = fs.readdirSync(contentDir); // content 폴더 내의 모든 카테고리 이름
 
   const categories = directoryNames
@@ -117,7 +119,7 @@ export const getAllcategorys = (): getAllcategorysType => {
 
 type SeriesPost = {
   href: string;
-  metadata: metadataType;
+  metadata: PostMetaData;
   content: string;
 };
 
@@ -151,7 +153,7 @@ export const getSeriesGroups = (): SeriesGroup[] => {
       if (!series) return; // 시리즈 없는 글은 스킵
 
       const slug = fileName.replace(/\.md$/, "");
-      const metadata: metadataType = {
+      const metadata: PostMetaData = {
         title: data.title ?? "Default Title",
         series,
         tags: Array.isArray(data.tags) ? data.tags : [],

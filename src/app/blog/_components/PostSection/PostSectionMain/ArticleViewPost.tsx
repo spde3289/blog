@@ -1,6 +1,6 @@
 import HighlightCode from "@/components/HighlightCode";
 import HighlightText from "@/components/HighlightText";
-import { metadataType } from "@/lib/markdown";
+import { PostMetaData } from "@/lib/markdown";
 import ArrowHeadSVG from "@/svg/ArrowHeadSVG";
 import { useState } from "react";
 import { remark } from "remark";
@@ -11,7 +11,7 @@ interface ArticleViewPostProps {
   post: {
     category: string;
     post: string;
-    metadata: metadataType;
+    metadata: PostMetaData;
     content: string;
     excerpt: string;
     href: string;
