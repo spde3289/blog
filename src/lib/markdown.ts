@@ -24,7 +24,7 @@ export type Post = {
   img: string;
 };
 
-const contentDir = path.join(process.cwd(), "src/content"); // 'src/content' 경로 수정
+const contentDir = path.join(process.cwd(), "src/content/posts"); // 'src/content' 경로 수정
 
 export const getPost = async (category: string, post: string) => {
   const filePath = path.join(contentDir, category, `${post}.md`); // 카테고리 폴더에서 파일 찾기
