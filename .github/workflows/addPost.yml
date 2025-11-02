@@ -28,40 +28,43 @@ jobs:
 
       - name: Lint
         run: yarn lint
-
+        
       - name: Build
         run: yarn build
 
   merge_to_main:
     needs: ci
-    if: ${{ needs.ci.result == 'success' }}
     runs-on: ubuntu-latest
     steps:
-      - name: Open PR (addPost → main) if missing and merge it
+      - name: Open/merge PR to default branch
         uses: actions/github-script@v7
         with:
           script: |
             const owner = context.repo.owner;
             const repo  = context.repo.repo;
 
-            // 열려있는 PR이 있으면 재사용
+            // 1) 기본 브랜치 조회 (main 또는 master)
+            const repoInfo = await github.rest.repos.get({ owner, repo });
+            const base = repoInfo.data.default_branch; // e.g. 'main' or 'master'
+            const head = 'addPost';
+
+            // 2) 동일 PR이 열려 있으면 재사용
             const { data: prs } = await github.rest.pulls.list({
-              owner, repo, state: 'open', head: `${owner}:addPost`, base: 'main'
+              owner, repo, state: 'open', head: `${owner}:${head}`, base
             });
             let pr = prs[0];
 
-            // 없으면 생성
+            // 3) 없으면 생성
             if (!pr) {
               pr = (await github.rest.pulls.create({
                 owner, repo,
-                title: 'CI: addPost → main (build passed)',
-                head: 'addPost',
-                base: 'main',
+                title: `CI: ${head} → ${base} (build passed)`,
+                head, base,
                 body: '빌드 성공 → 자동 머지'
               })).data;
             }
 
-            // PR 머지 
+            // 4) 머지 (필요시 merge_method: 'merge' | 'rebase' 로 교체)
             await github.rest.pulls.merge({
               owner, repo, pull_number: pr.number, merge_method: 'squash'
             });
