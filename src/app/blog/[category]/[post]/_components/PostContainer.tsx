@@ -1,7 +1,7 @@
 "use client";
 
 import HighlightCode from "@/components/HighlightCode";
-import { PostMetaData } from "@/lib/markdown";
+import { PostMetaData } from "@/lib/types";
 import "@/styles/github.css";
 import "@/styles/highlight.css";
 import "@/styles/post.css";

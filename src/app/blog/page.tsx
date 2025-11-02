@@ -1,10 +1,14 @@
-import { getAllPosts, getAllcategorys, getSeriesGroups } from "@/lib/markdown";
+import {
+  getCategoryList,
+  getPostList,
+  getSeriesGroups,
+} from "@/lib/sever/getBlogData";
 import PostSection from "./_components/PostSection";
 import SeriesAside from "./_components/SeriesAside";
 
-export default async function PostsPage() {
-  const posts = getAllPosts();
-  const categorys = getAllcategorys();
+export default function PostsPage() {
+  const posts = getPostList();
+  const categorys = getCategoryList();
   const series = getSeriesGroups();
 
   return (

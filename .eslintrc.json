@@ -1,5 +1,6 @@
 {
   "extends": ["next/core-web-vitals", "next/typescript"],
+  "ignorePatterns": ["src/lib/build"],
   "parserOptions": {
     "ecmaVersion": "latest",
     "sourceType": "module"

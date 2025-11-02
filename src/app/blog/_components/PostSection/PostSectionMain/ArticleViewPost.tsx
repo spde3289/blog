@@ -1,46 +1,29 @@
 import HighlightCode from "@/components/HighlightCode";
 import HighlightText from "@/components/HighlightText";
-import { PostMetaData } from "@/lib/markdown";
+import { Post } from "@/lib/types";
 import ArrowHeadSVG from "@/svg/ArrowHeadSVG";
 import { useState } from "react";
-import { remark } from "remark";
-import gfm from "remark-gfm";
-import html from "remark-html";
 
 interface ArticleViewPostProps {
-  post: {
-    category: string;
-    post: string;
-    metadata: PostMetaData;
-    content: string;
-    excerpt: string;
-    href: string;
-    img: string;
-  };
+  post: Post;
   searchText: string;
 }
 
 const ArticleViewPost = ({ post, searchText }: ArticleViewPostProps) => {
   const [isArticleOpen, setIsArticleOpen] = useState(false);
-  const [htmlContents, setHtmlContents] = useState<string>("");
 
-  const handleChageHtml = async () => {
-    if (htmlContents === "") {
-      const processed = await remark().use(gfm).use(html).process(post.content);
-
-      setHtmlContents(processed.toString());
-      // setHtmlContents(post.content);
-    }
+  const handleArticleOpen = () => {
+    setIsArticleOpen((pre) => !pre);
   };
 
   if (isArticleOpen) {
     return (
       <li className="border group flex flex-col items-center gap-2 rounded-lg bg-white text-neutral-90 dark:bg-neutral-800/40 border-neutral-200 dark:border-neutral-700">
         <article className="mx-auto max-w-[886px] p-4 markdown-body">
-          <HighlightCode metadata={post.metadata} contentHtml={htmlContents} />
+          <HighlightCode metadata={post.metadata} contentHtml={post.content} />
         </article>
         <div
-          onClick={() => setIsArticleOpen((pre) => !pre)}
+          onClick={handleArticleOpen}
           className="w-full flex justify-center items-center hover:text-yellow-400 py-1 hover:bg-neutral-100 dark:hover:bg-neutral-700/50"
         >
           <ArrowHeadSVG className="size-6 rotate-180" />
@@ -64,7 +47,7 @@ const ArticleViewPost = ({ post, searchText }: ArticleViewPostProps) => {
             <HighlightText text={post.metadata.title} query={searchText} />
           </h2>
           <div className="mb-2 sm:mb-2 text-neutral-600 dark:text-neutral-400 text-sm sm:text-base overflow-hidden text-ellipsis break-all line-clamp-2 leading-normal">
-            <HighlightText text={post.content} query={searchText} />
+            <HighlightText text={post.excerpt} query={searchText} />
           </div>
           <div className="relative z-[1] flex w-full items-center gap-x-6 gap-y-2">
             <div className="text-xs sm:text-sm text-neutral-600 dark:text-neutral-400">
@@ -81,10 +64,7 @@ const ArticleViewPost = ({ post, searchText }: ArticleViewPostProps) => {
         </div>
       </div>
       <div
-        onClick={() => {
-          handleChageHtml();
-          setIsArticleOpen((pre) => !pre);
-        }}
+        onClick={handleArticleOpen}
         className="w-full flex justify-center items-center hover:text-yellow-400 py-1 hover:bg-neutral-100 dark:hover:bg-neutral-700/50"
       >
         <ArrowHeadSVG className="size-6 " />
