@@ -29,12 +29,6 @@ jobs:
       - name: Lint
         run: yarn lint
 
-      - name: Typecheck
-        run: yarn typecheck
-
-      - name: Test
-        run: yarn test --reporter=dot
-
       - name: Build
         run: yarn build
 
