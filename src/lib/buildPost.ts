@@ -143,7 +143,7 @@ const processCategory = async (category: string) => {
 /* =========================
  *  5) 엔트리: 전체 실행
  * ========================= */
-export const buildAllPostsJson = async () => {
+const buildAllPostsJson = async () => {
   const categories = readCategories(CONTENT_DIR);
   for (const category of categories) {
     await processCategory(category);
