@@ -1,0 +1,83 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  ul {
+    list-style: disc;
+  }
+
+  ol {
+    list-style: decimal;
+  }
+}
+
+@layer utilities {
+  .copy-button {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    padding: 4px 8px;
+    font-size: 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* 부드러운 색상 변화 */
+  }
+
+  .copy-button:hover {
+    background-color: #e5e7eb; /* 마우스 호버 시 색상 변경 */
+  }
+
+  .check-button {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    padding: 4px 8px;
+    font-size: 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    background-color: #4caf50; /* 녹색 배경 */
+    color: white; /* 텍스트 색은 흰색 */
+    border-color: #45a049; /* 테두리 색 */
+    font-size: 14px;
+  }
+
+  /* WebKit (Chrome, Edge, Safari) */
+  .toc::-webkit-scrollbar {
+    width: 2px;
+    border-radius: 1px;
+    background-color: #e7e9ec;
+  }
+
+  .toc::-webkit-scrollbar-thumb {
+    background: #585858; /* gray-300 */
+    border-radius: 9999px;
+  }
+
+  html.dark .toc::-webkit-scrollbar {
+    background-color: #353535;
+  }
+
+  html.dark .toc::-webkit-scrollbar-thumb {
+    background: #ececec; /* gray-600 (dark) */
+  }
+
+  .markdown-body {
+    box-sizing: border-box;
+    min-width: 200px;
+    max-width: 980px;
+    padding: 8px 16px;
+  }
+
+  .icon {
+    width: 24px;
+    height: 24px;
+  }
+
+  @media (max-width: 767px) {
+    .markdown-body {
+      padding: 15px;
+    }
+  }
+}

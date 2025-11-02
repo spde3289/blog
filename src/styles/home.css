@@ -2,12 +2,136 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  /* Keyframes (전역 재사용) */
+  @keyframes fadeIn {
+    from {
+      transform: scale(1.2);
+    }
+    to {
+      transform: scale(1);
+    }
+  }
+  @keyframes fade {
+    from {
+      transform: scale(1);
+    }
+    to {
+      transform: scale(1.1);
+    }
+  }
+  @keyframes fadeIn-project {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  @keyframes fadeOut-project {
+    from {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    to {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+  }
+  @keyframes fadeUp {
+    from {
+      opacity: 0;
+      transform: translateY(24px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  @keyframes fadeRight {
+    from {
+      opacity: 0;
+      transform: translateX(100px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  @keyframes scaleIn {
+    from {
+      transform: scale(1);
+    }
+    to {
+      transform: scale(1.08);
+    }
+  }
+  @keyframes dropDown {
+    from {
+      height: 0px;
+    }
+    to {
+      height: 40px;
+    }
+  }
+}
+
+@layer components {
+  .blur-ball {
+    @apply bg-[#DBB8F7] blur-[100px] rounded-full absolute;
+  }
+
+  .blur-ball--1 {
+    @apply w-1/3 h-2/5 -rotate-45 -top-10 -left-10;
+  }
+
+  .blur-ball--2 {
+    @apply w-2/5 h-2/5 -rotate-12 -top-8 left-12;
+  }
+
+  .blur-ball--3 {
+    @apply size-1/3 -top-28 left-1/2 border-[16px] border-[#FFF859];
+  }
+
+  @screen sm {
+    .blur-ball--1 {
+      @apply w-1/2 h-2/3 -rotate-45 -top-20 -left-1/4;
+    }
+
+    .blur-ball--2 {
+      @apply w-1/2 h-2/5 -rotate-12 -top-32 left-24;
+    }
+
+    .blur-ball--3 {
+      @apply size-1/3 -top-40 left-96 border-[24px] border-[#FFF859];
+    }
+  }
+
+  .section-container {
+    @apply lg:w-[1024px] lg:py-20 md:w-[768px] md:py-16 w-[100%] px-6 py-12;
+  }
+
+  .section-title {
+    @apply text-[#efeff1] text-4xl font-black pb-11 text-center;
+  }
+
+  .section-item-wrapper {
+    @apply flex items-center;
+  }
+
+  .sub-title {
+    @apply text-2xl font-bold mb-1;
+  }
+}
+
 @layer utilities {
   .noise-before {
     @apply relative;
   }
 
-  .noise-before::before {
+  .noise-before:before {
     content: "";
     position: absolute;
     inset: 0;
@@ -17,31 +141,41 @@
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
   }
 
-  .blur-ball {
-    @apply bg-[#DBB8F7] blur-[100px] rounded-full absolute;
+  .fade-sequence {
+    animation: fadeIn 1s linear forwards, fade 2s linear 1.2s infinite alternate;
   }
 
-  .blur-ball--1 {
-    @apply w-1/2 h-2/3 -rotate-45 -top-20 -left-1/4;
+  .fade-in-project {
+    opacity: 0;
+    animation: fadeIn-project 0.3s ease-out forwards;
   }
 
-  .blur-ball--2 {
-    @apply w-1/2 h-2/5 -rotate-12 -top-16 left-24;
+  .fade-out-project {
+    opacity: 0;
+    animation: fadeIn-project 0.3s ease-out forwards;
   }
 
-  .blur-ball--3 {
-    @apply size-1/3 -top-20 left-96 border-[16px] border-[#FFF859];
+  .reveal {
+    animation: 1s fadeUp linear both;
+    will-change: opacity, transform;
   }
 
-  .section-container {
-    @apply w-[1160px] py-20;
+  /* (선택) 약간 더 늦게/빠르게 재생하는 변형 */
+  .reveal-slow {
+    animation-range: entry 10% cover 60%;
+  }
+  .reveal-fast {
+    animation-range: entry 0% cover 25%;
   }
 
-  .section-title {
-    @apply text-5xl text-white font-bold mb-16 text-center;
+  .reveal-left {
+    opacity: 1;
+    animation: fadeRight linear both;
+    animation-timeline: scroll();
   }
 
-  .section-item-wrapper {
-    @apply flex items-center gap-13;
+  .drop-down {
+    transition: all;
+    animation: dropDown ease-in-out 0.18s alternate;
   }
 }

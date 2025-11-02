@@ -1,15 +1,25 @@
-import { getAllPosts, getAllcategorys } from "@/lib/markdown";
-import { Suspense } from "react";
-import PostCategoryContainer from "./components/PostCategoryContainer";
+import {
+  getCategoryList,
+  getPostList,
+  getSeriesGroups,
+} from "@/lib/sever/getBlogData";
+import PostSection from "./_components/PostSection";
+import SeriesAside from "./_components/SeriesAside";
 
-export default async function PostsPage() {
-  const posts = getAllPosts();
-  const categorys = getAllcategorys();
+export default function PostsPage() {
+  const posts = getPostList();
+  const categorys = getCategoryList();
+  const series = getSeriesGroups();
+
   return (
-    <Suspense fallback={<div>Loading...</div>}>
-      <div className="flex flex-col-reverse sm:flex-row items-center sm:items-start">
-        <PostCategoryContainer posts={posts} categorys={categorys} />
+    <>
+      <h2 className="hidden lg:block text-pretty text-neutral-900 dark:text-neutral-100 text-xl font-semibold mb-4">
+        블로그의 모든 것
+      </h2>
+      <div className="flex gap-6 flex-col-reverse lg:flex-row">
+        <PostSection posts={posts} categorys={categorys} />
+        <SeriesAside series={series} />
       </div>
-    </Suspense>
+    </>
   );
 }

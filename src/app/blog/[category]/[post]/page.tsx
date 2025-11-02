@@ -1,7 +1,6 @@
-import { getAllPosts, getPost } from "@/lib/markdown";
-import "highlight.js/styles/github.css"; // GitHub 스타일
+import { getPost, getPostList } from "@/lib/sever/getBlogData";
 import { Metadata } from "next";
-import HighlightedCode from "./components/HighlightedCode";
+import PostContainer from "./_components/PostContainer";
 
 interface PageProps {
   params: Promise<{ category: string; post: string }>;
@@ -12,7 +11,7 @@ export async function generateMetadata({
 }: PageProps): Promise<Metadata> {
   const { category, post } = await params;
 
-  const postData = await getPost(category, post);
+  const postData = getPost(category, post);
 
   if (!postData) {
     return {
@@ -44,33 +43,20 @@ export async function generateMetadata({
 }
 
 export function generateStaticParams() {
-  const posts = getAllPosts();
-  return posts.map((post) => ({
-    category: post.category,
-    post: post.post,
-  }));
+  const posts = getPostList();
+  return posts.map((post) => {
+    const fileName = post.href.split("/");
+    return {
+      category: post.category,
+      post: fileName[3],
+    };
+  });
 }
 
 export default async function PostPage({ params }: PageProps) {
   const { category, post } = await params;
 
-  const { metadata, contentHtml } = await getPost(category, post);
+  const { metadata, content } = getPost(category, post);
 
-  return (
-    <main
-      style={{ margin: "0 auto" }}
-      className="prose mx-auto p-4 markdown-body"
-    >
-      <h1 style={{ marginBottom: "4px" }}>{metadata.title}</h1>
-      <div className="flex justify-between mb-4">
-        <p style={{ marginBottom: "0" }} className="text-gray-500">
-          {metadata.tags}
-        </p>
-        <p style={{ marginBottom: "0" }} className="text-gray-500">
-          작성일 : {metadata.date}
-        </p>
-      </div>
-      <HighlightedCode contentHtml={contentHtml} />
-    </main>
-  );
+  return <PostContainer metadata={metadata} contentHtml={content} />;
 }
