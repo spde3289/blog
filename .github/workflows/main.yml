@@ -2,7 +2,7 @@ name: Main 빌드 & Vercel 배포
 
 on:
   push:
-    branches: [main] # main에 머지되어 push 발생 시 실행
+    branches: [master] 
 
 permissions:
   contents: read
