@@ -33,35 +33,38 @@ jobs:
         run: yarn build
 
   merge_to_main:
-    needs: ci
-    if: ${{ needs.ci.result == 'success' }}
+   needs: ci
     runs-on: ubuntu-latest
+    env:
+      BASE_BRANCH: ${{ github.event.repository.default_branch }}  # ← 기본 브랜치 자동 사용
     steps:
-      - name: Open PR (addPost → main) if missing and merge it
+      - name: Open PR (addPost → ${{ env.BASE_BRANCH }}) if missing and merge it
         uses: actions/github-script@v7
         with:
           script: |
             const owner = context.repo.owner;
             const repo  = context.repo.repo;
+            const base  = process.env.BASE_BRANCH;   // main 또는 master
+            const head  = 'addPost';
 
-            // 열려있는 PR이 있으면 재사용
+            // 동일한 PR 열려있으면 재사용
             const { data: prs } = await github.rest.pulls.list({
-              owner, repo, state: 'open', head: `${owner}:addPost`, base: 'main'
+              owner, repo, state: 'open', head: `${owner}:${head}`, base
             });
             let pr = prs[0];
 
             // 없으면 생성
             if (!pr) {
               pr = (await github.rest.pulls.create({
-                owner, repo,
-                title: 'CI: addPost → main (build passed)',
-                head: 'addPost',
-                base: 'main',
-                body: '빌드 성공 → 자동 머지'
+                owner, repo, title: `CI: ${head} → ${base} (build passed)`,
+                head, base, body: '빌드 성공 → 자동 머지'
               })).data;
             }
 
-            // PR 머지 
+            // 머지
+            await github.rest.pulls.merge({
+              owner, repo, pull_number: pr.number, merge_method: 'squash'
+            });
             await github.rest.pulls.merge({
               owner, repo, pull_number: pr.number, merge_method: 'squash'
             });
