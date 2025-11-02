@@ -1,6 +1,6 @@
-import PostContainer from "./_components/PostContainer";
-import { getAllPosts, getPost } from "@/lib/markdown";
+import { getPost, getPostList } from "@/lib/sever/getBlogData";
 import { Metadata } from "next";
+import PostContainer from "./_components/PostContainer";
 
 interface PageProps {
   params: Promise<{ category: string; post: string }>;
@@ -11,7 +11,7 @@ export async function generateMetadata({
 }: PageProps): Promise<Metadata> {
   const { category, post } = await params;
 
-  const postData = await getPost(category, post);
+  const postData = getPost(category, post);
 
   if (!postData) {
     return {
@@ -43,17 +43,20 @@ export async function generateMetadata({
 }
 
 export function generateStaticParams() {
-  const posts = getAllPosts();
-  return posts.map((post) => ({
-    category: post.category,
-    post: post.post,
-  }));
+  const posts = getPostList();
+  return posts.map((post) => {
+    const fileName = post.href.split("/");
+    return {
+      category: post.category,
+      post: fileName[3],
+    };
+  });
 }
 
 export default async function PostPage({ params }: PageProps) {
   const { category, post } = await params;
 
-  const { metadata, contentHtml } = await getPost(category, post);
+  const { metadata, content } = getPost(category, post);
 
-  return <PostContainer metadata={metadata} contentHtml={contentHtml} />;
+  return <PostContainer metadata={metadata} contentHtml={content} />;
 }

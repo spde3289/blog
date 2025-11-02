@@ -1,4 +1,4 @@
-import { Post } from "@/lib/markdown";
+import { Post } from "@/lib/types";
 import { JSX, memo, Suspense, useCallback, useState } from "react";
 import { POSTSECTION_TEXT } from "..";
 import ArticleViewPost from "./ArticleViewPost";

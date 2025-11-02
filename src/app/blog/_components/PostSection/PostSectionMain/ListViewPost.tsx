@@ -1,20 +1,12 @@
 import HighlightText from "@/components/HighlightText";
-import { PostMetaData } from "@/lib/markdown";
+import { Post } from "@/lib/types";
 import ArrowHeadSVG from "@/svg/ArrowHeadSVG";
 import Link from "next/link";
 import { memo } from "react";
 
 // 본문 보기 컴포넌트
 interface ListViewPostPorps {
-  post: {
-    category: string;
-    post: string;
-    metadata: PostMetaData;
-    content: string;
-    excerpt: string;
-    href: string;
-    img: string;
-  };
+  post: Post;
   searchText: string;
 }
 
@@ -37,7 +29,7 @@ const ListViewPost = ({ post, searchText }: ListViewPostPorps) => {
             <HighlightText text={post.metadata.title} query={searchText} />
           </h2>
           <div className="mb-2 sm:mb-4 text-neutral-600 dark:text-neutral-400 text-sm sm:text-base overflow-hidden text-ellipsis break-all line-clamp-2 leading-normal">
-            <HighlightText text={post.content} query={searchText} />
+            <HighlightText text={post.excerpt} query={searchText} />
           </div>
           <div className="relative z-[1] flex w-full items-center gap-x-6 gap-y-2">
             <div className="text-xs sm:text-sm text-neutral-600 dark:text-neutral-400">

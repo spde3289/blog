@@ -1,6 +1,6 @@
 "use client";
 
-import { SeriesGroup } from "@/lib/markdown";
+import { SeriesGroup } from "@/lib/types";
 import KeyboardArrowSVG from "@/svg/ArrowHeadSVG";
 import Link from "next/link";
 import { useState } from "react";
