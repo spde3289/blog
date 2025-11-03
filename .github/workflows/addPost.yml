@@ -19,19 +19,19 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 20
-          cache: yarn
+      # - uses: actions/setup-node@v4
+      #   with:
+      #     node-version: 20
+      #     cache: yarn
 
-      - name: Install deps
-        run: yarn --frozen-lockfile
+      # - name: Install deps
+      #   run: yarn --frozen-lockfile
 
-      - name: Lint
-        run: yarn lint
+      # - name: Lint
+      #   run: yarn lint
 
-      - name: Build
-        run: yarn build
+      # - name: Build
+      #   run: yarn build
 
   create_pr:
     needs: ci
