@@ -1,9 +1,9 @@
 # .github/workflows/build-merge-deploy-prod.yml
 name: Build → (PR이면 머지) → Vercel Prod 배포
 
-on:      
+on:
   pull_request:
-    branches: [ master ]       
+    branches: ['master']    
 
 permissions:
   contents: write                 # 머지/체크아웃에 필요
