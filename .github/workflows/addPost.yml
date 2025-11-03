@@ -1,12 +1,13 @@
-name: AddPost → Main 자동 머지
+name: AddPost → Default PR 자동 생성
 
 on:
   push:
-    branches: [addPost] # addPost에 push될 때만 실행
+    branches:
+      - addPost  # addPost에 push될 때만 실행
 
 permissions:
-  contents: write # 머지/푸시에 필요
-  pull-requests: write # PR 생성/머지에 필요
+  contents: write          # 코드 접근용
+  pull-requests: write     # PR 생성 권한
 
 concurrency:
   group: addPost-ci
@@ -32,39 +33,35 @@ jobs:
       - name: Build
         run: yarn build
 
-  merge_to_main:
+  create_pr:
     needs: ci
     runs-on: ubuntu-latest
     steps:
-      - name: Open/merge PR to default branch
+      - name: Create Pull Request to default branch if missing
         uses: actions/github-script@v7
         with:
           script: |
             const owner = context.repo.owner;
             const repo  = context.repo.repo;
 
-            // 1) 기본 브랜치 조회 (main 또는 master)
+            // 기본 브랜치
             const repoInfo = await github.rest.repos.get({ owner, repo });
-            const base = repoInfo.data.default_branch; // e.g. 'main' or 'master'
+            const base = repoInfo.data.default_branch; 
             const head = 'addPost';
 
-            // 2) 동일 PR이 열려 있으면 재사용
+            // 이미 열려 있는 PR이 있는지 확인
             const { data: prs } = await github.rest.pulls.list({
               owner, repo, state: 'open', head: `${owner}:${head}`, base
             });
-            let pr = prs[0];
 
-            // 3) 없으면 생성
-            if (!pr) {
-              pr = (await github.rest.pulls.create({
+            if (prs.length > 0) {
+              core.info(`✅ PR already exists: #${prs[0].number} (${prs[0].html_url})`);
+            } else {
+              const { data: pr } = await github.rest.pulls.create({
                 owner, repo,
-                title: `CI: ${head} → ${base} (build passed)`,
+                title: `Auto PR: ${head} → ${base}`,
                 head, base,
-                body: '빌드 성공 → 자동 머지'
-              })).data;
+                body: '📦 addPost 브랜치에서 변경사항이 감지되어 자동으로 생성된 PR입니다. 리뷰 후 머지해주세요 🙌',
+              });
+              core.info(`🎉 Created PR #${pr.number}: ${pr.html_url}`);
             }
-
-            // 4) 머지 (필요시 merge_method: 'merge' | 'rebase' 로 교체)
-            await github.rest.pulls.merge({
-              owner, repo, pull_number: pr.number, merge_method: 'squash'
-            });
