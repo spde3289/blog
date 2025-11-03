@@ -1,13 +1,12 @@
-# .github/workflows/build-merge-deploy-prod.yml
 name: Build → (PR이면 머지) → Vercel Prod 배포
 
 on:
   pull_request:
-    branches: ['master']    
+    branches: ["master"]
 
 permissions:
-  contents: write                 # 머지/체크아웃에 필요
-  pull-requests: write            # PR 머지 권한
+  contents: write # 머지/체크아웃에 필요
+  pull-requests: write # PR 머지 권한
 
 concurrency:
   group: prod-${{ github.event_name }}-${{ github.ref || github.event.pull_request.head.ref }}
@@ -44,17 +43,13 @@ jobs:
     name: (PR) 머지 후 Vercel Prod 배포
     needs: ci
     runs-on: ubuntu-latest
-    if: >
-      github.event_name == 'pull_request' &&
-      github.event.pull_request.base.ref == 'master' &&
-      github.event.pull_request.head.repo.full_name == github.repository &&
-      !github.event.pull_request.draft
+
     env:
       VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
       VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
       VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
     steps:
-      - name: Merge PR (squash)
+      - name: Merge PR
         uses: actions/github-script@v7
         with:
           script: |
@@ -63,9 +58,8 @@ jobs:
             await github.rest.pulls.merge({
               owner: context.repo.owner,
               repo: context.repo.repo,
-              pull_number: pull_number,
+              pull_number: number,
             })
-
 
       # 머지 직후 master 최신 기준으로 Prod 배포 (prebuilt 순서)
       - name: Checkout master
