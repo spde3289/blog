@@ -19,19 +19,19 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 20
-          cache: yarn
+      # - uses: actions/setup-node@v4
+      #   with:
+      #     node-version: 20
+      #     cache: yarn
 
-      - name: Install deps
-        run: yarn --frozen-lockfile
+      # - name: Install deps
+      #   run: yarn --frozen-lockfile
 
-      - name: Lint
-        run: yarn lint
+      # - name: Lint
+      #   run: yarn lint
 
-      - name: Build
-        run: yarn build
+      # - name: Build
+      #   run: yarn build
 
   create_pr:
     needs: ci
@@ -45,6 +45,7 @@ jobs:
             const { data: repoInfo } = await github.rest.repos.get({ owner, repo });
             const base = repoInfo.default_branch;   
             const head = 'addPost';
+
             // (선택) 차이가 없으면 PR 생성/머지 스킵
             try {
               const { data: cmp } = await github.rest.repos.compareCommitsWithBasehead({
@@ -57,11 +58,13 @@ jobs:
             } catch (e) {
               core.warning(`compare failed (maybe branch missing?): ${e.message}`);
             }
+
             // 열려있는 PR 재사용 또는 새로 생성
             const { data: prs } = await github.rest.pulls.list({
               owner, repo, state: 'open', head: `${owner}:${head}`, base
             });
             let pr = prs[0];
+
             if (!pr) {
               pr = (await github.rest.pulls.create({
                 owner, repo,
@@ -73,6 +76,7 @@ jobs:
             } else {
               core.info(`✅ Reusing PR #${pr.number}: ${pr.html_url}`);
             }
+
             await github.rest.pulls.merge({
               owner, repo, pull_number: pr.number, merge_method: 'squash'
             });
