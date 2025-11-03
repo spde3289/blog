@@ -65,9 +65,9 @@ jobs:
               core.info(`🎉 Created PR #${pr.number}: ${pr.html_url}`);
             }
 
-            const number = context.payload.pull_request.number;
+            const pull_number = ${{ github.event.pull_request.number }}
             await github.rest.pulls.merge({
               owner: context.repo.owner,
               repo: context.repo.repo,
-              pull_number: number,
+              pull_number,
             })
