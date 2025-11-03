@@ -40,32 +40,44 @@ jobs:
       - name: Create Pull Request to default branch if missing
         uses: actions/github-script@v7
         with:
-          script: |
-            const { owner, repo } = context.repo;
+        script: |
+          const { owner, repo } = context.repo;
+          const { data: repoInfo } = await github.rest.repos.get({ owner, repo });
+          const base = repoInfo.default_branch;   
+          const head = 'addPost';
 
-            // 기본 브랜치
-            const repoInfo = await github.rest.repos.get({ owner, repo });
-            const base = repoInfo.data.default_branch; 
-            const head = 'addPost';
-
-            // 이미 열려 있는 PR이 있는지 확인
-            const { data: prs } = await github.rest.pulls.list({
-              owner, repo, state: 'open', head: `${owner}:${head}`, base
+          // (선택) 차이가 없으면 PR 생성/머지 스킵
+          try {
+            const { data: cmp } = await github.rest.repos.compareCommitsWithBasehead({
+              owner, repo, basehead: `${base}...${head}`
             });
-
-            if (prs.length > 0) {
-              core.info(`✅ PR already exists: #${prs[0].number} (${prs[0].html_url})`);
-            } else {
-              const { data: pr } = await github.rest.pulls.create({
-                owner, repo,
-                title: `Auto PR: ${head} → ${base}`,
-                head, base,
-                body: '📦 addPost 브랜치에서 변경사항이 감지되어 자동으로 생성된 PR입니다. 리뷰 후 머지해주세요 🙌',
-              });
-              core.info(`🎉 Created PR #${pr.number}: ${pr.html_url}`);
+            if (cmp.ahead_by === 0) {
+              core.info(`🔎 No commits between ${base} and ${head}. Skip.`);
+              return;
             }
+          } catch (e) {
+            core.warning(`compare failed (maybe branch missing?): ${e.message}`);
+          }
 
-            await github.rest.pulls.merge({
-              owner, repo, pull_number: pr.number, merge_method: 'squash'
-            });
-            core.info(`🚀 Merged PR #${pr.number}`);
+          // 열려있는 PR 재사용 또는 새로 생성
+          const { data: prs } = await github.rest.pulls.list({
+            owner, repo, state: 'open', head: `${owner}:${head}`, base
+          });
+          let pr = prs[0];
+
+          if (!pr) {
+            pr = (await github.rest.pulls.create({
+              owner, repo,
+              title: `Auto PR: ${head} → ${base}`,
+              head, base,
+              body: '📦 addPost 브랜치 변경 감지 PR (자동 생성)',
+            })).data;
+            core.info(`🎉 Created PR #${pr.number}: ${pr.html_url}`);
+          } else {
+            core.info(`✅ Reusing PR #${pr.number}: ${pr.html_url}`);
+          }
+
+          await github.rest.pulls.merge({
+            owner, repo, pull_number: pr.number, merge_method: 'squash'
+          });
+          core.info(`🚀 Merged PR #${pr.number}`);
