@@ -4,9 +4,6 @@ on:
   push:
     branches: ["master"]
 
-permissions:
-  contents: write # 머지/체크아웃에 필요
-
 jobs:
   ci:
     name: CI (lint/build)
