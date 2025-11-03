@@ -1,6 +1,8 @@
 name: PR 빌드 → 머지 → Vercel 배포
 
 on:
+  push:
+    branches: master
   pull_request:
     branches:  master 
 
