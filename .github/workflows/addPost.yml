@@ -43,6 +43,7 @@ jobs:
           script: |
             const { owner, repo } = context.repo;
             const { data: repoInfo } = await github.rest.repos.get({ owner, repo });
+            const number = context.payload.pull_request.number;
             const base = repoInfo.default_branch;   
             const head = 'addPost';
 
@@ -77,7 +78,5 @@ jobs:
               core.info(`✅ Reusing PR #${pr.number}: ${pr.html_url}`);
             }
 
-            await github.rest.pulls.merge({
-              owner, repo, pull_number: pr.number, merge_method: 'squash'
-            });
+            await github.rest.pulls.merge({ owner, repo, pull_number: number, merge_method: 'squash' });
             core.info(`🚀 Merged PR #${pr.number}`);
