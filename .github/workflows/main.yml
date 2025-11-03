@@ -1,12 +1,9 @@
 # .github/workflows/build-merge-deploy-prod.yml
 name: Build → (PR이면 머지) → Vercel Prod 배포
 
-on:
-  push:
-    branches: [ master ]        
+on:      
   pull_request:
     branches: [ master ]       
-    types: [opened, reopened, synchronize, ready_for_review]
 
 permissions:
   contents: write                 # 머지/체크아웃에 필요
@@ -17,7 +14,6 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  # 공통 CI: push/PR 모두 빌드 (드래프트 PR은 스킵)
   ci:
     name: CI (lint/build)
     runs-on: ubuntu-latest
@@ -65,40 +61,15 @@ jobs:
             const { owner, repo } = context.repo;
             const number = context.payload.pull_request.number;
             await github.rest.pulls.merge({
-              owner, repo, pull_number: number, merge_method: 'squash'
-            });
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              pull_number: pull_number,
+            })
+
 
       # 머지 직후 master 최신 기준으로 Prod 배포 (prebuilt 순서)
       - name: Checkout master
         uses: actions/checkout@v4
-        with:
-          ref: master
-          fetch-depth: 0
-
-      - name: Install Vercel CLI
-        run: npm i -g vercel@latest
-
-      - name: Pull Vercel env (production)
-        run: vercel pull --yes --environment=production --token "${VERCEL_TOKEN}"
-
-      - name: Vercel build (production)
-        run: vercel build --prod --token "${VERCEL_TOKEN}"
-
-      - name: Deploy to Vercel (Production, prebuilt)
-        run: vercel deploy --prebuilt --prod --token "${VERCEL_TOKEN}"
-
-  # master로 직접 push된 경우: Prod 배포
-  push_deploy_prod:
-    name: (push) Vercel Prod 배포
-    needs: ci
-    runs-on: ubuntu-latest
-    if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/master' }}
-    env:
-      VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
-      VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
-      VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
-    steps:
-      - uses: actions/checkout@v4
         with:
           ref: master
           fetch-depth: 0
