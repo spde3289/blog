@@ -1,18 +1,27 @@
-name: Main 빌드 & Vercel 배포
+name: PR 빌드 → 머지 → Vercel 배포
 
 on:
-  push:
-    branches: [master] 
+  pull_request:
+    branches:  master 
 
 permissions:
-  contents: read
+  contents: write          # merge 후 push/checkout 등에 필요
+  pull-requests: write     # PR merge 권한
+
+concurrency:
+  group: pr-to-master
+  cancel-in-progress: true
 
 jobs:
-  build-and-deploy:
+  ci:
+    name: PR CI (lint/build)
     runs-on: ubuntu-latest
+    if: ${{ !github.event.pull_request.draft }}   # 드래프트 PR은 스킵
     steps:
-      - name: Checkout main
+      - name: Checkout PR head
         uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
 
       - name: Setup Node
         uses: actions/setup-node@v4
@@ -23,21 +32,59 @@ jobs:
       - name: Install deps
         run: yarn --frozen-lockfile
 
-      # 프로젝트 빌드(빌드 산출물을 Vercel에 그대로 업로드하려면 --prebuilt 사용)
+      - name: Lint
+        run: yarn lint
+
       - name: Build
         run: yarn build
+
+  merge_and_deploy:
+    name: Merge PR → Deploy to Vercel (prod)
+    needs: ci
+    runs-on: ubuntu-latest
+    # 포크 PR이면 시크릿이 없으므로 자동 머지/배포 금지
+    if: >
+      github.event.pull_request.base.ref == 'master' &&
+      github.event.pull_request.head.repo.full_name == github.repository &&
+      !github.event.pull_request.draft
+    env:
+      VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+      VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+      VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+    steps:
+      - name: Merge PR (squash)
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const { owner, repo } = context.repo;
+            const number = context.payload.pull_request.number;
+
+            // 머지 시도 (필요시 'merge' | 'rebase'로 변경)
+            await github.rest.pulls.merge({
+              owner, repo, pull_number: number, merge_method: 'squash'
+            });
+
+      # 머지 직후 master 최신 커밋을 체크아웃
+      - name: Checkout master
+        uses: actions/checkout@v4
+        with:
+          ref: master
+          fetch-depth: 0
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: yarn
 
       - name: Install Vercel CLI
         run: npm i -g vercel@latest
 
-      # Vercel 프로젝트/환경 정보 동기화
       - name: Pull Vercel env (production)
-        run: vercel pull --yes --environment=production --token ${{ secrets.VERCEL_TOKEN }}
+        run: vercel pull --yes --environment=production --token "$VERCEL_TOKEN"
 
-      # 프로덕션 배포 (prebuilt: GitHub에서 빌드 완료본을 올려 Vercel 재빌드 단축)
-      - name: Deploy to Vercel (Production)
-        env:
-          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
-          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
-          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+      - name: Vercel build (production)
+        run: vercel build --prod --token "$VERCEL_TOKEN"
+
+      - name: Deploy to Vercel (Production, prebuilt)
         run: vercel deploy --prebuilt --prod --token "$VERCEL_TOKEN"
