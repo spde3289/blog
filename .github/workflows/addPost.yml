@@ -41,8 +41,7 @@ jobs:
         uses: actions/github-script@v7
         with:
           script: |
-            const owner = context.repo.owner;
-            const repo  = context.repo.repo;
+            const { owner, repo } = context.repo;
 
             // 기본 브랜치
             const repoInfo = await github.rest.repos.get({ owner, repo });
@@ -65,3 +64,10 @@ jobs:
               });
               core.info(`🎉 Created PR #${pr.number}: ${pr.html_url}`);
             }
+
+            const number = context.payload.pull_request.number;
+            await github.rest.pulls.merge({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              pull_number: number,
+            })
