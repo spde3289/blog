@@ -10,11 +10,6 @@ on:
 
 permissions:
   contents: write # 머지/체크아웃에 필요
-  pull-requests: write # PR 머지 권한
-
-concurrency:
-  group: prod-${{ github.event_name }}-${{ github.ref || github.event.pull_request.head.ref }}
-  cancel-in-progress: true
 
 jobs:
   # 공통 CI: push/PR 모두 빌드 (드래프트 PR은 스킵)
@@ -25,8 +20,6 @@ jobs:
     steps:
       - name: Checkout target
         uses: actions/checkout@v4
-        with:
-          ref: ${{ github.event_name == 'pull_request' && github.event.pull_request.head.sha || github.sha }}
 
       - name: Setup Node
         uses: actions/setup-node@v4
