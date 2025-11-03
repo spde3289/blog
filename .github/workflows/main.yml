@@ -1,7 +1,7 @@
 name: Build → (PR이면 머지) → Vercel Prod 배포
 
 on:
-  pull_request:
+  push:
     branches: ["master"]
 
 permissions:
@@ -37,29 +37,6 @@ jobs:
 
       - name: Build (app build)
         run: yarn build
-
-  # PR일 때만: CI 통과하면 자동 머지 → Prod 배포
-  pr_merge_and_deploy_prod:
-    name: (PR) 머지 후 Vercel Prod 배포
-    needs: ci
-    runs-on: ubuntu-latest
-
-    env:
-      VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
-      VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
-      VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
-    steps:
-      - name: Merge PR
-        uses: actions/github-script@v7
-        with:
-          script: |
-            const { owner, repo } = context.repo;
-            const number = context.payload.pull_request.number;
-            await github.rest.pulls.merge({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              pull_number: number,
-            })
 
       # 머지 직후 master 최신 기준으로 Prod 배포 (prebuilt 순서)
       - name: Checkout master
