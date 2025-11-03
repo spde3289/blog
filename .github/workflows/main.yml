@@ -1,29 +1,32 @@
-name: PR 빌드 → 머지 → Vercel 배포
+# .github/workflows/build-merge-deploy-prod.yml
+name: Build → (PR이면 머지) → Vercel Prod 배포
 
 on:
   push:
-    branches: master
+    branches: [ master ]        
   pull_request:
-    branches:  master 
+    branches: [ master ]       
+    types: [opened, reopened, synchronize, ready_for_review]
 
 permissions:
-  contents: write          # merge 후 push/checkout 등에 필요
-  pull-requests: write     # PR merge 권한
+  contents: write                 # 머지/체크아웃에 필요
+  pull-requests: write            # PR 머지 권한
 
 concurrency:
-  group: pr-to-master
+  group: prod-${{ github.event_name }}-${{ github.ref || github.event.pull_request.head.ref }}
   cancel-in-progress: true
 
 jobs:
+  # 공통 CI: push/PR 모두 빌드 (드래프트 PR은 스킵)
   ci:
-    name: PR CI (lint/build)
+    name: CI (lint/build)
     runs-on: ubuntu-latest
-    if: ${{ !github.event.pull_request.draft }}   # 드래프트 PR은 스킵
+    if: ${{ github.event_name == 'push' || !github.event.pull_request.draft }}
     steps:
-      - name: Checkout PR head
+      - name: Checkout target
         uses: actions/checkout@v4
         with:
-          ref: ${{ github.event.pull_request.head.sha }}
+          ref: ${{ github.event_name == 'pull_request' && github.event.pull_request.head.sha || github.sha }}
 
       - name: Setup Node
         uses: actions/setup-node@v4
@@ -37,15 +40,16 @@ jobs:
       - name: Lint
         run: yarn lint
 
-      - name: Build
+      - name: Build (app build)
         run: yarn build
 
-  merge_and_deploy:
-    name: Merge PR → Deploy to Vercel (prod)
+  # PR일 때만: CI 통과하면 자동 머지 → Prod 배포
+  pr_merge_and_deploy_prod:
+    name: (PR) 머지 후 Vercel Prod 배포
     needs: ci
     runs-on: ubuntu-latest
-    # 포크 PR이면 시크릿이 없으므로 자동 머지/배포 금지
     if: >
+      github.event_name == 'pull_request' &&
       github.event.pull_request.base.ref == 'master' &&
       github.event.pull_request.head.repo.full_name == github.repository &&
       !github.event.pull_request.draft
@@ -60,33 +64,53 @@ jobs:
           script: |
             const { owner, repo } = context.repo;
             const number = context.payload.pull_request.number;
-
-            // 머지 시도 (필요시 'merge' | 'rebase'로 변경)
             await github.rest.pulls.merge({
               owner, repo, pull_number: number, merge_method: 'squash'
             });
 
-      # 머지 직후 master 최신 커밋을 체크아웃
+      # 머지 직후 master 최신 기준으로 Prod 배포 (prebuilt 순서)
       - name: Checkout master
         uses: actions/checkout@v4
         with:
           ref: master
           fetch-depth: 0
 
-      - name: Setup Node
-        uses: actions/setup-node@v4
+      - name: Install Vercel CLI
+        run: npm i -g vercel@latest
+
+      - name: Pull Vercel env (production)
+        run: vercel pull --yes --environment=production --token "${VERCEL_TOKEN}"
+
+      - name: Vercel build (production)
+        run: vercel build --prod --token "${VERCEL_TOKEN}"
+
+      - name: Deploy to Vercel (Production, prebuilt)
+        run: vercel deploy --prebuilt --prod --token "${VERCEL_TOKEN}"
+
+  # master로 직접 push된 경우: Prod 배포
+  push_deploy_prod:
+    name: (push) Vercel Prod 배포
+    needs: ci
+    runs-on: ubuntu-latest
+    if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/master' }}
+    env:
+      VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+      VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+      VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+    steps:
+      - uses: actions/checkout@v4
         with:
-          node-version: 20
-          cache: yarn
+          ref: master
+          fetch-depth: 0
 
       - name: Install Vercel CLI
         run: npm i -g vercel@latest
 
       - name: Pull Vercel env (production)
-        run: vercel pull --yes --environment=production --token "$VERCEL_TOKEN"
+        run: vercel pull --yes --environment=production --token "${VERCEL_TOKEN}"
 
       - name: Vercel build (production)
-        run: vercel build --prod --token "$VERCEL_TOKEN"
+        run: vercel build --prod --token "${VERCEL_TOKEN}"
 
       - name: Deploy to Vercel (Production, prebuilt)
-        run: vercel deploy --prebuilt --prod --token "$VERCEL_TOKEN"
+        run: vercel deploy --prebuilt --prod --token "${VERCEL_TOKEN}"
