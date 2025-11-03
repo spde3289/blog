@@ -3,11 +3,11 @@ name: AddPost → Default PR 자동 생성
 on:
   push:
     branches:
-      - addPost  # addPost에 push될 때만 실행
+      - addPost # addPost에 push될 때만 실행
 
 permissions:
-  contents: write          # 코드 접근용
-  pull-requests: write     # PR 생성 권한
+  contents: write # 코드 접근용
+  pull-requests: write # PR 생성 권한
 
 concurrency:
   group: addPost-ci
@@ -29,7 +29,7 @@ jobs:
 
       - name: Lint
         run: yarn lint
-        
+
       - name: Build
         run: yarn build
 
