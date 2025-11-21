@@ -83,8 +83,7 @@ jobs:
           tag: ${{ env.TAG }}
           name: Release ${{ env.TAG }}
           body: ${{ steps.tag_version.outputs.changelog || steps.tag_version_auto.outputs.changelog }}
-          artifacts: build-$TAG.zip
+          artifacts: build-${{ env.TAG }}.zip
           artifactContentType: raw
           makeLatest: true
           token: ${{ secrets.TOKEN }}
-
