@@ -65,6 +65,9 @@ jobs:
           echo "TAG=$TAG" >> $GITHUB_ENV
           echo "Using TAG=$TAG"
 
+      - name: Build
+        run: yarn build --profile
+
       - name: Archive prebuilt output
         run: zip -r "build-$TAG.zip" .next
 
