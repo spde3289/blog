@@ -81,8 +81,5 @@ jobs:
       - name: Pull Vercel env (production)
         run: vercel pull --yes --environment=production --token "${VERCEL_TOKEN}"
 
-      # ⚠ zip 안에 뭐가 들어있는지에 따라 여기 옵션이 달라짐
-      # - .next만 들어 있다면: Vercel이 다시 빌드할 거라 그냥 --prod
-      # - .vercel/output 이 들어 있다면: --prebuilt 사용 가능
       - name: Deploy to Vercel (Production)
-        run: vercel deploy --prebuilt --token "${VERCEL_TOKEN}"
+        run: vercel deploy --prebuilt --prod --token "${VERCEL_TOKEN}"
