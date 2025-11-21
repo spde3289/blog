@@ -1,0 +1,53 @@
+name: Deploy Release to Vercel
+
+on:
+  workflow_run:
+    workflows: ["Create release & tag"]
+    types: [completed]
+
+jobs:
+  deploy:
+    name: deploy
+    runs-on: ubuntu-latest
+    env:
+      VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+      VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+      VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+
+    steps:
+      - name: Download tag artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: release-tag
+
+      - name: Read release tag
+        id: tag
+        run: echo "RELEASE_VERSION=$(cat tag.txt)"
+
+      - name: Download prebuilt build artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: prebuilt-build
+
+      - name: Unzip prebuilt build
+        run: |
+          ls -al
+          unzip build-*.zip
+          ls -al .vercel
+
+      - name: Print release version
+        run: echo "Release version is $RELEASE_VERSION"
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          cache: yarn
+
+      - name: Install Vercel CLI
+        run: yarn global add vercel@latest
+
+      - name: Pull Vercel env (production)
+        run: vercel pull --yes --environment=production --token "${VERCEL_TOKEN}"
+
+      - name: Deploy to Vercel (Production, prebuilt)
+        run: vercel deploy --prebuilt --prod --token "${VERCEL_TOKEN}"
