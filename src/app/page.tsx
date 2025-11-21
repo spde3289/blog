@@ -8,6 +8,7 @@ import StackConatiner from "./_components/StackContainer";
 const Home = () => {
   return (
     <main className="flex flex-col items-center bg-gradient-to-b from-[#000000] to-[#313131] noise-before text-[#f3f3f3] pb-40 overflow-hidden">
+      빌드 테스트
       <RandingContent />
       <ProjectPortfolioContainer />
       <InterviewContainer />
