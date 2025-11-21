@@ -43,8 +43,9 @@ jobs:
             -H "X-GitHub-Api-Version: 2022-11-28" \
             "$API")
 
-          # assets 배열에서 name == "build-$TAG.zip" 인 항목의 다운로드 URL 추출
-          URL=$(echo "$JSON" | jq -r '.assets[] | select(.name == "build-'\"$TAG\"'.zip") | .browser_download_url')
+          URL=$(echo "$JSON" | jq -r \
+            --arg NAME "build-$TAG.zip" \
+            '.assets[] | select(.name == $NAME) | .browser_download_url')
 
           if [ -z "$URL" ] || [ "$URL" = "null" ]; then
             echo "❌ build-$TAG.zip 을 릴리즈에서 찾지 못했어."
