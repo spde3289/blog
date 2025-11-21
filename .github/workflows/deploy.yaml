@@ -15,25 +15,27 @@ jobs:
       VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
 
     steps:
-      - name: Download tag artifact
-        uses: actions/download-artifact@v4
-        with:
-          name: release-tag
-
-      - name: Read release tag
-        id: tag
-        run: echo "RELEASE_VERSION=$(cat tag.txt)"
-
+      # 1) 빌드 zip 아티팩트만 받기
       - name: Download prebuilt build artifact
         uses: actions/download-artifact@v4
         with:
           name: prebuilt-build
 
+      # 2) 파일 이름에서 버전 추출 (build-v0.1.4.zip → v0.1.4)
+      - name: Extract release version from artifact name
+        run: |
+          FILE=$(ls build-*.zip)
+          VERSION=${FILE#build-}
+          VERSION=${VERSION%.zip}
+          echo "RELEASE_VERSION=$VERSION" >> $GITHUB_ENV
+          echo "Release version is $RELEASE_VERSION"
+
+      # 3) 압축 풀기
       - name: Unzip prebuilt build
         run: |
           ls -al
           unzip build-*.zip
-          ls -al .vercel
+          ls -al
 
       - name: Print release version
         run: echo "Release version is $RELEASE_VERSION"
