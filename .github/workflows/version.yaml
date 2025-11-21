@@ -71,35 +71,12 @@ jobs:
           echo "TAG=$TAG" >> $GITHUB_ENV
           echo "Using TAG=$TAG"
 
-      # 🔥 여기부터 .vercel/output 빌드 플로우
-      - name: Install Vercel CLI
-        run: yarn global add vercel@latest
-
-      - name: Pull Vercel env (production)
-        run: vercel pull --yes --environment=production --token "${VERCEL_TOKEN}"
-
-      - name: Vercel build (production)
-        run: vercel build --prod --token "${VERCEL_TOKEN}"
-
-      # 🔥 .vercel/output 을 zip으로 묶기
-      - name: Archive prebuilt output
-        run: |
-          ls -R .vercel || echo ".vercel directory not found"
-          zip -r "build-${TAG}.zip" .vercel/output
-
-      - name: Upload prebuilt build as artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: prebuilt-build
-          path: build-${{ env.TAG }}.zip
-
       - name: Create a GitHub release
         uses: ncipollo/release-action@v1
         with:
           tag: ${{ env.TAG }}
           name: Release ${{ env.TAG }}
           body: ${{ steps.tag_version.outputs.changelog || steps.tag_version_auto.outputs.changelog }}
-          artifacts: build-${{ env.TAG }}.zip
           artifactContentType: raw
           makeLatest: true
           token: ${{ secrets.TOKEN }}

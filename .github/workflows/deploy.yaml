@@ -13,14 +13,10 @@ jobs:
       VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout release source
+        uses: actions/checkout@v4
         with:
           ref: ${{ github.event.release.tag_name }}
-
-      - name: Set TAG env
-        run: |
-          echo "TAG=${{ github.event.release.tag_name }}" >> $GITHUB_ENV
-          echo "TAG=${{ github.event.release.tag_name }}"
 
       - name: Setup Node
         uses: actions/setup-node@v4
@@ -31,53 +27,14 @@ jobs:
       - name: Install dependencies
         run: yarn install --frozen-lockfile
 
-      - name: Download build zip from release assets
-        run: |
-          OWNER="${GITHUB_REPOSITORY%/*}"
-          REPO="${GITHUB_REPOSITORY#*/}"
-          TAG="${TAG}"
-
-          echo "Owner: $OWNER"
-          echo "Repo : $REPO"
-          echo "Tag  : $TAG"
-
-          API="https://api.github.com/repos/$OWNER/$REPO/releases/tags/$TAG"
-
-          JSON=$(curl -sSL \
-            -H "Authorization: Bearer ${{ secrets.TOKEN }}" \
-            -H "X-GitHub-Api-Version: 2022-11-28" \
-            "$API")
-
-          URL=$(echo "$JSON" | jq -r \
-            --arg NAME "build-$TAG.zip" \
-            '.assets[] | select(.name == $NAME) | .browser_download_url')
-
-          if [ -z "$URL" ] || [ "$URL" = "null" ]; then
-            echo "❌ build-$TAG.zip 을 릴리즈에서 찾지 못했어."
-            exit 1
-          fi
-
-          echo "Download URL: $URL"
-
-          curl -L \
-            -H "Authorization: Bearer ${{ secrets.TOKEN }}" \
-            "$URL" \
-            -o "build-$TAG.zip"
-
-          echo "Downloaded build-$TAG.zip"
-          ls -al
-
-      - name: Unzip build
-        run: |
-          unzip "build-$TAG.zip"
-          echo "After unzip:"
-          ls -R
-
       - name: Install Vercel CLI
         run: yarn global add vercel@latest
 
       - name: Pull Vercel env (production)
         run: vercel pull --yes --environment=production --token "${VERCEL_TOKEN}"
+
+      - name: Vercel build (production)
+        run: vercel build --prod --token "${VERCEL_TOKEN}"
 
       - name: Deploy to Vercel (Production, prebuilt)
         run: vercel deploy --prebuilt --prod --token "${VERCEL_TOKEN}"
