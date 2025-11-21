@@ -1,0 +1,51 @@
+name: Create release & tag
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          cache: "yarn"
+          cache-dependency-path: |
+            **/yarn.lock
+
+      - name: Bump version and push tag
+        id: tag_version
+        uses: mathieudutour/github-tag-action@v6.2
+        with:
+          github_token: ${{ secrets.TOKEN }}
+
+      - name: Build
+        run: yarn build --profile
+
+      - name: Archive prebuilt output
+        run: |
+          zip -r build-${{ steps.tag_version.outputs.new_tag }}.zip .vercel/output
+
+      - name: Upload prebuilt build as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: prebuilt-build
+          path: build-${{ steps.tag_version.outputs.new_tag }}.zip
+
+      - name: Create a GitHub release
+        uses: ncipollo/release-action@v1
+        with:
+          tag: ${{ steps.tag_version.outputs.new_tag }}
+          name: Release ${{ steps.tag_version.outputs.new_tag }}
+          body: ${{ steps.tag_version.outputs.changelog }}
+          artifacts: build-${{ steps.tag_version.outputs.new_tag }}.zip
+          artifactContentType: raw
+          makeLatest: true
+          token: ${{ secrets.TOKEN }}
