@@ -59,26 +59,29 @@ jobs:
           tag_prefix: v
           release_branches: master,main
 
-      - name: Build
-        run: yarn build --profile
+      - name: Set TAG env
+        run: |
+          TAG="${{ steps.tag_version.outputs.new_tag || steps.tag_version_auto.outputs.new_tag }}"
+          echo "TAG=$TAG" >> $GITHUB_ENV
+          echo "Using TAG=$TAG"
 
       - name: Archive prebuilt output
-        run: |
-          zip -r build-${{ steps.tag_version.outputs.new_tag || steps.tag_version_auto.outputs.new_tag }}.zip .next
+        run: zip -r "build-$TAG.zip" .next
 
       - name: Upload prebuilt build as artifact
         uses: actions/upload-artifact@v4
         with:
           name: prebuilt-build
-          path: build-${{ steps.tag_version.outputs.new_tag || steps.tag_version_auto.outputs.new_tag }}.zip
+          path: build-$TAG.zip
 
       - name: Create a GitHub release
         uses: ncipollo/release-action@v1
         with:
-          tag: ${{ steps.tag_version.outputs.new_tag || steps.tag_version_auto.outputs.new_tag }}
-          name: Release ${{ steps.tag_version.outputs.new_tag || steps.tag_version_auto.outputs.new_tag }}
+          tag: ${{ env.TAG }}
+          name: Release ${{ env.TAG }}
           body: ${{ steps.tag_version.outputs.changelog || steps.tag_version_auto.outputs.changelog }}
-          artifacts: build-${{ steps.tag_version.outputs.new_tag }}.zip
+          artifacts: build-$TAG.zip
           artifactContentType: raw
           makeLatest: true
           token: ${{ secrets.TOKEN }}
+
