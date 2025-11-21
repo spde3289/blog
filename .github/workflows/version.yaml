@@ -20,11 +20,42 @@ jobs:
           cache-dependency-path: |
             **/yarn.lock
 
-      - name: Bump version and push tag
+      - name: Extract version from commit message
+        id: version
+        run: |
+          msg=$(git log -1 --pretty=%B)
+          echo "Commit message: $msg"
+
+          # v0.0.0 / V0.0.0 둘 다 잡도록
+          if [[ $msg =~ ([vV][0-9]+\.[0-9]+\.[0-9]+) ]]; then
+            ver="${BASH_REMATCH[1]}"
+            # 통일해서 소문자 v로 쓰고 싶으면:
+            ver="${ver,,}" # V0.0.0 -> v0.0.0 (bash 소문자 변환)
+            echo "Found version: $ver"
+            echo "version=$ver" >> $GITHUB_OUTPUT
+          else
+            echo "No explicit version found in commit message"
+            echo "version=" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Bump version and push tag (use version from commit)
+        if: ${{ steps.version.outputs.version != '' }}
         id: tag_version
         uses: mathieudutour/github-tag-action@v6.2
         with:
           github_token: ${{ secrets.TOKEN }}
+          custom_tag: ${{ steps.version.outputs.version }}
+          tag_prefix: ""
+
+      - name: Bump version and push tag (auto)
+        if: ${{ steps.version.outputs.version == '' }}
+        id: tag_version_auto
+        uses: mathieudutour/github-tag-action@v6.2
+        with:
+          github_token: ${{ secrets.TOKEN }}
+          default_bump: patch
+          tag_prefix: v
+          release_branches: master,main
 
       - name: Build
         run: yarn build --profile
@@ -42,9 +73,9 @@ jobs:
       - name: Create a GitHub release
         uses: ncipollo/release-action@v1
         with:
-          tag: ${{ steps.tag_version.outputs.new_tag }}
-          name: Release ${{ steps.tag_version.outputs.new_tag }}
-          body: ${{ steps.tag_version.outputs.changelog }}
+          tag: ${{ steps.tag_version.outputs.new_tag || steps.tag_version_auto.outputs.new_tag }}
+          name: Release ${{ steps.tag_version.outputs.new_tag || steps.tag_version_auto.outputs.new_tag }}
+          body: ${{ steps.tag_version.outputs.changelog || steps.tag_version_auto.outputs.changelog }}
           artifacts: build-${{ steps.tag_version.outputs.new_tag }}.zip
           artifactContentType: raw
           makeLatest: true

@@ -26,5 +26,5 @@ jobs:
       - name: ESLint Check
         run: yarn lint
 
-      - name: Build React
+      - name: Build next
         run: yarn build --profile
