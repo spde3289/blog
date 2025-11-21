@@ -11,8 +11,14 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+      VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+      VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+
     steps:
       - uses: actions/checkout@v4
+
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
@@ -65,11 +71,21 @@ jobs:
           echo "TAG=$TAG" >> $GITHUB_ENV
           echo "Using TAG=$TAG"
 
-      - name: Build
-        run: yarn build --profile
+      # 🔥 여기부터 .vercel/output 빌드 플로우
+      - name: Install Vercel CLI
+        run: yarn global add vercel@latest
 
+      - name: Pull Vercel env (production)
+        run: vercel pull --yes --environment=production --token "${VERCEL_TOKEN}"
+
+      - name: Vercel build (production)
+        run: vercel build --prod --token "${VERCEL_TOKEN}"
+
+      # 🔥 .vercel/output 을 zip으로 묶기
       - name: Archive prebuilt output
-        run: zip -r build-${{ env.TAG }}.zip .next
+        run: |
+          ls -R .vercel || echo ".vercel directory not found"
+          zip -r "build-${TAG}.zip" .vercel/output
 
       - name: Upload prebuilt build as artifact
         uses: actions/upload-artifact@v4
