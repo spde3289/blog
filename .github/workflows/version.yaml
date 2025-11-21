@@ -69,13 +69,13 @@ jobs:
         run: yarn build --profile
 
       - name: Archive prebuilt output
-        run: zip -r "build-$TAG.zip" .next
+        run: zip -r build-${{ env.TAG }}.zip .next
 
       - name: Upload prebuilt build as artifact
         uses: actions/upload-artifact@v4
         with:
           name: prebuilt-build
-          path: build-$TAG.zip
+          path: build-${{ env.TAG }}.zip
 
       - name: Create a GitHub release
         uses: ncipollo/release-action@v1
