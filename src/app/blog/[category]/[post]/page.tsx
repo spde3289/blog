@@ -1,4 +1,8 @@
-import { getPost, getPostList } from "@/lib/sever/getBlogData";
+import {
+  getPostContent,
+  getPostList,
+  getPostMeta,
+} from "@/lib/sever/getBlogData";
 import { Metadata } from "next";
 import PostContainer from "./_components/PostContainer";
 
@@ -11,7 +15,7 @@ export async function generateMetadata({
 }: PageProps): Promise<Metadata> {
   const { category, post } = await params;
 
-  const postData = getPost(category, post);
+  const postData = getPostMeta(category, post);
 
   if (!postData) {
     return {
@@ -56,7 +60,8 @@ export function generateStaticParams() {
 export default async function PostPage({ params }: PageProps) {
   const { category, post } = await params;
 
-  const { metadata, content } = getPost(category, post);
+  const { metadata, content } = getPostMeta(category, post);
+  const contentHtml = getPostContent(content);
 
-  return <PostContainer metadata={metadata} contentHtml={content} />;
+  return <PostContainer metadata={metadata} contentHtml={contentHtml} />;
 }
