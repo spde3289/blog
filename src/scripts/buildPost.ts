@@ -1,12 +1,12 @@
 import { writeFileUtf8 } from "@/lib/fsUtils";
-import { mdToHtml, parseFrontMatter } from "@/lib/md";
+import { mdToHtml, parseMarkdownFile } from "@/lib/md";
 import { CONTENT_DIR, POSTS_OUT_ROOT } from "@/lib/paths";
 import { forEachMdInCategories } from "@/lib/readers";
 import path from "path";
 
 const buildAllPostsJson = async () => {
   await forEachMdInCategories(CONTENT_DIR, async ({ category, filePath }) => {
-    const { content, slug } = parseFrontMatter(filePath);
+    const { content, slug } = parseMarkdownFile(filePath);
 
     const html = await mdToHtml(content);
     writeFileUtf8(path.join(POSTS_OUT_ROOT, category, `${slug}.html`), html);

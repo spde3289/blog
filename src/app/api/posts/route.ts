@@ -15,6 +15,10 @@ export const GET = async (request: NextRequest) => {
       headers: { "Content-Type": "text/html; charset=utf-8" },
     });
   } catch (error) {
-    return new Response("해당 경로를 찾을 수 없어요", { status: 404 });
+    if (error instanceof Error) {
+      return new Response(error.message, { status: 500 });
+    }
+
+    return new Response("알 수 없는 에러가 발생했어요", { status: 500 });
   }
 };

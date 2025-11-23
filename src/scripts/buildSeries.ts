@@ -1,5 +1,5 @@
 import { writeFileUtf8 } from "@/lib/fsUtils";
-import createPost, { parseFrontMatter } from "@/lib/md";
+import createPost, { parseMarkdownFile } from "@/lib/md";
 import { CONTENT_DIR, SERIES_JSON_PATH } from "@/lib/paths";
 import { forEachMdInCategories } from "@/lib/readers";
 import type { SeriesGroup } from "@/types/posts.types";
@@ -8,7 +8,7 @@ const buildSeriesJson = async () => {
   const groups = new Map<string, SeriesGroup>();
 
   await forEachMdInCategories(CONTENT_DIR, async ({ category, filePath }) => {
-    const { data } = parseFrontMatter(filePath);
+    const { data } = parseMarkdownFile(filePath);
 
     const series =
       typeof data.series === "string" && data.series.trim().length > 0
