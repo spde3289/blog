@@ -9,13 +9,14 @@ const buildPostMetaJson = async () => {
     CONTENT_DIR,
     async ({ category, filePath, fileName }) => {
       const post = await createPost(category, filePath);
+      const slug = fileName.replace(/\.md$/i, "");
 
       writeFileUtf8(
-        path.join(POSTS_JSON_PATH, category, `${fileName}.json`),
+        path.join(POSTS_JSON_PATH, category, `${slug}.json`),
         JSON.stringify(post, null, 2)
       );
 
-      console.log(`🎉${category} ${fileName}.json 파일 생성 완료`);
+      console.log(`🎉${category} ${slug}.json 파일 생성 완료`);
     }
   );
 };

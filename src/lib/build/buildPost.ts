@@ -5,20 +5,14 @@ import { forEachMdInCategories } from "../readers.js";
 import { mdToHtml, parseFrontMatter } from "./md.js";
 
 const buildAllPostsJson = async () => {
-  await forEachMdInCategories(
-    CONTENT_DIR,
-    async ({ category, filePath, fileName }) => {
-      const { content } = parseFrontMatter(filePath);
+  await forEachMdInCategories(CONTENT_DIR, async ({ category, filePath }) => {
+    const { content, slug } = parseFrontMatter(filePath);
 
-      const html = await mdToHtml(content);
-      writeFileUtf8(
-        path.join(POSTS_OUT_ROOT, category, `${fileName}.html`),
-        html
-      );
+    const html = await mdToHtml(content);
+    writeFileUtf8(path.join(POSTS_OUT_ROOT, category, `${slug}.html`), html);
 
-      console.log(`🎉${category} ${fileName}.html 파일 생성 완료`);
-    }
-  );
+    console.log(`🎉${category} ${slug}.html 파일 생성 완료`);
+  });
 };
 
 buildAllPostsJson().catch((e) => {
