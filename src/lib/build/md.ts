@@ -38,7 +38,7 @@ const createPost = async (category: string, filePath: string) => {
   const { slug, data, content } = parseFrontMatter(filePath);
   const metadata = createMetadata(data, content);
 
-  const postHtml = await mdToHtml(content);
+  const categoryOutDir = path.join(category, `${slug}.html`);
   const href = `/blog/${category}/${slug}`;
   const excerpt = content.slice(0, 200);
 
@@ -46,7 +46,7 @@ const createPost = async (category: string, filePath: string) => {
     category,
     href,
     metadata,
-    content: postHtml,
+    content: categoryOutDir,
     excerpt,
   };
 };

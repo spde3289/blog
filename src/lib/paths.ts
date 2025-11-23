@@ -11,4 +11,4 @@ export const POSTS_OUT_ROOT = path.join(
 export const META_OUT_DIR = path.join(process.cwd(), "src/content/build/meta");
 export const CATEGORY_JSON_PATH = path.join(META_OUT_DIR, "category.json");
 export const SERIES_JSON_PATH = path.join(META_OUT_DIR, "series.json");
-export const POSTS_JSON_PATH = path.join(META_OUT_DIR, "posts.json");
+export const POSTS_JSON_PATH = path.join(META_OUT_DIR, "/posts");
