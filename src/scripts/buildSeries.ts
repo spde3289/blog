@@ -1,8 +1,8 @@
-import { writeFileUtf8 } from "../fsUtils.js";
-import { CONTENT_DIR, SERIES_JSON_PATH } from "../paths.js";
-import { forEachMdInCategories } from "../readers.js";
-import type { SeriesGroup } from "../types.js";
-import createPost, { parseFrontMatter } from "./md.js";
+import { writeFileUtf8 } from "@/lib/fsUtils";
+import createPost, { parseFrontMatter } from "@/lib/md";
+import { CONTENT_DIR, SERIES_JSON_PATH } from "@/lib/paths";
+import { forEachMdInCategories } from "@/lib/readers";
+import type { SeriesGroup } from "@/types/posts.types";
 
 const buildSeriesJson = async () => {
   const groups = new Map<string, SeriesGroup>();

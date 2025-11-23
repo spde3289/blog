@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
-    "prebuild": "tsx src/lib/build/buildPostMeta.ts && tsx src/lib/build/buildPost.ts && tsx src/lib/build/buildSeries.ts && tsx src/lib/build/buildCategory.ts",
+    "prebuild": "tsx src/scripts/buildPostMeta.ts && tsx src/scripts/buildPost.ts && tsx src/scripts/buildSeries.ts && tsx src/scripts/buildCategory.ts",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"

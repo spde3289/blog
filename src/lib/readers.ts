@@ -1,8 +1,5 @@
 import path from "path";
-import { isFile, listDirs, listFilesByExt } from "./fsUtils.js";
-
-/** 콘텐츠 루트에서 카테고리(디렉터리) 목록 */
-export const readCategories = (root: string): string[] => listDirs(root);
+import { isFile, listDirs, listFilesByExt } from "./fsUtils";
 
 /** 카테고리/파일 단위 순회 헬퍼 */
 export const forEachMdInCategories = async (
@@ -13,7 +10,7 @@ export const forEachMdInCategories = async (
     fileName: string;
   }) => Promise<void> | void
 ) => {
-  const categories = readCategories(root);
+  const categories = listDirs(root);
 
   for (const category of categories) {
     const categoryPath = path.join(root, category);

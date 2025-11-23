@@ -1,10 +1,10 @@
+import type { PostMetaData } from "@/types/posts.types";
 import fs from "fs";
 import matter from "gray-matter";
 import path from "path";
 import { remark } from "remark";
 import gfm from "remark-gfm";
 import html from "remark-html";
-import type { PostMetaData } from "../types.js";
 
 /** 첫 번째 마크다운 이미지 → 썸네일 경로 추출 */
 export const extractThumbnail = (markdown: string): string => {

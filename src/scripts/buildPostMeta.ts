@@ -1,8 +1,8 @@
+import { writeFileUtf8 } from "@/lib/fsUtils";
+import createPost from "@/lib/md";
+import { CONTENT_DIR, POSTS_JSON_PATH } from "@/lib/paths";
+import { forEachMdInCategories } from "@/lib/readers";
 import path from "path";
-import { writeFileUtf8 } from "../fsUtils.js";
-import { CONTENT_DIR, POSTS_JSON_PATH } from "../paths.js";
-import { forEachMdInCategories } from "../readers.js";
-import createPost from "./md.js";
 
 const buildPostMetaJson = async () => {
   await forEachMdInCategories(

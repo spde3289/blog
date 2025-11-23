@@ -1,7 +1,7 @@
 import HighlightCode from "@/components/HighlightCode";
 import HighlightText from "@/components/HighlightText";
-import { Post } from "@/lib/types";
 import ArrowHeadSVG from "@/svg/ArrowHeadSVG";
+import type { Post } from "@/types/posts.types";
 import { useState } from "react";
 
 interface ArticleViewPostProps {

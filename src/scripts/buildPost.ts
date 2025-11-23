@@ -1,8 +1,8 @@
+import { writeFileUtf8 } from "@/lib/fsUtils";
+import { mdToHtml, parseFrontMatter } from "@/lib/md";
+import { CONTENT_DIR, POSTS_OUT_ROOT } from "@/lib/paths";
+import { forEachMdInCategories } from "@/lib/readers";
 import path from "path";
-import { writeFileUtf8 } from "../fsUtils.js";
-import { CONTENT_DIR, POSTS_OUT_ROOT } from "../paths.js";
-import { forEachMdInCategories } from "../readers.js";
-import { mdToHtml, parseFrontMatter } from "./md.js";
 
 const buildAllPostsJson = async () => {
   await forEachMdInCategories(CONTENT_DIR, async ({ category, filePath }) => {

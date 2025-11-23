@@ -1,11 +1,11 @@
 "use client";
 
 import useDebouncedValue from "@/hooks/useDebouncedValue";
-import { CategoryList, Post } from "@/lib/types";
 import ArrowHeadSVG from "@/svg/ArrowHeadSVG";
 import ArticleSVG from "@/svg/ArticleSVG";
 import ListSVG from "@/svg/ListSVG";
 import SearchSVG from "@/svg/SearchSVG";
+import type { CategoryList, Post } from "@/types/posts.types";
 import { useCallback, useMemo, useState } from "react";
 import PostSectionHeader from "./PostSectionHeader";
 import PostSectionMain from "./PostSectionMain";

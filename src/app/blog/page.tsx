@@ -2,7 +2,7 @@ import {
   getCategoryList,
   getPostList,
   getSeriesGroups,
-} from "@/lib/sever/getBlogData";
+} from "@/lib/client/getBlogData";
 import PostSection from "./_components/PostSection";
 import SeriesAside from "./_components/SeriesAside";
 

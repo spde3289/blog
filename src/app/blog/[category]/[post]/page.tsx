@@ -2,7 +2,7 @@ import {
   getPostContent,
   getPostList,
   getPostMeta,
-} from "@/lib/sever/getBlogData";
+} from "@/lib/client/getBlogData";
 import { Metadata } from "next";
 import PostContainer from "./_components/PostContainer";
 

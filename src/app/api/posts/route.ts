@@ -1,4 +1,4 @@
-import { getPostContent } from "@/lib/sever/getBlogData";
+import { getPostContent } from "@/lib/client/getBlogData";
 import type { NextRequest } from "next/server";
 
 export const GET = async (request: NextRequest) => {

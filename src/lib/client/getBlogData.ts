@@ -1,3 +1,4 @@
+import type { CategoryList, Post, SeriesGroup } from "@/types/posts.types";
 import fs from "fs";
 import path from "path";
 import {
@@ -6,7 +7,6 @@ import {
   POSTS_OUT_ROOT,
   SERIES_JSON_PATH,
 } from "../paths";
-import { CategoryList, Post, SeriesGroup } from "../types";
 
 export const getPostMeta = (category: string, post: string): Post => {
   const filePath = path.join(POSTS_JSON_PATH, category, `${post}.json`); // 카테고리 폴더에서 파일 찾기
