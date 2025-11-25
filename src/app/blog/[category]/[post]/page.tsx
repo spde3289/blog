@@ -1,4 +1,8 @@
-import { getPost, getPostList } from "@/lib/sever/getBlogData";
+import {
+  getPostContent,
+  getPostList,
+  getPostMeta,
+} from "@/lib/client/getBlogData";
 import { Metadata } from "next";
 import PostContainer from "./_components/PostContainer";
 
@@ -11,7 +15,7 @@ export async function generateMetadata({
 }: PageProps): Promise<Metadata> {
   const { category, post } = await params;
 
-  const postData = getPost(category, post);
+  const postData = getPostMeta(category, post);
 
   if (!postData) {
     return {
@@ -28,7 +32,7 @@ export async function generateMetadata({
     openGraph: {
       title: metadata.title,
       description: metadata.description || "이 글에 대한 설명이 없습니다.",
-      url: `https://spde3289.dev/${category}/${post}`,
+      url: `https://spde3289.dev/blog/${category}/${post}`,
       type: "article",
       publishedTime: metadata.date,
       images: metadata.image ? [metadata.image] : [],
@@ -56,7 +60,9 @@ export function generateStaticParams() {
 export default async function PostPage({ params }: PageProps) {
   const { category, post } = await params;
 
-  const { metadata, content } = getPost(category, post);
+  const { metadata, htmlFilePath } = getPostMeta(category, post);
 
-  return <PostContainer metadata={metadata} contentHtml={content} />;
+  const contentHtml = getPostContent(htmlFilePath);
+
+  return <PostContainer metadata={metadata} contentHtml={contentHtml} />;
 }

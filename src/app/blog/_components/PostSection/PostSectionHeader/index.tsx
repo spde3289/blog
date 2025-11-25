@@ -1,4 +1,4 @@
-import { CategoryList } from "@/lib/types";
+import type { CategoryList } from "@/types/posts.types";
 import { POSTSECTION_TEXT, Sort } from "..";
 import CategoryModalButton from "./CategoryModalButton";
 import SortModalButton from "./SortModalButton";

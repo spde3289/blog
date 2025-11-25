@@ -1,5 +1,5 @@
 import ModalTriggerButton from "@/components/ModalTriggerButton";
-import { CategoryList } from "@/lib/types";
+import type { CategoryList } from "@/types/posts.types";
 import { memo } from "react";
 import { POSTSECTION_TEXT } from "..";
 
