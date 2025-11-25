@@ -97,7 +97,7 @@ const PostSection = ({ posts, categorys }: PostSectionProps) => {
     if (!q) return byCategory;
 
     return byCategory.filter((p) => {
-      const hay = `${p.metadata.title} ${p.content ?? ""}`.toLowerCase();
+      const hay = `${p.metadata.title} ${p.excerpt ?? ""}`.toLowerCase();
       return hay.includes(q);
     });
   }, [posts, currentCategories, debouncedQuery]);

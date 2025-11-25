@@ -20,7 +20,7 @@ const ArticleViewPost = ({ post, searchText }: ArticleViewPostProps) => {
 
   const handleGetPostContent = async () => {
     setLoading(true);
-    const encoded = encodeURIComponent(post.content);
+    const encoded = encodeURIComponent(post.htmlFilePath);
     const res = await fetch(`/api/posts?pathroot=${encoded}`, {
       cache: "force-cache",
     });

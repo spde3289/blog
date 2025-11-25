@@ -32,7 +32,7 @@ export async function generateMetadata({
     openGraph: {
       title: metadata.title,
       description: metadata.description || "이 글에 대한 설명이 없습니다.",
-      url: `https://spde3289.dev/${category}/${post}`,
+      url: `https://spde3289.dev/blog/${category}/${post}`,
       type: "article",
       publishedTime: metadata.date,
       images: metadata.image ? [metadata.image] : [],
@@ -60,8 +60,9 @@ export function generateStaticParams() {
 export default async function PostPage({ params }: PageProps) {
   const { category, post } = await params;
 
-  const { metadata, content } = getPostMeta(category, post);
-  const contentHtml = getPostContent(content);
+  const { metadata, htmlFilePath } = getPostMeta(category, post);
+
+  const contentHtml = getPostContent(htmlFilePath);
 
   return <PostContainer metadata={metadata} contentHtml={contentHtml} />;
 }

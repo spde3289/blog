@@ -1,21 +1,39 @@
-import { writeFileUtf8 } from "@/lib/fsUtils";
-import { mdToHtml, parseMarkdownFile } from "@/lib/md";
+import { convertMarkdownToHtml, parseMarkdownFrontmatter } from "@/lib/md";
 import { CONTENT_DIR, POSTS_OUT_ROOT } from "@/lib/paths";
-import { forEachMdInCategories } from "@/lib/readers";
+import fs from "fs";
 import path from "path";
 
 const buildAllPostsJson = async () => {
-  await forEachMdInCategories(CONTENT_DIR, async ({ category, filePath }) => {
-    const { content, slug } = parseMarkdownFile(filePath);
+  const dirents = fs.readdirSync(CONTENT_DIR, { withFileTypes: true });
+  const categories = dirents.filter((d) => d.isDirectory()).map((d) => d.name);
 
-    const html = await mdToHtml(content);
-    writeFileUtf8(path.join(POSTS_OUT_ROOT, category, `${slug}.html`), html);
+  for (const category of categories) {
+    const categoryPath = path.join(CONTENT_DIR, category);
 
-    console.log(`🎉${category} ${slug}.html 파일 생성 완료`);
-  });
+    const files = fs.readdirSync(categoryPath, { withFileTypes: true });
+    const mdFiles = files
+      .filter((f) => f.isFile() && f.name.toLowerCase().endsWith(".md"))
+      .map((f) => f.name);
+
+    for (const fileName of mdFiles) {
+      const filePath = path.join(categoryPath, fileName);
+
+      const { content, slug } = parseMarkdownFrontmatter(filePath);
+
+      const html = await convertMarkdownToHtml(content);
+
+      const outPath = path.join(POSTS_OUT_ROOT, category, `${slug}.html`);
+      const outDir = path.dirname(outPath);
+
+      if (!fs.existsSync(outDir)) {
+        fs.mkdirSync(outDir, { recursive: true });
+      }
+
+      fs.writeFileSync(outPath, html, "utf8");
+
+      console.log(`🎉 ${category}/${slug}.html 생성 완료`);
+    }
+  }
 };
 
-buildAllPostsJson().catch((e) => {
-  console.error("❌ Build failed:", e);
-  process.exit(1);
-});
+buildAllPostsJson();

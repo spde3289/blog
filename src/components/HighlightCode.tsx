@@ -1,9 +1,9 @@
 "use client";
 
-import { PostMetaData } from "@/lib/types";
 import "@/styles/github.css";
 import "@/styles/highlight.css";
 import "@/styles/post.css";
+import type { PostMetaData } from "@/types/posts.types";
 import { useEffect } from "react";
 import Highlight from "react-highlight";
 

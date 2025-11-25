@@ -17,8 +17,8 @@ export const getPostMeta = (category: string, post: string): Post => {
   return jsonData;
 };
 
-export const getPostContent = (pathroot: string): string => {
-  const filePath = path.join(POSTS_OUT_ROOT, pathroot);
+export const getPostContent = (htmlFilePath: string): string => {
+  const filePath = path.join(POSTS_OUT_ROOT, htmlFilePath);
   const fileContents = fs.readFileSync(filePath, "utf8");
 
   return fileContents;
@@ -28,7 +28,6 @@ export const getPostList = (): Post[] => {
   const categories = fs.readdirSync(POSTS_JSON_PATH); // content 폴더 내의 모든 카테고리 이름
   const allPosts: Post[] = [];
 
-  // 각 카테고리를 순회하며 파일을 읽어옵니다.
   categories.forEach((category) => {
     const categoryPath = path.join(POSTS_JSON_PATH, category);
 
@@ -48,9 +47,11 @@ export const getPostList = (): Post[] => {
     }
   });
 
-  return allPosts.sort((a, b) => {
+  const sort = allPosts.sort((a, b) => {
     return b.metadata.date.localeCompare(a.metadata.date);
   });
+
+  return sort;
 };
 
 export const getCategoryList = (): CategoryList => {
