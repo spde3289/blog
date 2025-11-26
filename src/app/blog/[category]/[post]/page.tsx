@@ -10,9 +10,9 @@ interface PageProps {
   params: Promise<{ category: string; post: string }>;
 }
 
-export async function generateMetadata({
+export const generateMetadata = async ({
   params,
-}: PageProps): Promise<Metadata> {
+}: PageProps): Promise<Metadata> => {
   const { category, post } = await params;
 
   const postData = getPostMeta(category, post);
@@ -44,9 +44,9 @@ export async function generateMetadata({
       images: metadata.image ? [metadata.image] : [],
     },
   };
-}
+};
 
-export function generateStaticParams() {
+export const generateStaticParams = () => {
   const posts = getPostList();
   return posts.map((post) => {
     const fileName = post.href.split("/");
@@ -55,14 +55,14 @@ export function generateStaticParams() {
       post: fileName[3],
     };
   });
-}
+};
 
-export default async function PostPage({ params }: PageProps) {
+const PostPage = async ({ params }: PageProps) => {
   const { category, post } = await params;
-
   const { metadata, htmlFilePath } = getPostMeta(category, post);
-
   const contentHtml = getPostContent(htmlFilePath);
 
   return <PostContainer metadata={metadata} contentHtml={contentHtml} />;
-}
+};
+
+export default PostPage;

@@ -13,7 +13,6 @@ const Home = () => {
       <ProjectPortfolioContainer />
       <InterviewContainer />
       <EducationContainer />
-      {/* <WorkExpreienceContainer /> */}
       <StackConatiner />
     </main>
   );

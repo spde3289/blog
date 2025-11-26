@@ -43,8 +43,6 @@ const InterviewCard = ({ interview }: InterviewCardProps) => {
           <KeyboardArrowSVG className="size-6 md:size-9 lg:size-12" />
         </span>
       </h3>
-
-      {/* grid 트릭 적용 */}
       <div
         className={` grid transition-[grid-template-rows] duration-300 ease-in-out overflow-hidden ${
           isOpen
