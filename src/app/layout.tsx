@@ -13,11 +13,11 @@ export const metadata: Metadata = {
     "spde3289의 성장을 기록하는 개발 블로그 입니다. 사용자들이 불편함을 느끼는 문제를 빠르게 해결하는 것을 즐기며 다양한 서비스를 운영하고 있습니다.",
 };
 
-export default function RootLayout({
+const RootLayout = ({
   children,
 }: Readonly<{
   children: React.ReactNode;
-}>) {
+}>) => {
   return (
     <html lang="ko">
       <body className={` bg-white dark:bg-neutral-900 dark:text-white/90`}>
@@ -32,4 +32,5 @@ export default function RootLayout({
       </body>
     </html>
   );
-}
+};
+export default RootLayout;

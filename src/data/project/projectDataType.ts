@@ -3,9 +3,9 @@ export default interface ProjectDataInterface {
   date: string;
   types: string[];
   stack: {
-    framework?: string[];
-    library?: string[];
-  };
+    src: string;
+    alt: string;
+  }[];
   discription: string[];
   img: {
     src: string;

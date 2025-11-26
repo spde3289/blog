@@ -3,7 +3,6 @@
 import ImageCard from "@/components/ImageCard";
 import { mapleHelperInfo } from "@/data/project";
 import ProjectDataInterface from "@/data/project/projectDataType";
-import stackItems from "@/data/stack";
 import useElementOnScreen from "@/hooks/useElementOnScreen";
 import ContentsContainer from "./content/ContentsContainer";
 import Title from "./content/Title";
@@ -40,8 +39,8 @@ const ProjectPortfolioCard = ({ info }: ProjectPortfolioProps) => {
             <div className="flex-1">
               <div className="font-medium mb-0.5">스택</div>
               <div className="flex flex-wrap gap-2 max-w-80 w-fit ">
-                {stackItems.map((item) => (
-                  <ImageCard key={item.img.alt} img={item.img} size="size-6" />
+                {info.stack.map((item) => (
+                  <ImageCard key={item.alt} img={item} size="size-6" />
                 ))}
               </div>
             </div>
@@ -71,7 +70,7 @@ const ProjectPortfolioContainer = () => {
       <Title title="프로젝트" />
       <div className="section-item-wrapper flex-col gap-13">
         <ProjectPortfolioCard info={mapleHelperInfo} />
-        <ProjectPortfolioCard info={mapleHelperInfo} />
+        {/* <ProjectPortfolioCard info={mapleHelperInfo} /> */}
       </div>
     </ContentsContainer>
   );

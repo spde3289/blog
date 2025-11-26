@@ -1,7 +1,7 @@
 "use client";
 
-import { SeriesGroup } from "@/lib/types";
 import KeyboardArrowSVG from "@/svg/ArrowHeadSVG";
+import type { SeriesGroup } from "@/types/posts.types";
 import Link from "next/link";
 import { useState } from "react";
 

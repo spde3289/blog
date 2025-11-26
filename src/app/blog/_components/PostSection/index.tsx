@@ -1,11 +1,11 @@
 "use client";
 
 import useDebouncedValue from "@/hooks/useDebouncedValue";
-import { CategoryList, Post } from "@/lib/types";
 import ArrowHeadSVG from "@/svg/ArrowHeadSVG";
 import ArticleSVG from "@/svg/ArticleSVG";
 import ListSVG from "@/svg/ListSVG";
 import SearchSVG from "@/svg/SearchSVG";
+import type { CategoryList, Post } from "@/types/posts.types";
 import { useCallback, useMemo, useState } from "react";
 import PostSectionHeader from "./PostSectionHeader";
 import PostSectionMain from "./PostSectionMain";
@@ -97,7 +97,7 @@ const PostSection = ({ posts, categorys }: PostSectionProps) => {
     if (!q) return byCategory;
 
     return byCategory.filter((p) => {
-      const hay = `${p.metadata.title} ${p.content ?? ""}`.toLowerCase();
+      const hay = `${p.metadata.title} ${p.excerpt ?? ""}`.toLowerCase();
       return hay.includes(q);
     });
   }, [posts, currentCategories, debouncedQuery]);

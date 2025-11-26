@@ -1,6 +1,6 @@
 import HighlightText from "@/components/HighlightText";
-import { Post } from "@/lib/types";
 import ArrowHeadSVG from "@/svg/ArrowHeadSVG";
+import type { Post } from "@/types/posts.types";
 import Link from "next/link";
 import { memo } from "react";
 

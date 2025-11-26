@@ -15,7 +15,7 @@ const Title = ({ style, title, attr }: TitleProps) => {
     <h2
       ref={ref}
       className={`section-title transition-all ${
-        isVisible ? "reveal" : "opacity-0 "
+        isVisible ? "reveal" : "opacity-0"
       } ${style}`}
       {...attr}
     >
