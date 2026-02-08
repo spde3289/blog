@@ -19,6 +19,7 @@
 
 # production
 /build
+/src/content/build
 
 # misc
 .DS_Store

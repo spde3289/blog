@@ -23,10 +23,10 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: "22"
-          cache: "yarn"
+          cache: npm
 
       - name: Install dependencies
-        run: yarn install --frozen-lockfile
+        run: npm ci
 
       - name: Extract version from commit message
         id: version
@@ -34,11 +34,9 @@ jobs:
           msg=$(git log -1 --pretty=%B)
           echo "Commit message: $msg"
 
-          # v0.0.0 / V0.0.0 둘 다 잡도록
           if [[ $msg =~ ([vV][0-9]+\.[0-9]+\.[0-9]+) ]]; then
             ver="${BASH_REMATCH[1]}"
-            # 통일해서 소문자 v로 쓰고 싶으면:
-            ver="${ver,,}" # V0.0.0 -> v0.0.0 (bash 소문자 변환)
+            ver="${ver,,}"
             echo "Found version: $ver"
             echo "version=$ver" >> $GITHUB_OUTPUT
           else
