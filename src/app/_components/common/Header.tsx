@@ -8,7 +8,7 @@ const Header = () => {
       <div className="z-9 flex justify-center items-center flex-col mb-16">
         <h2
           style={{
-            animationDelay: "1.3s", // ← 여기!
+            animationDelay: "1.3s",
           }}
           className="fade-in-project text-4xl md:text-6xl font-bold mb-6 tracking-tight"
         >
