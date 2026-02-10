@@ -1,20 +1,6 @@
 import GithubSvg from "@/svg/GithubSvg";
 import LinkSvg from "@/svg/LinkSvg";
-import { FC, SVGProps } from "react";
-
-export interface ProjectLink {
-  icon: FC<SVGProps<SVGSVGElement>>;
-  link: string;
-}
-
-export interface Project {
-  title: string;
-  period: string;
-  description: string;
-  tech: string[];
-  links: ProjectLink[];
-  image: string;
-}
+import { Project } from "@/types/portfolio";
 
 export const PROJECTS: Project[] = [
   {
