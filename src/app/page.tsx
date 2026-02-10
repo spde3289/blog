@@ -1,20 +1,23 @@
 import "@/styles/home.css";
-import EducationContainer from "./_components/EducationConatiner";
-import InterviewContainer from "./_components/InterviewContainer";
-import ProjectPortfolioContainer from "./_components/ProjectPortfolioContainer";
-import RandingContent from "./_components/RandingContent";
-import StackConatiner from "./_components/StackContainer";
+import Footer from "./_components/common/Footer";
+import Header from "./_components/common/Header";
+import HistorySection from "./_components/HistorySection";
+import InterviewSection from "./_components/InterviewSection";
+import ProjectSection from "./_components/ProjectSection";
+import SkillSection from "./_components/SkillSection";
 
 const Home = () => {
   return (
-    <main className="flex flex-col items-center bg-gradient-to-b from-[#000000] to-[#313131] noise-before text-[#f3f3f3] pb-40 overflow-hidden">
-      빌드 테스트
-      <RandingContent />
-      <ProjectPortfolioContainer />
-      <InterviewContainer />
-      <EducationContainer />
-      <StackConatiner />
-    </main>
+    <div className="min-h-screen bg-[#121212] text-white selection:bg-neutral-700 selection:text-white">
+      <Header />
+      <main className="max-w-6xl mx-auto px-6 space-y-32 pb-32">
+        <ProjectSection />
+        <InterviewSection />
+        <HistorySection />
+        <SkillSection />
+      </main>
+      <Footer />
+    </div>
   );
 };
 
