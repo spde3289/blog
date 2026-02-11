@@ -1,76 +1,76 @@
-import GithubSvg from "@/svg/GithubSvg";
-import LaptopSvg from "@/svg/LaptopSvg";
-import Link from "next/link";
+"use client";
 
-const Header = () => {
+import ThemeToggleButton from "@/components/ThemeToggleButton";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
+
+const Header = ({
+  triggerId = "header-trigger",
+  showWhenVisible = false,
+  rootMargin = "0px 0px 0px 0px",
+  threshold = 0.1,
+}) => {
+  const pathName = usePathname();
+
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const target = document.getElementById(triggerId);
+
+    if (target === null) setVisible(true);
+    if (!target) return; // 페이지에 트리거가 없는 경우 안전하게 무시
+    const io = new IntersectionObserver(
+      (entries) => {
+        const entry = entries[0];
+        // 트리거가 보일 때 표시: showWhenVisible=true
+        // 트리거가 보일 때 숨김: showWhenVisible=false
+        setVisible(
+          showWhenVisible ? entry.isIntersecting : !entry.isIntersecting
+        );
+      },
+      { root: null, rootMargin, threshold }
+    );
+
+    io.observe(target);
+    return () => io.disconnect();
+  }, [triggerId, showWhenVisible, rootMargin, threshold, pathName]);
+
   return (
-    <section className="h-screen w-full relative flex justify-center items-center flex-col">
-      <div className="z-9 flex justify-center items-center flex-col mb-16">
-        <h2
-          style={{
-            animationDelay: "1.3s",
-          }}
-          className="fade-in-project text-4xl md:text-6xl font-bold mb-6 tracking-tight"
+    <header
+      className={[
+        "fixed inset-x-0 top-0 z-999999 max-w-[1500px] m-0 mx-auto h-12 -translate-y-12 ",
+        "backdrop-blur-custom bg-inherit/60",
+        "transition duration-500",
+        visible
+          ? "opacity-100 translate-y-0"
+          : "opacity-0 pointer-events-none -translate-y-12",
+      ].join(" ")}
+    >
+      <div className="px-4 lg:px-6 w-full h-full flex items-center">
+        <nav
+          className={[
+            "flex w-full gap-2 md:gap-4 items-center",
+            pathName === "/" ? "text-white" : "text-gray-dark dark:text-white",
+          ].join(" ")}
         >
-          안녕하세요, <br className="md:hidden" />
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">
-            개발자 김지훈
-          </span>
-          입니다.
-        </h2>
-        <p
-          style={{
-            animationDelay: "1.6s",
-          }}
-          className="fade-in-project ani-delay-1200 text-neutral-200 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed "
-        >
-          1인 개발자로서 다양한 서비스를 개발하고 있습니다.
-        </p>
-        <p
-          style={{
-            animationDelay: "1.8s",
-          }}
-          className="fade-in-project mb-2 ani-delay-1200 text-neutral-200 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed"
-        >
-          직접 기획부터 운영까지 경험을 쌓아왔습니다.
-        </p>
-        <span
-          style={{
-            animationDelay: "2s",
-          }}
-          className="fade-in-project text-white font-semibold text-xl text-center max-md:text-sm max-lg:text-base flex items-center gap-2"
-        >
-          <img
-            className="size-9 lg:size-9"
-            src="/img/common/ic_spde3289.png"
-            alt="지훈 아이콘"
-          />
-          spde3289
-        </span>
+          <Link className="text-xl lg:text-2xl font-bold " href="/">
+            spde3289.dev
+          </Link>
+          <div
+            className={`${
+              pathName === "/"
+                ? "bg-neutral-300/50"
+                : "bg-neutral-300/50 dark:bg-neutral-700"
+            } w-px h-3.5 shrink-0`}
+          ></div>
+          <Link className="text-sm font-bold " href="/blog">
+            Blog
+          </Link>
+        </nav>
+        {pathName !== "/" && <ThemeToggleButton />}
       </div>
-      <div
-        style={{
-          animationDelay: "2.2s",
-        }}
-        className="fade-in-project mt-8 flex justify-center gap-4"
-      >
-        <Link
-          href="https://github.com/spde3289"
-          target="_blank"
-          className="flex items-center gap-2 px-5 py-2 bg-neutral-800 rounded-full hover:bg-neutral-700 transition"
-        >
-          <GithubSvg size={20} /> GitHub
-        </Link>
-        <Link
-          href="/blog"
-          className="flex items-center gap-2 px-5 py-2 bg-neutral-800 rounded-full hover:bg-neutral-700 transition"
-        >
-          <LaptopSvg size={20} /> Blog
-        </Link>
-      </div>
-      <div id="header-trigger"></div>
-    </section>
+    </header>
   );
 };
-
 export default Header;
