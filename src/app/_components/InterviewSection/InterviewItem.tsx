@@ -17,7 +17,7 @@ const InterviewItem = ({ item }: InterviewItemProps) => {
             <ChevronDownSvg />
           </span>
         </summary>
-        <div className="p-6 pt-2 text-neutral-400 leading-relaxed border-t border-neutral-800 animate-fadeIn">
+        <div className="p-6 pt-2 text-neutral-300 leading-relaxed border-t border-neutral-800 whitespace-pre-wrap">
           {item.answer}
         </div>
       </details>
