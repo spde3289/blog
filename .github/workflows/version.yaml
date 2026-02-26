@@ -78,3 +78,7 @@ jobs:
           artifactContentType: raw
           makeLatest: true
           token: ${{ secrets.TOKEN }}
+          allowUpdates: true
+          omitBodyDuringUpdate: true 
+          removeArtifacts: false
+
