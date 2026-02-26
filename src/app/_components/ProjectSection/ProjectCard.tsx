@@ -13,12 +13,12 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
       <div className="relative bg-neutral-800 aspect-video flex items-center justify-center text-neutral-600 overflow-hidden">
         <Image
           fill
-          className="object-cover"
+          quality={100}
+          className="object-cover group-hover:scale-110 transition-all duration-300"
           src={project.image}
           alt={project.title}
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
         />
-        <span className="text-sm">{project.title} 이미지 준비중</span>
       </div>
       <div className="p-6">
         <div className="flex justify-between items-start mb-2">
