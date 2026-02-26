@@ -17,7 +17,7 @@ const InterviewItem = ({ item }: InterviewItemProps) => {
             <ChevronDownSvg />
           </span>
         </summary>
-        <div className="p-5 md:p-6 pt-2 md:pt-2 text-neutral-300 border-t border-neutral-800/50 whitespace-pre-wrap typo-14-body-m md:typo-16-body-m">
+        <div className="p-5 md:p-6 pt-2 md:pt-2 text-neutral-300 border-t border-neutral-800/50 typo-14-body-m md:typo-16-body-m  break-keep whitespace-pre-wrap">
           {item.answer}
         </div>
       </details>

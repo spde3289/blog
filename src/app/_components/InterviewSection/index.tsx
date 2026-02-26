@@ -9,10 +9,9 @@ const InterviewSection = () => {
         animationDelay: "2.8s",
       }}
       id="interview"
-      className="fade-in-project ani-delay-1200 max-w-4xl mx-auto"
+      className="fade-in-project ani-delay-1200 mx-auto"
     >
       <SectionTitle title="인터뷰" subtitle="Interview" />
-
       <div className="space-y-4">
         {INTERVIEWS.map((item, index) => (
           <InterviewItem key={index} item={item} />
