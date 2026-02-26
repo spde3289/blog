@@ -9,8 +9,8 @@ interface ProjectCardProps {
 
 const ProjectCard = ({ project }: ProjectCardProps) => {
   return (
-    <article className="group bg-[#1E1E1E] rounded-xl overflow-hidden border border-neutral-800 hover:border-neutral-600 transition-all duration-300 hover:-translate-y-1">
-      <div className="relative bg-neutral-800 aspect-video flex items-center justify-center text-neutral-600 overflow-hidden">
+    <article className="group flex flex-col h-full bg-[#1E1E1E] rounded-xl overflow-hidden border border-neutral-800 hover:border-neutral-600 transition-all duration-300 hover:-translate-y-1">
+      <div className="relative bg-neutral-800 aspect-video flex items-center justify-center text-neutral-600 overflow-hidden shrink-0">
         <Image
           fill
           quality={100}
@@ -20,24 +20,27 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
         />
       </div>
-      <div className="p-6">
-        <div className="flex justify-between items-start mb-2">
-          <h3 className="text-xl font-bold text-neutral-100">
-            {project.title}
-          </h3>
-          <ProjectLinks links={project.links} />
+      <div className="p-6 flex flex-col flex-1">
+        <div className="flex-1">
+          <div className="flex justify-between items-start mb-2 gap-2">
+            <h3 className="typo-18-b md:typo-20-b text-neutral-100">
+              {project.title}
+            </h3>
+            <ProjectLinks links={project.links} />
+          </div>
+          <p className="typo-13-m text-neutral-500 mb-4 flex items-center gap-1.5">
+            <CalendarDaysSvgProps size={14} />
+            {project.period}
+          </p>
+          <p className="typo-14-body-m md:typo-16-body-m text-neutral-300 break-keep whitespace-pre-wrap">
+            {project.description}
+          </p>
         </div>
-        <p className="text-sm text-neutral-500 mb-4 flex items-center gap-1">
-          <CalendarDaysSvgProps size={14} /> {project.period}
-        </p>
-        <p className="text-neutral-300 text-sm mb-4 line-clamp-2 h-10">
-          {project.description}
-        </p>
-        <div className="flex flex-wrap gap-2">
+        <div className="flex flex-wrap gap-2 pt-4 border-t border-neutral-800/50">
           {project.tech.map((tech) => (
             <span
               key={tech}
-              className="text-xs px-2 py-1 bg-neutral-800 text-neutral-300 rounded border border-neutral-700"
+              className="typo-11-m md:typo-12-m px-2.5 py-1 bg-neutral-800 text-neutral-400 rounded border border-neutral-700/50"
             >
               {tech}
             </span>

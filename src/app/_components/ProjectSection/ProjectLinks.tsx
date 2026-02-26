@@ -19,8 +19,7 @@ const ProjectLinks = ({ links }: ProjectLinksProps) => {
             rel="noopener noreferrer"
             className="relative group/link flex items-center text-neutral-400 hover:text-neutral-100 transition-colors"
           >
-            <Icon width={24} height={24} />
-
+            <Icon width={20} height={20} />
             {item.label && (
               <div className="absolute -top-10 left-1/2 -translate-x-1/2 px-2.5 py-1 bg-neutral-800 text-neutral-200 text-xs font-medium rounded border border-neutral-700 opacity-0 invisible translate-y-1 group-hover/link:translate-y-0 group-hover/link:opacity-100 group-hover/link:visible transition-all duration-200 z-10 whitespace-nowrap shadow-lg pointer-events-none">
                 {item.label}
