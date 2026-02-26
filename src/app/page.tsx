@@ -11,10 +11,10 @@ const Home = () => {
       <main className="min-h-screen bg-[#121212] text-white selection:bg-neutral-700 selection:text-white">
         <LendingSection />
         <div className="max-w-6xl mx-auto px-6 space-y-32 pb-32">
+          <SkillSection />
           <ProjectSection />
           <InterviewSection />
           <HistorySection />
-          <SkillSection />
         </div>
       </main>
     </>

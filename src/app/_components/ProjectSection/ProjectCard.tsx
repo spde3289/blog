@@ -9,21 +9,21 @@ interface ProjectCardProps {
 
 const ProjectCard = ({ project }: ProjectCardProps) => {
   return (
-    <article className="group flex flex-col h-full bg-[#1E1E1E] rounded-xl overflow-hidden border border-neutral-800 hover:border-neutral-600 transition-all duration-300 hover:-translate-y-1">
+    <article className="group relative flex flex-col h-full bg-[#1E1E1E] rounded-xl overflow-hidden border border-neutral-800 hover:border-neutral-600 transition-all duration-300 hover:-translate-y-1">
+      <div className="absolute inset-0 z-10 flex items-center justify-center bg-black/50 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-all duration-300">
+        <div className="bg-neutral-900/80 p-3 rounded-xl border border-white/10 shadow-2xl transform scale-95 group-hover:scale-100 transition-transform duration-300">
+          <ProjectLinks links={project.links} />
+        </div>
+      </div>
       <div className="relative bg-neutral-800 aspect-video flex items-center justify-center text-neutral-600 overflow-hidden shrink-0">
         <Image
           fill
           quality={100}
-          className="object-cover group-hover:scale-110 transition-all duration-300"
+          className="object-cover transition-all duration-500"
           src={project.image}
           alt={project.title}
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
         />
-        <div className="absolute bottom-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-          <div className="bg-black/60 backdrop-blur-md p-2 rounded-lg border border-white/10 shadow-xl">
-            <ProjectLinks links={project.links} />
-          </div>
-        </div>
       </div>
       <div className="p-6 flex flex-col flex-1">
         <div className="flex-1">
