@@ -19,15 +19,17 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
           alt={project.title}
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
         />
+        <div className="absolute bottom-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+          <div className="bg-black/60 backdrop-blur-md p-2 rounded-lg border border-white/10 shadow-xl">
+            <ProjectLinks links={project.links} />
+          </div>
+        </div>
       </div>
       <div className="p-6 flex flex-col flex-1">
         <div className="flex-1">
-          <div className="flex justify-between items-start mb-2 gap-2">
-            <h3 className="typo-18-b md:typo-20-b text-neutral-100">
-              {project.title}
-            </h3>
-            <ProjectLinks links={project.links} />
-          </div>
+          <h3 className="typo-18-b md:typo-20-b text-neutral-100 truncate mb-2">
+            {project.title}
+          </h3>
           <p className="typo-13-m text-neutral-500 mb-4 flex items-center gap-1.5">
             <CalendarDaysSvgProps size={14} />
             {project.period}
@@ -36,7 +38,7 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
             {project.description}
           </p>
         </div>
-        <div className="flex flex-wrap gap-2 pt-4 border-t border-neutral-800/50">
+        <div className="flex flex-wrap gap-2 pt-4 ">
           {project.tech.map((tech) => (
             <span
               key={tech}
