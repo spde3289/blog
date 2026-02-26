@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import plugin from "tailwindcss/plugin"; // 플러그인 임포트 추가
 
 export default {
   content: [
@@ -139,14 +140,14 @@ export default {
         1024: "1024px",
       },
       backdropBlur: {
-        custom: "7px", // 사용자 정의 블러 값
+        custom: "7px",
       },
       backgroundSize: {
         "auto-0.5rem": "auto 0.5rem",
         "auto-0rem": "auto 0rem",
       },
       backdropSaturate: {
-        custom: "180%", // 사용자 정의 채도 값
+        custom: "180%",
       },
       dropShadow: {
         "4xl": [
@@ -195,11 +196,170 @@ export default {
           "0px 1px 2px 0px rgba(16, 24, 40, 0.10), 0px 1px 3px 0px rgba(16, 24, 40, 0.10)",
         tooltip:
           "0px 4px 6px -2px rgba(16, 24, 40, 0.05), -8px 0px 20px 8px rgba(16, 24, 40, 0.05)",
-        "custom-inset": "inset 0 -1px 0 0 var(--eaeaea)", // 사용자 정의 box-shadow
+        "custom-inset": "inset 0 -1px 0 0 var(--eaeaea)",
       },
     },
   },
   plugins: [
-    require("tailwindcss-filters"), // 필터 플러그인 추가
+    require("tailwindcss-filters"),
+
+    // 추가된 타이포그래피 유틸리티 플러그인
+    plugin(function ({ addUtilities }) {
+      const newUtilities = {
+        /* 11px */
+        ".typo-11-m": {
+          fontSize: "11px",
+          fontWeight: "500",
+          lineHeight: "1",
+          letterSpacing: "-0.025em",
+        },
+        ".typo-11-b": {
+          fontSize: "11px",
+          fontWeight: "700",
+          lineHeight: "1",
+          letterSpacing: "-0.025em",
+        },
+
+        /* 12px */
+        ".typo-12-m": {
+          fontSize: "12px",
+          fontWeight: "500",
+          lineHeight: "1",
+          letterSpacing: "-0.025em",
+        },
+        ".typo-12-b": {
+          fontSize: "12px",
+          fontWeight: "700",
+          lineHeight: "1",
+          letterSpacing: "-0.025em",
+        },
+
+        /* 13px */
+        ".typo-13-m": {
+          fontSize: "13px",
+          fontWeight: "500",
+          lineHeight: "1",
+          letterSpacing: "-0.025em",
+        },
+        ".typo-13-b": {
+          fontSize: "13px",
+          fontWeight: "700",
+          lineHeight: "1",
+          letterSpacing: "-0.025em",
+        },
+
+        /* 14px */
+        ".typo-14-m": {
+          fontSize: "14px",
+          fontWeight: "500",
+          lineHeight: "1",
+          letterSpacing: "-0.025em",
+        },
+        ".typo-14-b": {
+          fontSize: "14px",
+          fontWeight: "700",
+          lineHeight: "1",
+          letterSpacing: "-0.025em",
+        },
+
+        /* 16px */
+        ".typo-16-m": {
+          fontSize: "16px",
+          fontWeight: "500",
+          lineHeight: "1",
+          letterSpacing: "-0.025em",
+        },
+        ".typo-16-b": {
+          fontSize: "16px",
+          fontWeight: "700",
+          lineHeight: "1",
+          letterSpacing: "-0.025em",
+        },
+
+        /* 18px */
+        ".typo-18-m": {
+          fontSize: "18px",
+          fontWeight: "500",
+          lineHeight: "1",
+          letterSpacing: "-0.025em",
+        },
+        ".typo-18-b": {
+          fontSize: "18px",
+          fontWeight: "700",
+          lineHeight: "1",
+          letterSpacing: "-0.025em",
+        },
+
+        /* 20px */
+        ".typo-20-m": {
+          fontSize: "20px",
+          fontWeight: "500",
+          lineHeight: "1",
+          letterSpacing: "-0.025em",
+        },
+        ".typo-20-b": {
+          fontSize: "20px",
+          fontWeight: "700",
+          lineHeight: "1",
+          letterSpacing: "-0.025em",
+        },
+
+        /* 24px */
+        ".typo-24-m": {
+          fontSize: "24px",
+          fontWeight: "500",
+          lineHeight: "1",
+          letterSpacing: "-0.025em",
+        },
+        ".typo-24-b": {
+          fontSize: "24px",
+          fontWeight: "700",
+          lineHeight: "1",
+          letterSpacing: "-0.025em",
+        },
+
+        /* 32px */
+        ".typo-32-m": {
+          fontSize: "32px",
+          fontWeight: "500",
+          lineHeight: "1",
+          letterSpacing: "-0.025em",
+        },
+        ".typo-32-b": {
+          fontSize: "32px",
+          fontWeight: "700",
+          lineHeight: "1",
+          letterSpacing: "-0.025em",
+        },
+
+        /* Body 규칙 */
+        ".typo-14-body-m": {
+          fontSize: "14px",
+          fontWeight: "500",
+          lineHeight: "1.4",
+          letterSpacing: "-0.025em",
+        },
+        ".typo-16-body-m": {
+          fontSize: "16px",
+          fontWeight: "500",
+          lineHeight: "1.4",
+          letterSpacing: "-0.025em",
+        },
+        ".typo-18-body-b": {
+          fontSize: "18px",
+          fontWeight: "700",
+          lineHeight: "1.4",
+          letterSpacing: "-0.025em",
+        },
+        ".typo-20-body-b": {
+          fontSize: "20px",
+          fontWeight: "700",
+          lineHeight: "1.6",
+          letterSpacing: "-0.025em",
+        },
+      };
+
+      addUtilities(newUtilities);
+    }),
   ],
 } satisfies Config;

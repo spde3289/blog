@@ -1,8 +1,9 @@
-import Header from "@/components/Header";
+import Header from "@/app/_components/common/Header";
 import ScrollToTopButton from "@/components/ScrolltoTopButton";
 import { ThemeProvider } from "@/contexts/ThemeContext";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import type { Metadata } from "next";
+import Footer from "./_components/common/Footer";
 import "./globals.css";
 
 const GA_ID = process.env.NEXT_PUBLIC_GA_ID;
@@ -27,8 +28,8 @@ const RootLayout = ({
           <Header />
           {children}
           <ScrollToTopButton />
+          <Footer />
         </ThemeProvider>
-        {/* <div id="modal-root" /> */}
       </body>
     </html>
   );
