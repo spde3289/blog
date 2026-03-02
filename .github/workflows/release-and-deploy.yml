@@ -1,11 +1,30 @@
-name: Deploy Release to Vercel
+name: Release and Deploy
 
 on:
-  release:
-    types: [published]
+  push:
+    branches:
+      - master
+
+permissions:
+  contents: write
+  pull-requests: write
 
 jobs:
-  deploy:
+  release-phase:
+    runs-on: ubuntu-latest
+    outputs:
+      release_created: ${{ steps.release.outputs.release_created }}
+      tag_name: ${{ steps.release.outputs.tag_name }}
+    steps:
+      - name: Run Release Please
+        uses: googleapis/release-please-action@v4
+        id: release
+        with:
+          release-type: Node
+
+  deploy-phase:
+    needs: release-phase
+    if: ${{ needs.release-phase.outputs.release_created }}
     runs-on: ubuntu-latest
     env:
       VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
@@ -16,7 +35,7 @@ jobs:
       - name: Checkout release source
         uses: actions/checkout@v4
         with:
-          ref: ${{ github.event.release.tag_name }}
+          ref: ${{ needs.release-phase.outputs.tag_name }}
 
       - name: Setup Node
         uses: actions/setup-node@v4
