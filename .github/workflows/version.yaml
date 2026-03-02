@@ -7,78 +7,23 @@ on:
 
 permissions:
   contents: write
+  pull-requests: write
 
 jobs:
-  build:
+  release-please:
     runs-on: ubuntu-latest
-    env:
-      VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
-      VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
-      VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
-
     steps:
-      - uses: actions/checkout@v4
+      - name: Run Release Please
+        uses: google-github-actions/release-please-action@v4
+        id: release
+        with:
+          release-type: node
+      - name: Checkout code (if release created)
+        if: ${{ steps.release.outputs.release_created }}
+        uses: actions/checkout@v4
 
-      - name: Setup Node
+      - name: Setup Node (if release created)
+        if: ${{ steps.release.outputs.release_created }}
         uses: actions/setup-node@v4
         with:
           node-version: "22"
-          cache: npm
-
-      - name: Install dependencies
-        run: npm ci
-
-      - name: Extract version from commit message
-        id: version
-        run: |
-          msg=$(git log -1 --pretty=%B)
-          echo "Commit message: $msg"
-
-          if [[ $msg =~ ([vV][0-9]+\.[0-9]+\.[0-9]+) ]]; then
-            ver="${BASH_REMATCH[1]}"
-            ver="${ver,,}"
-            echo "Found version: $ver"
-            echo "version=$ver" >> $GITHUB_OUTPUT
-          else
-            echo "No explicit version found in commit message"
-            echo "version=" >> $GITHUB_OUTPUT
-          fi
-
-      - name: Bump version and push tag (use version from commit)
-        if: ${{ steps.version.outputs.version != '' }}
-        id: tag_version
-        uses: mathieudutour/github-tag-action@v6.2
-        with:
-          github_token: ${{ secrets.TOKEN }}
-          custom_tag: ${{ steps.version.outputs.version }}
-          tag_prefix: ""
-
-      - name: Bump version and push tag (auto)
-        if: ${{ steps.version.outputs.version == '' }}
-        id: tag_version_auto
-        uses: mathieudutour/github-tag-action@v6.2
-        with:
-          github_token: ${{ secrets.TOKEN }}
-          default_bump: patch
-          tag_prefix: v
-          release_branches: master,main
-
-      - name: Set TAG env
-        run: |
-          TAG="${{ steps.tag_version.outputs.new_tag || steps.tag_version_auto.outputs.new_tag }}"
-          echo "TAG=$TAG" >> $GITHUB_ENV
-          echo "Using TAG=$TAG"
-
-      - name: Create a GitHub release
-        uses: ncipollo/release-action@v1
-        with:
-          tag: ${{ env.TAG }}
-          name: Release ${{ env.TAG }}
-          body: ${{ steps.tag_version.outputs.changelog || steps.tag_version_auto.outputs.changelog }}
-          artifactContentType: raw
-          makeLatest: true
-          token: ${{ secrets.TOKEN }}
-          allowUpdates: true
-          omitBodyDuringUpdate: true 
-          removeArtifacts: false
-
