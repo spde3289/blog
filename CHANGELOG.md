@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.4.4](https://github.com/spde3289/blog/compare/v0.4.3...v0.4.4) (2026-03-02)
+
+
+### Bug Fixes
+
+* 배포 워크플로우 오타 수정 ([66e96b6](https://github.com/spde3289/blog/commit/66e96b6cc65f21c57c7fe48cb209a95ba874f4c5))
+
 ## [0.4.3](https://github.com/spde3289/blog/compare/v0.4.2...v0.4.3) (2026-03-02)
 
 
