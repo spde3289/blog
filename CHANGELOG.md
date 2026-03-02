@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.5.0](https://github.com/spde3289/blog/compare/v0.4.4...v0.5.0) (2026-03-02)
+
+
+### Features
+
+* 블로그 글 추가 ([8b2f73f](https://github.com/spde3289/blog/commit/8b2f73f5ac115d92969913a049d96492f2803249))
+
 ## [0.4.4](https://github.com/spde3289/blog/compare/v0.4.3...v0.4.4) (2026-03-02)
 
 
