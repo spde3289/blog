@@ -27,12 +27,31 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({
   const applyTheme = useCallback((t: Theme) => {
     const isSystem = t === "system";
     const systemPrefersDark = window.matchMedia(
-      "(prefers-color-scheme: dark)"
+      "(prefers-color-scheme: dark)",
     ).matches;
     const finalTheme = isSystem ? (systemPrefersDark ? "dark" : "light") : t;
 
     setResolvedTheme(finalTheme);
+
+    const css = document.createElement("style");
+    css.appendChild(
+      document.createTextNode(
+        `* {
+        -webkit-transition: none !important;
+        -moz-transition: none !important;
+        -o-transition: none !important;
+        -ms-transition: none !important;
+        transition: none !important;
+      }`,
+      ),
+    );
+    document.head.appendChild(css);
+
     document.documentElement.classList.toggle("dark", finalTheme === "dark");
+
+    window.getComputedStyle(css).opacity;
+
+    document.head.removeChild(css);
   }, []);
 
   const setTheme = useCallback(
@@ -41,7 +60,7 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({
       localStorage.setItem("theme", newTheme);
       applyTheme(newTheme);
     },
-    [applyTheme]
+    [applyTheme],
   );
 
   // 초기 테마 설정 + 시스템 테마 변경 감지
@@ -60,7 +79,7 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({
 
   const value = useMemo(
     () => ({ theme, resolvedTheme, setTheme }),
-    [theme, resolvedTheme, setTheme]
+    [theme, resolvedTheme, setTheme],
   );
 
   return (
