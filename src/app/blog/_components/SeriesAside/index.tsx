@@ -17,7 +17,7 @@ const SeriesCard = ({ series }: SeriesCardProps) => {
   return (
     <li
       onClick={toggleDropdown}
-      className={`group relative flex flex-col items-center justify-between px-2 py-1.5 sm:px-3 lg:px-4 sm:py-2 lg:py-3 border border-neutral-200 dark:border-neutral-800 rounded-lg transition-colors bg-neutral-50 dark:bg-neutral-800/40  ${
+      className={`group relative flex flex-col items-center justify-between px-2 py-1.5 sm:px-3 lg:px-4 sm:py-2 lg:py-3 border border-neutral-200 dark:border-neutral-800 rounded-lg bg-neutral-50 dark:bg-neutral-800/40  ${
         isOpen ? "" : "hover:bg-neutral-100 dark:hover:bg-neutral-800/70"
       }
         `}

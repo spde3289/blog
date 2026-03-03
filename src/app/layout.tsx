@@ -1,9 +1,11 @@
+// app/layout.tsx
 import Header from "@/app/_components/common/Header";
 import ScrollToTopButton from "@/components/ScrolltoTopButton";
 import { ThemeProvider } from "@/contexts/ThemeContext";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import type { Metadata } from "next";
 import Footer from "./_components/common/Footer";
+import ThemeScript from "./_components/ThemeScript";
 import "./globals.css";
 
 const GA_ID = process.env.NEXT_PUBLIC_GA_ID;
@@ -20,7 +22,10 @@ const RootLayout = ({
   children: React.ReactNode;
 }>) => {
   return (
-    <html lang="ko">
+    <html lang="ko" suppressHydrationWarning>
+      <head>
+        <ThemeScript />
+      </head>
       <body className={` bg-white dark:bg-neutral-900 dark:text-white/90`}>
         {/* Google Analytics Script */}
         {GA_ID && <GoogleAnalytics gaId={GA_ID} />}

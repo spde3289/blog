@@ -1,25 +1,17 @@
 ---
 title: 정적 게시글을 Server Action으로 읽으려다 삽질한 기록
 series: 블로그
-tags: ["Next.js", "React", "Server Actions", "useActionState", "캐싱"]
+tags: ["nextjs", "react", "server-actions", "useactionstate", "caching"]
 date: "2025.11.23"
 ---
 
-이번에 Next.js 블로그를 리팩토링하다가 궁금증이 생겼다.
+Next.js 기반 블로그를 리팩토링하던 중 문득 궁금증이 생겼다. 
+정적 빌드된 게시글의 HTML을 필요할 때만 비동기로 불러오면서 로딩 UI도 자연스럽게 띄우고 싶었다. 
+이때 폼 제출에 주로 쓰이는 `useActionState`와 서버 액션(Server Action) 조합을 일반적인 '데이터 패칭(Data Fetching)'에도 사용할 수 있을지 테스트해 보았다.
 
-**`useActionState`는 진짜 폼 액션을 위한 훅인가?**
-아니면 일반 서버 액션(Server Action)에도 써도 되는 걸까?
+## 서버 액션으로 데이터 패칭 시도
 
-정적 빌드된 게시글 HTML을 “필요할 때만” 가져오면서 로딩 UI도 띄우고 싶어서,
-서버 액션 + `useActionState` 조합을 먼저 시도했다.
-
-## 서버 액션으로 게시글 HTML을 읽어오려 했던 시도
-
-```tsx
-const [state, dispatchAction, isPending] = useActionState(action, initialState, permalink?)
-```
-
-그래서 서버 액션을 하나 만들었다.
+먼저 게시글 경로를 받아 HTML 문자열을 반환하는 서버 액션을 작성했다.
 
 ```tsx
 'use server'
@@ -29,52 +21,44 @@ import { getPostContent } from '@/lib/server/getBlogData'
 export async function getPostAction(pathroot: string): Promise<string> {
   return getPostContent(pathroot)
 }
+
 ```
 
-그리고 클라이언트 컴포넌트에서 이렇게 붙였다.
+그리고 클라이언트 컴포넌트에서 `useActionState`에 이 액션을 연결했다.
 
 ```tsx
 const [html, action, isPending] = useActionState(getPostAction, '')
+
 ```
 
-## 문제: 두 번째 실행부터 파라미터가 꼬였다
+## 문제: 두 번째 호출부터 파라미터가 오염되는 현상
 
-첫 실행은 문제없이 동작했지만 두 번째 실행부터는 서버 액션이 받아야 할 `pathroot` 대신 **이미 변환된 HTML 전체가 다음 호출의 인자로 들어갔다.**
+첫 번째 실행은 의도한 대로 HTML을 잘 불러왔다. 하지만 다른 게시글을 클릭해 액션을 두 번째로 호출하는 순간 에러가 발생했다. 서버 액션이 받아야 할 `pathroot` 인자 자리에, 이전 호출의 결과물인 **'게시글 HTML 전체 문자열'**이 들어가 버린 것이다.
 
-결과적으로 게시글을 못 가져오는 문제가 생겼다.
+## 원인 분석: useActionState의 시그니처 설계
 
-## 원인: useActionState 액션의 첫 번째 인자는 “이전 state”다
-
-`useActionState`는 액션 함수에 인자를 이렇게 넘긴다. ([React][1])
-
-* 첫 번째 인자: `previousState` (처음엔 `initialState`, 이후엔 직전 반환값)
-* 두 번째 인자: 내가 `dispatchAction(payload)`로 넘긴 payload
-
-즉 `useActionState`에 넘기는 함수는 기본적으로 이런 형태를 기대한다.
+공식 문서를 확인해 보니 원인은 `useActionState`가 액션 함수에 인자를 넘기는 방식에 있었다. 이 훅은 기본적으로 아래와 같은 형태의 함수 시그니처를 기대한다.
 
 ```ts
 async function action(previousState, payload) {
   // ...
 }
+
 ```
 
-내 코드처럼 `getPostAction(pathroot)`처럼 만들면,
-React 입장에서는 `previousState`를 `pathroot` 자리에 꽂아버리게 된다.
-그래서 “두 번째부터 HTML이 인자로 들어오는” 현상이 생긴다.
+* **첫 번째 인자:** `previousState` (초기엔 `initialState`, 이후엔 직전 액션의 반환값)
+* **두 번째 인자:** `dispatchAction(payload)` 호출 시 넘겨준 실제 데이터
 
-> 억지로 맞추려면 시그니처를 `(prevHtml, pathroot)`로 만들면 된다.
-> 근데 이건 “읽기 전용 데이터 로딩”을 액션/상태 머신으로 우회하는 느낌이 강했다.
+내가 작성한 `getPostAction(pathroot)`은 단일 인자를 받는 함수였다. 
+React 입장에서는 첫 번째 인자인 `pathroot` 자리에 가차 없이 `previousState`(이전 HTML 반환값)를 꽂아버린 것이다.
 
-## 서버 액션은 ‘읽기’보다 ‘변경’ 쪽 문맥에 더 잘 맞는다
+이 문제를 억지로 우회하려면 시그니처를 `(prevHtml, pathroot)` 형태로 수정하면 되지만 단순히 '읽기 전용 데이터'를 가져오기 위해 상태 머신을 억지로 끼워 맞추는 느낌이 강하게 들었다.
 
-Next.js 문서에서도 Server Action을 “폼 제출 + mutation(변경)” 문맥으로 설명한다. ([nextjs.org][2])
-그래서 게시글 HTML처럼 **읽기 전용** 데이터를 “가져오기” 위해 Server Action을 쓰는 건 의도가 좀 어긋난다.
+## 판단 및 트레이드오프: API Route(Route Handler)로 선회
 
-읽기 목적이라면 Next.js는 서버 컴포넌트에서 `fetch`나 DB/파일 시스템 같은 I/O로 가져오는 흐름을 기본으로 안내한다. ([nextjs.org][3])
+근본적으로 Next.js 공식 문서에서도 Server Action은 데이터를 읽어오는 용도(Fetching)가 아니라 **폼 제출 및 데이터 변경(Mutation)** 문맥에서 사용할 것을 권장하고 있다.
 
-## API Route로 전환
-
-그래서 `/api/posts` 라우트를 만들었다.
+따라서 읽기 전용 데이터를 가져오는 데 Server Action을 오용하는 것은 프레임워크의 설계 의도와 어긋난다고 판단했다. 결국 상태를 변형하는 액션 대신 전통적이고 목적에 맞는 API Route(Route Handler)를 구현하는 것으로 방향을 틀었다.
 
 ```tsx
 import { getPostContent } from '@/lib/server/getBlogData'
@@ -96,13 +80,15 @@ export async function GET(request: NextRequest) {
     })
   }
 }
+
 ```
 
-클라이언트에서는 이렇게 호출했다.
+클라이언트에서는 일반적인 `fetch`를 사용해 데이터를 호출하도록 수정했다.
 
 ```tsx
 const handleGetPostContent = async (pathroot: string) => {
   const encoded = encodeURIComponent(pathroot)
+  // Route Handler는 기본적으로 캐싱되지 않으므로 필요에 따라 force-cache 설정
   const res = await fetch(`/api/posts?pathroot=${encoded}`, { cache: 'force-cache' })
 
   if (!res.ok) throw new Error(`Failed to fetch: ${res.status}`)
@@ -110,18 +96,13 @@ const handleGetPostContent = async (pathroot: string) => {
   const html = await res.text()
   setPostContent(html)
 }
+
 ```
 
-## 정리
+## 마무리 및 배운 점
 
-* `useActionState`는 **액션 함수에 `previousState`를 첫 인자로 넣는 훅**이라서,
-  “단일 인자(예: pathroot)로 서버 액션 호출” 같은 방식으로 쓰면 인자가 꼬일 수 있다. ([React][1])
-* Next.js에서 Server Action은 보통 **폼 제출/변경(mutation)** 문맥에 맞춰 설명된다. ([nextjs.org][2])
-* `fetch`의 `cache`는 **브라우저 fetch와 서버 fetch에서 의미가 다르다.** ([nextjs.org][4])
-* Route Handler는 기본 캐시가 아니고, **GET 캐싱은 설정으로 opt-in** 해야 한다. ([nextjs.org][5])
+단순한 호기심으로 시작한 삽질이었지만, 프레임워크가 제공하는 도구의 정확한 목적을 짚고 넘어갈 수 있었다.
 
-[1]: https://react.dev/reference/react/useActionState "useActionState – React"
-[2]: https://nextjs.org/docs/app/getting-started/updating-data "Getting Started: Updating Data | Next.js"
-[3]: https://nextjs.org/docs/app/getting-started/fetching-data "Getting Started: Fetching Data | Next.js"
-[4]: https://nextjs.org/docs/app/api-reference/functions/fetch "Functions: fetch | Next.js"
-[5]: https://nextjs.org/docs/app/getting-started/route-handlers "Getting Started: Route Handlers | Next.js"
+1. `useActionState`는 액션 함수의 첫 번째 인자로 무조건 `previousState`를 주입하므로, 단일 인자 함수와 결합하면 예기치 않은 파라미터 오염이 발생한다.
+2. Server Action은 데이터 조회가 아닌 **데이터 변경(Mutation)**에 특화된 도구다.
+3. 데이터를 읽기만 할 때는 목적에 맞게 Route Handler나 서버 컴포넌트에서의 직접 fetch를 사용하는 것이 아키텍처 의도에 부합한다. 또한 Route Handler의 GET 메서드는 기본적으로 캐싱되지 않으므로(`opt-in`), 필요하다면 캐시 설정을 직접 챙겨야 한다.
