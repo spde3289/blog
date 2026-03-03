@@ -60,7 +60,7 @@ const ModalTriggerButton = ({
       <button
         ref={buttonRef}
         onClick={() => setIsOpen((v) => !v)}
-        className="inline-flex items-center justify-center h-8 px-3 py-2 gap-x-1 text-xs sm:text-sm whitespace-nowrap border rounded-full transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 border-neutral-300 dark:border-neutral-700 text-neutral-900 dark:text-neutral-100 bg-white dark:bg-neutral-900 hover:bg-neutral-100 dark:hover:bg-neutral-800/70 active:bg-neutral-200 dark:active:bg-neutral-700 focus-visible:outline-neutral-700 dark:focus-visible:outline-brand"
+        className="inline-flex items-center justify-center h-8 px-3 py-2 gap-x-1 text-xs sm:text-sm whitespace-nowrap border rounded-full focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 border-neutral-300 dark:border-neutral-700 text-neutral-900 dark:text-neutral-100 bg-white dark:bg-neutral-900 hover:bg-neutral-100 dark:hover:bg-neutral-800/70 active:bg-neutral-200 dark:active:bg-neutral-700 focus-visible:outline-neutral-700 dark:focus-visible:outline-brand"
       >
         {title}
         {icon}
@@ -92,8 +92,8 @@ const ModalTriggerButton = ({
                     "ref", // ref는 내부에서 관리
                     "className", // className은 아래에서 병합
                     "style", // style은 병합 가능하지만 여기선 단순화
-                  ].includes(k)
-              )
+                  ].includes(k),
+              ),
             )}
             className={
               "absolute flex gap-1 flex-col right-0 top-10 p-2 bg-white dark:bg-neutral-900 border border-neutral-300 dark:border-neutral-700 shadow-lg rounded-lg z-[1000] " +
@@ -102,7 +102,7 @@ const ModalTriggerButton = ({
           >
             {children}
           </div>,
-          modalRoot
+          modalRoot,
         )}
     </div>
   );

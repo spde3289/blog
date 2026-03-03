@@ -103,7 +103,7 @@ const ThemeToggleButton = () => {
       <button
         ref={buttonRef}
         onClick={() => setIsOpen((prev) => !prev)}
-        className="inline-flex items-center justify-center h-7 w-7 p-1.5 gap-x-1 text-xs whitespace-nowrap font-medium border rounded-full transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 border-neutral-300 dark:border-neutral-700 text-neutral-900 dark:text-neutral-100 bg-white dark:bg-neutral-900 hover:bg-neutral-100 dark:hover:bg-neutral-800/70 active:bg-neutral-200 dark:active:bg-neutral-700 focus-visible:outline-neutral-700 dark:focus-visible:outline-brand"
+        className="inline-flex items-center justify-center h-7 w-7 p-1.5 gap-x-1 text-xs whitespace-nowrap font-medium border rounded-full focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 border-neutral-300 dark:border-neutral-700 text-neutral-900 dark:text-neutral-100 bg-white dark:bg-neutral-900 hover:bg-neutral-100 dark:hover:bg-neutral-800/70 active:bg-neutral-200 dark:active:bg-neutral-700 focus-visible:outline-neutral-700 dark:focus-visible:outline-brand"
         aria-label="Toggle theme options"
       >
         {icon}
@@ -178,7 +178,7 @@ const ThemeToggleButton = () => {
               System
             </ThemeItem>
           </div>,
-          modalRoot
+          modalRoot,
         )}
     </>
   );
