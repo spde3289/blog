@@ -16,6 +16,23 @@ export const getMarkdownThumbnail = (markdown: string): string => {
   return markdown.match(imageRegex)?.[1] || "/img/thumbnail.png";
 };
 
+/** 마크다운 문법을 제거하고 순수 텍스트만 추출하는 유틸리티 */
+export const getPlainTextExcerpt = (
+  markdown: string,
+  length: number = 200,
+): string => {
+  let text = markdown
+    .replace(/```[\s\S]*?```/g, "") // 코드 블록 제거
+    .replace(/<[^>]*>?/gm, "") // HTML 태그 제거
+    .replace(/!\[.*?\]\(.*?\)/g, "") // 이미지 링크 제거
+    .replace(/\[(.*?)\]\(.*?\)/g, "$1") // 일반 링크는 텍스트만 남김
+    .replace(/([*_~`#>]+)/g, "") // 마크다운 특수 기호 제거
+    .replace(/\s+/g, " ") // 줄바꿈 및 연속된 공백을 단일 공백으로 치환
+    .trim();
+
+  return text.slice(0, length);
+};
+
 export const convertMarkdownToHtml = async (md: string): Promise<string> => {
   const processed = await remark().use(gfm).use(html).process(md);
   return String(processed);
@@ -31,23 +48,24 @@ export const parseMarkdownFrontmatter = (filePath: string) => {
 
 export const buildPostMetadata = (
   data: Data,
-  content: string
+  content: string,
 ): PostMetaData => ({
   title: data?.title || "Default Title",
   tags: Array.isArray(data?.tags) ? data.tags : [],
   date: data?.date || "Unknown",
-  image: getMarkdownThumbnail(content),
   series: data?.series,
-  description: data?.description || "김지훈의 개발 블로그 입니다.",
+  image: data?.image || getMarkdownThumbnail(content),
+  description: data?.description || undefined,
 });
 
 const buildPostData = async (category: string, filePath: string) => {
   const { slug, data, content } = parseMarkdownFrontmatter(filePath);
   const metadata = buildPostMetadata(data, content);
 
-  const htmlFilePath = path.join(category, `${slug}.html`);
+  const htmlFilePath = path.join(category, `${slug}.html`).replace(/\\/g, "/");
   const href = `/blog/${category}/${slug}`;
-  const excerpt = content.slice(0, 200);
+
+  const excerpt = getPlainTextExcerpt(content, 200);
 
   return {
     category,
