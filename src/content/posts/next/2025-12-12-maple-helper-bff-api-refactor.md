@@ -1,6 +1,6 @@
 ---
 title: BFF를 적용한 메이플 헬퍼 API 요청 구조 리팩토링
-series: 메이플 헬퍼
+series: maple-helper
 tags: ["BFF", "API Route", "Nexon Open API", "리팩토링", "에러 처리", "성능 측정"]
 date: "2025.12.12"
 ---

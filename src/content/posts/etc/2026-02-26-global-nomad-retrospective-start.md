@@ -1,6 +1,6 @@
 ---
 title: 글로벌 노마드 프로젝트 회고
-series: 글로벌 노마드
+series: global-nomad
 tags: ["Next.js", "회고", "START", "UX", "인증", "Middleware"]
 date: "2026.02.26"
 ---

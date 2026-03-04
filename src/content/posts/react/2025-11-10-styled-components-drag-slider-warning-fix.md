@@ -1,6 +1,6 @@
 ---
 title: 드래그 슬라이더 구현 중 만난 styled-components 경고와 해결
-series: 팬덤케이
+series: fandom-k
 tags: ["styled-components", "React", "성능 최적화", "useRef", "슬라이더"]
 date: "2025.11.10"
 ---

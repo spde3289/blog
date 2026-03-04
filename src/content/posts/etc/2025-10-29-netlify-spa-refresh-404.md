@@ -1,6 +1,6 @@
 ---
 title: Netlify 배포에서 새로고침 시 404(Page not found) 해결
-series: 스프린트 부트캠프
+series: sprint-bootcamp
 tags: ["Netlify", "배포", "React", "SPA", "Redirects"]
 date: "2025.10.29"
 ---

@@ -1,6 +1,6 @@
 ---
 title: 더 줄게 공고 신청 취소 버그 분석 기록
-series: 더 줄게
+series: the-julge
 tags: ["트러블슈팅", "버그", "API", "교차검증"]
 date: "2026.01.07"
 ---

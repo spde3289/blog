@@ -1,6 +1,6 @@
 ---
 title: 메이플 헬퍼 v2 리팩토링 계획
-series: 메이플 헬퍼
+series: maple-helper
 tags: ["리팩토링", "프로젝트", "폴더 구조", "컨벤션", "API 설계"]
 date: "2025-12-02"
 ---

@@ -1,6 +1,6 @@
 ---
 title: 체험 신청 모달 UI 개선 데이터 종속성에 따른 필터 재배치
-series: 글로벌 노마드
+series: global-nomad
 tags: ["UI/UX", "Frontend", "UX 개선", "컴포넌트 설계"]
 date: "2026.02.18"
 ---

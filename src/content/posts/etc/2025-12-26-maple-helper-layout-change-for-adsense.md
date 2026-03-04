@@ -1,6 +1,6 @@
 ---
 title: 구글 애드센스 수익화를 위한 레이아웃 전면 개편
-series: 메이플 헬퍼
+series: maple-helper
 tags: ["frontEnd", "UI/UX", "트러블슈팅"]
 date: "2025-12-26"
 ---

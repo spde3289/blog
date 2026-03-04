@@ -1,6 +1,6 @@
 ---
 title: zod 라이브러리 도입 배경 - 폼 유효성 검사의 중앙 집중화
-series: 글로벌 노마드
+series: global-nomad
 tags: ["react-hook-form", "zod", "validation"]
 date: "2026.02.12"
 ---

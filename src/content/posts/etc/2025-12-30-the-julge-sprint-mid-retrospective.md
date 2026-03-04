@@ -1,6 +1,6 @@
 ---
 title: 더 줄게 팀 프로젝트 중간 회고
-series: 더 줄게
+series: the-julge
 tags: ["frontEnd", "회고", "협업", "트러블슈팅"]
 date: "2025.12.30"
 ---
