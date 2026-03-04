@@ -57,7 +57,7 @@ const ArticleViewPost = ({ post, searchText }: ArticleViewPostProps) => {
         <div className="overflow-hidden hidden sm:block flex-none w-[150px] rounded">
           <img
             className="group-hover:scale-105 transition-all duration-500 aspect-[15/8] h-20 object-cover"
-            src="/img/thumbnail.png"
+            src={post.metadata.image}
             alt=""
           />
         </div>
