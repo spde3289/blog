@@ -106,7 +106,7 @@ const PostSection = ({ posts, categorys }: PostSectionProps) => {
     currentSort === DefaultSort ? filteredPosts : [...filteredPosts].reverse();
 
   return (
-    <section className="flex-1 flex gap-4 sm:gap-8 flex-col">
+    <section className="flex w-full flex-col gap-4 sm:gap-8">
       <PostSectionHeader
         currentCategories={currentCategories}
         onChange={{ handleSetCategorys, handleSearchText }}

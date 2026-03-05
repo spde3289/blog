@@ -13,7 +13,7 @@ const SeriesCard = ({ id, title, postCount, lastUpdated }: SeriesCardProps) => {
   return (
     <Link
       href={ROUTES.BLOG.SERIES(id)}
-      className="group flex h-full flex-col gap-2 rounded-xl border border-neutral-200 bg-white p-4 hover:bg-zinc-50 dark:border-neutral-700 dark:bg-neutral-800/40 dark:hover:bg-zinc-900"
+      className="group flex h-full flex-col gap-2 rounded-xl border border-neutral-200 bg-white p-4 sm:p-5 lg:p-4 hover:bg-zinc-50 dark:border-neutral-700 dark:bg-neutral-800/40 dark:hover:bg-zinc-900"
     >
       <div className="flex items-center justify-between gap-4">
         <h2 className="truncate typo-16-b text-neutral-900 group-hover:text-blue-600 dark:text-neutral-100 dark:group-hover:text-blue-400">

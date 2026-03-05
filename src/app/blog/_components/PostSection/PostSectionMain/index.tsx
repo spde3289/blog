@@ -1,5 +1,5 @@
 import type { Post } from "@/types/posts.types";
-import { JSX, memo, Suspense, useCallback, useState } from "react";
+import { JSX, Suspense, useCallback, useState } from "react";
 import { POSTSECTION_TEXT } from "..";
 import ArticleViewPost from "./ArticleViewPost";
 import ListViewPost from "./ListViewPost";
@@ -61,4 +61,4 @@ const PostSectionMain = ({ posts, searchText }: PostSectionMainProps) => {
   );
 };
 
-export default memo(PostSectionMain);
+export default PostSectionMain;
