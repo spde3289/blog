@@ -1,5 +1,6 @@
 ---
 title: 무한 스크롤 구현하기 (Intersection observer API)
+series: chim-planet
 tags: [frontEnd]
 date: "2023.05.01"
 ---

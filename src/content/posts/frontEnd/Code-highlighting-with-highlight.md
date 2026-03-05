@@ -1,5 +1,6 @@
 ---
 title: 코드 하이라이팅 highlight.js 적용하기
+series: blog
 tags: [frontEnd]
 date: "2024.12.01"
 ---

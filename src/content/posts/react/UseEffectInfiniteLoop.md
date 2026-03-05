@@ -1,5 +1,6 @@
 ---
 title: useEffect 무한루프
+series: blog
 tags: [react]
 date: "2022.09.28"
 ---

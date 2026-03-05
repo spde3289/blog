@@ -1,5 +1,6 @@
 ---
 title: React-router 404 not found
+series: blog
 tags: [frontEnd]
 date: "2022.11.10"
 ---
