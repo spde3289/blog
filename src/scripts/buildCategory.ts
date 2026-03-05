@@ -1,5 +1,5 @@
 import { CATEGORY_JSON_PATH, CONTENT_DIR } from "@/lib/paths";
-import type { CategoryList } from "@/types/posts.types";
+import type { Category } from "@/types/posts.types";
 import fs from "fs";
 import path from "path";
 
@@ -9,7 +9,7 @@ const buildCategoryJson = () => {
     .filter((dirent) => dirent.isDirectory())
     .map((dirent) => dirent.name);
 
-  const result: CategoryList = categories.map((category) => {
+  const result: Category[] = categories.map((category) => {
     const categoryPath = path.join(CONTENT_DIR, category);
     const files = fs.readdirSync(categoryPath);
     const mdFiles = files.filter((file) => file.toLowerCase().endsWith(".md"));

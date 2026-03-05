@@ -1,4 +1,4 @@
-import type { CategoryList, Post, SeriesGroup } from "@/types/posts.types";
+import type { Category, Post, Series } from "@/types/posts.types";
 import fs from "fs";
 import path from "path";
 import {
@@ -22,6 +22,17 @@ export const getPostContent = (htmlFilePath: string): string => {
   const fileContents = fs.readFileSync(filePath, "utf8");
 
   return fileContents;
+};
+
+export const getPostDetail = (category: string, post: string) => {
+  const meta = getPostMeta(category, post);
+
+  const contentHtml = getPostContent(meta.htmlFilePath);
+
+  return {
+    post: meta,
+    contentHtml,
+  };
 };
 
 export const getPostList = (): Post[] => {
@@ -54,14 +65,14 @@ export const getPostList = (): Post[] => {
   return sort;
 };
 
-export const getCategoryList = (): CategoryList => {
+export const getCategoryList = (): Category[] => {
   const fileContents = fs.readFileSync(CATEGORY_JSON_PATH, "utf8");
   const data = JSON.parse(fileContents);
 
   return data;
 };
 
-export const getSeriesGroups = (): SeriesGroup[] => {
+export const getSeriesGroups = (): Series[] => {
   const fileContents = fs.readFileSync(SERIES_JSON_PATH, "utf8");
   const data = JSON.parse(fileContents);
 

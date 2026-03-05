@@ -17,13 +17,11 @@ export type Post = {
   excerpt: string;
 };
 
-export type CategoryItem = { name: string; count: number };
+export type Category = { name: string; count: number };
 
-export type CategoryList = CategoryItem[];
-
-export type SeriesGroup = {
+export type Series = {
   series: SeriesKey;
   seriesName: SeriesValue;
   lastUpdated: string;
-  postIds: string[];
+  postRefs: { category: string; slug: string }[];
 };

@@ -1,11 +1,11 @@
 import ModalTriggerButton from "@/components/ModalTriggerButton";
-import type { CategoryList } from "@/types/posts.types";
+import type { Category } from "@/types/posts.types";
 import { POSTSECTION_TEXT } from "..";
 
 interface CategoryModalButtonProps {
   currentCategories: string[];
   onChange: React.ChangeEventHandler<HTMLDivElement>;
-  categorys: CategoryList;
+  categorys: Category[];
 }
 
 const CategoryModalButton = ({

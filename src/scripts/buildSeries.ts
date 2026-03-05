@@ -59,14 +59,16 @@ const buildSeriesJson = async () => {
   const output = Array.from(groups.values())
     .map((g) => {
       g.posts.sort((a, b) => b.metadata.date.localeCompare(a.metadata.date));
-
       const lastUpdated = g.posts.length > 0 ? g.posts[0].metadata.date : "";
 
       return {
         series: g.series,
         seriesName: g.seriesName,
         lastUpdated: lastUpdated,
-        postIds: g.posts.map((post) => post.href),
+        postRefs: g.posts.map((post) => {
+          const slug = post.href.split("/").pop() as string;
+          return { category: post.category, slug: slug };
+        }),
       };
     })
     .sort((a, b) => b.lastUpdated.localeCompare(a.lastUpdated));

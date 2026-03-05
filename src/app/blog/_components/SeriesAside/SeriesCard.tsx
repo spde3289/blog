@@ -1,9 +1,10 @@
 import { ROUTES } from "@/constants/routes";
+import { SeriesKey } from "@/constants/series";
 import ArrowHeadSVG from "@/svg/ArrowHeadSVG";
 import Link from "next/link";
 
 interface SeriesCardProps {
-  id: string;
+  id: SeriesKey;
   title: string;
   postCount: number;
   lastUpdated: string;

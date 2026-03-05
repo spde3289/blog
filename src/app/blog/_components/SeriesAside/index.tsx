@@ -1,10 +1,10 @@
 "use client";
 
-import type { SeriesGroup } from "@/types/posts.types";
+import type { Series } from "@/types/posts.types";
 import SeriesCard from "./SeriesCard";
 
 interface SeriesAsideProps {
-  series: SeriesGroup[];
+  series: Series[];
 }
 
 const SeriesAside = ({ series }: SeriesAsideProps) => {
@@ -28,7 +28,7 @@ const SeriesAside = ({ series }: SeriesAsideProps) => {
               key={seriesItem.series}
               id={seriesItem.series}
               title={seriesItem.seriesName}
-              postCount={seriesItem.postIds.length}
+              postCount={seriesItem.postRefs.length}
               lastUpdated={seriesItem.lastUpdated}
             />
           </li>

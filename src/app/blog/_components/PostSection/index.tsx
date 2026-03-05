@@ -5,7 +5,7 @@ import ArrowHeadSVG from "@/svg/ArrowHeadSVG";
 import ArticleSVG from "@/svg/ArticleSVG";
 import ListSVG from "@/svg/ListSVG";
 import SearchSVG from "@/svg/SearchSVG";
-import type { CategoryList, Post } from "@/types/posts.types";
+import type { Category, Post } from "@/types/posts.types";
 import { useCallback, useMemo, useState } from "react";
 import PostSectionHeader from "./PostSectionHeader";
 import PostSectionMain from "./PostSectionMain";
@@ -50,7 +50,7 @@ const DefaultSort = POSTSECTION_TEXT.header.sortButton.sort[0];
 
 interface PostSectionProps {
   posts: Post[];
-  categorys: CategoryList;
+  categorys: Category[];
 }
 
 const PostSection = ({ posts, categorys }: PostSectionProps) => {
