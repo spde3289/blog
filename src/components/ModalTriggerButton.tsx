@@ -4,13 +4,11 @@ import { JSX, ReactNode, useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 
 interface ModalTriggerButtonProps {
-  modalRootId: string; // 포털 타깃(이미 DOM에 존재)
+  modalRootId: string;
   children: ReactNode;
   title: string;
   closeOnSelfClick?: boolean;
   icon: JSX.Element;
-
-  // 포털 컨텐츠 루트에 그대로 전달할 이벤트/속성들
   containerProps?: React.HTMLAttributes<HTMLDivElement>;
 }
 
@@ -20,7 +18,7 @@ const ModalTriggerButton = ({
   icon,
   closeOnSelfClick = false,
   children,
-  containerProps, // onChange/onClick/onInput/onKeyDown 등을 여기로
+  containerProps,
 }: ModalTriggerButtonProps) => {
   const [modalRoot, setModalRoot] = useState<HTMLElement | null>(null);
   const [isOpen, setIsOpen] = useState(false);
