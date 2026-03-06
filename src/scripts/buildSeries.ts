@@ -6,7 +6,7 @@ import type { Series } from "@/types/posts.types";
 import fs from "fs";
 import path from "path";
 
-const buildSeriesJson = async () => {
+export const buildSeriesJson = async () => {
   const groups = new Map<
     SeriesKey,
     {
@@ -86,4 +86,3 @@ const buildSeriesJson = async () => {
   );
 };
 
-buildSeriesJson();

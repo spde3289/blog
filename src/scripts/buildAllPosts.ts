@@ -39,11 +39,9 @@ const processSinglePost = async (fileInfo: PostFileInfo) => {
 
   const jsonOutPath = getPostJsonFilePath(category, slug);
   fs.writeFileSync(jsonOutPath, JSON.stringify(postMetaData, null, 2), "utf8");
-
-  console.log(`🎉 ${category}/${slug} 생성 완료`);
 };
 
-const buildAllPosts = async () => {
+export const buildAllPosts = async () => {
   if (fs.existsSync(POSTS_HTML_DIR))
     fs.rmSync(POSTS_HTML_DIR, { recursive: true, force: true });
   if (fs.existsSync(POSTS_JSON_DIR))
@@ -58,9 +56,8 @@ const buildAllPosts = async () => {
   });
 
   const buildTasks = postFiles.map((fileInfo) => processSinglePost(fileInfo));
+
   await Promise.all(buildTasks);
 
-  console.log(`🚀 총 ${buildTasks.length}개의 포스트 (HTML & JSON) 빌드 완료!`);
+  console.log(`✅ 총 ${buildTasks.length}개의 포스트 (HTML & JSON) 빌드 완료!`);
 };
-
-buildAllPosts();

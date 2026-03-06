@@ -4,7 +4,7 @@ import type { Category } from "@/types/posts.types";
 import fs from "fs";
 import path from "path";
 
-const buildCategoriesJson = () => {
+export const buildCategoriesJson = () => {
   const postFiles = getAllPostFiles();
 
   const categoryCounts = postFiles.reduce(
@@ -34,5 +34,3 @@ const buildCategoriesJson = () => {
     `📦 ${CATEGORIES_JSON_PATH} 생성 완료 (${result.length}개 카테고리)`,
   );
 };
-
-buildCategoriesJson();
