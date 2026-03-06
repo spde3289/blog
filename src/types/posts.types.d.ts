@@ -13,7 +13,6 @@ export type Post = {
   metadata: PostMetaData;
   category: string;
   href: string;
-  htmlFilePath: string;
   excerpt: string;
 };
 

@@ -20,8 +20,11 @@ const ArticleViewPost = ({ post, searchText }: ArticleViewPostProps) => {
 
   const handleGetPostContent = async () => {
     setLoading(true);
-    const encoded = encodeURIComponent(post.htmlFilePath);
-    const res = await fetch(`/api/posts?pathroot=${encoded}`, {
+
+    const slug = post.href.split("/").pop() as string;
+    const category = post.category;
+
+    const res = await fetch(`/api/posts?category=${category}&slug=${slug}`, {
       cache: "force-cache",
     });
 

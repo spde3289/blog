@@ -1,86 +1,89 @@
-import { SERIES_CONFIG, SeriesKey } from "@/constants/series";
-import buildPostData, { parseMarkdownFrontmatter } from "@/lib/md";
-import { CONTENT_DIR, SERIES_JSON_PATH } from "@/lib/paths";
+import { SERIES_CONFIG, SeriesKey, SeriesValue } from "@/constants/series";
+import { SERIES_JSON_DIR, getSeriesFilePath } from "@/lib/paths";
+import { parseMarkdownFrontmatter } from "@/lib/postParser";
+import { getAllPostFiles } from "@/lib/postUtils";
+import type { Series } from "@/types/posts.types";
 import fs from "fs";
 import path from "path";
 
 const buildSeriesJson = async () => {
   const groups = new Map<
-    string,
-    { series: string; seriesName: string; posts: any[] }
+    SeriesKey,
+    {
+      series: SeriesKey;
+      seriesName: SeriesValue;
+      posts: { category: string; slug: string; date: string }[];
+    }
   >();
 
-  const dirents = fs.readdirSync(CONTENT_DIR, { withFileTypes: true });
-  const categories = dirents.filter((d) => d.isDirectory()).map((d) => d.name);
+  const postFiles = getAllPostFiles();
 
-  for (const category of categories) {
-    const categoryPath = path.join(CONTENT_DIR, category);
+  for (const fileInfo of postFiles) {
+    const { category, slug, filePath } = fileInfo;
 
-    const files = fs.readdirSync(categoryPath, { withFileTypes: true });
-    const mdFiles = files
-      .filter((f) => f.isFile() && f.name.toLowerCase().endsWith(".md"))
-      .map((f) => f.name);
+    const fileContents = fs.readFileSync(filePath, "utf8");
+    const { data } = parseMarkdownFrontmatter(fileContents);
 
-    for (const fileName of mdFiles) {
-      const filePath = path.join(categoryPath, fileName);
+    const rawSeries =
+      typeof data.series === "string" ? data.series.trim() : null;
+    if (!rawSeries) continue;
 
-      const { data } = parseMarkdownFrontmatter(filePath);
-
-      const rawSeries =
-        typeof data.series === "string" && data.series.trim().length > 0
-          ? data.series.trim()
-          : null;
-
-      if (!rawSeries) continue;
-
-      if (!(rawSeries in SERIES_CONFIG)) {
-        console.warn(
-          `⚠️ 경고: '${rawSeries}'는 등록되지 않은 시리즈입니다. 오타를 확인하세요. (${filePath})`,
-        );
-        continue;
-      }
-
-      const seriesSlug = rawSeries as SeriesKey;
-      const seriesName = SERIES_CONFIG[seriesSlug] || SERIES_CONFIG[seriesSlug];
-
-      const post = await buildPostData(category, filePath);
-
-      if (!groups.has(seriesSlug)) {
-        groups.set(seriesSlug, {
-          series: seriesSlug,
-          seriesName: seriesName,
-          posts: [],
-        });
-      }
-      groups.get(seriesSlug)!.posts.push(post);
+    if (!(rawSeries in SERIES_CONFIG)) {
+      console.warn(
+        `⚠️ 경고: '${rawSeries}'는 등록되지 않은 시리즈입니다. (${filePath})`,
+      );
+      continue;
     }
+
+    const seriesSlug = rawSeries as SeriesKey;
+    const seriesName = SERIES_CONFIG[seriesSlug];
+
+    const miniPost = {
+      category,
+      slug,
+      date: data?.date || "Unknown",
+    };
+
+    if (!groups.has(seriesSlug)) {
+      groups.set(seriesSlug, { series: seriesSlug, seriesName, posts: [] });
+    }
+    groups.get(seriesSlug)!.posts.push(miniPost);
   }
 
-  const output = Array.from(groups.values())
+  const output: Series[] = Array.from(groups.values())
     .map((g) => {
-      g.posts.sort((a, b) => b.metadata.date.localeCompare(a.metadata.date));
-      const lastUpdated = g.posts.length > 0 ? g.posts[0].metadata.date : "";
+      g.posts.sort((a, b) => b.date.localeCompare(a.date));
+      const lastUpdated = g.posts.length > 0 ? g.posts[0].date : "";
 
       return {
         series: g.series,
         seriesName: g.seriesName,
-        lastUpdated: lastUpdated,
-        postRefs: g.posts.map((post) => {
-          const slug = post.href.split("/").pop() as string;
-          return { category: post.category, slug: slug };
-        }),
+        lastUpdated,
+        postRefs: g.posts.map((post) => ({
+          category: post.category,
+          slug: post.slug,
+        })),
       };
     })
     .sort((a, b) => b.lastUpdated.localeCompare(a.lastUpdated));
 
-  const outDir = path.dirname(SERIES_JSON_PATH);
-  if (!fs.existsSync(outDir)) {
-    fs.mkdirSync(outDir, { recursive: true });
+  if (!fs.existsSync(SERIES_JSON_DIR)) {
+    fs.mkdirSync(SERIES_JSON_DIR, { recursive: true });
+  } else {
+    const oldFiles = fs.readdirSync(SERIES_JSON_DIR);
+    for (const file of oldFiles) {
+      fs.unlinkSync(path.join(SERIES_JSON_DIR, file));
+    }
   }
 
-  fs.writeFileSync(SERIES_JSON_PATH, JSON.stringify(output, null, 2), "utf8");
+  for (const seriesData of output) {
+    const outPath = getSeriesFilePath(seriesData.series);
+    fs.writeFileSync(outPath, JSON.stringify(seriesData, null, 2), "utf8");
+  }
 
-  console.log(`📦 ${SERIES_JSON_PATH} 생성 완료`);
+  console.log(
+    `📦 ${SERIES_JSON_DIR} 에 ${output.length}개의 시리즈 파일 생성 완료!`,
+  );
 };
 
 buildSeriesJson();

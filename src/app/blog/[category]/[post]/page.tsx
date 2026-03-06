@@ -1,8 +1,4 @@
-import {
-  getPostDetail,
-  getPostList,
-  getPostMeta,
-} from "@/lib/client/getBlogData";
+import { getPostDetail, getPostList, getPostMeta } from "@/lib/postService";
 import { Metadata } from "next";
 import PostContainer from "./_components/PostContainer";
 

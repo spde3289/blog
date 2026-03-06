@@ -1,15 +1,11 @@
-import {
-  getCategoryList,
-  getPostList,
-  getSeriesGroups,
-} from "@/lib/client/getBlogData";
+import { getCategoryList, getPostList, getSeriesList } from "@/lib/postService";
 import PostSection from "./_components/PostSection";
 import SeriesAside from "./_components/SeriesAside";
 
 const PostsPage = () => {
   const posts = getPostList();
   const categorys = getCategoryList();
-  const series = getSeriesGroups();
+  const series = getSeriesList();
 
   return (
     <>
