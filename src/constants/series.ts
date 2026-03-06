@@ -4,6 +4,7 @@ export const SERIES_CONFIG = {
   "discord-bot": "디스코드 봇 만들기",
   "maple-helper": "메이플 헬퍼",
   blog: "블로그",
+  "chim-planet": "침플래닛",
   "sprint-bootcamp": "스프린트 부트캠프",
   "fandom-k": "팬덤케이",
 } as const;
