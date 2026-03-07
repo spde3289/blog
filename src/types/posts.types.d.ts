@@ -18,9 +18,10 @@ export type Post = {
 
 export type Category = { name: string; count: number };
 
-export type Series = {
+export interface Series {
   series: SeriesKey;
   seriesName: SeriesValue;
   lastUpdated: string;
+  categories: Category[];
   postRefs: { category: string; slug: string }[];
-};
+}

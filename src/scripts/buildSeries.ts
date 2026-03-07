@@ -2,19 +2,18 @@ import { SERIES_CONFIG, SeriesKey, SeriesValue } from "@/constants/series";
 import { SERIES_JSON_DIR, getSeriesFilePath } from "@/lib/paths";
 import { parseMarkdownFrontmatter } from "@/lib/postParser";
 import { getAllPostFiles } from "@/lib/postUtils";
-import type { Series } from "@/types/posts.types";
+import type { Category, Series } from "@/types/posts.types";
 import fs from "fs";
 import path from "path";
 
+interface SeriesBuilder {
+  series: SeriesKey;
+  seriesName: SeriesValue;
+  posts: { category: string; slug: string; date: string }[];
+}
+
 export const buildSeriesJson = async () => {
-  const groups = new Map<
-    SeriesKey,
-    {
-      series: SeriesKey;
-      seriesName: SeriesValue;
-      posts: { category: string; slug: string; date: string }[];
-    }
-  >();
+  const groups = new Map<SeriesKey, SeriesBuilder>();
 
   const postFiles = getAllPostFiles();
 
@@ -51,14 +50,25 @@ export const buildSeriesJson = async () => {
   }
 
   const output: Series[] = Array.from(groups.values())
-    .map((g) => {
+    .map((g): Series => {
       g.posts.sort((a, b) => b.date.localeCompare(a.date));
       const lastUpdated = g.posts.length > 0 ? g.posts[0].date : "";
+
+      const categoryMap = new Map<string, number>();
+      for (const post of g.posts) {
+        const currentCount = categoryMap.get(post.category) || 0;
+        categoryMap.set(post.category, currentCount + 1);
+      }
+
+      const categories: Category[] = Array.from(categoryMap.entries())
+        .map(([name, count]) => ({ name, count }))
+        .sort((a, b) => b.count - a.count || a.name.localeCompare(b.name));
 
       return {
         series: g.series,
         seriesName: g.seriesName,
         lastUpdated,
+        categories,
         postRefs: g.posts.map((post) => ({
           category: post.category,
           slug: post.slug,
@@ -85,4 +95,3 @@ export const buildSeriesJson = async () => {
     `📦 ${SERIES_JSON_DIR} 에 ${output.length}개의 시리즈 파일 생성 완료!`,
   );
 };
-
