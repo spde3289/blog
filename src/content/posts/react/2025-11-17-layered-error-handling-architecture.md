@@ -1,6 +1,6 @@
 ---
 title: 팬덤케이 프로젝트 레이어드 에러 처리 구조 설계 기록
-series: 팬덤케이
+series: fandom-k
 tags: ["React", "React Router", "Error Boundary", "Axios", "UX", "에러 처리"]
 date: "2025.11.17"
 ---

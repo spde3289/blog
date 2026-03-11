@@ -1,6 +1,6 @@
 ---
 title: 데이터 주도 구조로 페이지를 단순화한 React 마이그레이션
-series: 스프린트 부트캠프
+series: sprint-bootcamp
 tags: ["React", "마이그레이션", "리팩토링", "폼 설계", "아키텍처"]
 date: "2025.10.27"
 ---

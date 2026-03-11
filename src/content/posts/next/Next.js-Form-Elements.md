@@ -1,5 +1,6 @@
 ---
 title: Next.js Form 구성 요소
+series: blog
 tags: [next]
 date: "2025.01.25"
 ---

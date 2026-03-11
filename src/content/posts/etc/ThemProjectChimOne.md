@@ -1,5 +1,6 @@
 ---
 title: 팀프로젝트 기록 - 1
+series: chim-planet
 tags: [etc]
 date: "2023.03.06"
 ---

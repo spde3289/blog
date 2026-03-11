@@ -1,4 +1,4 @@
-import type { CategoryList } from "@/types/posts.types";
+import type { Category } from "@/types/posts.types";
 import { POSTSECTION_TEXT, Sort } from "..";
 import CategoryModalButton from "./CategoryModalButton";
 import SortModalButton from "./SortModalButton";
@@ -11,7 +11,7 @@ interface PostSectionHeaderProps {
   };
   onClick: (sort: Sort) => void;
   currentSort: string;
-  categorys: CategoryList;
+  categorys: Category[];
 }
 
 const PostSectionHeader = ({

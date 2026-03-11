@@ -31,7 +31,7 @@ const RootLayout = ({
         {GA_ID && <GoogleAnalytics gaId={GA_ID} />}
         <ThemeProvider>
           <Header />
-          {children}
+          <main className="min-h-[calc(100vh-149px)]">{children}</main>
           <ScrollToTopButton />
           <Footer />
         </ThemeProvider>

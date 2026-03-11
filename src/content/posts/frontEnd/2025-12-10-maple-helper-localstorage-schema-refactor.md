@@ -1,6 +1,6 @@
 ---
 title: 정규화로 데이터 결합도 낮추기
-series: 메이플 헬퍼
+series: maple-helper
 tags: ["localStorage", "schema"]
 date: "2025.12.10"
 ---

@@ -2,7 +2,7 @@ import GithubSvg from "@/svg/GithubSvg";
 import LinkSvg from "@/svg/LinkSvg";
 import RssSvg from "@/svg/RssSvg";
 import { Project } from "@/types/portfolio";
-import { BLOG_SERIES, ROUTES } from "./routes";
+import { ROUTES } from "./routes";
 
 export const PROJECTS: Project[] = [
   {
@@ -24,7 +24,7 @@ export const PROJECTS: Project[] = [
       },
       {
         icon: RssSvg,
-        link: ROUTES.BLOG.SERIES(BLOG_SERIES.MAPLE_HELPER),
+        link: ROUTES.BLOG.SERIES("maple-helper"),
         label: "회고",
       },
     ],
@@ -49,7 +49,7 @@ export const PROJECTS: Project[] = [
       },
       {
         icon: RssSvg,
-        link: ROUTES.BLOG.SERIES(BLOG_SERIES.GLOBAL_NOMAD),
+        link: ROUTES.BLOG.SERIES("global-nomad"),
         label: "회고",
       },
     ],
@@ -74,7 +74,7 @@ export const PROJECTS: Project[] = [
       },
       {
         icon: RssSvg,
-        link: ROUTES.BLOG.SERIES(BLOG_SERIES.GIVE_MORE),
+        link: ROUTES.BLOG.SERIES("the-julge"),
         label: "회고",
       },
     ],
@@ -99,7 +99,7 @@ export const PROJECTS: Project[] = [
       },
       {
         icon: RssSvg,
-        link: ROUTES.BLOG.SERIES(BLOG_SERIES.FANDOM_K),
+        link: ROUTES.BLOG.SERIES("fandom-k"),
         label: "회고",
       },
     ],
@@ -137,11 +137,6 @@ export const PROJECTS: Project[] = [
         link: "https://github.com/spde3289/monsterHunterBot",
         label: "BE",
       },
-      {
-        icon: RssSvg,
-        link: ROUTES.BLOG.SERIES(BLOG_SERIES.MONHUN_BOT),
-        label: "회고",
-      },
     ],
     image: "/img/project/monsterHunterBot.png",
   },
@@ -159,7 +154,7 @@ export const PROJECTS: Project[] = [
       },
       {
         icon: RssSvg,
-        link: ROUTES.BLOG.SERIES(BLOG_SERIES.MAPLE_BOT),
+        link: ROUTES.BLOG.SERIES("discord-bot"),
         label: "회고",
       },
     ],
@@ -179,7 +174,7 @@ export const PROJECTS: Project[] = [
       },
       {
         icon: RssSvg,
-        link: ROUTES.BLOG.SERIES(BLOG_SERIES.CHIM_PLANET),
+        link: ROUTES.BLOG.SERIES("blog"),
         label: "회고",
       },
     ],

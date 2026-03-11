@@ -1,6 +1,6 @@
 ---
 title: useQuery 서버패칭 캐싱 문제
-series: 글로벌 노마드
+series: global-nomad
 tags: ["Next.js", "React Query", "Zustand", "Caching"]
 date: "2026.02.25"
 ---

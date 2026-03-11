@@ -1,8 +1,4 @@
-import {
-  getPostContent,
-  getPostList,
-  getPostMeta,
-} from "@/lib/client/getBlogData";
+import { getPostDetail, getPostList, getPostMeta } from "@/lib/postService";
 import { Metadata } from "next";
 import PostContainer from "./_components/PostContainer";
 
@@ -59,10 +55,9 @@ export const generateStaticParams = () => {
 
 const PostPage = async ({ params }: PageProps) => {
   const { category, post } = await params;
-  const { metadata, htmlFilePath } = getPostMeta(category, post);
-  const contentHtml = getPostContent(htmlFilePath);
+  const { post: meta, contentHtml } = getPostDetail(category, post);
 
-  return <PostContainer metadata={metadata} contentHtml={contentHtml} />;
+  return <PostContainer metadata={meta.metadata} contentHtml={contentHtml} />;
 };
 
 export default PostPage;

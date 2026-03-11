@@ -1,6 +1,6 @@
 ---
 title: 스프린트 미션 6 로직/UI 분리로 얻은 것들
-series: 스프린트 부트캠프
+series: sprint-bootcamp
 tags: ["Sprint", "React", "useReducer", "Form", "Refactoring", "컴포넌트 설계", "styled-components"]
 date: "2025.11.28"
 ---

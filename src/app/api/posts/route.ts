@@ -1,15 +1,19 @@
-import { getPostContent } from "@/lib/client/getBlogData";
+import { getPostContent } from "@/lib/postService";
 import type { NextRequest } from "next/server";
 
 export const GET = async (request: NextRequest) => {
-  const pathroot = request.nextUrl.searchParams.get("pathroot");
+  const searchParams = request.nextUrl.searchParams;
+  const category = searchParams.get("category");
+  const slug = searchParams.get("slug");
 
-  if (!pathroot) {
-    return new Response("pathroot를 찾을 수 없어요", { status: 400 });
+  if (!category || !slug) {
+    return new Response("카테고리 또는 슬러그를 찾을 수 없어요", {
+      status: 400,
+    });
   }
 
   try {
-    const post = getPostContent(pathroot);
+    const post = getPostContent(category, slug);
     return new Response(post, {
       status: 200,
       headers: { "Content-Type": "text/html; charset=utf-8" },

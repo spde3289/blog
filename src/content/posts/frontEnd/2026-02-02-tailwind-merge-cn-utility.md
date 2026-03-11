@@ -1,6 +1,6 @@
 ---
 title: Tailwind CSS 조건부 스타일링과 클래스 충돌 해결 - cn 유틸리티 도입
-series: 글로벌 노마드
+series: global-nomad
 tags: ["tailwind-css", "clsx", "tailwind-merge", "utility"]
 date: "2026.02.02"
 ---

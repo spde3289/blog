@@ -1,6 +1,6 @@
 ---
 title: 메이플 헬퍼 전역 상태 관리 zustand 선택 이유
-series: 메이플 헬퍼
+series: maple-helper
 tags: ["zustand", "useContext", "state-management", "persist", "localStorage"]
 date: "2025.12.15"
 ---
