@@ -27,7 +27,7 @@ const processSinglePost = async (fileInfo: PostFileInfo) => {
   const htmlOutPath = getPostHtmlFilePath(category, slug);
   fs.writeFileSync(htmlOutPath, html, "utf8");
 
-  const metadata = buildPostMetadata(data, content);
+  const metadata = buildPostMetadata(data);
   const excerpt = getPlainTextExcerpt(content, BLOG_CONFIG.EXCERPT_LENGTH);
 
   const postMetaData: Post = {

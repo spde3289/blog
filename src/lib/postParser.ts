@@ -43,10 +43,7 @@ export const parseMarkdownFrontmatter = (fileContents: string) => {
   return { data, content };
 };
 
-export const buildPostMetadata = (
-  data: Data,
-  content: string,
-): PostMetaData => ({
+export const buildPostMetadata = (data: Data): PostMetaData => ({
   title: data?.title || "Default Title",
   tags: Array.isArray(data?.tags) ? data.tags : [],
   date: data?.date || "Unknown",
