@@ -5,7 +5,7 @@ import { remark } from "remark";
 import gfm from "remark-gfm";
 import html from "remark-html";
 
-type Data = { [key: string]: any };
+type Data = { [key: string]: string };
 
 export const getSeriesThumbnail = (series?: string): string => {
   if (!series) return BLOG_CONFIG.THUMBNAIL.DEFAULT;
@@ -21,7 +21,7 @@ export const getPlainTextExcerpt = (
   markdown: string,
   length: number = BLOG_CONFIG.EXCERPT_LENGTH,
 ): string => {
-  let text = markdown
+  const text = markdown
     .replace(/```[\s\S]*?```/g, "")
     .replace(/<[^>]*>?/gm, "")
     .replace(/!\[.*?\]\(.*?\)/g, "")
