@@ -7,9 +7,14 @@ import html from "remark-html";
 
 type Data = { [key: string]: any };
 
-export const getMarkdownThumbnail = (markdown: string): string => {
-  const imageRegex = /!\[.*?\]\((.*?)\)/;
-  return markdown.match(imageRegex)?.[1] || BLOG_CONFIG.DEFAULT_THUMBNAIL;
+export const getSeriesThumbnail = (series?: string): string => {
+  if (!series) return BLOG_CONFIG.THUMBNAIL.DEFAULT;
+
+  const formattedKey = series
+    .toUpperCase()
+    .replace(/-/g, "_") as keyof typeof BLOG_CONFIG.THUMBNAIL;
+
+  return BLOG_CONFIG.THUMBNAIL[formattedKey] || BLOG_CONFIG.THUMBNAIL.DEFAULT;
 };
 
 export const getPlainTextExcerpt = (
@@ -46,6 +51,6 @@ export const buildPostMetadata = (
   tags: Array.isArray(data?.tags) ? data.tags : [],
   date: data?.date || "Unknown",
   series: data?.series,
-  image: data?.image || getMarkdownThumbnail(content),
+  image: getSeriesThumbnail(data?.series),
   description: data?.description || undefined,
 });
