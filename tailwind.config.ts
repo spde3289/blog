@@ -361,5 +361,6 @@ export default {
 
       addUtilities(newUtilities);
     }),
+    require("@tailwindcss/typography"),
   ],
 } satisfies Config;

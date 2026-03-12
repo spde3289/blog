@@ -3,46 +3,33 @@
 @tailwind utilities;
 
 @layer base {
-  ul {
-    list-style: disc;
+  /* 1. 기본 상태 (라이트 모드) */
+  code[data-theme*=" "],
+  code[data-theme*=" "] span {
+    color: var(--shiki-light);
+    background-color: #f8f9fa;
   }
 
-  ol {
-    list-style: decimal;
+  /* 코드 블록 전체의 배경색을 제어하는 pre 태그 */
+  pre[data-theme*=" "] {
+    background-color: #f8f9fa;
+    color: var(--shiki-light);
+  }
+
+  /* 2. 다크 모드 상태 (.dark 클래스가 상위 요소에 있을 때) */
+  .dark code[data-theme*=" "],
+  .dark code[data-theme*=" "] span {
+    color: var(--shiki-dark);
+    background-color: var(--shiki-dark-bg);
+  }
+
+  .dark pre[data-theme*=" "] {
+    background-color: var(--shiki-dark-bg);
+    color: var(--shiki-dark);
   }
 }
 
 @layer utilities {
-  .copy-button {
-    position: absolute;
-    top: 8px;
-    right: 8px;
-    padding: 4px 8px;
-    font-size: 12px;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s ease; /* 부드러운 색상 변화 */
-  }
-
-  .copy-button:hover {
-    background-color: #e5e7eb; /* 마우스 호버 시 색상 변경 */
-  }
-
-  .check-button {
-    position: absolute;
-    top: 8px;
-    right: 8px;
-    padding: 4px 8px;
-    font-size: 12px;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    background-color: #4caf50; /* 녹색 배경 */
-    color: white; /* 텍스트 색은 흰색 */
-    border-color: #45a049; /* 테두리 색 */
-    font-size: 14px;
-  }
-
   /* WebKit (Chrome, Edge, Safari) */
   .toc::-webkit-scrollbar {
     width: 2px;
@@ -68,11 +55,6 @@
     min-width: 200px;
     max-width: 980px;
     padding: 8px 16px;
-  }
-
-  .icon {
-    width: 24px;
-    height: 24px;
   }
 
   @media (max-width: 767px) {
