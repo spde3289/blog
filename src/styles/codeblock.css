@@ -1,0 +1,21 @@
+code[data-theme*=" "],
+code[data-theme*=" "] span {
+  color: var(--shiki-light);
+  background-color: #f0f4f9;
+}
+
+pre[data-theme*=" "] {
+  background-color: #f0f4f9;
+  color: var(--shiki-light);
+}
+
+.dark code[data-theme*=" "],
+.dark code[data-theme*=" "] span {
+  color: var(--shiki-dark);
+  background-color: var(--shiki-dark-bg);
+}
+
+.dark pre[data-theme*=" "] {
+  background-color: var(--shiki-dark-bg);
+  color: var(--shiki-dark);
+}
