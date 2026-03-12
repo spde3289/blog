@@ -19,7 +19,7 @@ const ListViewPost = ({ post, searchText }: ListViewPostProps) => {
         <div className="flex min-w-0 flex-1 items-center gap-5 sm:gap-6">
           <div className="hidden w-[140px] shrink-0 overflow-hidden rounded-lg border border-neutral-100 sm:block dark:border-neutral-700">
             <img
-              className="aspect-[16/9] h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+              className="aspect-video h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
               src={post.metadata.image ?? "/img/thumbnail.png"}
               alt={post.metadata.title}
             />

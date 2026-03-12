@@ -67,7 +67,7 @@ const ArticleViewPost = ({ post, searchText }: ArticleViewPostProps) => {
       <div className="flex items-center gap-5 p-4 sm:gap-6 sm:p-5">
         <div className="hidden w-[140px] shrink-0 overflow-hidden rounded-lg border border-neutral-100 sm:block dark:border-neutral-700">
           <img
-            className="aspect-[16/9] h-full w-full object-cover"
+            className="aspect-video h-full w-full object-cover"
             src={post.metadata.image}
             alt={post.metadata.title}
           />

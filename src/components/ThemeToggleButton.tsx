@@ -92,7 +92,7 @@ const ThemeToggleButton = () => {
           <div
             ref={modalRef}
             // 4. 모달 팝업 컨테이너 (위치, 여백, 모서리 둥글기 통일)
-            className="absolute right-5 top-14 z-[1000] flex w-36 flex-col gap-1 rounded-lg border border-neutral-200 bg-white p-2 shadow-lg dark:border-neutral-700 dark:bg-neutral-900"
+            className="absolute right-5 top-14 z-1000 flex w-36 flex-col gap-1 rounded-lg border border-neutral-200 bg-white p-2 shadow-lg dark:border-neutral-700 dark:bg-neutral-900"
           >
             <ThemeItem
               theme="light"

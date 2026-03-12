@@ -16,7 +16,7 @@ const PostsPage = () => {
         <div className="min-w-0 flex-1 w-full">
           <PostSection posts={posts} categorys={categorys} />
         </div>
-        <div className="w-full shrink-0 lg:w-[260px]">
+        <div className="w-full shrink-0 lg:w-65">
           <SeriesAside series={series} />
         </div>
       </div>

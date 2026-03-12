@@ -13,7 +13,7 @@ const LendingSection = () => {
           className="fade-in-project text-4xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6 tracking-tight text-center"
         >
           안녕하세요, <br className="md:hidden" />
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">
+          <span className="text-transparent bg-clip-text bg-linear-to-r from-blue-400 to-purple-500">
             개발자 김지훈
           </span>
           입니다.

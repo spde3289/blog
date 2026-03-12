@@ -94,7 +94,7 @@ const ModalTriggerButton = ({
               ),
             )}
             className={
-              "absolute flex gap-1 flex-col right-0 top-10 p-2 bg-white dark:bg-neutral-900 border border-neutral-300 dark:border-neutral-700 shadow-lg rounded-lg z-[1000] " +
+              "absolute flex gap-1 flex-col right-0 top-10 p-2 bg-white dark:bg-neutral-900 border border-neutral-300 dark:border-neutral-700 shadow-lg rounded-lg z-1000 " +
               (containerProps?.className ?? "")
             }
           >

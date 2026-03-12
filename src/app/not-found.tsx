@@ -1,6 +1,5 @@
 "use client";
 import { useRouter } from "next/navigation";
-import { TfiBackLeft } from "react-icons/tfi";
 
 const NotFound = () => {
   const router = useRouter();
@@ -25,10 +24,7 @@ const NotFound = () => {
         onClick={handleBack}
         className="bg-[#dbdee2] text-[#101c33] block rounded-lg w-36 py-3 text-sm font-medium"
       >
-        <span className="flex justify-center items-center gap-2">
-          이전으로
-          <TfiBackLeft className="text-[#101c33] scale-y-[-1]" />
-        </span>
+        <span className="flex justify-center items-center gap-2">이전으로</span>
       </button>
     </div>
   );

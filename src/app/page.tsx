@@ -1,4 +1,3 @@
-import "@/styles/home.css";
 import HistorySection from "./_components/HistorySection";
 import InterviewSection from "./_components/InterviewSection";
 import LendingSection from "./_components/LendingSection";
