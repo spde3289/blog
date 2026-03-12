@@ -39,22 +39,22 @@ const Header = ({
   return (
     <header
       className={[
-        "fixed inset-x-0 top-0 z-999999 max-w-[1500px] m-0 mx-auto h-12 -translate-y-12 ",
-        "backdrop-blur-custom bg-inherit/60",
+        "fixed inset-x-0 top-0 z-999999 m-0 mx-auto h-12 max-w-375 -translate-y-12",
+        "bg-inherit/60 backdrop-blur",
         "transition duration-500",
         visible
-          ? "opacity-100 translate-y-0"
-          : "opacity-0 pointer-events-none -translate-y-12",
+          ? "translate-y-0 opacity-100"
+          : "pointer-events-none -translate-y-12 opacity-0",
       ].join(" ")}
     >
-      <div className="px-4 lg:px-6 w-full h-full flex items-center">
+      <div className="flex h-full w-full items-center px-4 lg:px-6">
         <nav
           className={[
-            "flex w-full gap-2 md:gap-4 items-center",
+            "flex w-full items-center gap-2 md:gap-4",
             pathName === "/" ? "text-white" : "text-gray-dark dark:text-white",
           ].join(" ")}
         >
-          <Link className="text-xl lg:text-2xl font-bold " href="/">
+          <Link className="text-xl font-bold lg:text-2xl" href="/">
             spde3289.dev
           </Link>
           <div
@@ -62,9 +62,9 @@ const Header = ({
               pathName === "/"
                 ? "bg-neutral-300/50"
                 : "bg-neutral-300/50 dark:bg-neutral-700"
-            } w-px h-3.5 shrink-0`}
+              } h-3.5 w-px shrink-0`}
           ></div>
-          <Link className="text-sm font-bold " href="/blog">
+          <Link className="text-sm font-bold" href="/blog">
             Blog
           </Link>
         </nav>

@@ -17,13 +17,15 @@ const TimelineItem = ({
     highlightColor === "blue" ? "text-blue-400" : "text-purple-400";
 
   return (
-    <div className="bg-[#1E1E1E] p-6 rounded-lg border border-neutral-800 w-full">
-      <div className={`${dateColorClass} text-sm mb-2 font-medium`}>
+    <div
+      className="w-full rounded-lg border border-neutral-800 bg-[#1E1E1E] p-6"
+    >
+      <div className={`${dateColorClass} mb-2 text-sm font-medium`}>
         {period}
       </div>
-      <h4 className="text-lg font-bold mb-1">{title}</h4>
-      {subtitle && <p className="text-neutral-200 text-sm mb-2">{subtitle}</p>}
-      <p className="text-neutral-400 text-sm">{description}</p>
+      <h4 className="mb-1 text-lg font-bold">{title}</h4>
+      {subtitle && <p className="mb-2 text-sm text-neutral-200">{subtitle}</p>}
+      <p className="text-sm text-neutral-400">{description}</p>
     </div>
   );
 };

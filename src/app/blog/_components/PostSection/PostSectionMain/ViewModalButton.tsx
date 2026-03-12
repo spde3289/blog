@@ -32,7 +32,10 @@ const ViewModalButton = ({ onClick, currentView }: ViewModalButtonProps) => {
               }
               type="button"
               role="menuitem"
-              className={`flex w-full items-center gap-2 whitespace-nowrap rounded-lg px-3 py-2 text-left outline-none transition-colors hover:bg-neutral-100 focus:bg-neutral-100 dark:hover:bg-neutral-800/50 dark:focus:bg-neutral-800/50 ${
+              className={`flex w-full items-center gap-2 rounded-lg px-3 py-2
+              text-left whitespace-nowrap transition-colors outline-none
+              hover:bg-neutral-100 focus:bg-neutral-100
+              dark:hover:bg-neutral-800/50 dark:focus:bg-neutral-800/50 ${
                 isSelected
                   ? // 선택된 상태: 14px Bold, 브랜드 포인트 컬러(블루 계열)
                     "typo-14-b text-blue-600 dark:text-blue-400"
