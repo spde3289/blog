@@ -39,8 +39,8 @@ const Header = ({
   return (
     <header
       className={[
-        "fixed inset-x-0 top-0 z-999999 m-0 mx-auto h-12 max-w-[1500px] -translate-y-12",
-        "backdrop-blur-custom bg-inherit/60",
+        "fixed inset-x-0 top-0 z-999999 m-0 mx-auto h-12 max-w-375 -translate-y-12",
+        "bg-inherit/60 backdrop-blur",
         "transition duration-500",
         visible
           ? "translate-y-0 opacity-100"
