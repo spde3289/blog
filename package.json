@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@next/third-parties": "^15.1.5",
+    "clsx": "^2.1.1",
     "framer-motion": "^12.5.0",
     "github-markdown-css": "^5.9.0",
     "gray-matter": "^4.0.3",
@@ -31,6 +32,7 @@
     "remark-parse": "^11.0.0",
     "remark-rehype": "^11.1.2",
     "shiki": "^4.0.2",
+    "tailwind-merge": "^3.5.0",
     "tailwindcss-filters": "^3.0.0",
     "unified": "^11.0.5"
   },
