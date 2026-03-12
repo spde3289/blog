@@ -22,17 +22,25 @@ const PostSectionHeader = ({
   categorys,
 }: PostSectionHeaderProps) => {
   return (
-    <div className="flex gap-2 flex-col sm:flex-row ">
+    <div className="flex flex-col gap-2 sm:flex-row">
       <div className="relative flex-1">
         {POSTSECTION_TEXT.header.search.svg}
         <input
           onChange={onChange.handleSearchText}
-          className="block w-full bg-white dark:bg-neutral-950 disabled:bg-neutral-200 dark:disabled:bg-neutral-800 disabled:text-neutral-300 dark:disabled:text-neutral-700 disabled:cursor-not-allowed rounded border-0 focus:outline-none focus:outline-transparent ring-1 ring-inset focus:ring-2 focus:ring-inset text-sm py-1.5 px-3 pl-9 h-8 text-neutral-700 dark:text-neutral-300 ring-neutral-300 dark:ring-neutral-700 placeholder:text-neutral-400 dark:placeholder:text-neutral-600 focus:ring-neutral-700 dark:focus:ring-neutral-300"
+          className="block h-8 w-full rounded border-0 bg-white px-3 py-1.5 pl-9
+            text-sm text-neutral-700 ring-1 ring-neutral-300 ring-inset
+            placeholder:text-neutral-400 focus:ring-2 focus:ring-neutral-700
+            focus:outline-transparent focus:outline-none focus:ring-inset
+            disabled:cursor-not-allowed disabled:bg-neutral-200
+            disabled:text-neutral-300 dark:bg-neutral-950 dark:text-neutral-300
+            dark:ring-neutral-700 dark:placeholder:text-neutral-600
+            dark:focus:ring-neutral-300 dark:disabled:bg-neutral-800
+            dark:disabled:text-neutral-700"
           name="postSearch"
           placeholder={POSTSECTION_TEXT.header.search.placeholder}
         />
       </div>
-      <div className="flex justify-end sm:justify-normal gap-2">
+      <div className="flex justify-end gap-2 sm:justify-normal">
         <CategoryModalButton
           categorys={categorys}
           onChange={onChange.handleSetCategorys}

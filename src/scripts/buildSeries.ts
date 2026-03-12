@@ -29,7 +29,7 @@ export const buildSeriesJson = async () => {
 
     if (!(rawSeries in SERIES_CONFIG)) {
       console.warn(
-        `⚠️ 경고: '${rawSeries}'는 등록되지 않은 시리즈입니다. (${filePath})`,
+        `⚠️ 경고: '${rawSeries}'는 등록되지 않은 시리즈입니다. (${filePath})`
       );
       continue;
     }
@@ -92,6 +92,6 @@ export const buildSeriesJson = async () => {
   }
 
   console.log(
-    `📦 ${SERIES_JSON_DIR} 에 ${output.length}개의 시리즈 파일 생성 완료!`,
+    `📦 ${SERIES_JSON_DIR} 에 ${output.length}개의 시리즈 파일 생성 완료!`
   );
 };

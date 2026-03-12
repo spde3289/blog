@@ -12,11 +12,11 @@ export const buildCategoriesJson = () => {
       acc[file.category] = (acc[file.category] || 0) + 1;
       return acc;
     },
-    {} as Record<string, number>,
+    {} as Record<string, number>
   );
 
   const result: Category[] = Object.entries(categoryCounts).map(
-    ([name, count]) => ({ name, count }),
+    ([name, count]) => ({ name, count })
   );
 
   const outDir = path.dirname(CATEGORIES_JSON_PATH);
@@ -27,10 +27,10 @@ export const buildCategoriesJson = () => {
   fs.writeFileSync(
     CATEGORIES_JSON_PATH,
     JSON.stringify(result, null, 2),
-    "utf8",
+    "utf8"
   );
 
   console.log(
-    `📦 ${CATEGORIES_JSON_PATH} 생성 완료 (${result.length}개 카테고리)`,
+    `📦 ${CATEGORIES_JSON_PATH} 생성 완료 (${result.length}개 카테고리)`
   );
 };

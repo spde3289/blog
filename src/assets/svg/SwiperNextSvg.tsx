@@ -2,7 +2,12 @@ import React from "react";
 
 const SwiperNextSvg = (props: React.SVGProps<SVGSVGElement>) => {
   return (
-    <svg viewBox="0 0 17 12" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
+    <svg
+      viewBox="0 0 17 12"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
       <path
         d="M14.5186 4.85117L14.6201 4.85605C15.1246 4.90707 15.5186 5.33326 15.5186 5.85117C15.5186 6.36908 15.1246 6.79527 14.6201 6.84628L14.5186 6.85117L1 6.85117C0.447715 6.85117 -4.82823e-08 6.40345 0 5.85117C4.82823e-08 5.29888 0.447715 4.85117 1 4.85117L14.5186 4.85117Z"
         fill="currentColor"

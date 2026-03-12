@@ -19,7 +19,7 @@ export const getSeriesThumbnail = (series?: string): string => {
 
 export const getPlainTextExcerpt = (
   markdown: string,
-  length: number = BLOG_CONFIG.EXCERPT_LENGTH,
+  length: number = BLOG_CONFIG.EXCERPT_LENGTH
 ): string => {
   const text = markdown
     .replace(/```[\s\S]*?```/g, "")

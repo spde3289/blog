@@ -13,7 +13,7 @@ const NotFound = () => {
   };
   return (
     <div
-      className="flex flex-col w-full  justify-center items-center"
+      className="flex w-full flex-col items-center justify-center"
       style={{ height: "calc(100svh - var(--header-size))" }}
     >
       <h1 className="text-5xl font-medium">404 ERROR</h1>
@@ -22,9 +22,10 @@ const NotFound = () => {
       </p>
       <button
         onClick={handleBack}
-        className="bg-[#dbdee2] text-[#101c33] block rounded-lg w-36 py-3 text-sm font-medium"
+        className="block w-36 rounded-lg bg-[#dbdee2] py-3 text-sm font-medium
+          text-[#101c33]"
       >
-        <span className="flex justify-center items-center gap-2">이전으로</span>
+        <span className="flex items-center justify-center gap-2">이전으로</span>
       </button>
     </div>
   );

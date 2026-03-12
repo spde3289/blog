@@ -26,15 +26,16 @@ const ScrollToTopButton = () => {
   return (
     <button
       onClick={scrollToTop}
-      className={`fixed bottom-6 right-6 p-3 rounded-full shadow-lg transition-all duration-300 ${
-        isScrollButtonVisible
-          ? "opacity-100 translate-y-0 visible"
-          : "opacity-0 translate-y-5 invisible"
-      } ${
-        pathName === "/"
-          ? "bg-white text-[#313131]"
-          : "dark:text-[#313131] dark:bg-white text-white bg-[#313131]"
-      }`}
+      className={`fixed right-6 bottom-6 rounded-full p-3 shadow-lg
+        transition-all duration-300 ${
+          isScrollButtonVisible
+            ? "visible translate-y-0 opacity-100"
+            : "invisible translate-y-5 opacity-0"
+        } ${
+          pathName === "/"
+            ? "bg-white text-[#313131]"
+            : "bg-[#313131] text-white dark:bg-white dark:text-[#313131]"
+        }`}
     >
       ↑
     </button>

@@ -28,7 +28,8 @@ const RootLayout = ({
         <ThemeScript />
       </head>
       <body
-        className={`${pretendard.className} bg-white dark:bg-neutral-900 dark:text-white/90`}
+        className={`${pretendard.className} bg-white dark:bg-neutral-900
+          dark:text-white/90`}
       >
         {/* Google Analytics Script */}
         {GA_ID && <GoogleAnalytics gaId={GA_ID} />}

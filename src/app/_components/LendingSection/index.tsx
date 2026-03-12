@@ -4,16 +4,26 @@ import Link from "next/link";
 
 const LendingSection = () => {
   return (
-    <section className="h-screen w-full relative flex justify-center items-center flex-col px-4">
-      <div className="z-9 flex justify-center items-center flex-col mb-10 md:mb-14 lg:mb-16">
+    <section
+      className="relative flex h-screen w-full flex-col items-center
+        justify-center px-4"
+    >
+      <div
+        className="z-9 mb-10 flex flex-col items-center justify-center md:mb-14
+          lg:mb-16"
+      >
         <h2
           style={{
             animationDelay: "1.3s",
           }}
-          className="fade-in-project text-4xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6 tracking-tight text-center"
+          className="fade-in-project mb-4 text-center text-4xl font-bold
+            tracking-tight md:mb-6 md:text-5xl lg:text-6xl"
         >
           안녕하세요, <br className="md:hidden" />
-          <span className="text-transparent bg-clip-text bg-linear-to-r from-blue-400 to-purple-500">
+          <span
+            className="bg-linear-to-r from-blue-400 to-purple-500 bg-clip-text
+              text-transparent"
+          >
             개발자 김지훈
           </span>
           입니다.
@@ -22,7 +32,9 @@ const LendingSection = () => {
           style={{
             animationDelay: "1.6s",
           }}
-          className="fade-in-project ani-delay-1200 typo-14-body-m md:typo-16-body-m text-neutral-200 max-w-2xl mx-auto text-center break-keep"
+          className="fade-in-project ani-delay-1200 typo-14-body-m
+            md:typo-16-body-m mx-auto max-w-2xl text-center break-keep
+            text-neutral-200"
         >
           1인 개발자로서 다양한 서비스를 개발하고 있습니다.
         </p>
@@ -30,7 +42,9 @@ const LendingSection = () => {
           style={{
             animationDelay: "1.8s",
           }}
-          className="fade-in-project mb-4 ani-delay-1200 typo-14-body-m md:typo-16-body-m text-neutral-200 max-w-2xl mx-auto text-center break-keep"
+          className="fade-in-project ani-delay-1200 typo-14-body-m
+            md:typo-16-body-m mx-auto mb-4 max-w-2xl text-center break-keep
+            text-neutral-200"
         >
           직접 기획부터 운영까지 경험을 쌓아왔습니다.
         </p>
@@ -38,7 +52,8 @@ const LendingSection = () => {
           style={{
             animationDelay: "2s",
           }}
-          className="fade-in-project typo-16-b md:typo-18-b lg:typo-20-b text-white text-center flex items-center justify-center gap-2 mt-2"
+          className="fade-in-project typo-16-b md:typo-18-b lg:typo-20-b mt-2
+            flex items-center justify-center gap-2 text-center text-white"
         >
           <img
             className="size-7 md:size-8 lg:size-9"
@@ -57,15 +72,19 @@ const LendingSection = () => {
         <Link
           href="https://github.com/spde3289"
           target="_blank"
-          className="flex items-center gap-2 px-4 py-2 md:px-5 md:py-2.5 typo-14-m md:typo-16-m bg-neutral-800 rounded-full hover:bg-neutral-700 transition"
+          className="typo-14-m md:typo-16-m flex items-center gap-2 rounded-full
+            bg-neutral-800 px-4 py-2 transition hover:bg-neutral-700 md:px-5
+            md:py-2.5"
         >
-          <GithubSvg size={20} className="w-4 h-4 md:w-5 md:h-5" /> GitHub
+          <GithubSvg size={20} className="h-4 w-4 md:h-5 md:w-5" /> GitHub
         </Link>
         <Link
           href="/blog"
-          className="flex items-center gap-2 px-4 py-2 md:px-5 md:py-2.5 typo-14-m md:typo-16-m bg-neutral-800 rounded-full hover:bg-neutral-700 transition"
+          className="typo-14-m md:typo-16-m flex items-center gap-2 rounded-full
+            bg-neutral-800 px-4 py-2 transition hover:bg-neutral-700 md:px-5
+            md:py-2.5"
         >
-          <LaptopSvg size={20} className="w-4 h-4 md:w-5 md:h-5" /> Blog
+          <LaptopSvg size={20} className="h-4 w-4 md:h-5 md:w-5" /> Blog
         </Link>
       </div>
       <div id="header-trigger"></div>

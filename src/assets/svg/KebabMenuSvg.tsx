@@ -2,7 +2,12 @@ import React from "react";
 
 const KebabMenuSvg = (props: React.SVGProps<SVGSVGElement>) => {
   return (
-    <svg viewBox="0 0 4 18" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
+    <svg
+      viewBox="0 0 4 18"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
       <path
         d="M3.5 1.75C3.5 2.7165 2.7165 3.5 1.75 3.5C0.783502 3.5 0 2.7165 0 1.75C0 0.783502 0.783502 0 1.75 0C2.7165 0 3.5 0.783502 3.5 1.75Z"
         fill="currentColor"

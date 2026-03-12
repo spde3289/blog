@@ -4,7 +4,11 @@ interface AlertBellSvgProps {
   className?: string;
 }
 
-const AlertBellSvg = ({ size = 24, activeColor = "#FF2727", className }: AlertBellSvgProps) => {
+const AlertBellSvg = ({
+  size = 24,
+  activeColor = "#FF2727",
+  className,
+}: AlertBellSvgProps) => {
   return (
     <svg
       className={className}

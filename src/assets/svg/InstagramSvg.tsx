@@ -1,6 +1,12 @@
 const InstagramSvg = () => {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+    >
       <path
         d="M12 8.8335C10.2883 8.8335 8.83334 10.2885 8.83334 12.0002C8.83334 13.7119 10.2883 15.1668 12 15.1668C13.7117 15.1668 15.1667 13.7119 15.1667 12.0002C15.1667 10.2885 13.7117 8.8335 12 8.8335Z"
         fill="currentColor"
