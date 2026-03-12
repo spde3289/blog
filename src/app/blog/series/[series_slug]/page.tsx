@@ -31,22 +31,32 @@ const SeriesPage = async ({ params }: SeriesPageProps) => {
   });
 
   return (
-    <div className="mx-auto flex w-full max-w-[886px] flex-col gap-8 py-8 sm:py-12">
+    <div
+      className="mx-auto flex w-full max-w-[886px] flex-col gap-8 py-8 sm:py-12"
+    >
       <header className="px-4 sm:px-0">
         <Link
           href="/blog"
-          className="mb-5 inline-flex items-center gap-1.5 typo-14-m text-neutral-500 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-100"
+          className="typo-14-m mb-5 inline-flex items-center gap-1.5
+            text-neutral-500 hover:text-neutral-900 dark:text-neutral-400
+            dark:hover:text-neutral-100"
         >
           <ArrowHeadSVG className="size-5 shrink-0 rotate-90" />
           블로그 홈
         </Link>
-        <h1 className="mb-2 typo-24-b text-neutral-900 dark:text-neutral-100 sm:typo-32-b">
+        <h1
+          className="typo-24-b sm:typo-32-b mb-2 text-neutral-900
+            dark:text-neutral-100"
+        >
           {currentSeriesInfo?.seriesName}
         </h1>
       </header>
       <section className="px-4 sm:px-0">
-        <div className="flex w-full flex-col-reverse gap-6 lg:flex-row lg:items-start lg:justify-between">
-          <div className="min-w-0 flex-1 w-full">
+        <div
+          className="flex w-full flex-col-reverse gap-6 lg:flex-row
+            lg:items-start lg:justify-between"
+        >
+          <div className="w-full min-w-0 flex-1">
             <PostSection posts={posts} categorys={categorys} />
           </div>
         </div>

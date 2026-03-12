@@ -58,7 +58,14 @@ const ModalTriggerButton = ({
       <button
         ref={buttonRef}
         onClick={() => setIsOpen((v) => !v)}
-        className="inline-flex items-center justify-center h-8 px-3 py-2 gap-x-1 text-xs sm:text-sm whitespace-nowrap border rounded-full focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 border-neutral-300 dark:border-neutral-700 text-neutral-900 dark:text-neutral-100 bg-white dark:bg-neutral-900 hover:bg-neutral-100 dark:hover:bg-neutral-800/70 active:bg-neutral-200 dark:active:bg-neutral-700 focus-visible:outline-neutral-700 dark:focus-visible:outline-brand"
+        className="dark:focus-visible:outline-brand inline-flex h-8 items-center
+          justify-center gap-x-1 rounded-full border border-neutral-300 bg-white
+          px-3 py-2 text-xs whitespace-nowrap text-neutral-900
+          hover:bg-neutral-100 focus-visible:outline-2
+          focus-visible:outline-offset-2 focus-visible:outline-neutral-700
+          active:bg-neutral-200 sm:text-sm dark:border-neutral-700
+          dark:bg-neutral-900 dark:text-neutral-100 dark:hover:bg-neutral-800/70
+          dark:active:bg-neutral-700"
       >
         {title}
         {icon}
@@ -90,17 +97,19 @@ const ModalTriggerButton = ({
                     "ref", // ref는 내부에서 관리
                     "className", // className은 아래에서 병합
                     "style", // style은 병합 가능하지만 여기선 단순화
-                  ].includes(k),
-              ),
+                  ].includes(k)
+              )
             )}
             className={
-              "absolute flex gap-1 flex-col right-0 top-10 p-2 bg-white dark:bg-neutral-900 border border-neutral-300 dark:border-neutral-700 shadow-lg rounded-lg z-[1000] " +
+              `absolute top-10 right-0 z-1000 flex flex-col gap-1 rounded-lg
+              border border-neutral-300 bg-white p-2 shadow-lg
+              dark:border-neutral-700 dark:bg-neutral-900 ` +
               (containerProps?.className ?? "")
             }
           >
             {children}
           </div>,
-          modalRoot,
+          modalRoot
         )}
     </div>
   );

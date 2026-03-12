@@ -5,14 +5,16 @@ interface SectionTitleProps {
 
 const SectionTitle = ({ title, subtitle }: SectionTitleProps) => {
   return (
-    <div className="text-center mb-16">
-      <span className="text-blue-500 font-medium tracking-wider uppercase text-sm">
+    <div className="mb-16 text-center">
+      <span
+        className="text-sm font-medium tracking-wider text-blue-500 uppercase"
+      >
         {subtitle}
       </span>
-      <h2 className="text-3xl md:text-4xl font-bold mt-2 text-white">
+      <h2 className="mt-2 text-3xl font-bold text-white md:text-4xl">
         {title}
       </h2>
-      <div className="w-12 h-1 bg-blue-500 mx-auto mt-4 rounded-full" />
+      <div className="mx-auto mt-4 h-1 w-12 rounded-full bg-blue-500" />
     </div>
   );
 };

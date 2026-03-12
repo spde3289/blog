@@ -1,9 +1,6 @@
 "use client";
 
 import HighlightCode from "@/components/HighlightCode";
-import "@/styles/github.css";
-import "@/styles/highlight.css";
-import "@/styles/post.css";
 import type { PostMetaData } from "@/types/posts.types";
 import { useEffect, useState } from "react";
 
@@ -49,21 +46,26 @@ const PostContainer = ({ metadata, contentHtml }: HighlightedCodeProps) => {
   }, [contentHtml]);
 
   return (
-    <div className="flex relative">
+    <div className="relative flex">
       <HighlightCode metadata={metadata} contentHtml={html} />
       {/* 목차 영역 */}
-      <div className="hidden xl:block sticky top-15 mt-40 self-start">
-        <ul className="border-l-2 overflow-y-auto toc border-neutral-300 dark:border-neutral-700 py-1 px-3 text-sm max-h-[calc(100vh-120px)] overflow-auto list-none">
+      <div className="sticky top-15 mt-40 hidden self-start xl:block">
+        <ul
+          className="toc max-h-[calc(100vh-120px)] list-none overflow-auto
+            overflow-y-auto border-l-2 border-neutral-300 px-3 py-1 text-sm
+            dark:border-neutral-700"
+        >
           {sub?.map((i) => (
             <li
               key={i.id}
-              className={`text-nowrap pr-2 ${
-                i.level === 3 ? "ml-4 mt-0.5" : "mt-1.5 "
+              className={`pr-2 text-nowrap ${
+                i.level === 3 ? "mt-0.5 ml-4" : "mt-1.5"
               }`}
             >
               <a
                 href={`#${i.id}`}
-                className="text-[#868E96] hover:text-[#212529] dark:hover:text-neutral-300"
+                className="text-[#868E96] hover:text-[#212529]
+                  dark:hover:text-neutral-300"
               >
                 {i.text}
               </a>

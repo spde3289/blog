@@ -9,4 +9,15 @@ import setFile from "./setFile.png";
 import lsFile from "./lsFile.png";
 import complete from "./complete.png";
 
-export { instanceStart, changeKey, setKey, setOS, login, createKey, awsTest, setFile, lsFile, complete };
+export {
+  instanceStart,
+  changeKey,
+  setKey,
+  setOS,
+  login,
+  createKey,
+  awsTest,
+  setFile,
+  lsFile,
+  complete,
+};

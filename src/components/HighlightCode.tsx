@@ -1,8 +1,5 @@
 "use client";
 
-import "@/styles/github.css";
-import "@/styles/highlight.css";
-import "@/styles/post.css";
 import type { PostMetaData } from "@/types/posts.types";
 import { useEffect } from "react";
 import Highlight from "react-highlight";
@@ -59,16 +56,16 @@ const HighlightCode = ({ metadata, contentHtml }: HighlightedCodeProps) => {
         <h1 style={{ marginBottom: "4px", fontSize: "2rem" }}>
           {metadata.title}
         </h1>
-        <div className="flex justify-between mb-4">
+        <div className="mb-4 flex justify-between">
           <div
             style={{ marginBottom: "0" }}
-            className="flex text-sm gap-2 text-gray-500"
+            className="flex gap-2 text-sm text-gray-500"
           >
             {metadata.tags.map((tag: string) => (
               <div key={tag}># {tag}</div>
             ))}
           </div>
-          <p style={{ marginBottom: "0" }} className="text-gray-500 text-sm">
+          <p style={{ marginBottom: "0" }} className="text-sm text-gray-500">
             작성일 : {metadata.date}
           </p>
         </div>

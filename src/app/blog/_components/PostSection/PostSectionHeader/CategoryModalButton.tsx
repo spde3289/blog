@@ -27,7 +27,9 @@ const CategoryModalButton = ({
             <label
               key={el.name}
               htmlFor={el.name}
-              className={`group flex w-full cursor-pointer items-center gap-3 whitespace-nowrap rounded-lg px-3 py-2 outline-none transition-colors hover:bg-neutral-100 dark:hover:bg-neutral-800/50 ${
+              className={`group flex w-full cursor-pointer items-center gap-3
+              rounded-lg px-3 py-2 whitespace-nowrap transition-colors
+              outline-none hover:bg-neutral-100 dark:hover:bg-neutral-800/50 ${
                 isChecked
                   ? "typo-14-b text-blue-600 dark:text-blue-400"
                   : "typo-14-m text-neutral-600 dark:text-neutral-400"
@@ -37,7 +39,11 @@ const CategoryModalButton = ({
                 id={el.name}
                 type="checkbox"
                 defaultChecked={isChecked}
-                className="size-4 shrink-0 cursor-pointer rounded border-neutral-300 bg-transparent text-blue-600 accent-blue-600 focus:ring-0 focus:ring-offset-0 dark:border-neutral-700 dark:bg-transparent dark:text-blue-400 dark:accent-blue-400"
+                className="size-4 shrink-0 cursor-pointer rounded
+                  border-neutral-300 bg-transparent text-blue-600
+                  accent-blue-600 focus:ring-0 focus:ring-offset-0
+                  dark:border-neutral-700 dark:bg-transparent dark:text-blue-400
+                  dark:accent-blue-400"
               />
               <span className="flex grow items-center">{el.name}</span>
             </label>

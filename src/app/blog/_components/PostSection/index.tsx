@@ -18,7 +18,7 @@ export const POSTSECTION_TEXT = {
     search: {
       placeholder: "Search",
       svg: (
-        <SearchSVG className="size-8 absolute pointer-events-none top-0 left-0 pl-2 text-neutral-400 dark:text-neutral-600" />
+        <SearchSVG className="pointer-events-none absolute top-0 left-0 size-8 pl-2 text-neutral-400 dark:text-neutral-600" />
       ),
     },
     categoryButton: {
