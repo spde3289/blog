@@ -9,17 +9,33 @@ export type TocItem = {
 };
 
 interface TableOfContentsProps {
-  toc: TocItem[];
+  contentHtml: string;
 }
 
-const TableOfContents = ({ toc }: TableOfContentsProps) => {
+const extractTocSync = (htmlString: string): TocItem[] => {
+  const regex = /<(h[23])\s+id="([^"]+)"[^>]*>(.*?)<\/\1>/gi;
+  const headings: TocItem[] = [];
+  let match;
+
+  while ((match = regex.exec(htmlString)) !== null) {
+    const textContent = match[3].replace(/<[^>]+>/g, "").trim();
+    headings.push({
+      level: match[1].toLowerCase() === "h2" ? 2 : 3,
+      id: match[2],
+      text: textContent,
+    });
+  }
+  return headings;
+};
+
+const TableOfContents = ({ contentHtml }: TableOfContentsProps) => {
+  const toc = extractTocSync(contentHtml);
   const [activeId, setActiveId] = useState<string>("");
 
   useEffect(() => {
-    // 렌더링된 h2, h3 태그들을 모두 찾습니다.
-    const elements = document.querySelectorAll("h2, h3");
+    if (toc.length === 0) return;
 
-    // Intersection Observer 설정
+    const elements = document.querySelectorAll("h2, h3");
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -28,7 +44,7 @@ const TableOfContents = ({ toc }: TableOfContentsProps) => {
           }
         });
       },
-      { rootMargin: "-80px 0px -80% 0px", threshold: 0.1 },
+      { rootMargin: "-80px 0px -80% 0px", threshold: 0.1 }
     );
 
     elements.forEach((el) => observer.observe(el));
@@ -39,21 +55,26 @@ const TableOfContents = ({ toc }: TableOfContentsProps) => {
   if (toc.length === 0) return null;
 
   return (
-    <div className="hidden xl:block sticky top-15 mt-40 self-start">
-      <ul className="border-l-2 overflow-y-auto toc border-neutral-300 dark:border-neutral-700 py-1 px-3 text-sm max-h-[calc(100vh-120px)] overflow-auto list-none">
+    <div className="sticky top-15 mt-40 hidden self-start xl:block">
+      <ul
+        className="toc max-h-[calc(100vh-120px)] list-none overflow-auto
+          overflow-y-auto border-l-2 border-neutral-300 px-3 py-1 text-sm
+          dark:border-neutral-700"
+      >
         {toc.map((i) => (
           <li
-            key={i.id}
-            className={`text-nowrap pr-2 transition-all duration-200 ${
-              i.level === 3 ? "ml-4 mt-0.5" : "mt-1.5"
+            key={i.id + i.text}
+            className={`pr-2 text-nowrap transition-all duration-200 ${
+              i.level === 3 ? "mt-0.5 ml-4" : "mt-1.5"
             }`}
           >
             <a
               href={`#${i.id}`}
               className={`block transition-colors ${
                 activeId === i.id
-                  ? "text-blue-500 font-semibold dark:text-blue-400" // 활성화 되었을 때의 색상
-                  : "text-[#868E96] hover:text-[#212529] dark:hover:text-neutral-300" // 기본 색상
+                  ? "font-semibold text-blue-500 dark:text-blue-400"
+                  : `text-[#868E96] hover:text-[#212529]
+                    dark:hover:text-neutral-300`
               }`}
             >
               {i.text}
