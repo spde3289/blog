@@ -1,5 +1,5 @@
-import HighlightCode from "@/components/HighlightCode";
 import HighlightText from "@/components/HighlightText";
+import PostArticle from "@/components/PostArticle";
 import ArrowHeadSVG from "@/svg/ArrowHeadSVG";
 import type { Post } from "@/types/posts.types";
 import { useState } from "react";
@@ -41,9 +41,7 @@ const ArticleViewPost = ({ post, searchText }: ArticleViewPostProps) => {
           border-neutral-200 bg-white dark:border-neutral-700
           dark:bg-neutral-800/40"
       >
-        <article
-          className="markdown-body mx-auto w-full max-w-[886px] p-5 sm:p-8"
-        >
+        <article className="markdown-body mx-auto w-full max-w-221.5 p-5 sm:p-8">
           {loading ? (
             <div
               className="typo-14-m flex h-32 items-center justify-center
@@ -52,7 +50,7 @@ const ArticleViewPost = ({ post, searchText }: ArticleViewPostProps) => {
               게시글을 불러오는 중...
             </div>
           ) : (
-            <HighlightCode metadata={post.metadata} contentHtml={postContent} />
+            <PostArticle metadata={post.metadata} contentHtml={postContent} />
           )}
         </article>
         <button
@@ -84,7 +82,7 @@ const ArticleViewPost = ({ post, searchText }: ArticleViewPostProps) => {
     >
       <div className="flex items-center gap-5 p-4 sm:gap-6 sm:p-5">
         <div
-          className="hidden w-[140px] shrink-0 overflow-hidden rounded-lg border
+          className="hidden w-35 shrink-0 overflow-hidden rounded-lg border
             border-neutral-100 sm:block dark:border-neutral-700"
         >
           <img
@@ -101,14 +99,12 @@ const ArticleViewPost = ({ post, searchText }: ArticleViewPostProps) => {
           >
             <HighlightText text={post.metadata.title} query={searchText} />
           </h2>
-
           <div
             className="typo-14-body-m mb-3 line-clamp-2 text-pretty
               text-neutral-600 dark:text-neutral-400"
           >
             <HighlightText text={post.excerpt} query={searchText} />
           </div>
-
           <div
             className="typo-13-m flex items-center gap-2 text-neutral-500
               dark:text-neutral-400"

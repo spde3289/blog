@@ -13,8 +13,8 @@ const NotFound = () => {
   };
   return (
     <div
-      className="flex w-full flex-col items-center justify-center"
-      style={{ height: "calc(100svh - var(--header-size))" }}
+      className="flex min-h-[calc(100vh-101px)] w-full flex-col items-center
+        justify-center"
     >
       <h1 className="text-5xl font-medium">404 ERROR</h1>
       <p className="mb-4 text-xl">
