@@ -57,7 +57,7 @@ export const PROJECTS: Project[] = [
   },
   {
     title: "팀 프로젝트: 글로벌 노마드",
-    period: "2025.01 - 2024.02",
+    period: "2026.01 - 2026.02",
     description:
       "체험 상품의 탐색부터 예약, 관리까지 지원하는 통합 플랫폼입니다. 지도 및 캘린더 SDK를 적극 활용하여 직관적이고 편리한 사용자 경험(UX)을 구현하는 데 집중했습니다.",
     tech: ["Next.js", "TanStack Query", "Zustand", "Tailwind CSS"],
