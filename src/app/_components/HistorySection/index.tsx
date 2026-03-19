@@ -21,7 +21,7 @@ const HistorySection = () => {
       >
         <div className="relative pl-8 md:pl-12">
           <span
-            className="absolute top-0 -left-[9px] rounded-full border-2
+            className="absolute top-0 -left-2.25 rounded-full border-2
               border-blue-500 bg-[#121212] p-1 text-blue-500"
           >
             <GraduationCapSvg size={20} />
@@ -41,7 +41,7 @@ const HistorySection = () => {
         </div>
         <div className="relative pl-8 md:pl-12">
           <span
-            className="absolute top-0 -left-[9px] rounded-full border-2
+            className="absolute top-0 -left-2.25 rounded-full border-2
               border-purple-500 bg-[#121212] p-1 text-purple-500"
           >
             <BriefcaseBusinessSvg size={20} />
