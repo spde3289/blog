@@ -1,5 +1,29 @@
 # Changelog
 
+## [1.0.0](https://github.com/spde3289/blog/compare/v0.6.0...v1.0.0) (2026-03-20)
+
+
+### Features
+
+* 게시글 본문 페이지 디자인 수정 및 UX 개선 ([b19637c](https://github.com/spde3289/blog/commit/b19637cd54d426ed631515f5ec8b256663bcf5c2))
+* 시리즈 메타 데이터 카테고리 추가 ([911d057](https://github.com/spde3289/blog/commit/911d0579feaa0df30af2935772cae049e6f777c1))
+* 시리즈 페이지 ([4597d58](https://github.com/spde3289/blog/commit/4597d5848477ae2cb37b371518561ba9023bdd65))
+* 시리즈 페이지 임시 레이아웃 ([57f4bb3](https://github.com/spde3289/blog/commit/57f4bb30a301eb6cedc3ed7e534fb11f8c3bea17))
+* 시리즈 페이지 추가, 시리즈 썸네일 추가 ([5881cac](https://github.com/spde3289/blog/commit/5881cacb9ad27ed0dbcdd00f44d5d8c18f776c17))
+* 썸네일 적용 로직 수정, 썸네일 이미지 추가 ([f9f4f4e](https://github.com/spde3289/blog/commit/f9f4f4e698f27c8dfe8b30fdaad0f374df71b8fb))
+* 올바르지 않은 경로 접근시 404 라우팅 ([bc679c5](https://github.com/spde3289/blog/commit/bc679c5694cd7a8162a7a881ef1b31c37c375721))
+* 테일윈드 유틸함수 cn 추가 ([a6ba854](https://github.com/spde3289/blog/commit/a6ba85498612e2e0921153acddbea1837c2c1c3c))
+
+
+### Bug Fixes
+
+* 타입 에러 수정 ([b2bb484](https://github.com/spde3289/blog/commit/b2bb4846a8bc292fcd0af006b270f2ed227e0e51))
+
+
+### Miscellaneous Chores
+
+* 1.0.0 메이저 릴리즈 강제 트리거 ([eab13dd](https://github.com/spde3289/blog/commit/eab13dd3fc5d3fa5f5b6b6add290c5eabef7c2cc))
+
 ## [0.6.0](https://github.com/spde3289/blog/compare/v0.5.1...v0.6.0) (2026-03-03)
 
 
