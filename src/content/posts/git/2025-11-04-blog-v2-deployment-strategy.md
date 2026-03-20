@@ -1,6 +1,6 @@
 ---
 title: 블로그 v2 리뉴얼과 함께 정리한 배포 전략
-serise: 블로그
+series: blog
 tags: ["CI/CD", "GitHub Actions", "Vercel", "브랜치 전략", "Release"]
 date: "2025.11.04"
 ---

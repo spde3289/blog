@@ -15,13 +15,19 @@ const HistorySection = () => {
       id="education"
     >
       <SectionTitle title="교육 및 경력" subtitle="History" />
-      <div className="relative border-l-2 border-neutral-800 ml-4 md:ml-6 space-y-12">
+      <div
+        className="relative ml-4 space-y-12 border-l-2 border-neutral-800
+          md:ml-6"
+      >
         <div className="relative pl-8 md:pl-12">
-          <span className="absolute -left-[9px] top-0 p-1 bg-[#121212] border-2 border-blue-500 rounded-full text-blue-500">
+          <span
+            className="absolute top-0 -left-2.25 rounded-full border-2
+              border-blue-500 bg-[#121212] p-1 text-blue-500"
+          >
             <GraduationCapSvg size={20} />
           </span>
-          <h3 className="text-2xl font-bold mb-6 text-white">Education</h3>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <h3 className="mb-6 text-2xl font-bold text-white">Education</h3>
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
             {EDUCATION.map((edu, idx) => (
               <TimelineItem
                 key={idx}
@@ -34,11 +40,14 @@ const HistorySection = () => {
           </div>
         </div>
         <div className="relative pl-8 md:pl-12">
-          <span className="absolute -left-[9px] top-0 p-1 bg-[#121212] border-2 border-purple-500 rounded-full text-purple-500">
+          <span
+            className="absolute top-0 -left-2.25 rounded-full border-2
+              border-purple-500 bg-[#121212] p-1 text-purple-500"
+          >
             <BriefcaseBusinessSvg size={20} />
           </span>
-          <h3 className="text-2xl font-bold mb-6 text-white">Career</h3>
-          <div className="grid grid-cols-1 gap-6 max-w-md">
+          <h3 className="mb-6 text-2xl font-bold text-white">Career</h3>
+          <div className="grid max-w-md grid-cols-1 gap-6">
             {CAREER.map((job, idx) => (
               <TimelineItem
                 key={idx}

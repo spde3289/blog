@@ -6,6 +6,7 @@ import { GoogleAnalytics } from "@next/third-parties/google";
 import type { Metadata } from "next";
 import Footer from "./_components/common/Footer";
 import ThemeScript from "./_components/ThemeScript";
+import { pretendard } from "./fonts";
 import "./globals.css";
 
 const GA_ID = process.env.NEXT_PUBLIC_GA_ID;
@@ -22,16 +23,19 @@ const RootLayout = ({
   children: React.ReactNode;
 }>) => {
   return (
-    <html lang="ko" suppressHydrationWarning>
+    <html lang="ko" suppressHydrationWarning className={pretendard.variable}>
       <head>
         <ThemeScript />
       </head>
-      <body className={` bg-white dark:bg-neutral-900 dark:text-white/90`}>
+      <body
+        className={`${pretendard.className} bg-white dark:bg-neutral-900
+          dark:text-white/90`}
+      >
         {/* Google Analytics Script */}
         {GA_ID && <GoogleAnalytics gaId={GA_ID} />}
         <ThemeProvider>
           <Header />
-          {children}
+          <main className="min-h-[calc(100vh-149px)]">{children}</main>
           <ScrollToTopButton />
           <Footer />
         </ThemeProvider>

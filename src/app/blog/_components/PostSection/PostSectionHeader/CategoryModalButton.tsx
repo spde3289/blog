@@ -1,12 +1,11 @@
 import ModalTriggerButton from "@/components/ModalTriggerButton";
-import type { CategoryList } from "@/types/posts.types";
-import { memo } from "react";
+import type { Category } from "@/types/posts.types";
 import { POSTSECTION_TEXT } from "..";
 
 interface CategoryModalButtonProps {
   currentCategories: string[];
   onChange: React.ChangeEventHandler<HTMLDivElement>;
-  categorys: CategoryList;
+  categorys: Category[];
 }
 
 const CategoryModalButton = ({
@@ -21,24 +20,38 @@ const CategoryModalButton = ({
       containerProps={{ onChange }}
       modalRootId="tags-modal"
     >
-      {categorys.map((el) => (
-        <div
-          key={el.name}
-          className="whitespace-nowrap p-1 text-sm text-neutral-600 dark:text-neutral-400 flex items-center"
-        >
-          <input
-            id={el.name}
-            type="checkbox"
-            defaultChecked={currentCategories.includes(el.name)}
-            className="size-4 mr-2 appearance-none rounded fill-neutral-300 dark:fill-neutral-700 text-neutral-900 dark:text-neutral-100 bg-transparent border-neutral-300 dark:border-neutral-700 disabled:!bg-neutral-300 dark:disabled:!bg-neutral-700 disabled:cursor-not-allowed focus:ring-transparent focus:ring-offset-transparent focus:outline-neutral-700 dark:focus:outline-neutral-300 cursor-pointer"
-          />{" "}
-          <label className=" cursor-pointer w-20" htmlFor={el.name}>
-            {el.name}
-          </label>
-        </div>
-      ))}
+      <div className="flex flex-col gap-1">
+        {categorys.map((el) => {
+          const isChecked = currentCategories.includes(el.name);
+          return (
+            <label
+              key={el.name}
+              htmlFor={el.name}
+              className={`group flex w-full cursor-pointer items-center gap-3
+              rounded-lg px-3 py-2 whitespace-nowrap transition-colors
+              outline-none hover:bg-neutral-100 dark:hover:bg-neutral-800/50 ${
+                isChecked
+                  ? "typo-14-b text-blue-600 dark:text-blue-400"
+                  : "typo-14-m text-neutral-600 dark:text-neutral-400"
+              }`}
+            >
+              <input
+                id={el.name}
+                type="checkbox"
+                defaultChecked={isChecked}
+                className="size-4 shrink-0 cursor-pointer rounded
+                  border-neutral-300 bg-transparent text-blue-600
+                  accent-blue-600 focus:ring-0 focus:ring-offset-0
+                  dark:border-neutral-700 dark:bg-transparent dark:text-blue-400
+                  dark:accent-blue-400"
+              />
+              <span className="flex grow items-center">{el.name}</span>
+            </label>
+          );
+        })}
+      </div>
     </ModalTriggerButton>
   );
 };
 
-export default memo(CategoryModalButton);
+export default CategoryModalButton;

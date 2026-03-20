@@ -1,10 +1,7 @@
-import {
-  getPostContent,
-  getPostList,
-  getPostMeta,
-} from "@/lib/client/getBlogData";
+import { getPostDetail, getPostList, getPostMeta } from "@/lib/postService";
 import { Metadata } from "next";
-import PostContainer from "./_components/PostContainer";
+import { notFound } from "next/navigation";
+import PostLayout from "./_components/PostLayout";
 
 interface PageProps {
   params: Promise<{ category: string; post: string }>;
@@ -59,10 +56,18 @@ export const generateStaticParams = () => {
 
 const PostPage = async ({ params }: PageProps) => {
   const { category, post } = await params;
-  const { metadata, htmlFilePath } = getPostMeta(category, post);
-  const contentHtml = getPostContent(htmlFilePath);
 
-  return <PostContainer metadata={metadata} contentHtml={contentHtml} />;
+  try {
+    const { post: meta, contentHtml } = getPostDetail(category, post);
+
+    if (!meta || !contentHtml) {
+      notFound();
+    }
+
+    return <PostLayout metadata={meta.metadata} contentHtml={contentHtml} />;
+  } catch {
+    notFound();
+  }
 };
 
 export default PostPage;

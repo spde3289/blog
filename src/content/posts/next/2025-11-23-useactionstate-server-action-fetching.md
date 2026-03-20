@@ -1,6 +1,6 @@
 ---
 title: 정적 게시글을 Server Action으로 읽으려다 삽질한 기록
-series: 블로그
+series: blog
 tags: ["nextjs", "react", "server-actions", "useactionstate", "caching"]
 date: "2025.11.23"
 ---

@@ -1,5 +1,6 @@
 ---
 title: 2025년 블로그 리펙토링 회고록
+series: blog
 tags: [etc]
 date: "2025.01.18"
 ---

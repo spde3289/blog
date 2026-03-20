@@ -1,6 +1,6 @@
 ---
 title: Markdown 변환부터 메타데이터 분리까지 블로그 구조 개선 기록
-series: 블로그
+series: blog
 tags: ["Next.js", "성능 개선", "빌드 파이프라인", "Markdown", "메타데이터"]
 date: "2025.11.24"
 ---

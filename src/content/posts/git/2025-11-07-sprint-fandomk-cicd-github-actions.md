@@ -1,6 +1,6 @@
 ---
 title: GitHub Actions로 팬덤케이 CI/CD 파이프라인 구축
-series: 스프린트 부트캠프
+series: sprint-bootcamp
 tags: ["GitHub Actions", "CI/CD", "Vercel", "Next.js", "Release", "Branch Protection"]
 date: "2025.11.07"
 ---
