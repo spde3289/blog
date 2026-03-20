@@ -1,6 +1,6 @@
 ---
 title: 블로그 버전 관리 및 배포 자동화 가이드
-series: 블로그
+series: blog
 tags: ["버전관리", "자동화", "release-please", "github-actions", "semantic-versioning"]
 date: "2026.03.02"
 ---

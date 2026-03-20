@@ -12,9 +12,8 @@ const Footer = () => {
 
   return (
     <footer
-      className={`py-10 text-center text-sm border-t transition-colors duration-300 ${
-        isHome ? homeStyles : defaultStyles
-      }`}
+      className={`border-t py-10 text-center text-sm transition-colors
+        duration-300 ${isHome ? homeStyles : defaultStyles}`}
     >
       © {new Date().getFullYear()} Developer Kim Ji-hoon. All rights reserved.
     </footer>

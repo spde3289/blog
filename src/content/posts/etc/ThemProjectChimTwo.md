@@ -1,5 +1,6 @@
 ---
 title: 침플레닛 회고록
+series: chim-planet
 tags: [etc]
 date: "2023.08.25"
 ---

@@ -1,6 +1,6 @@
 ---
 title: VSCode TypeScript 자동완성 지연 현상 해결
-series: 더 줄게
+series: the-julge
 tags: ["VSCode", "TypeScript", "IntelliSense", "최적화", "트러블슈팅"]
 date: "2026.01.01"
 ---

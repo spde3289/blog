@@ -1,5 +1,6 @@
 ---
 title: tsx파일을 리드미파일로 바꾸기
+series: blog
 tags: [frontEnd]
 date: "2025.01.04"
 ---

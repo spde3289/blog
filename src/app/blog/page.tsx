@@ -1,24 +1,30 @@
-import {
-  getCategoryList,
-  getPostList,
-  getSeriesGroups,
-} from "@/lib/client/getBlogData";
+import { getCategoryList, getPostList, getSeriesList } from "@/lib/postService";
 import PostSection from "./_components/PostSection";
 import SeriesAside from "./_components/SeriesAside";
 
 const PostsPage = () => {
   const posts = getPostList();
   const categorys = getCategoryList();
-  const series = getSeriesGroups();
+  const series = getSeriesList();
 
   return (
     <>
-      <h2 className="hidden lg:block text-pretty text-neutral-900 dark:text-neutral-100 text-xl font-semibold mb-4">
+      <h2
+        className="mb-4 hidden text-xl font-semibold text-pretty
+          text-neutral-900 lg:block dark:text-neutral-100"
+      >
         블로그의 모든 것
       </h2>
-      <div className="flex gap-6 flex-col-reverse lg:flex-row">
-        <PostSection posts={posts} categorys={categorys} />
-        <SeriesAside series={series} />
+      <div
+        className="flex w-full flex-col-reverse gap-6 lg:flex-row lg:items-start
+          lg:justify-between"
+      >
+        <div className="w-full min-w-0 flex-1">
+          <PostSection posts={posts} categorys={categorys} />
+        </div>
+        <div className="w-full shrink-0 lg:w-65">
+          <SeriesAside series={series} />
+        </div>
       </div>
     </>
   );

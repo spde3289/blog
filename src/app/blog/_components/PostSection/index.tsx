@@ -5,7 +5,7 @@ import ArrowHeadSVG from "@/svg/ArrowHeadSVG";
 import ArticleSVG from "@/svg/ArticleSVG";
 import ListSVG from "@/svg/ListSVG";
 import SearchSVG from "@/svg/SearchSVG";
-import type { CategoryList, Post } from "@/types/posts.types";
+import type { Category, Post } from "@/types/posts.types";
 import { useCallback, useMemo, useState } from "react";
 import PostSectionHeader from "./PostSectionHeader";
 import PostSectionMain from "./PostSectionMain";
@@ -18,7 +18,7 @@ export const POSTSECTION_TEXT = {
     search: {
       placeholder: "Search",
       svg: (
-        <SearchSVG className="size-8 absolute pointer-events-none top-0 left-0 pl-2 text-neutral-400 dark:text-neutral-600" />
+        <SearchSVG className="pointer-events-none absolute top-0 left-0 size-8 pl-2 text-neutral-400 dark:text-neutral-600" />
       ),
     },
     categoryButton: {
@@ -50,7 +50,7 @@ const DefaultSort = POSTSECTION_TEXT.header.sortButton.sort[0];
 
 interface PostSectionProps {
   posts: Post[];
-  categorys: CategoryList;
+  categorys: Category[];
 }
 
 const PostSection = ({ posts, categorys }: PostSectionProps) => {
@@ -106,7 +106,7 @@ const PostSection = ({ posts, categorys }: PostSectionProps) => {
     currentSort === DefaultSort ? filteredPosts : [...filteredPosts].reverse();
 
   return (
-    <section className="flex-1 flex gap-4 sm:gap-8 flex-col">
+    <section className="flex w-full flex-col gap-4 sm:gap-8">
       <PostSectionHeader
         currentCategories={currentCategories}
         onChange={{ handleSetCategorys, handleSearchText }}

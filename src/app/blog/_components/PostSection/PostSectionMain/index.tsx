@@ -1,5 +1,5 @@
 import type { Post } from "@/types/posts.types";
-import { JSX, memo, Suspense, useCallback, useState } from "react";
+import { JSX, Suspense, useCallback, useState } from "react";
 import { POSTSECTION_TEXT } from "..";
 import ArticleViewPost from "./ArticleViewPost";
 import ListViewPost from "./ListViewPost";
@@ -29,7 +29,7 @@ const PostSectionMain = ({ posts, searchText }: PostSectionMainProps) => {
 
   return (
     <div>
-      <div className="flex justify-between items-center mb-4">
+      <div className="mb-4 flex items-center justify-between">
         <div className="text-sm sm:text-base">
           {posts.length} {POSTSECTION_TEXT.main.title}
         </div>
@@ -38,7 +38,7 @@ const PostSectionMain = ({ posts, searchText }: PostSectionMainProps) => {
           onClick={handleCurrentView}
         />
       </div>
-      <ul className="flex flex-col gap-4 list-none">
+      <ul className="flex list-none flex-col gap-4">
         <Suspense fallback={<div>Loading...</div>}>
           {currentView.text === defaultViewText
             ? posts.map((post) => (
@@ -61,4 +61,4 @@ const PostSectionMain = ({ posts, searchText }: PostSectionMainProps) => {
   );
 };
 
-export default memo(PostSectionMain);
+export default PostSectionMain;

@@ -1,6 +1,6 @@
 ---
 title: 팀 프로젝트 디펜던시 표준화로 개발 생산성 올린 방법
-series: 팬덤케이
+series: fandom-k
 tags: ["팀프로젝트", "Node.js", "Husky", "lint-staged", "ESLint", "Stylelint"]
 date: "2025.11.16"
 ---

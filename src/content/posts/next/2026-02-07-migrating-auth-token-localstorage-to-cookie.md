@@ -1,6 +1,6 @@
 ---
 title: 서버 컴포넌트 프리렌더링을 위한 토큰 관리 마이그레이션 - LocalStorage에서 Cookie로
-series: 글로벌 노마드
+series: global-nomad
 tags: ["nextjs", "ssr", "cookie", "auth", "middleware"]
 date: "2026.02.07"
 ---

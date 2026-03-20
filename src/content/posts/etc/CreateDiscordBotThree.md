@@ -1,7 +1,7 @@
 ---
 title: discord.js로 봇을 만들어보자 - 3
 tags: [etc, 디스코드 봇 만들기]
-series: 디스코드 봇 만들기
+series: discord-bot
 date: "2023.10.25"
 ---
 ## 디스코드 봇 호스팅하기 

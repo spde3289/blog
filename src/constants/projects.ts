@@ -2,7 +2,7 @@ import GithubSvg from "@/svg/GithubSvg";
 import LinkSvg from "@/svg/LinkSvg";
 import RssSvg from "@/svg/RssSvg";
 import { Project } from "@/types/portfolio";
-import { BLOG_SERIES, ROUTES } from "./routes";
+import { ROUTES } from "./routes";
 
 export const PROJECTS: Project[] = [
   {
@@ -24,15 +24,40 @@ export const PROJECTS: Project[] = [
       },
       {
         icon: RssSvg,
-        link: ROUTES.BLOG.SERIES(BLOG_SERIES.MAPLE_HELPER),
+        link: ROUTES.BLOG.SERIES("maple-helper"),
         label: "회고",
       },
     ],
     image: "/img/project/maplehelper.png",
   },
   {
+    title: "개발 블로그",
+    period: "2023.09 - 진행중",
+    description:
+      "개발 경험의 기록과 기술적 역량 어필을 위해 직접 설계하고 운영하는 포트폴리오 겸 기술 블로그입니다.",
+    tech: ["Next.js", "TypeScript", "Tailwind CSS"],
+    links: [
+      {
+        icon: GithubSvg,
+        link: "https://github.com/spde3289/blog",
+        label: "FE",
+      },
+      {
+        icon: LinkSvg,
+        link: "https://www.spde3289.dev",
+        label: "배포 사이트",
+      },
+      {
+        icon: RssSvg,
+        link: ROUTES.BLOG.SERIES("blog"),
+        label: "회고",
+      },
+    ],
+    image: "/img/project/blog.png",
+  },
+  {
     title: "팀 프로젝트: 글로벌 노마드",
-    period: "2025.01 - 2024.02",
+    period: "2026.01 - 2026.02",
     description:
       "체험 상품의 탐색부터 예약, 관리까지 지원하는 통합 플랫폼입니다. 지도 및 캘린더 SDK를 적극 활용하여 직관적이고 편리한 사용자 경험(UX)을 구현하는 데 집중했습니다.",
     tech: ["Next.js", "TanStack Query", "Zustand", "Tailwind CSS"],
@@ -49,7 +74,7 @@ export const PROJECTS: Project[] = [
       },
       {
         icon: RssSvg,
-        link: ROUTES.BLOG.SERIES(BLOG_SERIES.GLOBAL_NOMAD),
+        link: ROUTES.BLOG.SERIES("global-nomad"),
         label: "회고",
       },
     ],
@@ -74,7 +99,7 @@ export const PROJECTS: Project[] = [
       },
       {
         icon: RssSvg,
-        link: ROUTES.BLOG.SERIES(BLOG_SERIES.GIVE_MORE),
+        link: ROUTES.BLOG.SERIES("the-julge"),
         label: "회고",
       },
     ],
@@ -99,7 +124,7 @@ export const PROJECTS: Project[] = [
       },
       {
         icon: RssSvg,
-        link: ROUTES.BLOG.SERIES(BLOG_SERIES.FANDOM_K),
+        link: ROUTES.BLOG.SERIES("fandom-k"),
         label: "회고",
       },
     ],
@@ -137,11 +162,6 @@ export const PROJECTS: Project[] = [
         link: "https://github.com/spde3289/monsterHunterBot",
         label: "BE",
       },
-      {
-        icon: RssSvg,
-        link: ROUTES.BLOG.SERIES(BLOG_SERIES.MONHUN_BOT),
-        label: "회고",
-      },
     ],
     image: "/img/project/monsterHunterBot.png",
   },
@@ -159,7 +179,7 @@ export const PROJECTS: Project[] = [
       },
       {
         icon: RssSvg,
-        link: ROUTES.BLOG.SERIES(BLOG_SERIES.MAPLE_BOT),
+        link: ROUTES.BLOG.SERIES("discord-bot"),
         label: "회고",
       },
     ],
@@ -179,7 +199,7 @@ export const PROJECTS: Project[] = [
       },
       {
         icon: RssSvg,
-        link: ROUTES.BLOG.SERIES(BLOG_SERIES.CHIM_PLANET),
+        link: ROUTES.BLOG.SERIES("blog"),
         label: "회고",
       },
     ],

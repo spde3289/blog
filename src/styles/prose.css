@@ -1,0 +1,10 @@
+.prose th,
+.prose td {
+  @apply border border-gray-300 dark:border-gray-700;
+  @apply px-4 py-2 text-center align-middle;
+}
+
+.prose th img,
+.prose td img {
+  @apply mx-auto my-0 h-auto max-w-full;
+}

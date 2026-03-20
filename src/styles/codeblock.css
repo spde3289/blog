@@ -1,0 +1,36 @@
+pre[data-theme] {
+  background-color: transparent;
+  color: var(--shiki-light) !important;
+  padding: 1rem 1.25rem !important;
+  overflow-x: auto;
+  margin: 0 !important;
+}
+
+.dark pre[data-theme] {
+  background-color: transparent;
+  color: var(--shiki-dark) !important;
+}
+
+code[data-theme] span {
+  color: var(--shiki-light);
+}
+
+.dark code[data-theme] span {
+  color: var(--shiki-dark);
+}
+
+pre:not([data-theme]) {
+  background-color: transparent;
+  color: #24292e;
+  overflow-x: auto;
+}
+
+pre:not([data-theme]) code {
+  color: inherit;
+  background-color: transparent;
+}
+
+.dark pre:not([data-theme]) {
+  background-color: transparent;
+  color: #e1e4e8;
+}
