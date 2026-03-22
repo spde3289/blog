@@ -4,6 +4,7 @@ import ScrollToTopButton from "@/components/ScrolltoTopButton";
 import { ThemeProvider } from "@/contexts/ThemeContext";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import type { Metadata } from "next";
+import Script from "next/script";
 import Footer from "./_components/common/Footer";
 import ThemeScript from "./_components/ThemeScript";
 import { pretendard } from "./fonts";
@@ -15,6 +16,9 @@ export const metadata: Metadata = {
   title: "spde3289의 개발 블로그",
   description:
     "spde3289의 성장을 기록하는 개발 블로그 입니다. 사용자들이 불편함을 느끼는 문제를 빠르게 해결하는 것을 즐기며 다양한 서비스를 운영하고 있습니다.",
+  other: {
+    "google-adsense-account": "ca-pub-1891953654573817",
+  },
 };
 
 const RootLayout = ({
@@ -31,6 +35,11 @@ const RootLayout = ({
         className={`${pretendard.className} bg-white dark:bg-neutral-900
           dark:text-white/90`}
       >
+        <Script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1891953654573817"
+          crossOrigin="anonymous"
+        ></Script>
         {/* Google Analytics Script */}
         {GA_ID && <GoogleAnalytics gaId={GA_ID} />}
         <ThemeProvider>
