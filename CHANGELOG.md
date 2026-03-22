@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.0](https://github.com/spde3289/blog/compare/v1.0.0...v1.1.0) (2026-03-22)
+
+
+### Features
+
+* 구글 애드센스 인증, 실행 스크립트 추가 ([e77fadd](https://github.com/spde3289/blog/commit/e77fadd734292cb132818327fe66da9f47ea20b3))
+
 ## [1.0.0](https://github.com/spde3289/blog/compare/v0.6.0...v1.0.0) (2026-03-20)
 
 
