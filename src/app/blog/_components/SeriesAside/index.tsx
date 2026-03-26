@@ -33,8 +33,7 @@ const SeriesAside = ({ series }: SeriesAsideProps) => {
         {series.map((seriesItem) => (
           <li
             key={seriesItem.series}
-            className="w-[240px] shrink-0 snap-start sm:w-[280px] md:w-[300px]
-              lg:w-full"
+            className="w-60 shrink-0 snap-start sm:w-70 md:w-75 lg:w-full"
           >
             <SeriesCard
               key={seriesItem.series}

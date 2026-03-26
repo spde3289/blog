@@ -17,11 +17,14 @@ import type { Post } from "@/types/posts.types";
 import fs from "fs";
 import path from "path";
 
-const processSinglePost = async (fileInfo: PostFileInfo) => {
-  const { category, slug, filePath } = fileInfo;
+interface ParsedPost {
+  fileInfo: PostFileInfo;
+  data: { [key: string]: string };
+  content: string;
+}
 
-  const fileContents = fs.readFileSync(filePath, "utf8");
-  const { data, content } = parseMarkdownFrontmatter(fileContents);
+const processSinglePost = async ({ fileInfo, data, content }: ParsedPost) => {
+  const { category, slug } = fileInfo;
 
   const html = await convertMarkdownToHtml(content);
   const htmlOutPath = getPostHtmlFilePath(category, slug);
@@ -55,7 +58,35 @@ export const buildAllPosts = async () => {
     fs.mkdirSync(path.join(POSTS_JSON_DIR, category), { recursive: true });
   });
 
-  const buildTasks = postFiles.map((fileInfo) => processSinglePost(fileInfo));
+  const parsedPosts: ParsedPost[] = postFiles.map((fileInfo) => {
+    const fileContents = fs.readFileSync(fileInfo.filePath, "utf8");
+    const { data, content } = parseMarkdownFrontmatter(fileContents);
+    return { fileInfo, data, content };
+  });
+
+  const seriesMap: Record<string, ParsedPost[]> = {};
+  parsedPosts.forEach((post) => {
+    const series = post.data.series;
+    if (series) {
+      if (!seriesMap[series]) seriesMap[series] = [];
+      seriesMap[series].push(post);
+    }
+  });
+
+  Object.keys(seriesMap).forEach((series) => {
+    seriesMap[series]
+      .sort((a, b) => {
+        const dateA = new Date(a.data.date || 0).getTime();
+        const dateB = new Date(b.data.date || 0).getTime();
+        return dateA - dateB;
+      })
+      .forEach((post, index) => {
+        const originalTitle = post.data.title || "Default Title";
+        post.data.title = `[${series} - ${index + 1}] ${originalTitle}`;
+      });
+  });
+
+  const buildTasks = parsedPosts.map((post) => processSinglePost(post));
 
   await Promise.all(buildTasks);
 
