@@ -30,26 +30,43 @@ const SeriesPage = async ({ params }: SeriesPageProps) => {
     return getPostMeta(ref.category, ref.slug);
   });
 
+  const firstPost = posts[posts.length - 1];
+
   return (
     <div
-      className="mx-auto flex w-full max-w-[886px] flex-col gap-8 py-8 sm:py-12"
+      className="mx-auto flex w-full max-w-221.5 flex-col gap-8 py-8 sm:py-12"
     >
-      <header className="px-4 sm:px-0">
+      <header className="flex items-end justify-between px-4 sm:px-0">
+        <div>
+          <Link
+            href="/blog"
+            className="typo-14-m mb-5 inline-flex items-center gap-1.5
+              text-neutral-500 hover:text-neutral-900 dark:text-neutral-400
+              dark:hover:text-neutral-100"
+          >
+            <ArrowHeadSVG className="size-5 shrink-0 rotate-90" />
+            블로그 홈
+          </Link>
+          <h1
+            className="typo-24-b sm:typo-32-b mb-2 text-neutral-900
+              dark:text-neutral-100"
+          >
+            {currentSeriesInfo?.seriesName}
+          </h1>
+        </div>
         <Link
-          href="/blog"
-          className="typo-14-m mb-5 inline-flex items-center gap-1.5
-            text-neutral-500 hover:text-neutral-900 dark:text-neutral-400
-            dark:hover:text-neutral-100"
+          href={firstPost.href}
+          className="dark:focus-visible:outline-brand inline-flex h-8
+            items-center justify-center gap-x-1 rounded-full border
+            border-neutral-300 bg-white px-3 py-2 text-xs whitespace-nowrap
+            text-neutral-900 hover:bg-neutral-100 focus-visible:outline-2
+            focus-visible:outline-offset-2 focus-visible:outline-neutral-700
+            active:bg-neutral-200 sm:text-sm dark:border-neutral-700
+            dark:bg-neutral-900 dark:text-neutral-100
+            dark:hover:bg-neutral-800/70 dark:active:bg-neutral-700"
         >
-          <ArrowHeadSVG className="size-5 shrink-0 rotate-90" />
-          블로그 홈
+          첫 게시글 보기
         </Link>
-        <h1
-          className="typo-24-b sm:typo-32-b mb-2 text-neutral-900
-            dark:text-neutral-100"
-        >
-          {currentSeriesInfo?.seriesName}
-        </h1>
       </header>
       <section className="px-4 sm:px-0">
         <div
