@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.2.0](https://github.com/spde3289/blog/compare/v1.1.0...v1.2.0) (2026-03-28)
+
+
+### Features
+
+* 시리즈 관련 UX 개선 기능 추가 ([a66fe2d](https://github.com/spde3289/blog/commit/a66fe2d50cc7d0a2803658dcf55d3287463ccbe8))
+* 시리즈 제목 순서 구분 추가 ([da56a0d](https://github.com/spde3289/blog/commit/da56a0d46de00ece407e79f21c0ab53ae825416c))
+* 시리즈 첫 게시글 보기 버튼 추가 ([13c6028](https://github.com/spde3289/blog/commit/13c60287d23c1f59fed30724a2d50bea89e972c9))
+
 ## [1.1.0](https://github.com/spde3289/blog/compare/v1.0.0...v1.1.0) (2026-03-22)
 
 
