@@ -112,5 +112,3 @@ tags: ["Next.js", "React", "TypeScript"]
 series: "시리즈명"
 ---
 ```
-
-리드미 파일을 작성했는데 여기에 오타가 있는지 확인해줘
